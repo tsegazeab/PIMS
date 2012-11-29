@@ -1,0 +1,16 @@
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\PSPITS.DAL.BASE.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\PSPITS.DAL.BASE.pdb
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\Microsoft.Practices.ObjectBuilder.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.xml
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.xml
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\Microsoft.Practices.ObjectBuilder.xml
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Release\ResolveAssemblyReference.cache
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Release\PSPITS.DAL.BASE.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Release\PSPITS.DAL.BASE.pdb
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\PSPITS.DAL.BASE.dll
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Release\PSPITS.DAL.BASE.pdb
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Release\ResolveAssemblyReference.cache
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Release\PSPITS.DAL.BASE.dll
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Release\PSPITS.DAL.BASE.pdb

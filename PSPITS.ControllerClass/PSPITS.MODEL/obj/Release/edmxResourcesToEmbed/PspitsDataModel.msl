@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PSPITSModelStoreContainer" CdmEntityContainer="PSPITSEntities">
+    <EntitySetMapping Name="ActualContributions">
+      <EntityTypeMapping TypeName="PSPITSModel.ActualContribution">
+        <MappingFragment StoreEntitySet="ActualContribution">
+          <ScalarProperty Name="monthRSSAgency" ColumnName="monthRSSAgency" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="govLevel" ColumnName="govLevel" />
+          <ScalarProperty Name="employerDeduction" ColumnName="employerDeduction" />
+          <ScalarProperty Name="employeeDeduction" ColumnName="employeeDeduction" />
+          <ScalarProperty Name="dateRemitted" ColumnName="dateRemitted" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankAccountDetails">
+      <EntityTypeMapping TypeName="PSPITSModel.BankAccountDetail">
+        <MappingFragment StoreEntitySet="BankAccountDetail">
+          <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
+          <ScalarProperty Name="bankaccountName" ColumnName="bankaccountName" />
+          <ScalarProperty Name="bankAccountNumber" ColumnName="bankAccountNumber" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="bankBranch" ColumnName="bankBranch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beneficiaries">
+      <EntityTypeMapping TypeName="PSPITSModel.Beneficiary">
+        <MappingFragment StoreEntitySet="Beneficiary">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
+          <ScalarProperty Name="dateofBirth" ColumnName="dateofBirth" />
+          <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="relationID" ColumnName="relationID" />
+          <ScalarProperty Name="nationalID" ColumnName="nationalID" />
+          <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="hasDisability" ColumnName="hasDisability" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phoneMobile" ColumnName="phoneMobile" />
+          <ScalarProperty Name="phoneLandline" ColumnName="phoneLandline" />
+          <ScalarProperty Name="postAddress" ColumnName="postAddress" />
+          <ScalarProperty Name="homeState" ColumnName="homeState" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiaryDisabilities">
+      <EntityTypeMapping TypeName="PSPITSModel.BeneficiaryDisability">
+        <MappingFragment StoreEntitySet="BeneficiaryDisability">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
+          <ScalarProperty Name="disabilityType" ColumnName="disabilityType" />
+          <ScalarProperty Name="dateofDisability" ColumnName="dateofDisability" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="medicalFileLocation" ColumnName="medicalFileLocation" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="hasEvidence" ColumnName="hasEvidence" />
+          <ScalarProperty Name="evidenceAcceptable" ColumnName="evidenceAcceptable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiaryEvidences">
+      <EntityTypeMapping TypeName="PSPITSModel.BeneficiaryEvidence">
+        <MappingFragment StoreEntitySet="BeneficiaryEvidence">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="relationID" ColumnName="relationID" />
+          <ScalarProperty Name="evidenceComment" ColumnName="evidenceComment" />
+          <ScalarProperty Name="evidenceStorageLocation" ColumnName="evidenceStorageLocation" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenefitPaymentMembers">
+      <EntityTypeMapping TypeName="PSPITSModel.BenefitPaymentMember">
+        <MappingFragment StoreEntitySet="BenefitPaymentMember">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="taxRuleID" ColumnName="taxRuleID" />
+          <ScalarProperty Name="paymentMonth" ColumnName="paymentMonth" />
+          <ScalarProperty Name="paymentYear" ColumnName="paymentYear" />
+          <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
+          <ScalarProperty Name="netAmount" ColumnName="netAmount" />
+          <ScalarProperty Name="taxAmount" ColumnName="taxAmount" />
+          <ScalarProperty Name="grossAmount" ColumnName="grossAmount" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="paymentDate" ColumnName="paymentDate" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenefitPaymentSurvivors">
+      <EntityTypeMapping TypeName="PSPITSModel.BenefitPaymentSurvivor">
+        <MappingFragment StoreEntitySet="BenefitPaymentSurvivor">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
+          <ScalarProperty Name="taxRuleID" ColumnName="taxRuleID" />
+          <ScalarProperty Name="paymentMonth" ColumnName="paymentMonth" />
+          <ScalarProperty Name="paymentYear" ColumnName="paymentYear" />
+          <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
+          <ScalarProperty Name="netAmount" ColumnName="netAmount" />
+          <ScalarProperty Name="taxAmount" ColumnName="taxAmount" />
+          <ScalarProperty Name="grossAmount" ColumnName="grossAmount" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="paymentDate" ColumnName="paymentDate" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbLogs">
+      <EntityTypeMapping TypeName="PSPITSModel.dbLog">
+        <MappingFragment StoreEntitySet="dbLog">
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="tableName" ColumnName="tableName" />
+          <ScalarProperty Name="fieldName" ColumnName="fieldName" />
+          <ScalarProperty Name="fieldValueOld" ColumnName="fieldValueOld" />
+          <ScalarProperty Name="fieldValueNew" ColumnName="fieldValueNew" />
+          <ScalarProperty Name="tableAction" ColumnName="tableAction" />
+          <ScalarProperty Name="tableActionDateTime" ColumnName="tableActionDateTime" />
+          <ScalarProperty Name="tableActionUser" ColumnName="tableActionUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DisabilityBenefitApplications">
+      <EntityTypeMapping TypeName="PSPITSModel.DisabilityBenefitApplication">
+        <MappingFragment StoreEntitySet="DisabilityBenefitApplication">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="agentID" ColumnName="agentID" />
+          <ScalarProperty Name="reasonforRetirement" ColumnName="reasonforRetirement" />
+          <ScalarProperty Name="finalPosition" ColumnName="finalPosition" />
+          <ScalarProperty Name="finalgrade" ColumnName="finalgrade" />
+          <ScalarProperty Name="finalWorkstation" ColumnName="finalWorkstation" />
+          <ScalarProperty Name="finalRSSAgency" ColumnName="finalRSSAgency" />
+          <ScalarProperty Name="finalworkstate" ColumnName="finalworkstate" />
+          <ScalarProperty Name="dateofDisability" ColumnName="dateofDisability" />
+          <ScalarProperty Name="dateofFinalSalary" ColumnName="dateofFinalSalary" />
+          <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
+          <ScalarProperty Name="dateofApplication" ColumnName="dateofApplication" />
+          <ScalarProperty Name="dateofCertifying" ColumnName="dateofCertifying" />
+          <ScalarProperty Name="nameofCertifyingOfficer" ColumnName="nameofCertifyingOfficer" />
+          <ScalarProperty Name="titleofCertifyingOfficer" ColumnName="titleofCertifyingOfficer" />
+          <ScalarProperty Name="signatureofCertifyingOfficer" ColumnName="signatureofCertifyingOfficer" />
+          <ScalarProperty Name="signatureofApplicant" ColumnName="signatureofApplicant" />
+          <ScalarProperty Name="photoofApplicant" ColumnName="photoofApplicant" />
+          <ScalarProperty Name="applicationStatus" ColumnName="applicationStatus" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvidenceByFunctions">
+      <EntityTypeMapping TypeName="PSPITSModel.EvidenceByFunction">
+        <MappingFragment StoreEntitySet="EvidenceByFunction">
+          <ScalarProperty Name="EvidenceByFunctionID" ColumnName="EvidenceByFunctionID" />
+          <ScalarProperty Name="functionID" ColumnName="functionID" />
+          <ScalarProperty Name="evidencetypeID" ColumnName="evidencetypeID" />
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="mandatory" ColumnName="mandatory" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpated" ColumnName="whoUpated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvidenceByRelations">
+      <EntityTypeMapping TypeName="PSPITSModel.EvidenceByRelation">
+        <MappingFragment StoreEntitySet="EvidenceByRelation">
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="relationID" ColumnName="relationID" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LifeBenefitApplications">
+      <EntityTypeMapping TypeName="PSPITSModel.LifeBenefitApplication">
+        <MappingFragment StoreEntitySet="LifeBenefitApplication">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="agentID" ColumnName="agentID" />
+          <ScalarProperty Name="ageatRetirement" ColumnName="ageatRetirement" />
+          <ScalarProperty Name="reasonforRetirement" ColumnName="reasonforRetirement" />
+          <ScalarProperty Name="finalPosition" ColumnName="finalPosition" />
+          <ScalarProperty Name="finalgrade" ColumnName="finalgrade" />
+          <ScalarProperty Name="finalWorkstation" ColumnName="finalWorkstation" />
+          <ScalarProperty Name="finalRSSAgency" ColumnName="finalRSSAgency" />
+          <ScalarProperty Name="finalworkstate" ColumnName="finalworkstate" />
+          <ScalarProperty Name="dateofEmploymentTermination" ColumnName="dateofEmploymentTermination" />
+          <ScalarProperty Name="dateofFinalSalary" ColumnName="dateofFinalSalary" />
+          <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
+          <ScalarProperty Name="dateofApplication" ColumnName="dateofApplication" />
+          <ScalarProperty Name="dateofCertifying" ColumnName="dateofCertifying" />
+          <ScalarProperty Name="nameofCertifyingOfficer" ColumnName="nameofCertifyingOfficer" />
+          <ScalarProperty Name="titleofCertifyingOfficer" ColumnName="titleofCertifyingOfficer" />
+          <ScalarProperty Name="signatureofCertifyingOfficer" ColumnName="signatureofCertifyingOfficer" />
+          <ScalarProperty Name="signatureofApplicant" ColumnName="signatureofApplicant" />
+          <ScalarProperty Name="photoofApplicant" ColumnName="photoofApplicant" />
+          <ScalarProperty Name="applicationStatus" ColumnName="applicationStatus" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lists">
+      <EntityTypeMapping TypeName="PSPITSModel.List">
+        <MappingFragment StoreEntitySet="List">
+          <ScalarProperty Name="listID" ColumnName="listID" />
+          <ScalarProperty Name="listTypeID" ColumnName="listTypeID" />
+          <ScalarProperty Name="listText" ColumnName="listText" />
+          <ScalarProperty Name="listValue" ColumnName="listValue" />
+          <ScalarProperty Name="listCode" ColumnName="listCode" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListTypes">
+      <EntityTypeMapping TypeName="PSPITSModel.ListType">
+        <MappingFragment StoreEntitySet="ListType">
+          <ScalarProperty Name="listtypeID" ColumnName="listtypeID" />
+          <ScalarProperty Name="listTypeText" ColumnName="listTypeText" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="PSPITSModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="schemeID" ColumnName="schemeID" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="dateofBirth" ColumnName="dateofBirth" />
+          <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
+          <ScalarProperty Name="bankaccountID" ColumnName="bankaccountID" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="payrollNumber" ColumnName="payrollNumber" />
+          <ScalarProperty Name="dateoffirstAppointment" ColumnName="dateoffirstAppointment" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phoneMobile" ColumnName="phoneMobile" />
+          <ScalarProperty Name="phoneLandline" ColumnName="phoneLandline" />
+          <ScalarProperty Name="postAddress" ColumnName="postAddress" />
+          <ScalarProperty Name="homeState" ColumnName="homeState" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dateofApplication" ColumnName="dateofApplication" />
+          <ScalarProperty Name="dateofCertifying" ColumnName="dateofCertifying" />
+          <ScalarProperty Name="nameofCertifyingOfficer" ColumnName="nameofCertifyingOfficer" />
+          <ScalarProperty Name="titleofCertifyingOfficer" ColumnName="titleofCertifyingOfficer" />
+          <ScalarProperty Name="locationofCertifyingOfficerSignature" ColumnName="locationofCertifyingOfficerSignature" />
+          <ScalarProperty Name="locationofApplicantSignature" ColumnName="locationofApplicantSignature" />
+          <ScalarProperty Name="locationofApplicantPhoto" ColumnName="locationofApplicantPhoto" />
+          <ScalarProperty Name="currentState" ColumnName="currentState" />
+          <ScalarProperty Name="currentGrade" ColumnName="currentGrade" />
+          <ScalarProperty Name="currentWorkstation" ColumnName="currentWorkstation" />
+          <ScalarProperty Name="currentMDA" ColumnName="currentMDA" />
+          <ScalarProperty Name="currentPosition" ColumnName="currentPosition" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="establishmentNumber" ColumnName="establishmentNumber" />
+          <ScalarProperty Name="PersonalNo" ColumnName="PersonalNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberAllowances">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberAllowance">
+        <MappingFragment StoreEntitySet="MemberAllowance">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="allowanceID" ColumnName="allowanceID" />
+          <ScalarProperty Name="allowanceAmount" ColumnName="allowanceAmount" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberArrears">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberArrear">
+        <MappingFragment StoreEntitySet="MemberArrear">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="arrearID" ColumnName="arrearID" />
+          <ScalarProperty Name="arrearTypeID" ColumnName="arrearTypeID" />
+          <ScalarProperty Name="arrearStartYear" ColumnName="arrearStartYear" />
+          <ScalarProperty Name="arrearStartMonth" ColumnName="arrearStartMonth" />
+          <ScalarProperty Name="arrearEndYear" ColumnName="arrearEndYear" />
+          <ScalarProperty Name="arrearEndMonth" ColumnName="arrearEndMonth" />
+          <ScalarProperty Name="benefitstarYear" ColumnName="benefitstarYear" />
+          <ScalarProperty Name="arrearsMonth" ColumnName="arrearsMonth" />
+          <ScalarProperty Name="totalArrears" ColumnName="totalArrears" />
+          <ScalarProperty Name="taxonArrears" ColumnName="taxonArrears" />
+          <ScalarProperty Name="netArrears" ColumnName="netArrears" />
+          <ScalarProperty Name="arrearCheckedBy" ColumnName="arrearCheckedBy" />
+          <ScalarProperty Name="arrearProcessedBy" ColumnName="arrearProcessedBy" />
+          <ScalarProperty Name="arrearAuthorizedBy" ColumnName="arrearAuthorizedBy" />
+          <ScalarProperty Name="arrearCheckedOn" ColumnName="arrearCheckedOn" />
+          <ScalarProperty Name="arrearProcessedOn" ColumnName="arrearProcessedOn" />
+          <ScalarProperty Name="arrearAuthorizedOn" ColumnName="arrearAuthorizedOn" />
+          <ScalarProperty Name="arrearStatus" ColumnName="arrearStatus" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberComputedBenefits">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberComputedBenefit">
+        <MappingFragment StoreEntitySet="MemberComputedBenefit">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="yearsofpensionableservice" ColumnName="yearsofpensionableservice" />
+          <ScalarProperty Name="monthsofpensionableservice" ColumnName="monthsofpensionableservice" />
+          <ScalarProperty Name="daysofpensionableservice" ColumnName="daysofpensionableservice" />
+          <ScalarProperty Name="pensionablesalary" ColumnName="pensionablesalary" />
+          <ScalarProperty Name="accruedannualpension" ColumnName="accruedannualpension" />
+          <ScalarProperty Name="commutationRatio" ColumnName="commutationRatio" />
+          <ScalarProperty Name="commutedlumpsum" ColumnName="commutedlumpsum" />
+          <ScalarProperty Name="residualannualpension" ColumnName="residualannualpension" />
+          <ScalarProperty Name="paymentstartMonth" ColumnName="paymentstartMonth" />
+          <ScalarProperty Name="paymentstartYear" ColumnName="paymentstartYear" />
+          <ScalarProperty Name="benefitstartMonth" ColumnName="benefitstartMonth" />
+          <ScalarProperty Name="benefitstarYear" ColumnName="benefitstarYear" />
+          <ScalarProperty Name="arrearsMonth" ColumnName="arrearsMonth" />
+          <ScalarProperty Name="currentIndexedPenion" ColumnName="currentIndexedPenion" />
+          <ScalarProperty Name="previousIndexedPenion" ColumnName="previousIndexedPenion" />
+          <ScalarProperty Name="totalArrears" ColumnName="totalArrears" />
+          <ScalarProperty Name="taxonArrears" ColumnName="taxonArrears" />
+          <ScalarProperty Name="netArrears" ColumnName="netArrears" />
+          <ScalarProperty Name="claimCheckedBy" ColumnName="claimCheckedBy" />
+          <ScalarProperty Name="claimProcessedBy" ColumnName="claimProcessedBy" />
+          <ScalarProperty Name="claimAuthorizedBy" ColumnName="claimAuthorizedBy" />
+          <ScalarProperty Name="claimCheckedOn" ColumnName="claimCheckedOn" />
+          <ScalarProperty Name="claimProcessedOn" ColumnName="claimProcessedOn" />
+          <ScalarProperty Name="claimAuthorizedOn" ColumnName="claimAuthorizedOn" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberEmployments">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberEmployment">
+        <MappingFragment StoreEntitySet="MemberEmployment">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="employmentID" ColumnName="employmentID" />
+          <ScalarProperty Name="employmentType" ColumnName="employmentType" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="rssAgency" ColumnName="rssAgency" />
+          <ScalarProperty Name="workstation" ColumnName="workstation" />
+          <ScalarProperty Name="workstate" ColumnName="workstate" />
+          <ScalarProperty Name="grossSalary" ColumnName="grossSalary" />
+          <ScalarProperty Name="basicSalary" ColumnName="basicSalary" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="hasEvidence" ColumnName="hasEvidence" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="evidenceAcceptable" ColumnName="evidenceAcceptable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberEmploymentEvidences">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberEmploymentEvidence">
+        <MappingFragment StoreEntitySet="MemberEmploymentEvidence">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="employmentID" ColumnName="employmentID" />
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="evidenceDated" ColumnName="evidenceDated" />
+          <ScalarProperty Name="evidenceSignedByTitle" ColumnName="evidenceSignedByTitle" />
+          <ScalarProperty Name="evidenceComment" ColumnName="evidenceComment" />
+          <ScalarProperty Name="evidenceStorageLocation" ColumnName="evidenceStorageLocation" />
+          <ScalarProperty Name="evidenceSignedByName" ColumnName="evidenceSignedByName" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberEmploymentServiceBreaks">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberEmploymentServiceBreak">
+        <MappingFragment StoreEntitySet="MemberEmploymentServiceBreak">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="servicebreakID" ColumnName="servicebreakID" />
+          <ScalarProperty Name="servicebreakType" ColumnName="servicebreakType" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="hasEvidence" ColumnName="hasEvidence" />
+          <ScalarProperty Name="evidenceAcceptable" ColumnName="evidenceAcceptable" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberEmploymentServiceBreakEvidences">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberEmploymentServiceBreakEvidence">
+        <MappingFragment StoreEntitySet="MemberEmploymentServiceBreakEvidence">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="servicebreakID" ColumnName="servicebreakID" />
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="evidenceDated" ColumnName="evidenceDated" />
+          <ScalarProperty Name="evidenceSignedByTitle" ColumnName="evidenceSignedByTitle" />
+          <ScalarProperty Name="evidenceComment" ColumnName="evidenceComment" />
+          <ScalarProperty Name="evidenceStorageLocation" ColumnName="evidenceStorageLocation" />
+          <ScalarProperty Name="evidenceSignedByName" ColumnName="evidenceSignedByName" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="filecontentType" ColumnName="filecontentType" />
+          <ScalarProperty Name="fileoriginalName" ColumnName="fileoriginalName" />
+          <ScalarProperty Name="fileContent" ColumnName="fileContent" />
+          <ScalarProperty Name="fileSize" ColumnName="fileSize" />
+          <ScalarProperty Name="dateVerified" ColumnName="dateVerified" />
+          <ScalarProperty Name="whoVerified" ColumnName="whoVerified" />
+          <ScalarProperty Name="evidencePresented" ColumnName="evidencePresented" />
+          <ScalarProperty Name="evidenceAccepted" ColumnName="evidenceAccepted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberEvidences">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberEvidence">
+        <MappingFragment StoreEntitySet="MemberEvidence">
+          <ScalarProperty Name="EvidenceByFunctionID" ColumnName="EvidenceByFunctionID" />
+          <ScalarProperty Name="PensionID" ColumnName="PensionID" />
+          <ScalarProperty Name="evidencePresented" ColumnName="evidencePresented" />
+          <ScalarProperty Name="evidenceAccepted" ColumnName="evidenceAccepted" />
+          <ScalarProperty Name="evidenceComment" ColumnName="evidenceComment" />
+          <ScalarProperty Name="filecontentType" ColumnName="filecontentType" />
+          <ScalarProperty Name="fileoriginalName" ColumnName="fileoriginalName" />
+          <ScalarProperty Name="fileContent" ColumnName="fileContent" />
+          <ScalarProperty Name="fileSize" ColumnName="fileSize" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="dateVerified" ColumnName="dateVerified" />
+          <ScalarProperty Name="whoVerified" ColumnName="whoVerified" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberIdentities">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberIdentity">
+        <MappingFragment StoreEntitySet="MemberIdentity">
+          <ScalarProperty Name="PensionID" ColumnName="PensionID" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="MemberPhoto" ColumnName="MemberPhoto" />
+          <ScalarProperty Name="MemberSignature" ColumnName="MemberSignature" />
+          <ScalarProperty Name="MemberRightThumbprint" ColumnName="MemberRightThumbprint" />
+          <ScalarProperty Name="MemberLeftThumbprint" ColumnName="MemberLeftThumbprint" />
+          <ScalarProperty Name="MemberRightFourFingerprint" ColumnName="MemberRightFourFingerprint" />
+          <ScalarProperty Name="MemberLeftFourFingerprint" ColumnName="MemberLeftFourFingerprint" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="WhoCreated" ColumnName="WhoCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="WhoUpdated" ColumnName="WhoUpdated" />
+          <ScalarProperty Name="LogRef" ColumnName="LogRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberSalaries">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberSalary">
+        <MappingFragment StoreEntitySet="MemberSalary">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="payrollNumber" ColumnName="payrollNumber" />
+          <ScalarProperty Name="basicPay" ColumnName="basicPay" />
+          <ScalarProperty Name="grossPay" ColumnName="grossPay" />
+          <ScalarProperty Name="employeeDeduction" ColumnName="employeeDeduction" />
+          <ScalarProperty Name="monthGrade" ColumnName="monthGrade" />
+          <ScalarProperty Name="monthWorkstation" ColumnName="monthWorkstation" />
+          <ScalarProperty Name="monthWorkstate" ColumnName="monthWorkstate" />
+          <ScalarProperty Name="monthRSSAgency" ColumnName="monthRSSAgency" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NominatedAgents">
+      <EntityTypeMapping TypeName="PSPITSModel.NominatedAgent">
+        <MappingFragment StoreEntitySet="NominatedAgent">
+          <ScalarProperty Name="agentID" ColumnName="agentID" />
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="agentFirstName" ColumnName="agentFirstName" />
+          <ScalarProperty Name="agentLastName" ColumnName="agentLastName" />
+          <ScalarProperty Name="agentdateofBirth" ColumnName="agentdateofBirth" />
+          <ScalarProperty Name="agentMaritalStatus" ColumnName="agentMaritalStatus" />
+          <ScalarProperty Name="agentRelationToMember" ColumnName="agentRelationToMember" />
+          <ScalarProperty Name="agentNationalID" ColumnName="agentNationalID" />
+          <ScalarProperty Name="agentSignature" ColumnName="agentSignature" />
+          <ScalarProperty Name="agentPhoto" ColumnName="agentPhoto" />
+          <ScalarProperty Name="agentEmail" ColumnName="agentEmail" />
+          <ScalarProperty Name="agentphoneMobile" ColumnName="agentphoneMobile" />
+          <ScalarProperty Name="agentphoneLandline" ColumnName="agentphoneLandline" />
+          <ScalarProperty Name="agentpostAddress" ColumnName="agentpostAddress" />
+          <ScalarProperty Name="agenthomeState" ColumnName="agenthomeState" />
+          <ScalarProperty Name="agentaddress" ColumnName="agentaddress" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="benefitType" ColumnName="benefitType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NonMemberAllowances">
+      <EntityTypeMapping TypeName="PSPITSModel.NonMemberAllowance">
+        <MappingFragment StoreEntitySet="NonMemberAllowance">
+          <ScalarProperty Name="payrollNumber" ColumnName="payrollNumber" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="allowanceID" ColumnName="allowanceID" />
+          <ScalarProperty Name="allowanceAmount" ColumnName="allowanceAmount" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NonMemberSalaries">
+      <EntityTypeMapping TypeName="PSPITSModel.NonMemberSalary">
+        <MappingFragment StoreEntitySet="NonMemberSalary">
+          <ScalarProperty Name="payrollNumber" ColumnName="payrollNumber" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="basicPay" ColumnName="basicPay" />
+          <ScalarProperty Name="grossPay" ColumnName="grossPay" />
+          <ScalarProperty Name="employeeDeduction" ColumnName="employeeDeduction" />
+          <ScalarProperty Name="monthGrade" ColumnName="monthGrade" />
+          <ScalarProperty Name="monthWorkstation" ColumnName="monthWorkstation" />
+          <ScalarProperty Name="monthWorkstate" ColumnName="monthWorkstate" />
+          <ScalarProperty Name="monthRSSAgency" ColumnName="monthRSSAgency" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivorArrears">
+      <EntityTypeMapping TypeName="PSPITSModel.SurvivorArrear">
+        <MappingFragment StoreEntitySet="SurvivorArrear">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
+          <ScalarProperty Name="arrearID" ColumnName="arrearID" />
+          <ScalarProperty Name="arrearTypeID" ColumnName="arrearTypeID" />
+          <ScalarProperty Name="arrearStartYear" ColumnName="arrearStartYear" />
+          <ScalarProperty Name="arrearStartMonth" ColumnName="arrearStartMonth" />
+          <ScalarProperty Name="arrearEndYear" ColumnName="arrearEndYear" />
+          <ScalarProperty Name="arrearEndMonth" ColumnName="arrearEndMonth" />
+          <ScalarProperty Name="benefitstarYear" ColumnName="benefitstarYear" />
+          <ScalarProperty Name="arrearsMonth" ColumnName="arrearsMonth" />
+          <ScalarProperty Name="totalArrears" ColumnName="totalArrears" />
+          <ScalarProperty Name="taxonArrears" ColumnName="taxonArrears" />
+          <ScalarProperty Name="netArrears" ColumnName="netArrears" />
+          <ScalarProperty Name="arrearCheckedBy" ColumnName="arrearCheckedBy" />
+          <ScalarProperty Name="arrearProcessedBy" ColumnName="arrearProcessedBy" />
+          <ScalarProperty Name="arrearAuthorizedBy" ColumnName="arrearAuthorizedBy" />
+          <ScalarProperty Name="arrearCheckedOn" ColumnName="arrearCheckedOn" />
+          <ScalarProperty Name="arrearProcessedOn" ColumnName="arrearProcessedOn" />
+          <ScalarProperty Name="arrearAuthorizedOn" ColumnName="arrearAuthorizedOn" />
+          <ScalarProperty Name="arrearStatus" ColumnName="arrearStatus" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivorBenefitApplications">
+      <EntityTypeMapping TypeName="PSPITSModel.SurvivorBenefitApplication">
+        <MappingFragment StoreEntitySet="SurvivorBenefitApplication">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="agentID" ColumnName="agentID" />
+          <ScalarProperty Name="statusatDeath" ColumnName="statusatDeath" />
+          <ScalarProperty Name="dateofDeath" ColumnName="dateofDeath" />
+          <ScalarProperty Name="placeofDeath" ColumnName="placeofDeath" />
+          <ScalarProperty Name="deathcertificateNumber" ColumnName="deathcertificateNumber" />
+          <ScalarProperty Name="maritalstatusatDeath" ColumnName="maritalstatusatDeath" />
+          <ScalarProperty Name="dateofApplication" ColumnName="dateofApplication" />
+          <ScalarProperty Name="dateofCertifying" ColumnName="dateofCertifying" />
+          <ScalarProperty Name="nameofCertifyingOfficer" ColumnName="nameofCertifyingOfficer" />
+          <ScalarProperty Name="titleofCertifyingOfficer" ColumnName="titleofCertifyingOfficer" />
+          <ScalarProperty Name="signatureofCertifyingOfficer" ColumnName="signatureofCertifyingOfficer" />
+          <ScalarProperty Name="signatureofApplicant" ColumnName="signatureofApplicant" />
+          <ScalarProperty Name="photoofApplicant" ColumnName="photoofApplicant" />
+          <ScalarProperty Name="applicationStatus" ColumnName="applicationStatus" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivorComputedBenefits">
+      <EntityTypeMapping TypeName="PSPITSModel.SurvivorComputedBenefit">
+        <MappingFragment StoreEntitySet="SurvivorComputedBenefit">
+          <ScalarProperty Name="pensionID" ColumnName="pensionID" />
+          <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
+          <ScalarProperty Name="monthlypension" ColumnName="monthlypension" />
+          <ScalarProperty Name="monthlypaymentstate" ColumnName="monthlypaymentstate" />
+          <ScalarProperty Name="paymentstartMonth" ColumnName="paymentstartMonth" />
+          <ScalarProperty Name="paymentstartYear" ColumnName="paymentstartYear" />
+          <ScalarProperty Name="benefitstartMonth" ColumnName="benefitstartMonth" />
+          <ScalarProperty Name="benefitstarYear" ColumnName="benefitstarYear" />
+          <ScalarProperty Name="arrearsMonth" ColumnName="arrearsMonth" />
+          <ScalarProperty Name="currentIndexedPenion" ColumnName="currentIndexedPenion" />
+          <ScalarProperty Name="previousIndexedPenion" ColumnName="previousIndexedPenion" />
+          <ScalarProperty Name="totalArrears" ColumnName="totalArrears" />
+          <ScalarProperty Name="taxonArrears" ColumnName="taxonArrears" />
+          <ScalarProperty Name="netArrears" ColumnName="netArrears" />
+          <ScalarProperty Name="claimCheckedBy" ColumnName="claimCheckedBy" />
+          <ScalarProperty Name="claimProcessedBy" ColumnName="claimProcessedBy" />
+          <ScalarProperty Name="claimAuthorizedBy" ColumnName="claimAuthorizedBy" />
+          <ScalarProperty Name="claimCheckedOn" ColumnName="claimCheckedOn" />
+          <ScalarProperty Name="claimProcessedOn" ColumnName="claimProcessedOn" />
+          <ScalarProperty Name="claimAuthorizedOn" ColumnName="claimAuthorizedOn" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxRules">
+      <EntityTypeMapping TypeName="PSPITSModel.TaxRule">
+        <MappingFragment StoreEntitySet="TaxRule">
+          <ScalarProperty Name="ruleID" ColumnName="ruleID" />
+          <ScalarProperty Name="ruleName" ColumnName="ruleName" />
+          <ScalarProperty Name="minimumAmount" ColumnName="minimumAmount" />
+          <ScalarProperty Name="maxAmount" ColumnName="maxAmount" />
+          <ScalarProperty Name="ratePercent" ColumnName="ratePercent" />
+          <ScalarProperty Name="rateAbosulate" ColumnName="rateAbosulate" />
+          <ScalarProperty Name="sharerateState" ColumnName="sharerateState" />
+          <ScalarProperty Name="sharerateGOSS" ColumnName="sharerateGOSS" />
+          <ScalarProperty Name="appliesTo" ColumnName="appliesTo" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
+          <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
+          <ScalarProperty Name="logRef" ColumnName="logRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransLogs">
+      <EntityTypeMapping TypeName="PSPITSModel.TransLog">
+        <MappingFragment StoreEntitySet="TransLog">
+          <ScalarProperty Name="TranslogID" ColumnName="TranslogID" />
+          <ScalarProperty Name="LogRefID" ColumnName="LogRefID" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="FieldValue" ColumnName="FieldValue" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="IsSynched" ColumnName="IsSynched" />
+          <ScalarProperty Name="SyncPeriod" ColumnName="SyncPeriod" />
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistBeneficiaryRelationships">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistBeneficiaryRelationship">
+        <MappingFragment StoreEntitySet="vwlistBeneficiaryRelationship">
+          <ScalarProperty Name="relationshipID" ColumnName="relationshipID" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="relationshipCode" ColumnName="relationshipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistDays">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistDay">
+        <MappingFragment StoreEntitySet="vwlistDay">
+          <ScalarProperty Name="dayID" ColumnName="dayID" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="dayCode" ColumnName="dayCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistDisabilityTypes">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistDisabilityType">
+        <MappingFragment StoreEntitySet="vwlistDisabilityType">
+          <ScalarProperty Name="DisabilityTypeID" ColumnName="DisabilityTypeID" />
+          <ScalarProperty Name="DisabilityType" ColumnName="DisabilityType" />
+          <ScalarProperty Name="disabilitytypeCode" ColumnName="disabilitytypeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistEvidences">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistEvidence">
+        <MappingFragment StoreEntitySet="vwlistEvidence">
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="evidence" ColumnName="evidence" />
+          <ScalarProperty Name="evidenceCode" ColumnName="evidenceCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistEvidenceTypes">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistEvidenceType">
+        <MappingFragment StoreEntitySet="vwlistEvidenceType">
+          <ScalarProperty Name="evidencetypeID" ColumnName="evidencetypeID" />
+          <ScalarProperty Name="evidenceType" ColumnName="evidenceType" />
+          <ScalarProperty Name="evidenceTypeCode" ColumnName="evidenceTypeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistFunctions">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistFunction">
+        <MappingFragment StoreEntitySet="vwlistFunction">
+          <ScalarProperty Name="functionID" ColumnName="functionID" />
+          <ScalarProperty Name="functionText" ColumnName="functionText" />
+          <ScalarProperty Name="functionCode" ColumnName="functionCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistGenders">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistGender">
+        <MappingFragment StoreEntitySet="vwlistGender">
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="genderCode" ColumnName="genderCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistGrades">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistGrade">
+        <MappingFragment StoreEntitySet="vwlistGrade">
+          <ScalarProperty Name="gradeID" ColumnName="gradeID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="gradeCode" ColumnName="gradeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistMaritals">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistMarital">
+        <MappingFragment StoreEntitySet="vwlistMarital">
+          <ScalarProperty Name="maritalID" ColumnName="maritalID" />
+          <ScalarProperty Name="Marital" ColumnName="Marital" />
+          <ScalarProperty Name="maritalCode" ColumnName="maritalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistMDAs">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistMDA">
+        <MappingFragment StoreEntitySet="vwlistMDA">
+          <ScalarProperty Name="mdaID" ColumnName="mdaID" />
+          <ScalarProperty Name="MDA" ColumnName="MDA" />
+          <ScalarProperty Name="mdaCode" ColumnName="mdaCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistMonths">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistMonth">
+        <MappingFragment StoreEntitySet="vwlistMonth">
+          <ScalarProperty Name="monthID" ColumnName="monthID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="MonthCode" ColumnName="MonthCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistPrefixes">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistPrefix">
+        <MappingFragment StoreEntitySet="vwlistPrefix">
+          <ScalarProperty Name="prefixID" ColumnName="prefixID" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="prefixCode" ColumnName="prefixCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistServiceBreakTypes">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistServiceBreakType">
+        <MappingFragment StoreEntitySet="vwlistServiceBreakType">
+          <ScalarProperty Name="servicebreakTypeID" ColumnName="servicebreakTypeID" />
+          <ScalarProperty Name="servicebreakType" ColumnName="servicebreakType" />
+          <ScalarProperty Name="servicebreaktypeCode" ColumnName="servicebreaktypeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistStates">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistState">
+        <MappingFragment StoreEntitySet="vwlistState">
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="stateCode" ColumnName="stateCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistStatus">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistStatu">
+        <MappingFragment StoreEntitySet="vwlistStatus">
+          <ScalarProperty Name="maritalID" ColumnName="maritalID" />
+          <ScalarProperty Name="Marital" ColumnName="Marital" />
+          <ScalarProperty Name="maritalCode" ColumnName="maritalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistWorkstations">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistWorkstation">
+        <MappingFragment StoreEntitySet="vwlistWorkstation">
+          <ScalarProperty Name="workstationID" ColumnName="workstationID" />
+          <ScalarProperty Name="workstation" ColumnName="workstation" />
+          <ScalarProperty Name="workstationCode" ColumnName="workstationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistYears">
+      <EntityTypeMapping TypeName="PSPITSModel.vwlistYear">
+        <MappingFragment StoreEntitySet="vwlistYear">
+          <ScalarProperty Name="yearID" ColumnName="yearID" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="yearCode" ColumnName="yearCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

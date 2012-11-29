@@ -1,0 +1,10 @@
+G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.pdb
+G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\ResolveAssemblyReference.cache
+G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.pdb
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.pdb
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\ResolveAssemblyReference.cache
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.dll
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.pdb
+F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.dll
