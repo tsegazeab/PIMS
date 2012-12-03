@@ -43,9 +43,12 @@
                 CssClass="text"></asp:Label>
           </td>
         <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxNationalityID" Runat="server" Width="295px">
+            <telerik:RadTextBox ID="RadTextBoxNationalityID" Runat="server" Width="295px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
             </telerik:RadTextBox>
-        </td>
+            </td>
     </tr>
     <tr>
         <td valign="top">

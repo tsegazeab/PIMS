@@ -49,10 +49,30 @@
     </tr>
     <tr>
         <td valign="top" width="280">
-            <asp:Label ID="Label5" runat="server" Text="Given name (first name)" 
+          <asp:Label ID="Label6" runat="server" Text="Surname (last name)" 
                 CssClass="text"></asp:Label>
                 </td>
         <td align="left" valign="top"  width="280">
+           <telerik:RadTextBox ID="RadTextBoxlastName" Runat="server" ForeColor="Black" 
+                   Width="295px" Enabled="False">
+            </telerik:RadTextBox>
+            </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
+        <td align="left" valign="top">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorSurname" runat="server" 
+                ControlToValidate="RadTextBoxlastName" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+          </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            <asp:Label ID="Label5" runat="server" Text="Given name (first name)" 
+                CssClass="text"></asp:Label>
+                </td>
+        <td align="left" valign="top">
                <telerik:RadTextBox ID="RadTextBoxfirstName" Runat="server" ForeColor="Black" 
                    Width="295px" Enabled="False">
             </telerik:RadTextBox>
@@ -62,22 +82,10 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-          <asp:Label ID="Label6" runat="server" Text="Surname (last name)" 
-                CssClass="text"></asp:Label></td>
-        <td align="left" valign="top">
-           <telerik:RadTextBox ID="RadTextBoxlastName" Runat="server" ForeColor="Black" 
-                   Width="295px" Enabled="False">
-            </telerik:RadTextBox></td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorFirstName" runat="server" 
+                ControlToValidate="RadTextBoxfirstName" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -93,12 +101,18 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" 
+                runat="server" ControlToValidate="RadTextBoxeMail" ErrorMessage="Invalid Email" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                SetFocusOnError="True" 
+                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
             <asp:Label ID="Label2" runat="server" Text="Phone Number (Mobile)" 
                 CssClass="text"></asp:Label>
+                <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td align="left" valign="top">
             <telerik:RadTextBox ID="RadTextBoxPhoneMobile" Runat="server" Width="295px">
@@ -109,7 +123,10 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPhoneMobile" runat="server" 
+                ControlToValidate="RadTextBoxPhoneMobile" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+        &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -149,6 +166,7 @@
         <td valign="top" width="280">
             <asp:Label ID="Label8" runat="server" CssClass="text" 
                 Text="Home State within South Sudan"></asp:Label>
+                <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td align="left" valign="top">
                     <telerik:RadComboBox ID="RadComboBoxhomeState" Runat="server"  Width="295px" MarkFirstMatch="true">
@@ -159,6 +177,10 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
+    
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorHomeState" runat="server" 
+                ControlToValidate="RadComboBoxhomeState" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
     
         </td>
     </tr>

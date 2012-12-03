@@ -109,7 +109,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrefix" runat="server" 
                 ControlToValidate="RadComboBoxprefix" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
       <tr>
@@ -134,7 +135,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorSurname" runat="server" 
                 ControlToValidate="RadTextBoxlastName" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
           </td>
     </tr>
       <tr>
@@ -158,7 +160,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorFirstName" runat="server" 
                 ControlToValidate="RadTextBoxfirstName" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -181,7 +184,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorGender" runat="server" 
                 ControlToValidate="RadComboBoxgender" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -203,7 +207,8 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY" 
+                    CausesValidation="True"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -211,7 +216,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorDoB" runat="server" 
                 ControlToValidate="RadDatePickerDateOfBirth" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
        <tr>
@@ -236,7 +242,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorMaritalStatus" 
                 runat="server" ControlToValidate="RadComboBoxmaritalStatus" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
-                Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Size="Small" ForeColor="Red" ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -262,7 +268,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorNationalID" 
                 runat="server" ControlToValidate="RadTextBoxnationalID" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -288,7 +295,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorPersonalNumber" 
                 runat="server" ControlToValidate="RadTextBoxpersonalNumber" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
-                Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Size="Small" ForeColor="Red" ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -353,7 +360,7 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -361,7 +368,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorDateOfAppointment" runat="server" 
                 ControlToValidate="RadDatePickerDateOfAppointment" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
             </td>
     </tr>
    
@@ -393,7 +401,8 @@
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCurrentMDA" runat="server" 
                 ControlToValidate="RadComboBoxcurrentMDA" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
         </td>
     </tr>
   

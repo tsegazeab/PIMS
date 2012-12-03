@@ -57,7 +57,7 @@
                             <td width="20">
                                 &nbsp;</td>
                             <td height="20" align="left">
-                                <span class="mybottom3">Pension Information Management System</span></td>
+                                <span class="mybottom3">Pensions Information Management System (PIMS)</span></td>
                             <td height="20" align="right" valign="bottom">
                                 <table cellpadding="0" cellspacing="0">
                                     <tr>
@@ -86,30 +86,39 @@
             <tr>
                 <td height="20" colspan="3">
                     <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%" 
-                        onbuttonclick="RadToolBar1_ButtonClick">
+                        onbuttonclick="RadToolBar1_ButtonClick" CssClass="masterToolStrip" 
+                        CausesValidation="False">
                         <Items>
                             <telerik:RadToolBarButton runat="server" Text="Register new member" 
                                 Width="170px" 
                                 ImageUrl="~/images/Icons/small icons (16 and 24)/add-user (24x24).png" 
-                                NavigateUrl="~/Membership/NewMemberApplication.aspx">
+                                NavigateUrl="~/Membership/NewMemberApplication.aspx" 
+                                CausesValidation="False">
                             </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
+                            <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True" 
+                                CausesValidation="False">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarDropDown runat="server" Text="Update member info">
                                 <Buttons>
                                     <telerik:RadToolBarButton runat="server" 
-                                        NavigateUrl="~/Membership/UpdatePersonalInfo.aspx" Text="Personal info">
+                                        NavigateUrl="~/Membership/UpdatePersonalInfo.aspx" Text="Personal info" 
+                                        CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                     <telerik:RadToolBarButton runat="server" 
-                                        NavigateUrl="~/Membership/UpdateContactInfo.aspx" Text="Contact info">
+                                        NavigateUrl="~/Membership/UpdateContactInfo.aspx" Text="Contact info" 
+                                        CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                     <telerik:RadToolBarButton runat="server" 
-                                        NavigateUrl="~/Membership/UpdateServiceBreak.aspx" Text="Service break">
+                                        NavigateUrl="~/Membership/UpdateServiceBreak.aspx" Text="Service break" 
+                                        CausesValidation="False">
                                     </telerik:RadToolBarButton>
-                                    <telerik:RadToolBarButton runat="server" Text="Declaration">
+                                    <telerik:RadToolBarButton runat="server" Text="Declaration" 
+                                        CausesValidation="False" 
+                                        NavigateUrl="~/Membership/UpdateMemberDeclaration.aspx">
                                     </telerik:RadToolBarButton>
                                     <telerik:RadToolBarButton runat="server" 
-                                        NavigateUrl="~/Membership/MemberIdentityForm.aspx" Text="Member Identity">
+                                        NavigateUrl="~/Membership/MemberIdentityForm.aspx" Text="Member Identity" 
+                                        CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                 </Buttons>
                             </telerik:RadToolBarDropDown>
@@ -117,37 +126,44 @@
                                 <Buttons>
                                     <telerik:RadToolBarButton runat="server" 
                                         NavigateUrl="~/Membership/UpdateMemberEvidence.aspx" 
-                                        Text="Personal Info Evidence">
+                                        Text="Personal Info Evidence" CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                     <telerik:RadToolBarButton runat="server" Text="Service Break Evidence" 
-                                        NavigateUrl="~/Membership/UpdateServiceBreakEvidence.aspx">
+                                        NavigateUrl="~/Membership/UpdateServiceBreakEvidence.aspx" 
+                                        CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                 </Buttons>
                             </telerik:RadToolBarDropDown>
-                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 14">
+                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 14" 
+                                CausesValidation="False">
                             </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Text="Button 16" IsSeparator="True">
+                            <telerik:RadToolBarButton runat="server" Text="Button 16" IsSeparator="True" 
+                                CausesValidation="False">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarDropDown runat="server" Text="Update beneficiary info">
                                 <Buttons>
                                     <telerik:RadToolBarButton runat="server" 
                                         NavigateUrl="~/Membership/UpdateBeneficiaryInfo.aspx" 
-                                        Text="Personal info &amp; contact">
+                                        Text="Personal info &amp; contact" CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                     <telerik:RadToolBarButton runat="server" 
-                                        NavigateUrl="~/Membership/UpdateBeneficiaryDisablility.aspx" Text="Disability">
+                                        NavigateUrl="~/Membership/UpdateBeneficiaryDisablility.aspx" 
+                                        Text="Disability" CausesValidation="False">
                                     </telerik:RadToolBarButton>
                                 </Buttons>
                             </telerik:RadToolBarDropDown>
-                            <telerik:RadToolBarButton runat="server" Text="Button 6" IsSeparator="True">
+                            <telerik:RadToolBarButton runat="server" Text="Button 6" IsSeparator="True" 
+                                CausesValidation="False">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Beneficiary evidence" 
-                                ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png" Width="170px">
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png" 
+                                Width="170px" CausesValidation="False">
                             </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 7">
+                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 7" 
+                                CausesValidation="False">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" 
-                                Text="Search">
+                                Text="Search" CausesValidation="False">
                             </telerik:RadToolBarButton>
                         </Items>
                     </telerik:RadToolBar>
@@ -236,7 +252,8 @@
             </tr>
             <tr>
                 <td class="mybottom" height="20" colspan="3">
-                    &nbsp;Public Servants Pensions Information Technology System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>
+                    &nbsp;Pensions Information 
+                    Management System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>
             </tr>
         </table>
     </div>

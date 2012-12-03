@@ -62,6 +62,7 @@ namespace PSPITS.COMMON
         public const string SP_GETBENEFICIARYFULLNAME4COMBOBYPENSIONID = "GetBeneficiaryFullName4ComboByPensionID";
         public const string SP_GETBENEFICIARYDISABILITY = "GetBeneficiaryDisability";
         public const string SP_GETMEMBEREVIDENCE = "GetMemberEvidence";
+        public const string SP_GETMEMBERDECLARATION = "GetMemberDeclaration";
         public const string SP_GETMEMBERFUNCTIONS = "GetMemberFunctions";
         public const string SP_GETEVIDENCE = "GetEvidence";
         public const string SP_GETEVIDENCETYPE = "GetEvidenceType";
@@ -99,6 +100,7 @@ namespace PSPITS.COMMON
         public const string COL_MARITALSTATUS = "maritalStatus";
         public const string COL_BANKACCOUNTID = "bankAccountID";
         public const string COL_NATIONALID = "nationalID";
+        public const string COL_PERSONALNO = "PersonalNo";
         public const string COL_PAYROLLNUMBER = "payrollNumber";
         public const string COL_DATEOFFIRSTAPPOINTMENT = "dateofFirstAppointment";
         public const string COL_EMAIL = "email";

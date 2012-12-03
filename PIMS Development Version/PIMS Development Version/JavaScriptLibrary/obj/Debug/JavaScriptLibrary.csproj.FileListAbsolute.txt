@@ -8,3 +8,8 @@ F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaSc
 F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
 F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.dll
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.pdb
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb

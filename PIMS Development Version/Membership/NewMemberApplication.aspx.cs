@@ -32,7 +32,8 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         
         if (e.Tab.Text.ToLower().Equals("personal info"))
         {
-            RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewPersonalInformation").Index;            
+            RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewPersonalInformation").Index;   
+         
         }
         else if (e.Tab.Text.ToLower().Equals("service break"))
         {
@@ -45,11 +46,13 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         }
         else if (e.Tab.Text.ToLower().Equals("beneficiary disability"))
         {
-            RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewDisability").Index;            
+            RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewDisability").Index;
+            DisabilityInformation1.LoadBeneficiaryNameCombo(Int32.Parse(Master.PensionID));
         }
         else if (e.Tab.Text.ToLower().Equals("declaration"))
         {
-            RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewDeclaration").Index;            
+            RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewDeclaration").Index;
+            DeclarationnewMember.HideSaveButton();
         }      
     }
 
@@ -174,13 +177,10 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
 
     protected void ButtonCreateApplicantRecord_Click(object sender, EventArgs e)
     {
-
         MemberDeclaration declaration = new MemberDeclaration();
         declaration.pensionID = Int32.Parse(DeclarationnewMember.pensionID);
         if (DeclarationnewMember.DateofApplication.HasValue)
             declaration.dateofApplication = DeclarationnewMember.DateofApplication.Value;
-        declaration.locationofApplicantPhoto = DeclarationnewMember.locationofMemberPhoto;
-        declaration.locationofApplicantSignature = DeclarationnewMember.locationofMemberSignature;
         if (DeclarationnewMember.DateofCertification.HasValue)
             declaration.dateofCertifying = DeclarationnewMember.DateofCertification.Value;
         declaration.nameofCertifyingOfficer = DeclarationnewMember.nameofCertifyingOfficer;

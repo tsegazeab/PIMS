@@ -24,9 +24,8 @@ public partial class Membership_UpdateServiceBreakEvidence : System.Web.UI.Page
 
             MemberServiceBreakEvidence1.pensionID = Master.PensionID;
             MemberServiceBreakEvidence1.schemeID = Master.SchemeID;
-            MemberServiceBreakEvidence1.DisplayMemberNameAndPensionID(int.Parse(Master.PensionID));
-            MemberServiceBreakEvidence1.RebindGrid();
-            MemberServiceBreakEvidence1.DisplayMemberNameAndPensionID(int.Parse(PSPITSModuleSession.PensionID.Trim()));
+            MemberServiceBreakEvidence1.DisplayMemberNameAndPensionID(int.Parse(Master.PensionID.Trim()));
+            MemberServiceBreakEvidence1.RebindGrid();            
         }
     }
     protected void MemberSelectedFromSearchGrid(object sender, MemberEventArgs e)

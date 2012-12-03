@@ -189,9 +189,12 @@
                 CssClass="text"></asp:Label>
         </td>
         <td align="left" valign="top">
-             <telerik:RadTextBox ID="RadTextBoxSchemeID" Width="325px" Runat="server" 
-                 Enabled="False">
-            </telerik:RadTextBox></td>
+            <telerik:RadTextBox ID="RadTextBoxSchemeID" Runat="server" Width="325px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
+            </telerik:RadTextBox>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -203,8 +206,10 @@
         <td valign="top" width="280">
             <asp:Label ID="Label4" runat="server" CssClass="text" Text="Member full name"></asp:Label></td>
         <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxfullName" Width="325px" Runat="server" 
-                Enabled="False">
+            <telerik:RadTextBox ID="RadTextBoxfullName" Runat="server" Width="325px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
             </telerik:RadTextBox>
         </td>
     </tr>
@@ -232,7 +237,11 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorServiceBreak" 
+                runat="server" ControlToValidate="RadComboBoxServiceBreak" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -268,7 +277,11 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidencePresented" 
+                runat="server" ControlToValidate="RadComboBoxevidencePresented" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -291,7 +304,11 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceAccepted" 
+                runat="server" ControlToValidate="RadComboBoxRadComboBoxevidenceAccepted" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280" style="width: 0" valign="top">
@@ -304,7 +321,7 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Vista"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -314,7 +331,11 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceVerfiedOn" 
+                runat="server" ControlToValidate="RadDpEvidenceDate" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -331,7 +352,11 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceVerifiedBy" 
+                runat="server" ControlToValidate="tbCertifyingOfficer" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -348,7 +373,11 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorCertifyingOfficerName" 
+                runat="server" ControlToValidate="RadTextBoxCertifyingOfficerName" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -366,7 +395,9 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:Label ID="LabelUploadedFile" runat="server" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:Label>
+        </td>
     </tr>
     <tr>
         <td width="280" valign="top">
@@ -390,7 +421,8 @@
         <td>
             <telerik:RadButton ID="RadButtonAddEvidence" runat="server" 
                         Text="Save Evidence" onclick="RadButtonAddEvidence_Click" 
-                        onload="RadButtonAddEvidence_Load">
+                        onload="RadButtonAddEvidence_Load" onclientload="ClearAsyncUpload" 
+                ValidationGroup="ServiceBreakEvidence">
             </telerik:RadButton>
             
             </td>

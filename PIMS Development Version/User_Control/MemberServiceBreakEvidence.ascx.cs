@@ -205,6 +205,7 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
             this.pensionID = this.pensionID.Trim().Length > 0 ? this.pensionID : "0";            
             LoadComboBox();
             EnableCombo(true);
+            LabelUploadedFile.Text = "";
         }
     }
 
@@ -214,13 +215,14 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
 
         RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
         RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
-
+        
         RadGrid grid = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadGridEvidence") as RadGrid;
         RadTextBox RadTextBoxpensionID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxpensionID") as RadTextBox;
         RadTextBox RadTextBoxfullName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxfullName") as RadTextBox;
-        RadTextBox RadTextBoxevidenceRequired = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxevidenceRequired") as RadTextBox;
-        RadTextBox RadTextBoxEvidenceVerifiedBy = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxEvidenceVerifiedBy") as RadTextBox;
-        RadTextBox RadTextBoxComment = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxComment") as RadTextBox;
+        RadTextBox tbCertifyingOfficer = utl.FindControlToRootOnly((sender as RadButton).Parent, "tbCertifyingOfficer") as RadTextBox;
+        RadTextBox RadTextBoxComment = utl.FindControlToRootOnly((sender as RadButton).Parent, "tbEvidenceComment") as RadTextBox;
+        RadTextBox RadTextBoxCertifyingOfficerName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxCertifyingOfficerName") as RadTextBox;
+        RadDatePicker RadDpEvidenceDate = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadDpEvidenceDate") as RadDatePicker;
         //
         //RadTextBox RadTextBoxevidenceRequired = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxevidenceRequired") as RadTextBox;
         //
@@ -233,7 +235,8 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
         RadComboBox RadComboBoxYear = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxYear") as RadComboBox;
         RadComboBox RadComboBoxevidencePresented = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxevidencePresented") as RadComboBox;
         RadComboBox RadComboBoxRadComboBoxevidenceAccepted = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxRadComboBoxevidenceAccepted") as RadComboBox;
-        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAsyncUpload1") as RadAsyncUpload;
+        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as RadButton).Parent, "asyncUploadEvidenceDoc") as RadAsyncUpload;
+        Label LabelUploadedFile = utl.FindControlToRootOnly((sender as RadButton).Parent, "LabelUploadedFile") as Label;
           
         //RadComboBox RadComboBoxhomeState = (sender as RadButton).Parent.FindControl("RadComboBoxhomeState") as RadComboBox;
         //RadButton RadButtonEditEvidence = utl.FindControlToRootOnly((sender as RadButton).Parent, "ButtonEdit") as RadButton;
@@ -250,17 +253,17 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
             if (RadTextBoxevidenceRequired != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadTextBoxevidenceRequired, null);
             if (RadComboBoxevidencePresented != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadComboBoxevidencePresented, null);
             if (RadComboBoxRadComboBoxevidenceAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadComboBoxRadComboBoxevidenceAccepted, null);
-            if (RadTextBoxEvidenceVerifiedBy != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadTextBoxEvidenceVerifiedBy, null);
+            if (tbCertifyingOfficer != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, tbCertifyingOfficer, null);
             if (RadTextBoxComment != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadTextBoxComment, null);
             if (RadComboBoxDay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadComboBoxDay, null);
             if (RadComboBoxMonth != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadComboBoxMonth, null);
             if (RadComboBoxYear != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadComboBoxYear, null);
             if (RadComboBoxfunction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadComboBoxfunction, null);
+            if (LabelUploadedFile != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, LabelUploadedFile, null);
+            if (RadTextBoxCertifyingOfficerName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadTextBoxCertifyingOfficerName, null);            
             //
             if (RadAsyncUpload1 != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadAsyncUpload1, null);
-            ////LET AJAX MANAGER ALSO KNOW THAT THE FUNCTIONCOMBO COMBO AFFECTS THE EVIDENCETYPECOMBO
-            //if (RadComboBoxServiceBreak != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboBoxfunction, RadComboBoxServiceBreak, null);
-            //if (RadComboBoxServiceBreak != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboBoxfunction, RadTextBoxevidenceRequired, null);
+            if (RadDpEvidenceDate != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddEvidence, RadDpEvidenceDate, null);
            //LET AJAX ALSO KNOW THAT THE EVIDENCE TYPE COMBO POSTBOX AFFECTS THE REQUIRED EVIDENCE TEXTBOX
             if (RadTextBoxevidenceRequired != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboBoxServiceBreak, RadTextBoxevidenceRequired, null);
       }        
@@ -329,7 +332,7 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
         Utility.EmptyControl(RadTextBoxCertifyingOfficerName);
         Utility.EmptyControl(RadComboBoxevidencePresented);
         Utility.EmptyControl(RadComboBoxRadComboBoxevidenceAccepted);
-        Utility.EmptyControl(asyncUploadEvidenceDoc);
+        //Utility.EmptyControl(asyncUploadEvidenceDoc);
         Utility.EmptyControl(tbEvidenceComment);
         Utility.EmptyControl(RadDpEvidenceDate);
     }
@@ -350,6 +353,14 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
         _isUpdate = false;
         aPD.whoUpdated = "admin";
         aPD.dateUpdated = DateTime.Now;
+
+        if (this.TheUploadedFile == null)
+        {
+            RebindGrid();
+            LabelUploadedFile.Text = "No file was uploaded. CANNOT PROCEED!";
+            return;
+        }
+        LabelUploadedFile.Text = "";
                 
         aPD.pensionID = Int32.Parse(this.pensionID);
         aPD.evidencePresented = this.evidencePresented;

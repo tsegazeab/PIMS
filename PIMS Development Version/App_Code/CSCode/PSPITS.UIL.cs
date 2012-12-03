@@ -362,6 +362,7 @@ namespace PSPITS.UIL
             }
             else if ((ctrl.GetType() == typeof(RadAsyncUpload)))
             {
+                ((RadAsyncUpload)(ctrl)).UploadedFiles.RemoveAt(0);
                 ((RadAsyncUpload)(ctrl)).UploadedFiles.Clear();
             }
             else if ((ctrl.GetType()) == typeof(RadDatePicker))
@@ -369,7 +370,6 @@ namespace PSPITS.UIL
                 //((RadDatePicker)(ctrl)).SelectedDate = null;
                 //((RadDatePicker)(ctrl)).DateInput.Text = "";
                 //((RadDatePicker)(ctrl)).DateInput.EmptyMessage = "Select Date";
-
                 ((RadDatePicker)(ctrl)).Clear();
                 ((RadDatePicker)(ctrl)).DateInput.Clear();
             }

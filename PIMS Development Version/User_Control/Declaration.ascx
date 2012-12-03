@@ -440,6 +440,42 @@
     </tr>
     <tr>
         <td width="280">
+                         <asp:Label ID="Label28" runat="server" Text="Scheme ID" 
+                CssClass="text"></asp:Label></td>
+        <td colspan="3">
+            <telerik:RadTextBox ID="RadTextBoxSchemeID" Runat="server" Width="295px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
+            </telerik:RadTextBox>
+        </td>
+    </tr>
+    <tr>
+        <td width="280">
+                         &nbsp;</td>
+        <td colspan="3">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td width="280">
+                         <asp:Label ID="Label27" runat="server" Text="Member Full Name" 
+                CssClass="text"></asp:Label></td>
+        <td colspan="3">
+            <telerik:RadTextBox ID="RadTextBoxfullName" Runat="server" Width="295px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
+            </telerik:RadTextBox>
+        </td>
+    </tr>
+    <tr>
+        <td width="280">
+                         &nbsp;</td>
+        <td colspan="3">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td width="280">
                          <asp:Label ID="Label24" runat="server" Text="Date of application" 
                 CssClass="text"></asp:Label></td>
         <td colspan="3">
@@ -448,7 +484,7 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -458,42 +494,11 @@
         <td width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td width="280">
-            <asp:Label ID="Label9" runat="server" CssClass="text" 
-                Text="Photo of member"></asp:Label>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDateOfApplication" 
+                runat="server" ControlToValidate="RadDatePickerDateOfApplication" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="MemberDeclaration"></asp:RequiredFieldValidator>
         </td>
-        <td colspan="3">
-            <telerik:RadAsyncUpload ID="RadAsyncUploadmemberPhoto" runat="server" 
-                MaxFileInputsCount="1" Skin="Windows7">
-                <Localization Select="Upload" />
-            </telerik:RadAsyncUpload>
-        </td>
-    </tr>
-    <tr>
-        <td width="280">
-            
-        </td>
-        <td colspan="3">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td width="280">
-            <asp:Label ID="Label10" runat="server" CssClass="text" 
-                Text="Signature of member"></asp:Label></td>
-        <td colspan="3">
-            <telerik:RadAsyncUpload ID="RadAsyncUploadmemberSignature" runat="server" 
-                MaxFileInputsCount="1" Skin="Windows7">
-                <Localization Select="Upload" />
-            </telerik:RadAsyncUpload></td>
-    </tr>
-    <tr>
-        <td width="280">
-            &nbsp;</td>
-        <td colspan="3">
-            &nbsp;</td>
     </tr>
     <tr>
         <td width="280">
@@ -521,7 +526,7 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -531,7 +536,11 @@
         <td width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDateOfCertification" 
+                runat="server" ControlToValidate="RadDatePickerDateOfCertification" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreakEvidence"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -547,7 +556,11 @@
         <td width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorNameOfCertifier" 
+                runat="server" ControlToValidate="RadTextBoxnameofCertifyingOfficer" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="MemberDeclaration"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td style="margin-left: 80px" width="280">
@@ -562,7 +575,11 @@
         <td style="margin-left: 80px" width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorTitleOfCertifier" 
+                runat="server" ControlToValidate="RadTextBoxtitleofCertifyingOfficer" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="MemberDeclaration"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td style="margin-left: 80px" width="280">
@@ -579,7 +596,20 @@
         <td style="margin-left: 80px" width="280">
             &nbsp;</td>
         <td colspan="3">
+            <asp:Label ID="LabelStatusMsg" runat="server" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" 
+                ForeColor="Green"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
             &nbsp;</td>
+        <td colspan="3">
+            <telerik:RadButton ID="RadButtonSaveDeclaration" runat="server" 
+                onclick="RadButtonSaveDeclaration_Click" onload="RadButtonSaveDeclaration_Load" 
+                Skin="Vista" Text="Save Declaration" ValidationGroup="MemberDeclaration">
+            </telerik:RadButton>
+        </td>
     </tr>
     </table>
 

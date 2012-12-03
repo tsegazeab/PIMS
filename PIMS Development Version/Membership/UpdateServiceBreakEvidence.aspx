@@ -4,7 +4,6 @@
 <%@ Register src="../User_Control/MemberServiceBreakEvidence.ascx" tagname="MemberServiceBreakEvidence" tagprefix="uc1" %>
 
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .style4
@@ -20,6 +19,8 @@
             width: 4px;
         }
     </style>
+    <script type="text/javascript" src="../Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../Scripts/general.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table>

@@ -4,3 +4,9 @@ F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.M
 F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\ResolveAssemblyReference.cache
 F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.dll
 F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.pdb
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.dll.config
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.dll
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.pdb
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\ResolveAssemblyReference.cache
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.dll
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.pdb

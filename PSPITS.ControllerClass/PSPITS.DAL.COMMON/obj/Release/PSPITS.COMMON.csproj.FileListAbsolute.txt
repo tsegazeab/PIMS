@@ -8,3 +8,8 @@ F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\Res
 F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.dll
 F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.pdb
 F:\Projects\SS Pensions\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.dll
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.dll
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.pdb
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\ResolveAssemblyReference.cache
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.dll
+F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.pdb

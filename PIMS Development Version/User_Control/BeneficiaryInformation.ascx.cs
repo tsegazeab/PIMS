@@ -237,7 +237,7 @@ public partial class User_Control_BeneficiaryInformation : System.Web.UI.UserCon
         RadComboBox RadComboBoxmaritalStatus = (sender as RadButton).Parent.FindControl("RadComboBoxmaritalStatus") as RadComboBox;
         RadComboBox RadComboBoxRelationship = (sender as RadButton).Parent.FindControl("RadComboBoxRelationship") as RadComboBox;
 
-        RadTextBox RadTextBoxnationalID = (sender as RadButton).Parent.FindControl("RadTextBoxnationalID") as RadTextBox;
+        RadMaskedTextBox RadTextBoxnationalID = (sender as RadButton).Parent.FindControl("RadTextBoxnationalID") as RadMaskedTextBox;
         RadTextBox RadTextBoxeMail = (sender as RadButton).Parent.FindControl("RadTextBoxeMail") as RadTextBox;
         RadTextBox RadTextBoxPhoneMobile = (sender as RadButton).Parent.FindControl("RadTextBoxPhoneMobile") as RadTextBox;
         RadTextBox RadTextBoxPhoneLandline = (sender as RadButton).Parent.FindControl("RadTextBoxPhoneLandline") as RadTextBox;

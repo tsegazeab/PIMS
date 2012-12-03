@@ -258,83 +258,115 @@
     <tr>
         <td width="280">
             &nbsp;</td>
-        <td colspan="3">
-            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td>&nbsp;</td>
     </tr>
 
     <tr>
         <td width="280">
             <asp:Label ID="Label1" runat="server" CssClass="text" Text="Service Break Type"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
-        <td colspan="3">
-            <telerik:RadComboBox ID="RadComboBoxservicebreakType" Runat="server"   Width="295px" MarkFirstMatch="true"> 
+        <td>
+            <telerik:RadComboBox ID="RadComboBoxservicebreakType" Runat="server"   
+                Width="295px" MarkFirstMatch="true" CausesValidation="False" 
+                ValidationGroup="ServiceBreak"> 
             </telerik:RadComboBox>
+        </td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorServiceBreak" 
+                runat="server" ControlToValidate="RadComboBoxservicebreakType" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
         <td width="280">
             &nbsp;</td>
-        <td colspan="3">
+        <td>
             &nbsp;</td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
         <td width="280">
             <br />
             <asp:Label ID="Label2" runat="server" CssClass="text" Text="Start Date"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
-        <td colspan="3">
+        <td>
             <telerik:RadDatePicker ID="RadDatePickerStartDate" Runat="server" Culture="en-US" 
                 Skin="Web20" Width="295px" MinDate="1800-01-01">
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--" 
+                    ValidationGroup="ServiceBreak"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
             </td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorStartDate" runat="server" 
+                ControlToValidate="RadDatePickerStartDate" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
             &nbsp;</td>
-        <td colspan="3">
+        <td>
             &nbsp;</td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
         <td width="280">
             <asp:Label ID="Label3" runat="server" CssClass="text" Text="End Date"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
-        <td colspan="3">
+        <td>
             <telerik:RadDatePicker ID="RadDatePickerEndDate" Runat="server" Culture="en-US" 
                 Skin="Web20" Width="295px" MinDate="1800-01-01">
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--" 
+                    ValidationGroup="ServiceBreak"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
+        </td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEndDate" runat="server" 
+                ControlToValidate="RadDatePickerEndDate" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
+            <asp:CompareValidator ID="CompareValidatorDates" runat="server" 
+                ControlToCompare="RadDatePickerStartDate" 
+                ControlToValidate="RadDatePickerEndDate" 
+                ErrorMessage="&quot;End Date&quot; must be after &quot;Start Date&quot;" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                Operator="GreaterThan" Type="Date" ValidationGroup="ServiceBreak"></asp:CompareValidator>
+        </td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
         <td width="280">
             &nbsp;</td>
-        <td colspan="3">
+        <td>
                     <telerik:RadButton ID="RadButtonAddServiceBreak" runat="server" 
                         Text="Add Service Break" onclick="RadButtonAddServiceBreak_Click" 
-                        onload="RadButtonAddServiceBreak_Load">
+                        onload="RadButtonAddServiceBreak_Load" ValidationGroup="ServiceBreak">
             </telerik:RadButton>
             </td>
+        <td>&nbsp;</td>
     </tr>
 </table>
 

@@ -121,7 +121,7 @@
                         align="center">
                     <asp:Button ID="ButtonNextPersonalInformation" 
                         runat="server" onclick="ButtonNextPersonalInformation_Click" Text="Save and continue" 
-                        Width="150px" UseSubmitBehavior="False" />
+                        Width="150px" UseSubmitBehavior="False" ValidationGroup="MemberPersonalInfo" />
                     
           
                     </td><td align="right">&nbsp;</td></tr></table></telerik:RadPageView>
@@ -177,12 +177,12 @@
                         align="center"></td><td align="right">&nbsp;</td></tr></table></telerik:RadPageView>
                 <telerik:RadPageView ID="RadPageViewDisability" runat="server">
                     <table cellpadding="0" 
-                    cellspacing="0"><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><uc11:Grid_BeneficiaryDisability 
-                        ID="Grid_BeneficiaryDisability1" runat="server" /></td><td>&nbsp;</td><td 
-                        valign="top"><asp:Image ID="Image12" runat="server" 
-                        ImageUrl="~/images/Icons/Disabled person.jpg" /></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><uc8:DisabilityInformation 
+                    cellspacing="0"><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><uc8:DisabilityInformation 
                         ID="DisabilityInformation1" runat="server" /></td><td>&nbsp;</td><td 
-                        valign="top">&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td 
+                        valign="top">
+                        <asp:Image ID="Image12" runat="server" 
+                            ImageUrl="~/images/Icons/Disabled person.jpg" />
+                        </td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td 
                         align="center"><asp:Button ID="ButtonAddBeneficiary1" runat="server" 
                         onclick="ButtonNextPersonalInformation_Click" Text="Add disability" 
                         Width="150px" /></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td 
@@ -199,7 +199,7 @@
                         align="center">
                     <asp:Button ID="ButtonCreateApplicantRecord" runat="server" 
                         onclick="ButtonCreateApplicantRecord_Click" Text="Save declaration" 
-                        Width="150px" /></td><td align="right">&nbsp;</td></tr></table></telerik:RadPageView>
+                        Width="150px" ValidationGroup="MemberDeclaration" /></td><td align="right">&nbsp;</td></tr></table></telerik:RadPageView>
             </telerik:RadMultiPage>
         </td>
         <td>

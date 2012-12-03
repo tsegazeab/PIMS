@@ -121,34 +121,14 @@
 	text-align:center;
 }
 
-    .style1
-    {
-        width: 100%;
-        border-style: none;
-        border-color: inherit;
-        border-width: 0;
-        margin: 0;
-        padding: 0;
-    }
-    .style2
-    {
-        width: 100%;
-        vertical-align: middle;
-    }
-    .style3
-    {
-        position: relative;
-        z-index: 2;
-        text-decoration: none;
-        margin: 0 2px;
-    }
-</style>
+    </style>
 <table width="578">
 <tr>
 <td>
 <telerik:RadGrid ID="RadGridServiceBreak" runat="server"   GridLines="None" Skin="WebBlue" 
                         Width="578px" 
-        onneeddatasource="RadGridServiceBreak_NeedDataSource" CellSpacing="0" >
+        onneeddatasource="RadGridServiceBreak_NeedDataSource" CellSpacing="0" 
+        ondeletecommand="RadGridServiceBreak_DeleteCommand" >
                         <MasterTableView autogeneratecolumns="False" datakeynames="servicebreakID" 
                             >
                             <NoRecordsTemplate>
@@ -164,8 +144,14 @@
                                 <HeaderStyle Width="20px" />
                             </ExpandCollapseColumn>
                             <Columns>
-                                    <telerik:GridTemplateColumn DataField="columnRemove"   HeaderText="Remove" UniqueName="columnRemove"  Visible="false" ReadOnly="false">
-                                    </telerik:GridTemplateColumn> 
+                                    <telerik:GridClientDeleteColumn AutoPostBackOnFilter="True" 
+                                        ButtonType="PushButton" CommandName="Delete" ConfirmDialogType="RadWindow" 
+                                        ConfirmText="Remove Service Break?" ConfirmTitle="Confirm Remove" 
+                                        DataTextField="columnDelete" FilterControlAltText="Filter columnDelete column" 
+                                        HeaderButtonType="PushButton" HeaderText="Remove" 
+                                        ImageUrl="mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.WebBlue.Grid.Delete.gif" 
+                                        Text="Remove" UniqueName="columnDelete">
+                                    </telerik:GridClientDeleteColumn>
                                     <telerik:GridTemplateColumn DataField="columnEdit"   HeaderText="Edit" UniqueName="columnEdit" ReadOnly="false">
                                     </telerik:GridTemplateColumn> 
                                     <telerik:GridBoundColumn DataField="PensionID" DefaultInsertValue=""  Visible="false"
@@ -215,9 +201,11 @@
     <tr>
         <td width="280">
             <asp:Label ID="Label1" runat="server" CssClass="text" Text="Service break type"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td>
-            <telerik:RadComboBox ID="RadComboBoxservicebreakType" Runat="server"   Width="295px" MarkFirstMatch="true"> 
+            <telerik:RadComboBox ID="RadComboBoxservicebreakType" Runat="server"   
+                Width="295px" MarkFirstMatch="true" ValidationGroup="ServiceBreak"> 
             </telerik:RadComboBox>
         </td>
     </tr>
@@ -225,11 +213,16 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorServiceBreak" 
+                runat="server" ControlToValidate="RadComboBoxservicebreakType" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
             <asp:Label ID="Label2" runat="server" CssClass="text" Text="Start Date"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td>
             <telerik:RadDatePicker ID="RadDatePickerStartDate" Runat="server" Culture="en-US" 
@@ -237,7 +230,8 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Outlook"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY" 
+                    ValidationGroup="ServiceBreak"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -247,11 +241,16 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorStartDate" runat="server" 
+                ControlToValidate="RadDatePickerStartDate" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
             <asp:Label ID="Label3" runat="server" CssClass="text" Text="End Date"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td>
             <telerik:RadDatePicker ID="RadDatePickerEndDate" Runat="server" Culture="en-US" 
@@ -259,7 +258,8 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Outlook"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY" 
+                    ValidationGroup="ServiceBreak"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -269,7 +269,18 @@
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEndDate" runat="server" 
+                ControlToValidate="RadDatePickerEndDate" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator>
+        &nbsp;<br />
+            <asp:CompareValidator ID="CompareValidatorDates" runat="server" 
+                ControlToCompare="RadDatePickerStartDate" 
+                ControlToValidate="RadDatePickerEndDate" 
+                ErrorMessage="&quot;End Date&quot; must be after &quot;Start Date&quot;" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                Operator="GreaterThan" Type="Date" ValidationGroup="ServiceBreak"></asp:CompareValidator>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -277,7 +288,7 @@
         <td>
                     <telerik:RadButton ID="RadButtonAddServiceBreak" runat="server" 
                         Text="Save Service Break" onclick="RadButtonAddServiceBreak_Click" 
-                        onload="RadButtonAddServiceBreak_Load">
+                        onload="RadButtonAddServiceBreak_Load" ValidationGroup="ServiceBreak">
             </telerik:RadButton>
             </td>
     </tr>

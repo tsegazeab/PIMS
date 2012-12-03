@@ -220,6 +220,7 @@
         <td valign="top" width="280">
             <asp:Label ID="Label6" runat="server" Text="Beneficiary Name" 
                 CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td align="left" valign="top" colspan="3">
             <telerik:RadComboBox ID="RadComboBoxName" Runat="server" Width="325px" 
@@ -231,11 +232,16 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top" colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorBeneficiaryName" runat="server" 
+                ControlToValidate="RadComboBoxName" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="DisabilityInfo"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td width="280">
             <asp:Label ID="Label1" runat="server" CssClass="text" Text="Disability Type"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td colspan="3">
             <telerik:RadComboBox ID="RadComboBoxDisability" Runat="server" Width="325px" MarkFirstMatch="true">
@@ -245,12 +251,16 @@
         <td width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDisabilityType" runat="server" 
+                ControlToValidate="RadComboBoxDisability" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="DisabilityInfo"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td width="280">
-            <asp:Label ID="Label3" runat="server" CssClass="text" Text="Date of Disability"></asp:Label><br />
-           
+            <asp:Label ID="Label3" runat="server" CssClass="text" Text="Date of Disability"></asp:Label>
+           <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td colspan="3">
             <telerik:RadDatePicker ID="RadDatePickerDateOfDisability" Runat="server" Culture="en-US" 
@@ -258,7 +268,7 @@
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -269,7 +279,11 @@
         <td width="280">
             &nbsp;</td>
        <td>
-           &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDateOfDisability" runat="server" 
+                ControlToValidate="RadDatePickerDateOfDisability" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+               ValidationGroup="DisabilityInfo"></asp:RequiredFieldValidator>
+          </td>
         <td>
             &nbsp;</td>
         <td>
@@ -296,6 +310,7 @@
     <tr>
         <td width="280">
             <asp:Label ID="Label8" runat="server" CssClass="text" Text="Medical report presented"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td colspan="3">
             <telerik:RadComboBox ID="RadComboBoxReportPresented" Runat="server" 
@@ -311,12 +326,17 @@
         <td width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorReportPresented" runat="server" 
+                ControlToValidate="RadComboBoxReportPresented" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="DisabilityInfo"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td width="280">
             <asp:Label ID="Label9" runat="server" CssClass="text" 
                 Text="Medical report accepted"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td colspan="3">
             <telerik:RadComboBox ID="RadComboBoxReportAccepted" Runat="server" Width="80px" 
@@ -332,7 +352,11 @@
         <td width="280">
             &nbsp;</td>
         <td colspan="3">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorReportAccepted" runat="server" 
+                ControlToValidate="RadComboBoxReportAccepted" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="DisabilityInfo"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -358,7 +382,8 @@
         <td colspan="3">
             <telerik:RadButton ID="RadButtonAddDisability" runat="server" 
                         Text="Save Beneficiary Disability" onclick="RadButtonAddDisability_Click" 
-                        onload="RadButtonAddDisability_Load">
+                        onload="RadButtonAddDisability_Load" 
+                ValidationGroup="DisabilityInfo">
             </telerik:RadButton>
             
             </td>

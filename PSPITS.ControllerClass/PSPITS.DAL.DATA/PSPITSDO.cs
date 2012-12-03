@@ -170,6 +170,7 @@ namespace PSPITS.DAL.DATA
                 if (dt.Rows[0][Constants.COL_DATEOFBIRTH] != DBNull.Value) md.dateofBirth = (DateTime)dt.Rows[0][Constants.COL_DATEOFBIRTH];
                 if (dt.Rows[0][Constants.COL_MARITALSTATUS] != DBNull.Value) md.maritalStatus = (int)dt.Rows[0][Constants.COL_MARITALSTATUS];
                 if (dt.Rows[0][Constants.COL_NATIONALID] != DBNull.Value) md.nationalID = (string)dt.Rows[0][Constants.COL_NATIONALID];
+                if (dt.Rows[0][Constants.COL_PERSONALNO] != DBNull.Value) md.personalNo = (string)dt.Rows[0][Constants.COL_PERSONALNO];
                 if (dt.Rows[0][Constants.COL_PAYROLLNUMBER] != DBNull.Value) md.payrollNumber = (string)dt.Rows[0][Constants.COL_PAYROLLNUMBER];
                 if (dt.Rows[0][Constants.COL_ESTABLISHMENTNUMBER] != DBNull.Value) md.establishmentNumber = (string)dt.Rows[0][Constants.COL_ESTABLISHMENTNUMBER];
                 if (dt.Rows[0][Constants.COL_DATEOFFIRSTAPPOINTMENT] != DBNull.Value) md.dateofFirstAppointment = (DateTime)dt.Rows[0][Constants.COL_DATEOFFIRSTAPPOINTMENT];
@@ -736,6 +737,32 @@ namespace PSPITS.DAL.DATA
             return md;
 
         }
+        public MemberDeclaration GetMemberDeclarationByPensionID(int pensionID)
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            MemberDeclaration md = new MemberDeclaration();
+            md.pensionID = pensionID;
+
+            DbCommand cmdAddEdit = db.GetStoredProcCommand(Constants.SP_GETMEMBERDECLARATION);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBEREVIDENCE_PENSIONID, DbType.Int32, pensionID);
+            DataTable dt = (GetData(cmdAddEdit, null)).Tables[0];
+            if (dt.Rows.Count == 1)
+            {
+                ///
+                if (dt.Rows[0][Constants.COL_NAMEOFCERTIFYINGOFFICER] != DBNull.Value) md.nameofCertifyingOfficer = dt.Rows[0][Constants.COL_NAMEOFCERTIFYINGOFFICER].ToString();
+                if (dt.Rows[0][Constants.COL_TITLEOFCERTIFYINGOFFICER] != DBNull.Value) md.titleofCertifyingOfficer = dt.Rows[0][Constants.COL_TITLEOFCERTIFYINGOFFICER].ToString();
+                if (dt.Rows[0][Constants.COL_SCHEMEID] != DBNull.Value) md.schemeID = dt.Rows[0][Constants.COL_SCHEMEID].ToString();
+                if (dt.Rows[0][Constants.COL_FIRSTNAME] != DBNull.Value) md.firstName = dt.Rows[0][Constants.COL_FIRSTNAME].ToString();
+                if (dt.Rows[0][Constants.COL_LASTNAME] != DBNull.Value) md.lastName = dt.Rows[0][Constants.COL_LASTNAME].ToString();
+                if (dt.Rows[0][Constants.COL_DATEOFAPPLICATION] != DBNull.Value) md.dateofApplication = (DateTime)dt.Rows[0][Constants.COL_DATEOFAPPLICATION];
+                if (dt.Rows[0][Constants.COL_DATEOFCERTIFYING] != DBNull.Value) md.dateofCertifying = (DateTime)dt.Rows[0][Constants.COL_DATEOFCERTIFYING];
+                if (dt.Rows[0][Constants.COL_DATEUPDATED] != DBNull.Value) md.dateUpdated = (DateTime)dt.Rows[0][Constants.COL_DATEUPDATED];
+                if (dt.Rows[0][Constants.COL_WHOUPDATED] != DBNull.Value) md.whoUpdated = (string)dt.Rows[0][Constants.COL_WHOUPDATED];
+                if (dt.Rows[0][Constants.COL_LOCATIONOFCERTIFYINGOFFICERSIGNATURE] != DBNull.Value) md.locationofCertifyingOfficerSignature = (string)dt.Rows[0][Constants.COL_LOCATIONOFCERTIFYINGOFFICERSIGNATURE];                
+            }
+            return md;
+        }
+
         public DataTable GetServiceBreakbyPensionID(int PensionID)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -913,6 +940,7 @@ namespace PSPITS.DAL.DATA
             db.AddInParameter(cmdAddEdit, Constants.COL_DATEOFBIRTH, DbType.Date, aPD.dateofBirth);
             db.AddInParameter(cmdAddEdit, Constants.COL_MARITALSTATUS, DbType.Int32, aPD.maritalStatus);
             db.AddInParameter(cmdAddEdit, Constants.COL_NATIONALID, DbType.String, aPD.nationalID);
+            db.AddInParameter(cmdAddEdit, Constants.COL_PERSONALNO, DbType.String, aPD.personalNo);
             db.AddInParameter(cmdAddEdit, Constants.COL_PAYROLLNUMBER, DbType.String, aPD.payrollNumber);
             db.AddInParameter(cmdAddEdit, Constants.COL_DATEOFFIRSTAPPOINTMENT, DbType.Date, aPD.dateofFirstAppointment);
             db.AddInParameter(cmdAddEdit, Constants.COL_CURRENTMDA, DbType.Int32, aPD.currentMDA);
@@ -972,8 +1000,6 @@ namespace PSPITS.DAL.DATA
             db.AddInParameter(cmdAddEdit, Constants.COL_DATEOFCERTIFYING, DbType.Date, aPD.dateofCertifying);
             db.AddInParameter(cmdAddEdit, Constants.COL_WHOUPDATED, DbType.String, aPD.whoUpdated);
             db.AddInParameter(cmdAddEdit, Constants.COL_PENSIONID, DbType.Int32, aPD.pensionID);
-            db.AddInParameter(cmdAddEdit, Constants.COL_LOCATIONOFAPPLICANTPHOTO, DbType.String, aPD.locationofApplicantPhoto);
-            db.AddInParameter(cmdAddEdit, Constants.COL_LOCATIONOFAPPLICANTSIGNATURE, DbType.String, aPD.locationofApplicantSignature);
             db.AddInParameter(cmdAddEdit, Constants.COL_NAMEOFCERTIFYINGOFFICER, DbType.String, aPD.nameofCertifyingOfficer);
             db.AddInParameter(cmdAddEdit, Constants.COL_TITLEOFCERTIFYINGOFFICER, DbType.String, aPD.titleofCertifyingOfficer);
             db.AddInParameter(cmdAddEdit, Constants.COL_LOCATIONOFCERTIFYINGOFFICERSIGNATURE, DbType.String, aPD.locationofCertifyingOfficerSignature);
@@ -1315,6 +1341,12 @@ namespace PSPITS.DAL.DATA
 
         public int pensionID { set; get; }
         public string schemeID { set; get; }
+        public string firstName { set; get; }
+        public string lastName { set; get; }
+        public string memberFullName
+        {
+            get { return this.firstName + " " + this.lastName; }
+        }
         public string locationofApplicantPhoto { set; get; }
         public string locationofApplicantSignature { set; get; }
         public string nameofCertifyingOfficer { set; get; }

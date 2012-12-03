@@ -504,22 +504,10 @@
     </tr>
     <tr>
         <td valign="top" width="280">
-             <asp:Label ID="Label14" runat="server" Text="Given name (first name)" 
-                CssClass="text"></asp:Label></td>
-        <td align="left" valign="top">
-             <telerik:RadTextBox ID="RadTextBoxfirstName" Runat="server" Width="295px">
-            </telerik:RadTextBox></td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
              <asp:Label ID="Label13" runat="server" Text="Surname (last name)" 
-                CssClass="text"></asp:Label></td>
+                CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+        </td>
         <td align="left" valign="top">
              <telerik:RadTextBox ID="RadTextBoxlastName" Runat="server" Width="295px">
             </telerik:RadTextBox></td>
@@ -528,12 +516,38 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorSurname" runat="server" 
+                ControlToValidate="RadTextBoxlastName" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td valign="top" width="280">
+             <asp:Label ID="Label14" runat="server" Text="Given name (first name)" 
+                CssClass="text"></asp:Label>
+                <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+            </td>
+        <td align="left" valign="top">
+             <telerik:RadTextBox ID="RadTextBoxfirstName" Runat="server" Width="295px">
+            </telerik:RadTextBox></td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
+        <td align="left" valign="top">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorFirstName" runat="server" 
+                ControlToValidate="RadTextBoxfirstName" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+        </td>
+    </tr>    
+    <tr>
+        <td valign="top" width="280">
             <asp:Label ID="Label18" runat="server" Text="Gender" 
-                CssClass="text"></asp:Label></td>
+                CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+        </td>
         <td align="left" valign="top">
              <telerik:RadComboBox ID="RadComboBoxgender" Runat="server"  Width="295px" MarkFirstMatch="true">
             </telerik:RadComboBox>
@@ -543,19 +557,25 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorGender" runat="server" 
+                ControlToValidate="RadComboBoxgender" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
             <asp:Label ID="Label17" runat="server" Text="Date of birth" 
-                CssClass="text"></asp:Label></td>
+                CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+        </td>
         <td align="left" valign="top">
             <telerik:RadDatePicker ID="RadDatePickerDateOfBirth" Runat="server" Culture="en-US" 
                 Skin="Web20" Width="295px" MinDate="1800-01-01">
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
                     ViewSelectorText="x" Skin="Web20"></Calendar>
 
-<DateInput DisplayDateFormat="d/M/yyyy" DateFormat="d/M/yyyy" EmptyMessage="--Select Date--"></DateInput>
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
@@ -566,12 +586,18 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDoB" runat="server" 
+                ControlToValidate="RadDatePickerDateOfBirth" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
             <asp:Label ID="Label10" runat="server" Text="Marital status" 
-                CssClass="text"></asp:Label></td>
+                CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+        </td>
         <td align="left" valign="top">
             <telerik:RadComboBox ID="RadComboBoxmaritalStatus" Runat="server"  Width="295px" MarkFirstMatch="true">
             </telerik:RadComboBox></td>
@@ -580,12 +606,18 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorMaritalStatus" 
+                runat="server" ControlToValidate="RadComboBoxmaritalStatus" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
                        <asp:Label ID="Label7" runat="server" Text="Relationship to member" 
-                CssClass="text"></asp:Label></td>
+                CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+        </td>
 <td align="left" valign="top">
                     <telerik:RadComboBox ID="RadComboBoxRelationship" Runat="server"  Width="295px" MarkFirstMatch="true">
             </telerik:RadComboBox>
@@ -595,22 +627,34 @@
         <td valign="top" width="280">
                        &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorRelationship" 
+                runat="server" ControlToValidate="RadComboBoxRelationship" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
                        <asp:Label ID="Label6" runat="server" Text="National ID Number" 
-                CssClass="text"></asp:Label></td>
+                CssClass="text"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
+        </td>
         <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxnationalID" Runat="server" Width="295px">
-            </telerik:RadTextBox>
+            <telerik:RadMaskedTextBox ID="RadTextBoxnationalID" Runat="server" 
+                DisplayMask="#########" DisplayPromptChar=" " Mask="#########" PromptChar=" " 
+                Width="295px">
+            </telerik:RadMaskedTextBox>
         </td>
     </tr>
     <tr>
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorNationalID" 
+                runat="server" ControlToValidate="RadTextBoxnationalID" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -650,7 +694,13 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" 
+                runat="server" ControlToValidate="RadTextBoxeMail" ErrorMessage="Invalid Email" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                SetFocusOnError="True" 
+                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                ValidationGroup="BeneficiaryInfo"></asp:RegularExpressionValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -706,6 +756,7 @@
         <td valign="top" width="280">
             <asp:Label ID="Label5" runat="server" CssClass="text" 
                 Text="Home State within South Sudan"></asp:Label>
+            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td align="left" valign="top">
                     <telerik:RadComboBox ID="RadComboBoxhomeState" Runat="server"  Width="295px" MarkFirstMatch="true">
@@ -716,6 +767,11 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
+    
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorHomeState" runat="server" 
+                ControlToValidate="RadComboBoxhomeState" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
     
         </td>
     </tr>
@@ -749,7 +805,7 @@
         <td valign="top">
             <telerik:RadButton ID="RadButtonSaveBeneficiary" runat="server" 
                 Text="Save Beneficiary Info" onload="RadButtonSaveBeneficiary_Load" 
-                onclick="RadButtonSaveBeneficiary_Click">
+                onclick="RadButtonSaveBeneficiary_Click" ValidationGroup="BeneficiaryInfo">
             </telerik:RadButton>
         </td>
     </tr>

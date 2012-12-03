@@ -210,6 +210,7 @@ public partial class User_Control_PersonalInformationUpdate : System.Web.UI.User
         this.Gender = md.gender.Trim();
         this.MaritalStatus = string.Format("{0}", md.maritalStatus);
         this.nationalID = md.nationalID.Trim();
+        this.PersonalNumber = md.personalNo.Trim();
         this.payrollNumber = md.payrollNumber.Trim();
         this.establishmentNumber = md.establishmentNumber.Trim();
         this.DateOfBirth = md.dateofBirth;

@@ -20,8 +20,6 @@
             &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -32,21 +30,18 @@
             <telerik:RadTextBox ID="RadTextBoxeMail" Runat="server" Width="295px">
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" 
-                runat="server" ControlToValidate="RadTextBoxeMail" ErrorMessage="Invalid Email" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
-                SetFocusOnError="True" 
-                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" 
+                runat="server" ControlToValidate="RadTextBoxeMail" ErrorMessage="Invalid Email" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                SetFocusOnError="True" 
+                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                ValidationGroup="MemberPersonalInfo"></asp:RegularExpressionValidator>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -57,13 +52,9 @@
             <telerik:RadTextBox ID="RadTextBoxPhoneMobile" Runat="server" Width="295px">
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
@@ -77,13 +68,9 @@
             <telerik:RadTextBox ID="RadTextBoxPhoneLandline" Runat="server" Width="295px">
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
@@ -99,13 +86,9 @@
                 TextMode="MultiLine" Width="295px" Skin="Outlook">
             </telerik:RadTextBox>
         </td>
-        <td valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
@@ -120,21 +103,18 @@
                     <telerik:RadComboBox ID="RadComboBoxhomeState" Runat="server"  Width="295px" MarkFirstMatch="true">
             </telerik:RadComboBox>
         </td>
-        <td align="left" valign="top">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorHomeState" runat="server" 
-                ControlToValidate="RadComboBoxhomeState" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
-        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
     
-        </td>
-        <td align="left" valign="top">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorHomeState" runat="server" 
+                ControlToValidate="RadComboBoxhomeState" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="MemberPersonalInfo"></asp:RequiredFieldValidator>
     
-            &nbsp;</td>
+        </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -147,8 +127,6 @@
                 TextMode="MultiLine" Width="295px" Skin="Outlook">
             </telerik:RadTextBox>
         </td>
-        <td valign="top">
-            &nbsp;</td>
     </tr>
     </table>
 

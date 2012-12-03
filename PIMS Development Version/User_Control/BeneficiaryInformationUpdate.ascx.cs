@@ -303,7 +303,7 @@ public partial class User_Control_BeneficiaryInformationUpdate : System.Web.UI.U
         RadComboBox RadComboBoxmaritalStatus = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxmaritalStatus") as RadComboBox;
         RadComboBox RadComboBoxRelationship = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxRelationship") as RadComboBox;
 
-        RadTextBox RadTextBoxnationalID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxnationalID") as RadTextBox;
+        RadMaskedTextBox RadTextBoxnationalID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxnationalID") as RadMaskedTextBox;
         RadTextBox RadTextBoxeMail = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxeMail") as RadTextBox;
         RadTextBox RadTextBoxPhoneMobile = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPhoneMobile") as RadTextBox;
         RadTextBox RadTextBoxPhoneLandline = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPhoneLandline") as RadTextBox;
