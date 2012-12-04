@@ -384,6 +384,7 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
         this.EvidenceByFunctionID = string.Format("{0}", ed.EvidenceByFunctionID);
     }
 }
+
 public class RadGridMemberEvidenceEditTemplate : System.Web.UI.ITemplate
 {
 

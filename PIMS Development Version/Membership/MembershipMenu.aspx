@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Membership - Public Servants Pension MIS" Language="C#" MasterPageFile="~/MasterPageMembership.master" AutoEventWireup="true" CodeFile="MembershipMenu.aspx.cs" Inherits="Membership_MembershipMenu" %>
+﻿<%@ Page Title="Membership - PIMS" Language="C#" MasterPageFile="~/MasterPageMembership.master" AutoEventWireup="true" CodeFile="MembershipMenu.aspx.cs" Inherits="Membership_MembershipMenu" %>
 <%@ MasterType VirtualPath="~/MasterPageMembership.master" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">

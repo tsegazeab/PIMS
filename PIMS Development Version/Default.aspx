@@ -188,7 +188,7 @@
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Benefit" ImageUrl="~/images/modules/Desktop_icons/Favorites.png" 
-                                            NavigateUrl="~/Benefit/LifeBenefitApplication.aspx">
+                                            NavigateUrl="~/Benefit_Module/BenefitsMenu.aspx">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>
