@@ -64,6 +64,7 @@ namespace PSPITS.COMMON
         public const string SP_GETMEMBEREVIDENCE = "GetMemberEvidence";
         public const string SP_GETMEMBERDECLARATION = "GetMemberDeclaration";
         public const string SP_GETMEMBERFUNCTIONS = "GetMemberFunctions";
+        public const string SP_GETMEMBERBENEFITEVENTS = "GetMemberBenefitEvents";
         public const string SP_GETEVIDENCE = "GetEvidence";
         public const string SP_GETEVIDENCETYPE = "GetEvidenceType";
         public const string SP_GETEVIDENCEFUNCTION = "GetEvidencefunction";
@@ -181,7 +182,10 @@ namespace PSPITS.COMMON
         public const string COL_LIST_FUNCTION = "functionText";
         public const string COL_LIST_FUNCTIONCODE = "functioncode";
         public const string COL_LIST_MANDATORY = "mandatory";
-
+        //MEMBER BENEFIT EVENT
+        public const string COL_LIST_EVENTID = "eventID";
+        public const string COL_LIST_EVENTNAME = "eventName";
+        public const string COL_LIST_EVENTCODE = "eventCode";
         //
         public const string COL_LIST_SERVICEBREAKTYPEID = "servicebreakTypeID";
         public const string COL_LIST_SERVICEBREAKTYPE = "servicebreakType";

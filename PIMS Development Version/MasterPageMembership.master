@@ -125,6 +125,9 @@
                                     </telerik:RadToolBarButton>
                                 </Buttons>
                             </telerik:RadToolBarDropDown>
+                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 14" 
+                                CausesValidation="False">
+                            </telerik:RadToolBarButton>
                             <telerik:RadToolBarDropDown runat="server" Text="Member Evidence">
                                 <Buttons>
                                     <telerik:RadToolBarButton runat="server" 
@@ -137,9 +140,6 @@
                                     </telerik:RadToolBarButton>
                                 </Buttons>
                             </telerik:RadToolBarDropDown>
-                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 14" 
-                                CausesValidation="False">
-                            </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 16" IsSeparator="True" 
                                 CausesValidation="False">
                             </telerik:RadToolBarButton>
@@ -166,7 +166,7 @@
                                 CausesValidation="False">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" 
-                                Text="Search" CausesValidation="False">
+                                Text="Search">
                             </telerik:RadToolBarButton>
                         </Items>
                     </telerik:RadToolBar>

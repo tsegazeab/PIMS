@@ -20,6 +20,7 @@ namespace PSPITS.UIL
         //---------------------------------------------------------------------
         private const string memberFullName = "memberFullName";
         private const string pensionID = "pensionID";
+        private const string payrollNo = "payrollNo";
         private const string schemeID = "schemeID";
         private const string memberPhoto = "memberPhoto";
         private const string startDate = "StartDate";
@@ -84,6 +85,23 @@ namespace PSPITS.UIL
                     HttpContext.Current.Session[schemeID] = value;
                 else
                     HttpContext.Current.Session[schemeID] = "0";
+            }
+        }
+
+        public static string PayrollNo
+        {
+            get
+            {
+                if (HttpContext.Current.Session[payrollNo] != null)
+                    return (string)HttpContext.Current.Session[payrollNo];
+                else return "0";
+            }
+            set
+            {
+                if (HttpContext.Current.Session[payrollNo] != null)
+                    HttpContext.Current.Session[payrollNo] = value;
+                else
+                    HttpContext.Current.Session[payrollNo] = "0";
             }
         }
 

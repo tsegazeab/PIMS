@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Benefits - PIMS" Language="C#" MasterPageFile="~/MasterPageBenefit.master" AutoEventWireup="true" CodeFile="BenefitsMenu.aspx.cs" Inherits="Benefit_Module_BenefitsMenu" %>
-<%@ MasterType VirtualPath="~/MasterPageMembership.master" %>
+<%@ MasterType VirtualPath="~/MasterPageBenefit.master" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" Runat="Server">
     <link href="../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
@@ -23,7 +23,7 @@
                         <td align="left" width="130">
                             <asp:ImageButton ID="ImageButton1" runat="server" 
                                 ImageUrl="~/images/coins-icon.png" 
-                                PostBackUrl="~/Benefit/LifeBenefitApplication.aspx" 
+                                PostBackUrl="~/Benefit_Module/ProcessMemberBenefits.aspx" 
                                 ToolTip="Click here" Width="128px" />
                         </td>
                         <td align="left">

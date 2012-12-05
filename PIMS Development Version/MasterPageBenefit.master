@@ -2,6 +2,8 @@
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
+<%@ Register src="User_Control/Search/MemberSearch.ascx" tagname="MemberSearch" tagprefix="uc2" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -87,12 +89,12 @@
             <tr>
                 <td height="20" colspan="3">
                     <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%" 
-                        CssClass="masterToolStrip">
+                        CssClass="masterToolStrip" onbuttonclick="RadToolBar1_ButtonClick">
                         <Items>
                             <telerik:RadToolBarButton runat="server" Text="Process member benefit" 
                                 Width="170px" 
                                 ImageUrl="~/images/Icons/small icons (16 and 24)/add-user (24x24).png" 
-                                NavigateUrl="~/Benefit/LifeBenefitApplication.aspx">
+                                NavigateUrl="~/Benefit_Module/ProcessMemberBenefits.aspx">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
                             </telerik:RadToolBarButton>
@@ -108,16 +110,8 @@
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True">
                             </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Width="170px" 
+                            <telerik:RadToolBarButton runat="server" 
                                 ImageUrl="~/images/modules/Desktop_icons/search.png" Text="Search">
-                            </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 9">
-                            </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Width="170px">
-                            </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 11">
-                            </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Width="170px">
                             </telerik:RadToolBarButton>
                         </Items>
                     </telerik:RadToolBar>
@@ -128,8 +122,11 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td width="15%" style=" border-right: 1px solid Gray;">
+                <td width="15%" style=" border-right: 1px solid Gray;" valign="top">
                     &nbsp;
+                    <telerik:RadBinaryImage ID="RadBinaryImageMemberPhoto" runat="server" 
+                        AutoAdjustImageControlSize="False" BorderColor="#000066" Width="160px" 
+                        ImageUrl="~/images/no_photo.jpg" />
                 </td>
                 <td height="50" align="center" valign="top" width="70%">
                     <table align="center" cellpadding="2" cellspacing="0" class="style2">
@@ -139,7 +136,7 @@
                                     <tr>
                                         <td>
 &nbsp;<asp:Image ID="Image5" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
-                                            <span class="text">&nbsp;In progress:</span>
+                                            <span class="text">&nbsp;Member:</span>
                                             <asp:Label ID="LabelfullName" runat="server" CssClass="text" Text="No member" 
                                                 Font-Bold="True"></asp:Label>
 
@@ -157,6 +154,16 @@
                                             <telerik:RadTextBox ID="RadTextBoxpensionIDHidden" Visible="false" AutoPostBack="true" runat="server">
                                             </telerik:RadTextBox>
                                         </td>
+                                        <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                        </td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                        <asp:Label ID="label1"  runat="server"   CssClass ="text">Payroll No. </asp:Label>
+                                            <asp:Label ID="LabelPayrollNo" runat="server" CssClass="text" 
+                                                Text="" Font-Bold="True"  ></asp:Label>
                                     </tr>
                                 </table>
                             </td>
@@ -200,6 +207,34 @@
         
         DecoratedControls="Default, Textbox, Textarea, Fieldset, Label, H4H5H6, Select, GridFormDetailsViews, ValidationSummary, LoginControls" 
         Skin="Windows7" />
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" Runat="server" 
+        Skin="Default">
+    </telerik:RadAjaxLoadingPanel>
+        <telerik:RadToolTip ID="RadToolTipSearch" runat="server" Animation="Fade" 
+                    HideEvent="FromCode" Modal="True" Position="Center" RelativeTo="BrowserWindow" 
+                    ShowEvent="FromCode" Skin="WebBlue" ManualClose="True">   
+          <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>--%>
+                    <table cellpadding="0" cellspacing="0" width="500">
+                        <tr>
+                            <td class="mybottom">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <uc2:MemberSearch ID="MemberSearch1" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mybottom">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+               <%-- </ContentTemplate>
+            </asp:UpdatePanel>--%>
+        </telerik:RadToolTip>
     </form>
 </body>
 </html>

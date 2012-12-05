@@ -552,7 +552,13 @@ namespace PSPITS.DAL.DATA
 
             DbCommand cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMEMBERFUNCTIONS);
             return GetData(cmdSelect, null).Tables[0];
+        }
 
+        public DataTable GetMemberBenefitEvents()
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            DbCommand cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMEMBERBENEFITEVENTS);
+            return GetData(cmdSelect, null).Tables[0];
         }
 
         public string GetSchemeIDByPensionID(int pensionID)
@@ -561,6 +567,14 @@ namespace PSPITS.DAL.DATA
             {
                 var member = context.Members.FirstOrDefault(m => m.pensionID == pensionID);
                 return member != null ? member.schemeID : string.Empty;
+            }
+        }
+
+        public Member GetMemberByPensionID(int pensionID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                return context.Members.FirstOrDefault(m => m.pensionID == pensionID);
             }
         }
 
