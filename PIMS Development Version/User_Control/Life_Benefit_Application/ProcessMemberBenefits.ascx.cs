@@ -43,8 +43,11 @@ public partial class User_Control_Life_Benefit_Application_ProcessMemberBenefits
         Member selectedMember = new PSPITSDO().GetMemberByPensionID(md.pensionID);
         this.MemberFullName = string.Format("{0}{1}{2}", md.firstName, ' ', md.lastName);
         this.PensionID = string.Format("{0}", pensionID);
-        this.RadTextBoxSchemeID.Text = selectedMember.schemeID;
-        this.RadTextBoxDateOfAppointment.Text = selectedMember.dateoffirstAppointment.HasValue ? selectedMember.dateoffirstAppointment.Value.ToString("dd/MM/yyyy") : "";
+        if (selectedMember != null)
+        {
+            this.RadTextBoxSchemeID.Text = selectedMember.schemeID;
+            this.RadTextBoxDateOfAppointment.Text = selectedMember.dateoffirstAppointment.HasValue ? selectedMember.dateoffirstAppointment.Value.ToString("dd/MM/yyyy") : "";
+        }
         this.PayrollNo = md.payrollNumber;        
     }
 
@@ -103,14 +106,7 @@ public partial class User_Control_Life_Benefit_Application_ProcessMemberBenefits
 
     protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
     {
-        PSPITSDO _do = new PSPITSDO();
-        MemberIdentity mi = new MemberIdentity();
-        mi.PensionID = Int32.Parse(this.PensionID);
-        mi.DateCreated = mi.DateUpdated = DateTime.Now;
-        mi.WhoCreated = mi.WhoUpdated = "admin";
-        mi.LogRef = 1;
-        _do.SaveMemberIdentity(mi);
-        Parent.Page.Response.Redirect(Parent.Page.Request.RawUrl);  
+        Response.Redirect("DisplayMemberBenefits.aspx");
     }
 
 }

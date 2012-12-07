@@ -261,5 +261,17 @@ namespace PSPITS.COMMON
 
         #endregion
 
+        #region .Benefit Calculation Constants.
+
+        //TO BE PICKED FROM DATABASE
+
+        public const decimal JUNE_2012_SALARY = 2475;
+        public static DateTime JULY_FIRST_2012 { get { return new DateTime(2012, 7, 1); } }
+        public const double NUMBER_OF_DAYS_IN_YEAR = 365.25;
+        public const double ONE_POINT_FIVE_PERCENT = 0.015;
+        public const int NUMBER_OF_MONTHS_IN_YEAR = 12;
+
+        #endregion
+
     }
 }

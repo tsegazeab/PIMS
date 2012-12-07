@@ -10,107 +10,116 @@ using PSPITS.MODEL;
 using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
+using System.Data;
 
 public partial class User_Control_Life_Benefit_Application_ProcessMemberBenefits : System.Web.UI.UserControl
 {
-    private static string _pensionID = string.Empty;
-
+    
     #region .Properties.
-
-    public string PensionID
-    {
-        get { return RadTextBoxPensionID.Text; }
-        set { RadTextBoxPensionID.Text = _pensionID = value; }
-    }
-
-    private string PayrollNo
-    {
-        get { return RadTextBoxPayrollNo.Text; }
-        set { RadTextBoxPayrollNo.Text = value; }
-    }
 
     public string MemberFullName
     {
-        get { return RadTextBoxMemberFullName.Text; }
-        set { RadTextBoxMemberFullName.Text = value; }
+        get { return LabelName.Text; }
+        set { LabelName.Text = value; }
     }
-    
+
+    public string NationalityID
+    {
+        get { return LabelNationalityID.Text; }
+        set { LabelNationalityID.Text = value; }
+    }
+
+    public string Workstation
+    {
+        get { return LabelWorkStation.Text; }
+        set { LabelWorkStation.Text = value; }
+    }
+
+    public string PayrollNumber
+    {
+        get { return LabelPayrollNumber.Text; }
+        set { LabelPayrollNumber.Text = value; }
+    }
+
+    public string EstablishmentNumber
+    {
+        get { return LabelEstablishmentNo.Text; }
+        set { LabelEstablishmentNo.Text = value; }
+    }
+
+    public string DateOfBirth
+    {
+        get { return LabelDateOfBirth.Text; }
+        set { LabelDateOfBirth.Text = value; }
+    }
+
+    public string DateOfAppointment
+    {
+        get { return LabelDateOfAppointment.Text; }
+        set { LabelDateOfAppointment.Text = value; }
+    }
+
+    public string LastMonth
+    {
+        get { return LabelLastMonth.Text; }
+        set { LabelLastMonth.Text = LabelLastMonth0.Text = value; }
+    }
+
+    public string GrossSalary
+    {
+        get { return LabelGrossSalary.Text; }
+        set { LabelGrossSalary.Text = value; }
+    }
+
+    public string FirstJuly
+    {
+        get { return LabelFirstJuly.Text; }
+        set { LabelFirstJuly.Text = LabelFirstJuly0.Text = LabelFirstJuly1.Text = value; }
+    }
+
+    public string TotalServiceYears
+    {
+        get { return LabelTotalServiceYrs.Text; }
+        set { LabelTotalServiceYrs.Text = value; }
+    }
+
+    public string TotalServiceBreaks
+    {
+        get { return LabelTotalServiceBreaks.Text; }
+        set { LabelTotalServiceBreaks.Text = value; }
+    }
+
+    public List<PSPITS.MODEL.MemberServiceBreak> ServiceBreaks
+    {
+        set 
+        {
+            GridViewServiceBreaks.DataSource = value;
+            GridViewServiceBreaks.DataBind();
+        }
+    }
+
+    public string NetServiceYears
+    {
+        get { return LabelNetServiceYrs.Text; }
+        set { LabelNetServiceYrs.Text = value; }
+    }
+
+    public string GrossPension
+    {
+        get { return LabelGrossPension.Text; }
+        set { LabelGrossPension.Text = value; }
+    }
+
+    public string GrossPensionFormula
+    {
+        get { return LabelGrossPensionFormula.Text; }
+        set { LabelGrossPensionFormula.Text = value; }
+    }
+
     #endregion 
-
-    public void DisplayMemberNameAndPensionID(int pensionID)
-    {
-        MemberPersonalDetail md = new PSPITSDO().GetMemberbyPensionID(pensionID);
-        Member selectedMember = new PSPITSDO().GetMemberByPensionID(md.pensionID);
-        this.MemberFullName = string.Format("{0}{1}{2}", md.firstName, ' ', md.lastName);
-        this.PensionID = string.Format("{0}", pensionID);
-        this.RadTextBoxSchemeID.Text = selectedMember.schemeID;
-        this.RadTextBoxDateOfAppointment.Text = selectedMember.dateoffirstAppointment.HasValue ? selectedMember.dateoffirstAppointment.Value.ToString("dd/MM/yyyy") : "";
-        this.PayrollNo = md.payrollNumber;        
-    }
-
-    public void LoadEventCombo()
-    {
-        //Load evidencetype comboBox        
-        RadComboBoxEvent.DataSource = new PSPITSDO().GetMemberBenefitEvents();
-        RadComboBoxEvent.DataTextField = PSPITS.COMMON.Constants.COL_LIST_EVENTNAME;
-        RadComboBoxEvent.DataValueField = PSPITS.COMMON.Constants.COL_LIST_EVENTCODE;
-        RadComboBoxEvent.SelectedIndex = -1;
-        RadComboBoxEvent.EmptyMessage = "--Please Select--";    
-        RadComboBoxEvent.DataBind();
-
-    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            this.PensionID = this.PensionID.Length > 3 ? this.PensionID : "0";
-            DisplayMemberNameAndPensionID(Int32.Parse(this.PensionID));
-            LoadEventCombo();
-        }
-    }
-
-    protected void RadButtonProcessBenefit_Load(object sender, EventArgs e)
-    {
-        Utility utl = new Utility();
-
-        RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
-        RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
-
-        RadTextBox RadTextBoxPensionID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPensionID") as RadTextBox;
-        RadTextBox RadTextBoxMemberFullName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxMemberFullName") as RadTextBox;
-        RadTextBox RadTextBoxPayrollNo = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPayrollNo") as RadTextBox;
-        //
-        //RadAsyncUpload
-        //                
         
-        RadComboBox RadComboBoxEvent = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxEvent") as RadComboBox;
-        RadDatePicker RadDatePickerDateOfEvent = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadDatePickerDateOfEvent") as RadDatePicker;
-
-        RadButton RadButtonProcessBenefit = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadButtonProcessBenefit") as RadButton;
-
-        //load only when non of the controls are null
-        if ((radajaxmanager != null) && (radajaxloading != null) && (RadButtonProcessBenefit != null))
-        {
-            //now check if the various combo boxes have been found 
-            if (RadTextBoxPensionID != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxPensionID, null);
-            if (RadTextBoxMemberFullName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxMemberFullName, null);
-            if (RadTextBoxPayrollNo != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxPayrollNo, null);
-            if (RadComboBoxEvent != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadComboBoxEvent, null);
-            if (RadDatePickerDateOfEvent != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadDatePickerDateOfEvent, null);                        
-        }
     }
-
-    protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
-    {
-        PSPITSDO _do = new PSPITSDO();
-        MemberIdentity mi = new MemberIdentity();
-        mi.PensionID = Int32.Parse(this.PensionID);
-        mi.DateCreated = mi.DateUpdated = DateTime.Now;
-        mi.WhoCreated = mi.WhoUpdated = "admin";
-        mi.LogRef = 1;
-        _do.SaveMemberIdentity(mi);
-        Parent.Page.Response.Redirect(Parent.Page.Request.RawUrl);  
-    }
-
 }

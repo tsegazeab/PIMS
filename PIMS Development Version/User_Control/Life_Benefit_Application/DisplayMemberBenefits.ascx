@@ -10,117 +10,249 @@
 }
 </style>
 
-<link href="../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
+<link href="../../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
 
-<table cellpadding="10" cellspacing="0" width="575">
+<table cellpadding="4" cellspacing="0" width="575" class="benefitsDisplayTab">
     <tr>
-        <td valign="top" width="280">
+        <td width="5%">&nbsp;</td>
+        <td width="40%">&nbsp;</td>
+        <td width="25%">&nbsp;</td>
+        <td width="25%">&nbsp;</td>
+        <td width="5%">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" colspan="3">
+            <asp:Label ID="Label9" runat="server" Text="INFORMATION" 
+                CssClass="text" Font-Bold="True" Font-Size="Large"></asp:Label>
+          </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label3" runat="server" Text="Name:" 
+                CssClass="text" Font-Bold="True"></asp:Label>
+          </td>
+        <td align="left" valign="top" colspan="2">
+            <asp:Label ID="LabelName" runat="server" 
+                CssClass="text" Font-Bold="True"></asp:Label>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label4" runat="server" Text="Nationality Certificate No.:" 
+                CssClass="text"></asp:Label>
+          </td>
+          <td align="right">
+            <asp:Label ID="LabelNationalityID" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label5" runat="server" Text="Workstation:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="left" valign="top" colspan="3">
+            <asp:Label ID="LabelWorkStation" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label6" runat="server" Text="MDA:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="left" valign="top" colspan="3">
+            <asp:Label ID="LabelMDA" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label7" runat="server" Text="Payroll Number:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelPayrollNumber" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label8" runat="server" Text="Establishment Number:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelEstablishmentNo" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label10" runat="server" Text="Date of Birth:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelDateOfBirth" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label11" runat="server" Text="Date of Appointment:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelDateOfAppointment" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top" style="border-left: 2px solid Black; border-top: 2px solid Black;">
+            &nbsp;</td>
+        <td align="right" valign="top" style="border-right: 2px solid Black; border-top: 2px solid Black;">
+            <asp:Label ID="LabelLastMonth" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top" style="border-left: 2px solid Black; border-bottom: 2px solid Black;">
+            <asp:Label ID="Label12" runat="server" Text="Gross Salary for Month:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="right" valign="top" style="border-right: 2px solid Black; border-bottom: 2px solid Black;">
+            <asp:Label ID="LabelGrossSalary" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxPensionID" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True" Visible="False">
-<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
-                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
-            </telerik:RadTextBox>
-        </td>
+            &nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td valign="top" width="280">
-            <asp:Label ID="Label3" runat="server" Text="Scheme ID:" 
-                CssClass="text"></asp:Label>
+        <td valign="top" colspan="3">
+            <asp:Label ID="Label13" runat="server" Text="PARAMETER CALCULATIONS" 
+                CssClass="text" Font-Bold="True" Font-Size="Large"></asp:Label>
           </td>
         <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxSchemeID" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
-<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
-                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
-            </telerik:RadTextBox>
-        </td>
+            &nbsp;</td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
+        <td>&nbsp;</td>
         <td valign="top">
-            <asp:Label ID="Label4" runat="server" Text="Payroll No.:" 
+            <asp:Label ID="Label14" runat="server" Text="Total Service Prior to:" 
                 CssClass="text"></asp:Label>
           </td>
-        <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxPayrollNo" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
-<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
-                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
-            </telerik:RadTextBox>
-            </td>
-    </tr>
-    <tr>
-        <td valign="top">
-            <asp:Label ID="Label5" runat="server" Text="Member Name:" 
-                CssClass="text"></asp:Label>
-          </td>
-        <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxMemberFullName" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
-<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
-                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
-            </telerik:RadTextBox>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelFirstJuly" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td align="right" colspan="2" bgcolor="Gray">
+            <asp:Label ID="LabelTotalServiceYrs" runat="server" 
+                CssClass="text" Font-Bold="True"></asp:Label>
         </td>
     </tr>
     <tr>
+        <td>&nbsp;</td>
         <td valign="top">
-            <asp:Label ID="Label6" runat="server" Text="Date of First Appointment:" 
+            <asp:Label ID="Label15" runat="server" Text="Breaks in service prior to:" 
                 CssClass="text"></asp:Label>
           </td>
-        <td align="left" valign="top">
-            <telerik:RadTextBox ID="RadTextBoxDateOfAppointment" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
-<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
-                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
-            </telerik:RadTextBox>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelFirstJuly0" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td align="right" colspan="2" bgcolor="Gray">
+            <asp:Label ID="LabelTotalServiceBreaks" runat="server" 
+                CssClass="text" Font-Bold="True"></asp:Label>
         </td>
     </tr>
     <tr>
+        <td>&nbsp;</td>
+        <td valign="top" colspan="3" style="border: 2px solid Black;">
+            <asp:GridView ID="GridViewServiceBreaks" runat="server" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ShowHeader="False" 
+                Width="100%">
+            </asp:GridView>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
         <td valign="top">
-            <asp:Label ID="Label7" runat="server" Text="Event:" 
+            <asp:Label ID="Label16" runat="server" Text="Pensionable Service prior to:" 
                 CssClass="text"></asp:Label>
           </td>
-        <td align="left" valign="top">
-            <telerik:RadComboBox ID="RadComboBoxEvent" Runat="server" Skin="Vista" 
-                Width="295px">
-            </telerik:RadComboBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvent" 
-                runat="server" ControlToValidate="RadComboBoxEvent" 
-                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
-                Font-Size="Small" ForeColor="Red" ValidationGroup="ProcessMemberBenefit"></asp:RequiredFieldValidator>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelFirstJuly1" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td colspan="2" align="right" bgcolor="Gray">
+            <asp:Label ID="LabelNetServiceYrs" runat="server" 
+                CssClass="text" Font-Bold="True"></asp:Label>
         </td>
     </tr>
     <tr>
-        <td valign="top">
-            <asp:Label ID="Label8" runat="server" Text="Date of Event:" 
-                CssClass="text"></asp:Label>
-          </td>
-        <td align="left" valign="top">
-            <telerik:RadDatePicker ID="RadDatePickerDateOfEvent" Runat="server" 
-                Skin="Outlook" Width="295px">
-<Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
-                    ViewSelectorText="x" Skin="Outlook"></Calendar>
-
-<DateInput DisplayDateFormat="M/d/yyyy" DateFormat="M/d/yyyy"></DateInput>
-
-<DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
-            </telerik:RadDatePicker>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDateOfEvent" 
-                runat="server" ControlToValidate="RadDatePickerDateOfEvent" 
-                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
-                Font-Size="Small" ForeColor="Red" ValidationGroup="ProcessMemberBenefit"></asp:RequiredFieldValidator>
-        </td>
-    </tr>
-    <tr>
+        <td>&nbsp;</td>
         <td valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
-            <telerik:RadButton ID="RadButtonProcessBenefit" runat="server" 
-                onclick="RadButtonProcessBenefit_Click" Skin="Vista" Text="Process" 
-                onload="RadButtonProcessBenefit_Load" ValidationGroup="ProcessMemberBenefit">
-            </telerik:RadButton>
+            &nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" style="font-weight: 700;" colspan="3">
+            <asp:Label ID="Label17" runat="server" Text="BENEFIT CALCULATIONS" 
+                CssClass="text" Font-Bold="True" Font-Size="Large"></asp:Label>
+          </td>
+        <td align="left" valign="top">
+            &nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top">
+            <asp:Label ID="Label18" runat="server" Text="Gross Annual Pensions up to:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td align="right" valign="top">
+            <asp:Label ID="LabelLastMonth0" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
         </td>
+        <td align="right" bgcolor="Gray">
+            <asp:Label ID="LabelGrossPension" runat="server" 
+                CssClass="text" Font-Bold="True"></asp:Label>
+        </td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td valign="top" align="center" colspan="2">
+            <asp:Label ID="LabelGrossPensionFormula" runat="server" 
+                CssClass="text" Font-Bold="False"></asp:Label>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
     </tr>
 </table>
 
