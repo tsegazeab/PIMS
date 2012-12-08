@@ -37,7 +37,9 @@ public partial class Benefit_Module_ProcessMemberBenefits : System.Web.UI.Page
         //JavaScriptLibrary.JavaScriptHelper.Include_CloseActiveToolTip(Page.ClientScript);
         PSPITSDO _do = new PSPITSDO();
         PSPITSModuleSession.PensionID = e.pensionID.Trim();
-        PSPITSModuleSession.SchemeID = _do.GetSchemeIDByPensionID(Int32.Parse(e.pensionID.Trim()));
+        Member selectedMember = _do.GetMemberByPensionID(Int32.Parse(e.pensionID.Trim()));
+        PSPITSModuleSession.SchemeID = selectedMember.schemeID;
+        PSPITSModuleSession.PayrollNo = selectedMember.payrollNumber;
         PSPITSModuleSession.MemberFullName = _do.GetMemberFullNamebyPensionID(int.Parse(e.pensionID.Trim())).memberFullName.Trim();
         MemberIdentity mi = _do.GetMemberIdentityPhotoByPensionId(int.Parse(e.pensionID.Trim()));
         PSPITSModuleSession.MemberPhoto = mi != null ? mi.MemberPhoto : new byte[0];

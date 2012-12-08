@@ -28,7 +28,21 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             return mb;
         }
 
-        #region .private methods.
+        public MemberBenefitEligibility GetMemberBenefitEligibility(int pensionId)
+        {
+            Member member = new PSPITSDO().GetMemberByPensionID(pensionId);
+            MemberBenefitEligibility mbEligibility = new MemberBenefitEligibility();
+            mbEligibility.Member = member;
+            mbEligibility.AnnualPensionProcessedCheck = true;
+            mbEligibility.DoACheck = member.dateoffirstAppointment.HasValue;
+            mbEligibility.DoAEvidenceCheck = this.DateOfAppointmentEvidenceExists(pensionId);
+            mbEligibility.DoBCheck = member.dateofBirth.HasValue;
+            mbEligibility.DoBEvidenceCheck = this.DateOfBirthEvidenceExits(pensionId);
+            mbEligibility.ServiceBreakEvidenceCheck = this.AllServiceBreaksEvidenceExists(pensionId);
+            return mbEligibility;
+        }
+
+        #region .private methods Gross Annual Pension Accrued.
 
         /// <summary>
         /// Get Service Breaks prior to July 2012
@@ -92,6 +106,11 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             return totalDays / Constants.NUMBER_OF_DAYS_IN_YEAR;
         }
 
+        /// <summary>
+        /// Get Member by Pension Id
+        /// </summary>
+        /// <param name="pensionId"></param>
+        /// <returns></returns>
         private Member GetMemberByPensionId(int pensionId)
         {
             using (var context = new PSPITSEntities())
@@ -100,10 +119,58 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             }
         }
 
+        /// <summary>
+        /// Calculate Members Annual Gross Pension Up To June 30, 2012
+        /// </summary>
+        /// <param name="mb"></param>
         private void CalculateGrossAnnualPensionUpToJuly2012(MemberBenefit mb)
         {
             double netServiceYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
             mb.GrossAnnualPensionUpto30June2012 = (decimal)(Constants.ONE_POINT_FIVE_PERCENT * (double)Constants.JUNE_2012_SALARY * Constants.NUMBER_OF_MONTHS_IN_YEAR * netServiceYears);
+        }
+
+        #endregion
+
+        #region .private methods Member Eligibility Checks.
+
+        private bool DateOfBirthEvidenceExits(int pensionId)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var function = context.EvidenceByFunctions.FirstOrDefault(e => e.evidencetypeID == Constants.DATE_OF_BIRTH_EVIDENCEID);
+                var memberEvidence = context.MemberEvidences.FirstOrDefault(m => m.PensionID == pensionId && m.EvidenceByFunctionID == function.EvidenceByFunctionID
+                     && m.evidencePresented == Constants.YES && m.evidenceAccepted == Constants.YES);
+                return memberEvidence != null;
+            }
+        }
+
+        private bool DateOfAppointmentEvidenceExists(int pensionId)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var function = context.EvidenceByFunctions.FirstOrDefault(e => e.evidencetypeID == Constants.DATE_OF_APPOINTMENT_EVIDENCEID);
+                var memberEvidence = context.MemberEvidences.FirstOrDefault(m => m.PensionID == pensionId && m.EvidenceByFunctionID == function.EvidenceByFunctionID
+                     && m.evidencePresented == Constants.YES && m.evidenceAccepted == Constants.YES);
+                return memberEvidence != null;
+            }
+        }
+
+        private bool AllServiceBreaksEvidenceExists(int pensionId)
+        {
+            bool evidenceExists = true;
+            using (var context = new PSPITSEntities())
+            {
+                var serviceBreaks = context.MemberEmploymentServiceBreaks.Where(s => s.pensionID == pensionId).ToList();
+                foreach (var serviceBreak in serviceBreaks)
+                {
+                    var sbEvidence = context.MemberEmploymentServiceBreakEvidences.FirstOrDefault(e => e.servicebreakID == serviceBreak.servicebreakID &&
+                        e.evidencePresented == Constants.YES && e.evidenceAccepted == Constants.YES);
+                    evidenceExists = sbEvidence != null;
+                    if (!evidenceExists)
+                        return evidenceExists;
+                }
+                return evidenceExists;
+            }
         }
 
         #endregion

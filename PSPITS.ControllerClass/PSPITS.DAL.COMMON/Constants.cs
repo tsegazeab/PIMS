@@ -273,5 +273,26 @@ namespace PSPITS.COMMON
 
         #endregion
 
+        #region .List Id Values.
+
+        public const int DATE_OF_BIRTH_EVIDENCEID = 1250;
+        public const int DATE_OF_APPOINTMENT_EVIDENCEID = 1251;
+        public const string YES = "Yes";
+        public const string NO = "No";
+        public const int FUNCTION_MEMBERSHIP_REGISTRATION = 1277;
+        public const int FUNCTION_BENEFICIARY_REGISTRATION = 1278;
+        public const int FUNCTION_MEMBER_SERVICE_BREAKS = 1281;
+
+        #endregion
+
+    }
+
+    public enum PensionType
+    { 
+        PesionableAgePension,
+        EarlyPension,
+        LatePension,
+        DeathInServicePension,
+        TerminationLumpSumAmount
     }
 }

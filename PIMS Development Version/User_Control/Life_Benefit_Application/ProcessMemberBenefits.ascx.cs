@@ -106,7 +106,7 @@ public partial class User_Control_Life_Benefit_Application_ProcessMemberBenefits
 
     protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
     {
-        Response.Redirect("DisplayMemberBenefits.aspx");
+        Response.Redirect("MemberBenefitsEligibility.aspx");
     }
 
 }
