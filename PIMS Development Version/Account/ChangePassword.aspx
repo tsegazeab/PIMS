@@ -13,8 +13,17 @@
     <p>
         New passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
     </p>
-    <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" 
-         SuccessPageUrl="ChangePasswordSuccess.aspx">
+    <asp:ChangePassword ID="ChangeUserPassword" runat="server" 
+        CancelDestinationPageUrl="~/" EnableViewState="False" 
+         SuccessPageUrl="ChangePasswordSuccess.aspx" BackColor="#F7F6F3" 
+        BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" 
+        Font-Names="Verdana" Font-Size="0.8em">
+        <CancelButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
+            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" 
+            ForeColor="#284775" />
+        <ChangePasswordButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
+            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" 
+            ForeColor="#284775" />
         <ChangePasswordTemplate>
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
@@ -56,5 +65,13 @@
                 </p>
             </div>
         </ChangePasswordTemplate>
+        <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
+            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" 
+            ForeColor="#284775" />
+        <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+        <PasswordHintStyle Font-Italic="True" ForeColor="#888888" />
+        <TextBoxStyle Font-Size="0.8em" />
+        <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" Font-Size="0.9em" 
+            ForeColor="White" />
     </asp:ChangePassword>
 </asp:Content>

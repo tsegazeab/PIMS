@@ -19,7 +19,7 @@ public partial class Membership_UpdatePersonalInfo : System.Web.UI.Page
             PersonalInformationUpdate.PensionID = Master.PensionID;
             PersonalInformationUpdate.SchemeID = Master.SchemeID;
             PersonalInformationUpdate.LoadCurrentMember();
-            PersonalInformationUpdate.ToggleControl(int.Parse(PSPITSModuleSession.PensionID) > 0);
+            PersonalInformationUpdate.ToggleControl(int.Parse(PSPITSModuleSession.PensionID) > 0);            
         }
     }
     

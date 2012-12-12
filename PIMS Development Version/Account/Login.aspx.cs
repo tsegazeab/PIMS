@@ -11,4 +11,8 @@ public partial class Account_Login : System.Web.UI.Page
     {
         Label1.Text = DateTime.Now.ToShortTimeString();
     }
+    protected void LoginButton_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }

@@ -347,11 +347,11 @@ public partial class User_Control_MemberServiceBreakEvidence : System.Web.UI.Use
         aPD.serviceBreakID = Int32.Parse(this.serviceBreakID);        
         if (!_isUpdate)
         {
-            aPD.whoCreated = "admin";
+            aPD.whoCreated = Page.User.Identity.Name;
             aPD.dateCreated = DateTime.Now;
         }
         _isUpdate = false;
-        aPD.whoUpdated = "admin";
+        aPD.whoUpdated = Page.User.Identity.Name;
         aPD.dateUpdated = DateTime.Now;
 
         if (this.TheUploadedFile == null)

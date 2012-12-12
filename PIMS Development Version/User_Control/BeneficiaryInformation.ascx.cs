@@ -178,7 +178,7 @@ public partial class User_Control_BeneficiaryInformation : System.Web.UI.UserCon
         aPD.firstName = this.firstName;
         aPD.lastName = this.lastName;
         //
-        aPD.whoCreated = "admin";
+        aPD.whoCreated = Page.User.Identity.Name;
         aPD.dateCreated = DateTime.Now;
         //Get contact information
         //
@@ -191,7 +191,7 @@ public partial class User_Control_BeneficiaryInformation : System.Web.UI.UserCon
         contact.homeState = Int32.Parse( this.homeState);
         contact.address=this.Address;
         contact.dateUpdated=DateTime.Now;
-        contact.whoUpdated="admin";
+        contact.whoUpdated = Page.User.Identity.Name;
 
         // NOW SAVE BOTH THE PERSONAL AND CONTACT INFORMATION OF THE MEMBER
         _do.SaveBeneficiaryPersonalDetail(aPD);

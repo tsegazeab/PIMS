@@ -239,7 +239,7 @@ public partial class User_Control_PersonalInformationUpdate : System.Web.UI.User
             mPD.dateofFirstAppointment = this.DateOfAppointment.Value;
         mPD.currentMDA = this.CurrentMDA;
         mPD.dateUpdated = DateTime.Now;
-        mPD.whoUpdated = "admin";
+        mPD.whoUpdated = Page.User.Identity.Name;
         _do.SaveMemberPersonalDetail(mPD);
     }
 }

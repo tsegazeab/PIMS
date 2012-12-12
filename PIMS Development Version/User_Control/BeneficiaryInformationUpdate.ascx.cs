@@ -223,13 +223,13 @@ public partial class User_Control_BeneficiaryInformationUpdate : System.Web.UI.U
             if (this.IsUpdate)
             {
                 aPD.beneficiaryID = Int32.Parse(this.beneficiaryID);
-                aPD.whoUpdated = "admin";
+                aPD.whoUpdated = Page.User.Identity.Name;
                 aPD.dateUpdated = DateTime.Now;
             }
             else
             {
                 aPD.beneficiaryID= int.Parse (this.beneficiaryID = string.Format("{0}", _do.GenBeneficiaryID()));
-                aPD.whoCreated = "admin";
+                aPD.whoCreated = Page.User.Identity.Name;
                 aPD.dateCreated = DateTime.Now;
             }
             aPD.pensionID = Int32.Parse(this.pensionID);       
@@ -255,7 +255,7 @@ public partial class User_Control_BeneficiaryInformationUpdate : System.Web.UI.U
             contact.homeState = Int32.Parse(this.homeState);
             contact.address = this.Address;
             contact.dateUpdated = DateTime.Now;
-            contact.whoUpdated = "admin";
+            contact.whoUpdated = Page.User.Identity.Name;
 
             // NOW SAVE BOTH THE PERSONAL AND CONTACT INFORMATION OF THE MEMBER
             _do.SaveBeneficiaryPersonalDetail(aPD);

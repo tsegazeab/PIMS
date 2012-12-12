@@ -119,7 +119,7 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         if (PersonalInformationNewMember.CurrentMDA > 0)
             mPD.currentMDA = PersonalInformationNewMember.CurrentMDA;
         mPD.dateCreated = DateTime.Now;
-        mPD.whoCreated = "admin";
+        mPD.whoCreated = User.Identity.Name;
         //fill current or last recent employement
         //currentEmp.employmentID = Int32.Parse(currentPositionnewApplicant.employmentID);
         //currentEmp.pensionID = mPD.pensionID;
@@ -130,7 +130,7 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         //currentEmp.workState = Int32.Parse(currentPositionnewApplicant.currentState);
         //currentEmp.dateCreated = DateTime.Now;
         //currentEmp.isActive = "Yes";
-        //currentEmp.whoCreated = "admin";
+        //currentEmp.whoCreated = User.Identity.Name;
         //fill contact information
         contactDetail.pensionID = mPD.pensionID;
         contactDetail.email = contactinformationNewMember.eMail;
@@ -140,7 +140,7 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         contactDetail.homeState = Int32.Parse(contactinformationNewMember.homeState);
         contactDetail.address = contactinformationNewMember.Address;
         contactDetail.dateUpdated = DateTime.Now;
-        contactDetail.whoUpdated = "admin";
+        contactDetail.whoUpdated = User.Identity.Name;
         //now save the information in the three objects, begining with membership record
        _do.SaveMemberPersonalDetail(mPD);
        //_do.SaveMemberCurrentPosition(currentEmp);
@@ -152,11 +152,12 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
        SelectedTab("service break");
 
         //Update session variables
-       PSPITSModuleSession.PensionID = PersonalInformationNewMember.PensionID.Trim();
-       PSPITSModuleSession.SchemeID = PersonalInformationNewMember.SchemeID;
-       PSPITSModuleSession.MemberFullName = _do.GetMemberFullNamebyPensionID(int.Parse(PersonalInformationNewMember.PensionID.Trim())).memberFullName.Trim();
+       
+       Master.PensionID = PSPITSModuleSession.PensionID = DeclarationnewMember.pensionID = PersonalInformationNewMember.PensionID.Trim();
+       Master.SchemeID = PSPITSModuleSession.SchemeID = DeclarationnewMember.SchemeID = PersonalInformationNewMember.SchemeID;
+       Master.MemberFullName = PSPITSModuleSession.MemberFullName = DeclarationnewMember.MemberFullName = _do.GetMemberFullNamebyPensionID(int.Parse(PersonalInformationNewMember.PensionID.Trim())).memberFullName.Trim();
        MemberIdentity mi = _do.GetMemberIdentityPhotoByPensionId(int.Parse(PersonalInformationNewMember.PensionID.Trim()));        
-       PSPITSModuleSession.MemberPhoto = mi != null ? mi.MemberPhoto : new byte[0];
+       Master.MemberPhoto =  PSPITSModuleSession.MemberPhoto = mi != null ? mi.MemberPhoto : new byte[0];
     }
 
     //protected void ButtonNextContactInformation_Click(object sender, EventArgs e)
@@ -186,7 +187,7 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         declaration.nameofCertifyingOfficer = DeclarationnewMember.nameofCertifyingOfficer;
         declaration.titleofCertifyingOfficer = DeclarationnewMember.titleofCertifyingOfficer;
         declaration.locationofCertifyingOfficerSignature = DeclarationnewMember.locationofCertifyingOfficerSignature;
-        declaration.whoUpdated = "admin";
+        declaration.whoUpdated = User.Identity.Name;
         declaration.dateUpdated = DateTime.Now.Date;
         new PSPITSDO().SaveMemberDeclaration(declaration);
     }

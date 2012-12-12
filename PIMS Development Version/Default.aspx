@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Public Servants Pension MIS</title>
+    <title>Pension Information Management System (PIMS)</title>
     <style type="text/css">
         .style1
         {
@@ -24,8 +24,21 @@
     </style>
     <link href="Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style=" margin-top: 0px;">
     <form id="form1" runat="server">
+    <table width="100%">
+        <tr>
+            <td width="100%" align="right" style=" font-family:Arial; font-size: small;">                
+                Current user:
+            <asp:Label ID="LabelCurrentUser" runat="server" 
+                CssClass="text" ForeColor="Navy" Font-Bold="True"></asp:Label>
+                
+            &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
+                                                LogoutAction="RedirectToLoginPage" />]
+                
+            </td>
+        </tr>
+    </table>
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
     <div>
@@ -34,7 +47,7 @@
             
             style="background-position: center center; top: 0px; left: 0px; background-image: url('images/modules/Desktop_icons/Final_PF_Logo.png'); background-repeat: no-repeat;">
             <tr>
-                <td colspan="6" rowspan="12" valign="top">
+                <td colspan="6" rowspan="11" valign="top">
                     <table cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="style2">
@@ -53,24 +66,6 @@
                                 </td>
                             <td class="style2">
                                 </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
-                            <td>
-                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td>
@@ -152,7 +147,7 @@
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Office-Customer-Male-Dark-icon.png" 
-                                            Text="Sys Admin">
+                                            Text="Sys Admin" NavigateUrl="~/SystemAdministration/Default.aspx">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>
@@ -324,13 +319,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td align="right" width="220">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" width="220">
+                <td align="right" width="220" valign="top">
                     <telerik:RadCalendar ID="RadCalendar1" Runat="server" EnableMultiSelect="False" 
                         SelectedDate="" Skin="Windows7" ViewSelectorText="x">
                         <SpecialDays>

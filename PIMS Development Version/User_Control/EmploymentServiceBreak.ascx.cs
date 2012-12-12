@@ -100,7 +100,7 @@ public partial class User_Control_ServiceBreak : System.Web.UI.UserControl
         PSPITSDO rdo = new PSPITSDO();
         MemberServiceBreak aPD = new MemberServiceBreak();
         aPD.pensionID = Int32.Parse(this.pensionID);
-        aPD.whoCreated = "admin";
+        aPD.whoCreated = Page.User.Identity.Name;
         aPD.dateCreated = DateTime.Now;
         aPD.serviceBreakID = rdo.GenServiceBreakID();
         aPD.serviceBreakType = Int32.Parse(this.servicebreakType);

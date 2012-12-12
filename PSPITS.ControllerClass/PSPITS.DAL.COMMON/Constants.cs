@@ -267,9 +267,12 @@ namespace PSPITS.COMMON
 
         public const decimal JUNE_2012_SALARY = 2475;
         public static DateTime JULY_FIRST_2012 { get { return new DateTime(2012, 7, 1); } }
+        public static DateTime DEC_31_1952 { get { return new DateTime(1952, 12, 31); } }
+        public static DateTime DEC_01_1957 { get { return new DateTime(1957, 12, 1); } }
         public const double NUMBER_OF_DAYS_IN_YEAR = 365.25;
         public const double ONE_POINT_FIVE_PERCENT = 0.015;
         public const int NUMBER_OF_MONTHS_IN_YEAR = 12;
+        public const double NUMBER_OF_DAYS_IN_MONTH = 30.4375;
 
         #endregion
 

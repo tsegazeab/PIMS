@@ -5,7 +5,6 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 using System.Configuration;
-using System.Linq;
 using System.Linq.Expressions;
 using PSPITS.COMMON;
 using PSPITS.MODEL;
@@ -127,6 +126,35 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         {
             double netServiceYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
             mb.GrossAnnualPensionUpto30June2012 = (decimal)(Constants.ONE_POINT_FIVE_PERCENT * (double)Constants.JUNE_2012_SALARY * Constants.NUMBER_OF_MONTHS_IN_YEAR * netServiceYears);
+        }
+
+        private MemberAge DeterminePensionableAge(DateTime dob)
+        {
+            if (dob <= Constants.DEC_31_1952)
+                return new MemberAge { Years = 60 };
+            if (dob >= Constants.DEC_01_1957)
+                return new MemberAge { Years = 65 };
+            int yearDiff = dob.Year - Constants.DEC_31_1952.Year;
+            yearDiff--;
+            return new MemberAge { Years = 60 + yearDiff, Months = dob.Month };
+        }
+
+        /// <summary>
+        /// Calculate age 
+        /// </summary>
+        /// <param name="dob"></param>
+        /// <returns></returns>
+        private MemberAge GetMemberAge(DateTime dob)
+        {
+            TimeSpan ts = DateTime.Today - dob;
+            int days;
+            MemberAge age = new MemberAge();
+            age.Years = (int)(ts.Days / Constants.NUMBER_OF_DAYS_IN_YEAR);
+            //get number of extra days
+            days = (int)(ts.Days - (age.Years * Constants.NUMBER_OF_DAYS_IN_YEAR));
+            age.Months = (int)(days / Constants.NUMBER_OF_DAYS_IN_MONTH);
+            age.Days = (int)(days - (age.Months * Constants.NUMBER_OF_DAYS_IN_MONTH));
+            return age;
         }
 
         #endregion

@@ -22,6 +22,7 @@ public partial class MasterPageBenefit : System.Web.UI.MasterPage
             this.PayrollNo = PSPITSModuleSession.PayrollNo.Trim();
             this.MemberFullName = PSPITSModuleSession.MemberFullName.Trim();
             this.MemberPhoto = PSPITSModuleSession.MemberPhoto;
+            LabelCurrentUser.Text = this.Page.User.Identity.Name;
         }
     }
 

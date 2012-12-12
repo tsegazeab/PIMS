@@ -249,3 +249,11 @@ table.benefitsDisplayTab td
 {
     border: 1px solid Gray;    
 }
+.loginPanel
+{
+    border: 1px solid Navy;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 3px 3px 3px #999;
+    -moz-box-shadow: 3px 3px 3px #999;adius: 6px 6px 6px 6px;
+}
+

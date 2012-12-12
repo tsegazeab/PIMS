@@ -57,7 +57,7 @@
                             <td width="20">
                                 &nbsp;</td>
                             <td height="20" align="left">
-                                <span class="mybottom3">Pensions Information Management System (PIMS)</span></td>
+                                <span class="mybottom3">Pension Information Management System (PIMS)</span></td>
                             <td height="20" align="right" valign="bottom">
                                 <b class="moduleTitle">&nbsp;Member & Survivor Benefits&nbsp;</b>
                                 <br />&nbsp;
@@ -70,9 +70,14 @@
                                         <td align="center">
 &nbsp; |&nbsp;
                                         </td>
-                                        <td align="center">
-                                            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
-                                                LogoutAction="RedirectToLoginPage" LogoutText="Log off" />
+                                        <td style=" font-family:Arial; font-size: small;">
+                                            Current user:
+                                            <asp:Label ID="LabelCurrentUser" runat="server" 
+                                                CssClass="text" ForeColor="Navy" Font-Bold="True"></asp:Label>
+                                        </td>
+                                        <td align="center"  style=" font-family:Arial; font-size: small;">
+                                            &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
+                                                LogoutAction="RedirectToLoginPage" />]
                                         </td>
                                     </tr>
                                 </table>

@@ -208,13 +208,13 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
         if (this.IsUpdate)
         {
             //aPD.serviceBreakID = Int32.Parse(this.serviceBreakID);
-            aPD.whoUpdated = "admin";
+            aPD.whoUpdated = Page.User.Identity.Name;
             aPD.dateUpdated = DateTime.Now;
         }
         else
         {
             //aPD.serviceBreakID = int.Parse(this.serviceBreakID = string.Format("{0}", rdo.GenServiceBreakID()));
-            aPD.whoCreated = "admin";
+            aPD.whoCreated = Page.User.Identity.Name;
             aPD.dateCreated = DateTime.Now;
         }
         this.IsUpdate = false;

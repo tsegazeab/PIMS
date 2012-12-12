@@ -127,7 +127,7 @@ public partial class User_Control_Declaration : System.Web.UI.UserControl
         declaration.nameofCertifyingOfficer = this.nameofCertifyingOfficer;
         declaration.titleofCertifyingOfficer = this.titleofCertifyingOfficer;
         declaration.locationofCertifyingOfficerSignature = this.locationofCertifyingOfficerSignature;
-        declaration.whoUpdated = "admin";
+        declaration.whoUpdated = Page.User.Identity.Name;
         declaration.dateUpdated = DateTime.Now.Date;
         new PSPITSDO().SaveMemberDeclaration(declaration);
         LoadMemberDeclaration();
