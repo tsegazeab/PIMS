@@ -267,6 +267,8 @@ namespace PSPITS.COMMON
 
         public const decimal JUNE_2012_SALARY = 2475;
         public static DateTime JULY_FIRST_2012 { get { return new DateTime(2012, 7, 1); } }
+        public static DateTime JULY_FIRST_CURRENT_YEAR { get { return new DateTime(DateTime.Today.Year, 7, 1); } }
+        public static DateTime JUNE_30_CURRENT_YEAR { get { return new DateTime(DateTime.Today.Year, 6, 30); } }
         public static DateTime DEC_31_1952 { get { return new DateTime(1952, 12, 31); } }
         public static DateTime DEC_01_1957 { get { return new DateTime(1957, 12, 1); } }
         public const double NUMBER_OF_DAYS_IN_YEAR = 365.25;
@@ -286,6 +288,16 @@ namespace PSPITS.COMMON
         public const int FUNCTION_BENEFICIARY_REGISTRATION = 1278;
         public const int FUNCTION_MEMBER_SERVICE_BREAKS = 1281;
 
+        //MemberBenefitEvents
+        /// <summary>
+        /// Employee Terminated/Resigned/Retired
+        /// </summary>
+        public const int EMPLOYEE_TERMINATED_RESIGNED_RETIRED = 1284;
+        /// <summary>
+        /// Employee Disabled
+        /// </summary>
+        public const int EMPLOYEE_DISABLED = 1285;
+
         #endregion
 
     }
@@ -296,6 +308,7 @@ namespace PSPITS.COMMON
         EarlyPension,
         LatePension,
         DeathInServicePension,
-        TerminationLumpSumAmount
+        TerminationLumpSumAmount,
+        LessThanTwoYears
     }
 }

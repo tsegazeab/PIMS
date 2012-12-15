@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PSPITSModelStoreContainer" CdmEntityContainer="PSPITSEntities">
     <EntitySetMapping Name="ActualContributions">
-      <EntityTypeMapping TypeName="PSPITSModel.ActualContribution">
+      <EntityTypeMapping TypeName="PSPITS.Model.ActualContribution">
         <MappingFragment StoreEntitySet="ActualContribution">
           <ScalarProperty Name="monthRSSAgency" ColumnName="monthRSSAgency" />
           <ScalarProperty Name="month" ColumnName="month" />
@@ -19,8 +19,140 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Applications">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_Applications">
+        <MappingFragment StoreEntitySet="aspnet_Applications">
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_Membership">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Paths">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_Paths">
+        <MappingFragment StoreEntitySet="aspnet_Paths">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_PersonalizationAllUsers">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_PersonalizationPerUser">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Profile">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_Profile">
+        <MappingFragment StoreEntitySet="aspnet_Profile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+          <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Roles">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_Roles">
+        <MappingFragment StoreEntitySet="aspnet_Roles">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_SchemaVersions">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_SchemaVersions">
+        <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+          <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+          <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_WebEvent_Events">
+      <EntityTypeMapping TypeName="PSPITS.Model.aspnet_WebEvent_Events">
+        <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+          <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+          <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+          <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+          <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="BankAccountDetails">
-      <EntityTypeMapping TypeName="PSPITSModel.BankAccountDetail">
+      <EntityTypeMapping TypeName="PSPITS.Model.BankAccountDetail">
         <MappingFragment StoreEntitySet="BankAccountDetail">
           <ScalarProperty Name="bankAccountID" ColumnName="bankAccountID" />
           <ScalarProperty Name="bankaccountName" ColumnName="bankaccountName" />
@@ -36,7 +168,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Beneficiaries">
-      <EntityTypeMapping TypeName="PSPITSModel.Beneficiary">
+      <EntityTypeMapping TypeName="PSPITS.Model.Beneficiary">
         <MappingFragment StoreEntitySet="Beneficiary">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
@@ -64,7 +196,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BeneficiaryDisabilities">
-      <EntityTypeMapping TypeName="PSPITSModel.BeneficiaryDisability">
+      <EntityTypeMapping TypeName="PSPITS.Model.BeneficiaryDisability">
         <MappingFragment StoreEntitySet="BeneficiaryDisability">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
@@ -83,24 +215,30 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BeneficiaryEvidences">
-      <EntityTypeMapping TypeName="PSPITSModel.BeneficiaryEvidence">
+      <EntityTypeMapping TypeName="PSPITS.Model.BeneficiaryEvidence">
         <MappingFragment StoreEntitySet="BeneficiaryEvidence">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
           <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
-          <ScalarProperty Name="relationID" ColumnName="relationID" />
           <ScalarProperty Name="evidenceComment" ColumnName="evidenceComment" />
-          <ScalarProperty Name="evidenceStorageLocation" ColumnName="evidenceStorageLocation" />
           <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
           <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
           <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
           <ScalarProperty Name="whoUpdated" ColumnName="whoUpdated" />
           <ScalarProperty Name="logRef" ColumnName="logRef" />
+          <ScalarProperty Name="evidencePresented" ColumnName="evidencePresented" />
+          <ScalarProperty Name="evidenceAccepted" ColumnName="evidenceAccepted" />
+          <ScalarProperty Name="fileExtention" ColumnName="fileExtention" />
+          <ScalarProperty Name="fileContent" ColumnName="fileContent" />
+          <ScalarProperty Name="fileOriginalName" ColumnName="fileOriginalName" />
+          <ScalarProperty Name="fileSize" ColumnName="fileSize" />
+          <ScalarProperty Name="dateVerified" ColumnName="dateVerified" />
+          <ScalarProperty Name="whoVerified" ColumnName="whoVerified" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BenefitPaymentMembers">
-      <EntityTypeMapping TypeName="PSPITSModel.BenefitPaymentMember">
+      <EntityTypeMapping TypeName="PSPITS.Model.BenefitPaymentMember">
         <MappingFragment StoreEntitySet="BenefitPaymentMember">
           <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
@@ -122,7 +260,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BenefitPaymentSurvivors">
-      <EntityTypeMapping TypeName="PSPITSModel.BenefitPaymentSurvivor">
+      <EntityTypeMapping TypeName="PSPITS.Model.BenefitPaymentSurvivor">
         <MappingFragment StoreEntitySet="BenefitPaymentSurvivor">
           <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
           <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
@@ -144,7 +282,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="dbLogs">
-      <EntityTypeMapping TypeName="PSPITSModel.dbLog">
+      <EntityTypeMapping TypeName="PSPITS.Model.dbLog">
         <MappingFragment StoreEntitySet="dbLog">
           <ScalarProperty Name="logRef" ColumnName="logRef" />
           <ScalarProperty Name="tableName" ColumnName="tableName" />
@@ -158,7 +296,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DisabilityBenefitApplications">
-      <EntityTypeMapping TypeName="PSPITSModel.DisabilityBenefitApplication">
+      <EntityTypeMapping TypeName="PSPITS.Model.DisabilityBenefitApplication">
         <MappingFragment StoreEntitySet="DisabilityBenefitApplication">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="agentID" ColumnName="agentID" />
@@ -188,7 +326,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvidenceByFunctions">
-      <EntityTypeMapping TypeName="PSPITSModel.EvidenceByFunction">
+      <EntityTypeMapping TypeName="PSPITS.Model.EvidenceByFunction">
         <MappingFragment StoreEntitySet="EvidenceByFunction">
           <ScalarProperty Name="EvidenceByFunctionID" ColumnName="EvidenceByFunctionID" />
           <ScalarProperty Name="functionID" ColumnName="functionID" />
@@ -204,7 +342,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvidenceByRelations">
-      <EntityTypeMapping TypeName="PSPITSModel.EvidenceByRelation">
+      <EntityTypeMapping TypeName="PSPITS.Model.EvidenceByRelation">
         <MappingFragment StoreEntitySet="EvidenceByRelation">
           <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
           <ScalarProperty Name="relationID" ColumnName="relationID" />
@@ -217,7 +355,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LifeBenefitApplications">
-      <EntityTypeMapping TypeName="PSPITSModel.LifeBenefitApplication">
+      <EntityTypeMapping TypeName="PSPITS.Model.LifeBenefitApplication">
         <MappingFragment StoreEntitySet="LifeBenefitApplication">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="agentID" ColumnName="agentID" />
@@ -248,7 +386,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Lists">
-      <EntityTypeMapping TypeName="PSPITSModel.List">
+      <EntityTypeMapping TypeName="PSPITS.Model.List">
         <MappingFragment StoreEntitySet="List">
           <ScalarProperty Name="listID" ColumnName="listID" />
           <ScalarProperty Name="listTypeID" ColumnName="listTypeID" />
@@ -264,7 +402,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListTypes">
-      <EntityTypeMapping TypeName="PSPITSModel.ListType">
+      <EntityTypeMapping TypeName="PSPITS.Model.ListType">
         <MappingFragment StoreEntitySet="ListType">
           <ScalarProperty Name="listtypeID" ColumnName="listtypeID" />
           <ScalarProperty Name="listTypeText" ColumnName="listTypeText" />
@@ -277,7 +415,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Members">
-      <EntityTypeMapping TypeName="PSPITSModel.Member">
+      <EntityTypeMapping TypeName="PSPITS.Model.Member">
         <MappingFragment StoreEntitySet="Member">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="schemeID" ColumnName="schemeID" />
@@ -320,7 +458,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberAllowances">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberAllowance">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberAllowance">
         <MappingFragment StoreEntitySet="MemberAllowance">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="month" ColumnName="month" />
@@ -336,7 +474,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberArrears">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberArrear">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberArrear">
         <MappingFragment StoreEntitySet="MemberArrear">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="arrearID" ColumnName="arrearID" />
@@ -366,7 +504,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberComputedBenefits">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberComputedBenefit">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberComputedBenefit">
         <MappingFragment StoreEntitySet="MemberComputedBenefit">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="yearsofpensionableservice" ColumnName="yearsofpensionableservice" />
@@ -402,7 +540,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberEmployments">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberEmployment">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberEmployment">
         <MappingFragment StoreEntitySet="MemberEmployment">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="employmentID" ColumnName="employmentID" />
@@ -428,7 +566,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberEmploymentEvidences">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberEmploymentEvidence">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberEmploymentEvidence">
         <MappingFragment StoreEntitySet="MemberEmploymentEvidence">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="employmentID" ColumnName="employmentID" />
@@ -447,7 +585,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberEmploymentServiceBreaks">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberEmploymentServiceBreak">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberEmploymentServiceBreak">
         <MappingFragment StoreEntitySet="MemberEmploymentServiceBreak">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="servicebreakID" ColumnName="servicebreakID" />
@@ -456,6 +594,7 @@
           <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
           <ScalarProperty Name="hasEvidence" ColumnName="hasEvidence" />
           <ScalarProperty Name="evidenceAcceptable" ColumnName="evidenceAcceptable" />
+          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
           <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
           <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
           <ScalarProperty Name="whoCreated" ColumnName="whoCreated" />
@@ -465,7 +604,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberEmploymentServiceBreakEvidences">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberEmploymentServiceBreakEvidence">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberEmploymentServiceBreakEvidence">
         <MappingFragment StoreEntitySet="MemberEmploymentServiceBreakEvidence">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="servicebreakID" ColumnName="servicebreakID" />
@@ -492,7 +631,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberEvidences">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberEvidence">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberEvidence">
         <MappingFragment StoreEntitySet="MemberEvidence">
           <ScalarProperty Name="EvidenceByFunctionID" ColumnName="EvidenceByFunctionID" />
           <ScalarProperty Name="PensionID" ColumnName="PensionID" />
@@ -514,7 +653,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberIdentities">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberIdentity">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberIdentity">
         <MappingFragment StoreEntitySet="MemberIdentity">
           <ScalarProperty Name="PensionID" ColumnName="PensionID" />
           <ScalarProperty Name="NationalID" ColumnName="NationalID" />
@@ -533,7 +672,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MemberSalaries">
-      <EntityTypeMapping TypeName="PSPITSModel.MemberSalary">
+      <EntityTypeMapping TypeName="PSPITS.Model.MemberSalary">
         <MappingFragment StoreEntitySet="MemberSalary">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="month" ColumnName="month" />
@@ -555,7 +694,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NominatedAgents">
-      <EntityTypeMapping TypeName="PSPITSModel.NominatedAgent">
+      <EntityTypeMapping TypeName="PSPITS.Model.NominatedAgent">
         <MappingFragment StoreEntitySet="NominatedAgent">
           <ScalarProperty Name="agentID" ColumnName="agentID" />
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
@@ -583,7 +722,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NonMemberAllowances">
-      <EntityTypeMapping TypeName="PSPITSModel.NonMemberAllowance">
+      <EntityTypeMapping TypeName="PSPITS.Model.NonMemberAllowance">
         <MappingFragment StoreEntitySet="NonMemberAllowance">
           <ScalarProperty Name="payrollNumber" ColumnName="payrollNumber" />
           <ScalarProperty Name="month" ColumnName="month" />
@@ -599,7 +738,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NonMemberSalaries">
-      <EntityTypeMapping TypeName="PSPITSModel.NonMemberSalary">
+      <EntityTypeMapping TypeName="PSPITS.Model.NonMemberSalary">
         <MappingFragment StoreEntitySet="NonMemberSalary">
           <ScalarProperty Name="payrollNumber" ColumnName="payrollNumber" />
           <ScalarProperty Name="month" ColumnName="month" />
@@ -620,7 +759,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SurvivorArrears">
-      <EntityTypeMapping TypeName="PSPITSModel.SurvivorArrear">
+      <EntityTypeMapping TypeName="PSPITS.Model.SurvivorArrear">
         <MappingFragment StoreEntitySet="SurvivorArrear">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
@@ -651,7 +790,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SurvivorBenefitApplications">
-      <EntityTypeMapping TypeName="PSPITSModel.SurvivorBenefitApplication">
+      <EntityTypeMapping TypeName="PSPITS.Model.SurvivorBenefitApplication">
         <MappingFragment StoreEntitySet="SurvivorBenefitApplication">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="agentID" ColumnName="agentID" />
@@ -677,7 +816,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SurvivorComputedBenefits">
-      <EntityTypeMapping TypeName="PSPITSModel.SurvivorComputedBenefit">
+      <EntityTypeMapping TypeName="PSPITS.Model.SurvivorComputedBenefit">
         <MappingFragment StoreEntitySet="SurvivorComputedBenefit">
           <ScalarProperty Name="pensionID" ColumnName="pensionID" />
           <ScalarProperty Name="beneficiaryID" ColumnName="beneficiaryID" />
@@ -708,7 +847,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TaxRules">
-      <EntityTypeMapping TypeName="PSPITSModel.TaxRule">
+      <EntityTypeMapping TypeName="PSPITS.Model.TaxRule">
         <MappingFragment StoreEntitySet="TaxRule">
           <ScalarProperty Name="ruleID" ColumnName="ruleID" />
           <ScalarProperty Name="ruleName" ColumnName="ruleName" />
@@ -728,7 +867,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransLogs">
-      <EntityTypeMapping TypeName="PSPITSModel.TransLog">
+      <EntityTypeMapping TypeName="PSPITS.Model.TransLog">
         <MappingFragment StoreEntitySet="TransLog">
           <ScalarProperty Name="TranslogID" ColumnName="TranslogID" />
           <ScalarProperty Name="LogRefID" ColumnName="LogRefID" />
@@ -745,8 +884,126 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_Applications">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_Applications">
+        <MappingFragment StoreEntitySet="vw_aspnet_Applications">
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_MembershipUsers">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_MembershipUsers">
+        <MappingFragment StoreEntitySet="vw_aspnet_MembershipUsers">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_Profiles">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_Profiles">
+        <MappingFragment StoreEntitySet="vw_aspnet_Profiles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="DataSize" ColumnName="DataSize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_Roles">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_Roles">
+        <MappingFragment StoreEntitySet="vw_aspnet_Roles">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_Users">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_Users">
+        <MappingFragment StoreEntitySet="vw_aspnet_Users">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_UsersInRoles">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_UsersInRoles">
+        <MappingFragment StoreEntitySet="vw_aspnet_UsersInRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_WebPartState_Paths">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_WebPartState_Paths">
+        <MappingFragment StoreEntitySet="vw_aspnet_WebPartState_Paths">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_WebPartState_Shared">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_WebPartState_Shared">
+        <MappingFragment StoreEntitySet="vw_aspnet_WebPartState_Shared">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="DataSize" ColumnName="DataSize" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_WebPartState_User">
+      <EntityTypeMapping TypeName="PSPITS.Model.vw_aspnet_WebPartState_User">
+        <MappingFragment StoreEntitySet="vw_aspnet_WebPartState_User">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DataSize" ColumnName="DataSize" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwlistBeneficiaryEvidences">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistBeneficiaryEvidence">
+        <MappingFragment StoreEntitySet="vwlistBeneficiaryEvidence">
+          <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
+          <ScalarProperty Name="evidence" ColumnName="evidence" />
+          <ScalarProperty Name="evidenceCode" ColumnName="evidenceCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="vwlistBeneficiaryRelationships">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistBeneficiaryRelationship">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistBeneficiaryRelationship">
         <MappingFragment StoreEntitySet="vwlistBeneficiaryRelationship">
           <ScalarProperty Name="relationshipID" ColumnName="relationshipID" />
           <ScalarProperty Name="Relationship" ColumnName="Relationship" />
@@ -755,7 +1012,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistDays">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistDay">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistDay">
         <MappingFragment StoreEntitySet="vwlistDay">
           <ScalarProperty Name="dayID" ColumnName="dayID" />
           <ScalarProperty Name="Day" ColumnName="Day" />
@@ -764,7 +1021,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistDisabilityTypes">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistDisabilityType">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistDisabilityType">
         <MappingFragment StoreEntitySet="vwlistDisabilityType">
           <ScalarProperty Name="DisabilityTypeID" ColumnName="DisabilityTypeID" />
           <ScalarProperty Name="DisabilityType" ColumnName="DisabilityType" />
@@ -773,7 +1030,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistEvidences">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistEvidence">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistEvidence">
         <MappingFragment StoreEntitySet="vwlistEvidence">
           <ScalarProperty Name="evidenceID" ColumnName="evidenceID" />
           <ScalarProperty Name="evidence" ColumnName="evidence" />
@@ -782,7 +1039,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistEvidenceTypes">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistEvidenceType">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistEvidenceType">
         <MappingFragment StoreEntitySet="vwlistEvidenceType">
           <ScalarProperty Name="evidencetypeID" ColumnName="evidencetypeID" />
           <ScalarProperty Name="evidenceType" ColumnName="evidenceType" />
@@ -791,7 +1048,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistFunctions">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistFunction">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistFunction">
         <MappingFragment StoreEntitySet="vwlistFunction">
           <ScalarProperty Name="functionID" ColumnName="functionID" />
           <ScalarProperty Name="functionText" ColumnName="functionText" />
@@ -800,7 +1057,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistGenders">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistGender">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistGender">
         <MappingFragment StoreEntitySet="vwlistGender">
           <ScalarProperty Name="genderID" ColumnName="genderID" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
@@ -809,7 +1066,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistGrades">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistGrade">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistGrade">
         <MappingFragment StoreEntitySet="vwlistGrade">
           <ScalarProperty Name="gradeID" ColumnName="gradeID" />
           <ScalarProperty Name="Grade" ColumnName="Grade" />
@@ -818,7 +1075,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistMaritals">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistMarital">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistMarital">
         <MappingFragment StoreEntitySet="vwlistMarital">
           <ScalarProperty Name="maritalID" ColumnName="maritalID" />
           <ScalarProperty Name="Marital" ColumnName="Marital" />
@@ -827,7 +1084,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistMDAs">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistMDA">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistMDA">
         <MappingFragment StoreEntitySet="vwlistMDA">
           <ScalarProperty Name="mdaID" ColumnName="mdaID" />
           <ScalarProperty Name="MDA" ColumnName="MDA" />
@@ -835,8 +1092,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vwlistMemberBenefitEvents">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistMemberBenefitEvent">
+        <MappingFragment StoreEntitySet="vwlistMemberBenefitEvent">
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="eventCode" ColumnName="eventCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="vwlistMonths">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistMonth">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistMonth">
         <MappingFragment StoreEntitySet="vwlistMonth">
           <ScalarProperty Name="monthID" ColumnName="monthID" />
           <ScalarProperty Name="Month" ColumnName="Month" />
@@ -845,7 +1111,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistPrefixes">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistPrefix">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistPrefix">
         <MappingFragment StoreEntitySet="vwlistPrefix">
           <ScalarProperty Name="prefixID" ColumnName="prefixID" />
           <ScalarProperty Name="prefix" ColumnName="prefix" />
@@ -854,7 +1120,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistServiceBreakTypes">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistServiceBreakType">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistServiceBreakType">
         <MappingFragment StoreEntitySet="vwlistServiceBreakType">
           <ScalarProperty Name="servicebreakTypeID" ColumnName="servicebreakTypeID" />
           <ScalarProperty Name="servicebreakType" ColumnName="servicebreakType" />
@@ -863,7 +1129,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistStates">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistState">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistState">
         <MappingFragment StoreEntitySet="vwlistState">
           <ScalarProperty Name="stateID" ColumnName="stateID" />
           <ScalarProperty Name="State" ColumnName="State" />
@@ -872,7 +1138,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistStatus">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistStatu">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistStatu">
         <MappingFragment StoreEntitySet="vwlistStatus">
           <ScalarProperty Name="maritalID" ColumnName="maritalID" />
           <ScalarProperty Name="Marital" ColumnName="Marital" />
@@ -881,7 +1147,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistWorkstations">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistWorkstation">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistWorkstation">
         <MappingFragment StoreEntitySet="vwlistWorkstation">
           <ScalarProperty Name="workstationID" ColumnName="workstationID" />
           <ScalarProperty Name="workstation" ColumnName="workstation" />
@@ -890,7 +1156,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwlistYears">
-      <EntityTypeMapping TypeName="PSPITSModel.vwlistYear">
+      <EntityTypeMapping TypeName="PSPITS.Model.vwlistYear">
         <MappingFragment StoreEntitySet="vwlistYear">
           <ScalarProperty Name="yearID" ColumnName="yearID" />
           <ScalarProperty Name="year" ColumnName="year" />
@@ -898,5 +1164,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="PSPITS.Model.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+      <EndProperty Name="aspnet_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

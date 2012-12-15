@@ -89,7 +89,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar5" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar5" Runat="server" Skin="Windows7" 
+                                    EnableAjaxSkinRendering="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Column-Chart-icon.png" 
@@ -126,7 +127,7 @@
                                 &nbsp;</td>
                             <td>
                                 <telerik:RadToolBar ID="RadToolBar2" Runat="server" Skin="Windows7" 
-                                    onbuttonclick="RadToolBar2_ButtonClick">
+                                    onbuttonclick="RadToolBar2_ButtonClick" Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Contribution" 
@@ -179,7 +180,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar3" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar3" Runat="server" Skin="Windows7" 
+                                    Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Benefit" ImageUrl="~/images/modules/Desktop_icons/Favorites.png" 
@@ -195,7 +197,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7" 
+                                    Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Security_Reader1.png" 
@@ -232,7 +235,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar4" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar4" Runat="server" Skin="Windows7" 
+                                    Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Payment" ImageUrl="~/images/modules/Desktop_icons/11.png">
@@ -247,7 +251,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7" 
+                                    Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Books-1-icon.png" 
@@ -283,7 +288,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar11" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar11" Runat="server" Skin="Windows7" 
+                                    Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/search (2).png" Text="Search">
@@ -298,7 +304,8 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7" 
+                                    Enabled="False">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Question_Mark-175x175.png" Text="Help">
@@ -371,26 +378,27 @@
                 <td width="220">
                     <table cellpadding="0" cellspacing="0" class="style3">
                         <tr>
-                            <td align="center" bgcolor="#9CCDFE" height="22">
-                                <span class="text">My Tasks</span></td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#BBDCFE">
-                                <asp:BulletedList ID="BulletedList1" runat="server">
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                </asp:BulletedList>
+                            <td align="center" height="22">
+                                <!--<span class="text">My Tasks</span>-->
                             </td>
                         </tr>
                         <tr>
-                            <td align="center" bgcolor="#BBDCFE">
+                            <td> <!--bgcolor="#BBDCFE">-->
+                                <!--<asp:BulletedList ID="BulletedList1" runat="server">
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem></asp:ListItem>
+                                </asp:BulletedList>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center"><!-- bgcolor="#BBDCFE">-->
                                 &nbsp;</td>
                         </tr>
                     </table>

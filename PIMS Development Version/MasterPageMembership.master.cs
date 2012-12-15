@@ -79,7 +79,7 @@ public partial class MasterPageMembership : System.Web.UI.MasterPage
             RadBinaryImageMemberPhoto.DataBind();
             if (PSPITSModuleSession.MemberPhoto.Length > 0)
                 RadBinaryImageMemberPhoto.Visible = true;
-            else
+            else if (PSPITSModuleSession.SchemeID.Trim() == string.Empty)
             {
                 RadBinaryImageMemberPhoto.DataValue = null;
                 RadBinaryImageMemberPhoto.ImageUrl = "~/images/no_photo.jpg";

@@ -185,6 +185,7 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
 
         }
     }
+
     protected void RadButtonAddEvidence_Load(object sender, EventArgs e)
     {
 
@@ -311,6 +312,13 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
     {
         
         MemberEvidenceDetail aPD = new MemberEvidenceDetail();
+        if (!this.IsUpdate && this.TheUploadedFile == null)
+        {
+            RebindGrid();
+            LabelUploadedFile.Text = "No file was uploaded. CANNOT PROCEED!";
+            return;
+        }
+        LabelUploadedFile.Text = "";
         if (this.IsUpdate)
         {
             //aPD.serviceBreakID = Int32.Parse(this.serviceBreakID);
@@ -323,7 +331,6 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
             aPD.whoCreated = Page.User.Identity.Name;
             aPD.dateCreated = DateTime.Now;
         }
-        this.IsUpdate = false;
         aPD.pensionID = Int32.Parse(this.pensionID);
         aPD.EvidenceByFunctionID = Int32.Parse(this.EvidenceByFunctionID);
         aPD.EvidenceTypeID = Int32.Parse(this.evidenceType);
@@ -332,23 +339,18 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
         aPD.whoVerified = this.whoVerified.Trim();
         if (this.DateofVerification.HasValue)
             aPD.dateVerified = this.DateofVerification.Value;
-        //Evidence attributes
-        if (this.TheUploadedFile == null)
+        //Evidence attributes        
+        if (this.TheUploadedFile != null)
         {
-            RebindGrid();
-            LabelUploadedFile.Text = "No file was uploaded. CANNOT PROCEED!";
-            return;
+            aPD.fileOriginalName = this.fileOriginalName.Trim();
+            aPD.filecontentType = this.filecontentType;
+            aPD.fileSize = this.fileSize;
+            aPD.fileContent = this.fileContent;
         }
-        LabelUploadedFile.Text = "";
-        aPD.fileOriginalName = this.fileOriginalName.Trim();
-       // aPD.filecontentType = this.filecontentType.Trim();
-        aPD.filecontentType = "not set";
-        aPD.fileSize = this.fileSize;
-        aPD.fileContent = this.fileContent;
         //
         aPD.evidenceComment = this.Comment.Trim();
         new PSPITSDO().SaveMemberEvidenceDetail(aPD);
-        RadGridEvidence.Rebind();
+        RebindGrid();
         //clear the controls
         ClearControl();
         this.DisplayMemberNameAndPensionID(int.Parse(this.pensionID));

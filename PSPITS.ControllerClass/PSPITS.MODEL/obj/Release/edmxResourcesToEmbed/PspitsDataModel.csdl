@@ -1,79 +1,140 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="PSPITSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+<Schema Namespace="PSPITS.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="PSPITSEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ActualContributions" EntityType="PSPITSModel.ActualContribution" />
-    <EntitySet Name="BankAccountDetails" EntityType="PSPITSModel.BankAccountDetail" />
-    <EntitySet Name="Beneficiaries" EntityType="PSPITSModel.Beneficiary" />
-    <EntitySet Name="BeneficiaryDisabilities" EntityType="PSPITSModel.BeneficiaryDisability" />
-    <EntitySet Name="BeneficiaryEvidences" EntityType="PSPITSModel.BeneficiaryEvidence" />
-    <EntitySet Name="BenefitPaymentMembers" EntityType="PSPITSModel.BenefitPaymentMember" />
-    <EntitySet Name="BenefitPaymentSurvivors" EntityType="PSPITSModel.BenefitPaymentSurvivor" />
-    <EntitySet Name="dbLogs" EntityType="PSPITSModel.dbLog" />
-    <EntitySet Name="DisabilityBenefitApplications" EntityType="PSPITSModel.DisabilityBenefitApplication" />
-    <EntitySet Name="EvidenceByFunctions" EntityType="PSPITSModel.EvidenceByFunction" />
-    <EntitySet Name="EvidenceByRelations" EntityType="PSPITSModel.EvidenceByRelation" />
-    <EntitySet Name="LifeBenefitApplications" EntityType="PSPITSModel.LifeBenefitApplication" />
-    <EntitySet Name="Lists" EntityType="PSPITSModel.List" />
-    <EntitySet Name="ListTypes" EntityType="PSPITSModel.ListType" />
-    <EntitySet Name="Members" EntityType="PSPITSModel.Member" />
-    <EntitySet Name="MemberAllowances" EntityType="PSPITSModel.MemberAllowance" />
-    <EntitySet Name="MemberArrears" EntityType="PSPITSModel.MemberArrear" />
-    <EntitySet Name="MemberComputedBenefits" EntityType="PSPITSModel.MemberComputedBenefit" />
-    <EntitySet Name="MemberEmployments" EntityType="PSPITSModel.MemberEmployment" />
-    <EntitySet Name="MemberEmploymentEvidences" EntityType="PSPITSModel.MemberEmploymentEvidence" />
-    <EntitySet Name="MemberEmploymentServiceBreaks" EntityType="PSPITSModel.MemberEmploymentServiceBreak" />
-    <EntitySet Name="MemberEmploymentServiceBreakEvidences" EntityType="PSPITSModel.MemberEmploymentServiceBreakEvidence" />
-    <EntitySet Name="MemberEvidences" EntityType="PSPITSModel.MemberEvidence" />
-    <EntitySet Name="MemberIdentities" EntityType="PSPITSModel.MemberIdentity" />
-    <EntitySet Name="MemberSalaries" EntityType="PSPITSModel.MemberSalary" />
-    <EntitySet Name="NominatedAgents" EntityType="PSPITSModel.NominatedAgent" />
-    <EntitySet Name="NonMemberAllowances" EntityType="PSPITSModel.NonMemberAllowance" />
-    <EntitySet Name="NonMemberSalaries" EntityType="PSPITSModel.NonMemberSalary" />
-    <EntitySet Name="SurvivorArrears" EntityType="PSPITSModel.SurvivorArrear" />
-    <EntitySet Name="SurvivorBenefitApplications" EntityType="PSPITSModel.SurvivorBenefitApplication" />
-    <EntitySet Name="SurvivorComputedBenefits" EntityType="PSPITSModel.SurvivorComputedBenefit" />
-    <EntitySet Name="TaxRules" EntityType="PSPITSModel.TaxRule" />
-    <EntitySet Name="TransLogs" EntityType="PSPITSModel.TransLog" />
-    <EntitySet Name="vwlistBeneficiaryRelationships" EntityType="PSPITSModel.vwlistBeneficiaryRelationship" />
-    <EntitySet Name="vwlistDays" EntityType="PSPITSModel.vwlistDay" />
-    <EntitySet Name="vwlistDisabilityTypes" EntityType="PSPITSModel.vwlistDisabilityType" />
-    <EntitySet Name="vwlistEvidences" EntityType="PSPITSModel.vwlistEvidence" />
-    <EntitySet Name="vwlistEvidenceTypes" EntityType="PSPITSModel.vwlistEvidenceType" />
-    <EntitySet Name="vwlistFunctions" EntityType="PSPITSModel.vwlistFunction" />
-    <EntitySet Name="vwlistGenders" EntityType="PSPITSModel.vwlistGender" />
-    <EntitySet Name="vwlistGrades" EntityType="PSPITSModel.vwlistGrade" />
-    <EntitySet Name="vwlistMaritals" EntityType="PSPITSModel.vwlistMarital" />
-    <EntitySet Name="vwlistMDAs" EntityType="PSPITSModel.vwlistMDA" />
-    <EntitySet Name="vwlistMonths" EntityType="PSPITSModel.vwlistMonth" />
-    <EntitySet Name="vwlistPrefixes" EntityType="PSPITSModel.vwlistPrefix" />
-    <EntitySet Name="vwlistServiceBreakTypes" EntityType="PSPITSModel.vwlistServiceBreakType" />
-    <EntitySet Name="vwlistStates" EntityType="PSPITSModel.vwlistState" />
-    <EntitySet Name="vwlistStatus" EntityType="PSPITSModel.vwlistStatu" />
-    <EntitySet Name="vwlistWorkstations" EntityType="PSPITSModel.vwlistWorkstation" />
-    <EntitySet Name="vwlistYears" EntityType="PSPITSModel.vwlistYear" />
-    <AssociationSet Name="FK_MemberComputedBenefit_DisabilityBenefitApplication" Association="PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication">
+    <EntitySet Name="ActualContributions" EntityType="PSPITS.Model.ActualContribution" />
+    <EntitySet Name="aspnet_Applications" EntityType="PSPITS.Model.aspnet_Applications" />
+    <EntitySet Name="aspnet_Membership" EntityType="PSPITS.Model.aspnet_Membership" />
+    <EntitySet Name="aspnet_Paths" EntityType="PSPITS.Model.aspnet_Paths" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="PSPITS.Model.aspnet_PersonalizationAllUsers" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="PSPITS.Model.aspnet_PersonalizationPerUser" />
+    <EntitySet Name="aspnet_Profile" EntityType="PSPITS.Model.aspnet_Profile" />
+    <EntitySet Name="aspnet_Roles" EntityType="PSPITS.Model.aspnet_Roles" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="PSPITS.Model.aspnet_SchemaVersions" />
+    <EntitySet Name="aspnet_Users" EntityType="PSPITS.Model.aspnet_Users" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="PSPITS.Model.aspnet_WebEvent_Events" />
+    <EntitySet Name="BankAccountDetails" EntityType="PSPITS.Model.BankAccountDetail" />
+    <EntitySet Name="Beneficiaries" EntityType="PSPITS.Model.Beneficiary" />
+    <EntitySet Name="BeneficiaryDisabilities" EntityType="PSPITS.Model.BeneficiaryDisability" />
+    <EntitySet Name="BeneficiaryEvidences" EntityType="PSPITS.Model.BeneficiaryEvidence" />
+    <EntitySet Name="BenefitPaymentMembers" EntityType="PSPITS.Model.BenefitPaymentMember" />
+    <EntitySet Name="BenefitPaymentSurvivors" EntityType="PSPITS.Model.BenefitPaymentSurvivor" />
+    <EntitySet Name="dbLogs" EntityType="PSPITS.Model.dbLog" />
+    <EntitySet Name="DisabilityBenefitApplications" EntityType="PSPITS.Model.DisabilityBenefitApplication" />
+    <EntitySet Name="EvidenceByFunctions" EntityType="PSPITS.Model.EvidenceByFunction" />
+    <EntitySet Name="EvidenceByRelations" EntityType="PSPITS.Model.EvidenceByRelation" />
+    <EntitySet Name="LifeBenefitApplications" EntityType="PSPITS.Model.LifeBenefitApplication" />
+    <EntitySet Name="Lists" EntityType="PSPITS.Model.List" />
+    <EntitySet Name="ListTypes" EntityType="PSPITS.Model.ListType" />
+    <EntitySet Name="Members" EntityType="PSPITS.Model.Member" />
+    <EntitySet Name="MemberAllowances" EntityType="PSPITS.Model.MemberAllowance" />
+    <EntitySet Name="MemberArrears" EntityType="PSPITS.Model.MemberArrear" />
+    <EntitySet Name="MemberComputedBenefits" EntityType="PSPITS.Model.MemberComputedBenefit" />
+    <EntitySet Name="MemberEmployments" EntityType="PSPITS.Model.MemberEmployment" />
+    <EntitySet Name="MemberEmploymentEvidences" EntityType="PSPITS.Model.MemberEmploymentEvidence" />
+    <EntitySet Name="MemberEmploymentServiceBreaks" EntityType="PSPITS.Model.MemberEmploymentServiceBreak" />
+    <EntitySet Name="MemberEmploymentServiceBreakEvidences" EntityType="PSPITS.Model.MemberEmploymentServiceBreakEvidence" />
+    <EntitySet Name="MemberEvidences" EntityType="PSPITS.Model.MemberEvidence" />
+    <EntitySet Name="MemberIdentities" EntityType="PSPITS.Model.MemberIdentity" />
+    <EntitySet Name="MemberSalaries" EntityType="PSPITS.Model.MemberSalary" />
+    <EntitySet Name="NominatedAgents" EntityType="PSPITS.Model.NominatedAgent" />
+    <EntitySet Name="NonMemberAllowances" EntityType="PSPITS.Model.NonMemberAllowance" />
+    <EntitySet Name="NonMemberSalaries" EntityType="PSPITS.Model.NonMemberSalary" />
+    <EntitySet Name="SurvivorArrears" EntityType="PSPITS.Model.SurvivorArrear" />
+    <EntitySet Name="SurvivorBenefitApplications" EntityType="PSPITS.Model.SurvivorBenefitApplication" />
+    <EntitySet Name="SurvivorComputedBenefits" EntityType="PSPITS.Model.SurvivorComputedBenefit" />
+    <EntitySet Name="TaxRules" EntityType="PSPITS.Model.TaxRule" />
+    <EntitySet Name="TransLogs" EntityType="PSPITS.Model.TransLog" />
+    <EntitySet Name="vw_aspnet_Applications" EntityType="PSPITS.Model.vw_aspnet_Applications" />
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="PSPITS.Model.vw_aspnet_MembershipUsers" />
+    <EntitySet Name="vw_aspnet_Profiles" EntityType="PSPITS.Model.vw_aspnet_Profiles" />
+    <EntitySet Name="vw_aspnet_Roles" EntityType="PSPITS.Model.vw_aspnet_Roles" />
+    <EntitySet Name="vw_aspnet_Users" EntityType="PSPITS.Model.vw_aspnet_Users" />
+    <EntitySet Name="vw_aspnet_UsersInRoles" EntityType="PSPITS.Model.vw_aspnet_UsersInRoles" />
+    <EntitySet Name="vw_aspnet_WebPartState_Paths" EntityType="PSPITS.Model.vw_aspnet_WebPartState_Paths" />
+    <EntitySet Name="vw_aspnet_WebPartState_Shared" EntityType="PSPITS.Model.vw_aspnet_WebPartState_Shared" />
+    <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="PSPITS.Model.vw_aspnet_WebPartState_User" />
+    <EntitySet Name="vwlistBeneficiaryEvidences" EntityType="PSPITS.Model.vwlistBeneficiaryEvidence" />
+    <EntitySet Name="vwlistBeneficiaryRelationships" EntityType="PSPITS.Model.vwlistBeneficiaryRelationship" />
+    <EntitySet Name="vwlistDays" EntityType="PSPITS.Model.vwlistDay" />
+    <EntitySet Name="vwlistDisabilityTypes" EntityType="PSPITS.Model.vwlistDisabilityType" />
+    <EntitySet Name="vwlistEvidences" EntityType="PSPITS.Model.vwlistEvidence" />
+    <EntitySet Name="vwlistEvidenceTypes" EntityType="PSPITS.Model.vwlistEvidenceType" />
+    <EntitySet Name="vwlistFunctions" EntityType="PSPITS.Model.vwlistFunction" />
+    <EntitySet Name="vwlistGenders" EntityType="PSPITS.Model.vwlistGender" />
+    <EntitySet Name="vwlistGrades" EntityType="PSPITS.Model.vwlistGrade" />
+    <EntitySet Name="vwlistMaritals" EntityType="PSPITS.Model.vwlistMarital" />
+    <EntitySet Name="vwlistMDAs" EntityType="PSPITS.Model.vwlistMDA" />
+    <EntitySet Name="vwlistMemberBenefitEvents" EntityType="PSPITS.Model.vwlistMemberBenefitEvent" />
+    <EntitySet Name="vwlistMonths" EntityType="PSPITS.Model.vwlistMonth" />
+    <EntitySet Name="vwlistPrefixes" EntityType="PSPITS.Model.vwlistPrefix" />
+    <EntitySet Name="vwlistServiceBreakTypes" EntityType="PSPITS.Model.vwlistServiceBreakType" />
+    <EntitySet Name="vwlistStates" EntityType="PSPITS.Model.vwlistState" />
+    <EntitySet Name="vwlistStatus" EntityType="PSPITS.Model.vwlistStatu" />
+    <EntitySet Name="vwlistWorkstations" EntityType="PSPITS.Model.vwlistWorkstation" />
+    <EntitySet Name="vwlistYears" EntityType="PSPITS.Model.vwlistYear" />
+    <AssociationSet Name="FK__aspnet_Me__Appli__40058253" Association="PSPITS.Model.FK__aspnet_Me__Appli__40058253">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__793DFFAF" Association="PSPITS.Model.FK__aspnet_Pa__Appli__793DFFAF">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__625A9A57" Association="PSPITS.Model.FK__aspnet_Ro__Appli__625A9A57">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__2BFE89A6" Association="PSPITS.Model.FK__aspnet_Us__Appli__2BFE89A6">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__40F9A68C" Association="PSPITS.Model.FK__aspnet_Me__UserI__40F9A68C">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__00DF2177" Association="PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__0697FACD" Association="PSPITS.Model.FK__aspnet_Pe__PathI__0697FACD">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__078C1F06" Association="PSPITS.Model.FK__aspnet_Pe__UserI__078C1F06">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__56E8E7AB" Association="PSPITS.Model.FK__aspnet_Pr__UserI__56E8E7AB">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberComputedBenefit_DisabilityBenefitApplication" Association="PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication">
       <End Role="DisabilityBenefitApplication" EntitySet="DisabilityBenefitApplications" />
       <End Role="MemberComputedBenefit" EntitySet="MemberComputedBenefits" />
     </AssociationSet>
-    <AssociationSet Name="FK_NominatedAgent_DisabilityBenefitApplication" Association="PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication">
+    <AssociationSet Name="FK_NominatedAgent_DisabilityBenefitApplication" Association="PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication">
       <End Role="DisabilityBenefitApplication" EntitySet="DisabilityBenefitApplications" />
       <End Role="NominatedAgent" EntitySet="NominatedAgents" />
     </AssociationSet>
-    <AssociationSet Name="FK_NominatedAgent_LifeBenefitApplication" Association="PSPITSModel.FK_NominatedAgent_LifeBenefitApplication">
+    <AssociationSet Name="FK_NominatedAgent_LifeBenefitApplication" Association="PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication">
       <End Role="LifeBenefitApplication" EntitySet="LifeBenefitApplications" />
       <End Role="NominatedAgent" EntitySet="NominatedAgents" />
     </AssociationSet>
-    <AssociationSet Name="FK_List_ListType" Association="PSPITSModel.FK_List_ListType">
+    <AssociationSet Name="FK_List_ListType" Association="PSPITS.Model.FK_List_ListType">
       <End Role="ListType" EntitySet="ListTypes" />
       <End Role="List" EntitySet="Lists" />
     </AssociationSet>
-    <AssociationSet Name="FK_MemberAllowance_MemberSalary" Association="PSPITSModel.FK_MemberAllowance_MemberSalary">
+    <AssociationSet Name="FK_MemberAllowance_MemberSalary" Association="PSPITS.Model.FK_MemberAllowance_MemberSalary">
       <End Role="MemberSalary" EntitySet="MemberSalaries" />
       <End Role="MemberAllowance" EntitySet="MemberAllowances" />
     </AssociationSet>
-    <AssociationSet Name="FK_NominatedAgent_SurvivorBenefitApplication" Association="PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication">
+    <AssociationSet Name="FK_NominatedAgent_SurvivorBenefitApplication" Association="PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication">
       <End Role="SurvivorBenefitApplication" EntitySet="SurvivorBenefitApplications" />
       <End Role="NominatedAgent" EntitySet="NominatedAgents" />
+    </AssociationSet>
+    <AssociationSet Name="aspnet_UsersInRoles" Association="PSPITS.Model.aspnet_UsersInRoles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ActualContribution">
@@ -94,6 +155,149 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
+  </EntityType>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="PSPITS.Model.FK__aspnet_Me__Appli__40058253" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="PSPITS.Model.FK__aspnet_Pa__Appli__793DFFAF" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="PSPITS.Model.FK__aspnet_Ro__Appli__625A9A57" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="aspnet_Users" Relationship="PSPITS.Model.FK__aspnet_Us__Appli__2BFE89A6" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="PSPITS.Model.FK__aspnet_Me__Appli__40058253" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="PSPITS.Model.FK__aspnet_Me__UserI__40F9A68C" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="PathId" Type="Guid" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="PSPITS.Model.FK__aspnet_Pa__Appli__793DFFAF" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="PSPITS.Model.FK__aspnet_Pe__PathI__0697FACD" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Type="Guid" Nullable="false" />
+    <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="PathId" Type="Guid" />
+    <Property Name="UserId" Type="Guid" />
+    <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="PSPITS.Model.FK__aspnet_Pe__PathI__0697FACD" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Users" Relationship="PSPITS.Model.FK__aspnet_Pe__UserI__078C1F06" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Users" Relationship="PSPITS.Model.FK__aspnet_Pr__UserI__56E8E7AB" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="PSPITS.Model.FK__aspnet_Ro__Appli__625A9A57" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="PSPITS.Model.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="PSPITS.Model.FK__aspnet_Us__Appli__2BFE89A6" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="PSPITS.Model.FK__aspnet_Me__UserI__40F9A68C" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="PSPITS.Model.FK__aspnet_Pe__UserI__078C1F06" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="PSPITS.Model.FK__aspnet_Pr__UserI__56E8E7AB" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="PSPITS.Model.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
+    <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" />
+    <Property Name="EventTime" Type="DateTime" Nullable="false" />
+    <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventCode" Type="Int32" Nullable="false" />
+    <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="RequestUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="ExceptionType" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="BankAccountDetail">
     <Key>
@@ -162,19 +366,24 @@
       <PropertyRef Name="pensionID" />
       <PropertyRef Name="beneficiaryID" />
       <PropertyRef Name="evidenceID" />
-      <PropertyRef Name="relationID" />
     </Key>
     <Property Name="pensionID" Type="Int32" Nullable="false" />
     <Property Name="beneficiaryID" Type="Int32" Nullable="false" />
     <Property Name="evidenceID" Type="Int32" Nullable="false" />
-    <Property Name="relationID" Type="Int32" Nullable="false" />
     <Property Name="evidenceComment" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-    <Property Name="evidenceStorageLocation" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
     <Property Name="dateCreated" Type="DateTime" />
     <Property Name="dateUpdated" Type="DateTime" />
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
+    <Property Name="evidencePresented" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="evidenceAccepted" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="fileExtention" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="fileContent" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fileOriginalName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="fileSize" Type="Int32" />
+    <Property Name="dateVerified" Type="DateTime" />
+    <Property Name="whoVerified" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
   </EntityType>
   <EntityType Name="BenefitPaymentMember">
     <Key>
@@ -259,8 +468,8 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="MemberComputedBenefit" Relationship="PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication" FromRole="DisabilityBenefitApplication" ToRole="MemberComputedBenefit" />
-    <NavigationProperty Name="NominatedAgents" Relationship="PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication" FromRole="DisabilityBenefitApplication" ToRole="NominatedAgent" />
+    <NavigationProperty Name="MemberComputedBenefit" Relationship="PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication" FromRole="DisabilityBenefitApplication" ToRole="MemberComputedBenefit" />
+    <NavigationProperty Name="NominatedAgents" Relationship="PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication" FromRole="DisabilityBenefitApplication" ToRole="NominatedAgent" />
   </EntityType>
   <EntityType Name="EvidenceByFunction">
     <Key>
@@ -322,7 +531,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="NominatedAgents" Relationship="PSPITSModel.FK_NominatedAgent_LifeBenefitApplication" FromRole="LifeBenefitApplication" ToRole="NominatedAgent" />
+    <NavigationProperty Name="NominatedAgents" Relationship="PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication" FromRole="LifeBenefitApplication" ToRole="NominatedAgent" />
   </EntityType>
   <EntityType Name="List">
     <Key>
@@ -338,7 +547,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="ListType" Relationship="PSPITSModel.FK_List_ListType" FromRole="List" ToRole="ListType" />
+    <NavigationProperty Name="ListType" Relationship="PSPITS.Model.FK_List_ListType" FromRole="List" ToRole="ListType" />
   </EntityType>
   <EntityType Name="ListType">
     <Key>
@@ -351,7 +560,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="Lists" Relationship="PSPITSModel.FK_List_ListType" FromRole="ListType" ToRole="List" />
+    <NavigationProperty Name="Lists" Relationship="PSPITS.Model.FK_List_ListType" FromRole="ListType" ToRole="List" />
   </EntityType>
   <EntityType Name="Member">
     <Key>
@@ -412,7 +621,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="MemberSalary" Relationship="PSPITSModel.FK_MemberAllowance_MemberSalary" FromRole="MemberAllowance" ToRole="MemberSalary" />
+    <NavigationProperty Name="MemberSalary" Relationship="PSPITS.Model.FK_MemberAllowance_MemberSalary" FromRole="MemberAllowance" ToRole="MemberSalary" />
   </EntityType>
   <EntityType Name="MemberArrear">
     <Key>
@@ -478,7 +687,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="DisabilityBenefitApplication" Relationship="PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication" FromRole="MemberComputedBenefit" ToRole="DisabilityBenefitApplication" />
+    <NavigationProperty Name="DisabilityBenefitApplication" Relationship="PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication" FromRole="MemberComputedBenefit" ToRole="DisabilityBenefitApplication" />
   </EntityType>
   <EntityType Name="MemberEmployment">
     <Key>
@@ -538,6 +747,7 @@
     <Property Name="dateEnd" Type="DateTime" />
     <Property Name="hasEvidence" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
     <Property Name="evidenceAcceptable" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="isPaid" Type="Boolean" Nullable="false" />
     <Property Name="dateCreated" Type="DateTime" />
     <Property Name="dateUpdated" Type="DateTime" />
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -584,7 +794,7 @@
     <Property Name="evidenceComment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="filecontentType" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
     <Property Name="fileoriginalName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-    <Property Name="fileContent" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fileContent" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="fileSize" Type="Int32" />
     <Property Name="dateCreated" Type="DateTime" />
     <Property Name="dateUpdated" Type="DateTime" />
@@ -634,7 +844,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="MemberAllowances" Relationship="PSPITSModel.FK_MemberAllowance_MemberSalary" FromRole="MemberSalary" ToRole="MemberAllowance" />
+    <NavigationProperty Name="MemberAllowances" Relationship="PSPITS.Model.FK_MemberAllowance_MemberSalary" FromRole="MemberSalary" ToRole="MemberAllowance" />
   </EntityType>
   <EntityType Name="NominatedAgent">
     <Key>
@@ -663,9 +873,9 @@
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
     <Property Name="benefitType" Type="Int32" />
-    <NavigationProperty Name="DisabilityBenefitApplication" Relationship="PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication" FromRole="NominatedAgent" ToRole="DisabilityBenefitApplication" />
-    <NavigationProperty Name="LifeBenefitApplication" Relationship="PSPITSModel.FK_NominatedAgent_LifeBenefitApplication" FromRole="NominatedAgent" ToRole="LifeBenefitApplication" />
-    <NavigationProperty Name="SurvivorBenefitApplication" Relationship="PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication" FromRole="NominatedAgent" ToRole="SurvivorBenefitApplication" />
+    <NavigationProperty Name="DisabilityBenefitApplication" Relationship="PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication" FromRole="NominatedAgent" ToRole="DisabilityBenefitApplication" />
+    <NavigationProperty Name="LifeBenefitApplication" Relationship="PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication" FromRole="NominatedAgent" ToRole="LifeBenefitApplication" />
+    <NavigationProperty Name="SurvivorBenefitApplication" Relationship="PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication" FromRole="NominatedAgent" ToRole="SurvivorBenefitApplication" />
   </EntityType>
   <EntityType Name="NonMemberAllowance">
     <Key>
@@ -763,7 +973,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
-    <NavigationProperty Name="NominatedAgents" Relationship="PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication" FromRole="SurvivorBenefitApplication" ToRole="NominatedAgent" />
+    <NavigationProperty Name="NominatedAgents" Relationship="PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication" FromRole="SurvivorBenefitApplication" ToRole="NominatedAgent" />
   </EntityType>
   <EntityType Name="SurvivorComputedBenefit">
     <Key>
@@ -831,6 +1041,145 @@
     <Property Name="IsSynched" Type="Boolean" />
     <Property Name="SyncPeriod" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="TransDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationName" />
+      <PropertyRef Name="LoweredApplicationName" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_MembershipUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+    <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="DataSize" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Roles">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="LoweredRoleName" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_Users">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_WebPartState_Paths">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="PathId" />
+      <PropertyRef Name="Path" />
+      <PropertyRef Name="LoweredPath" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="PathId" Type="Guid" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_WebPartState_Shared">
+    <Key>
+      <PropertyRef Name="PathId" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="PathId" Type="Guid" Nullable="false" />
+    <Property Name="DataSize" Type="Int32" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_WebPartState_User">
+    <Key>
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="PathId" Type="Guid" />
+    <Property Name="UserId" Type="Guid" />
+    <Property Name="DataSize" Type="Int32" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwlistBeneficiaryEvidence">
+    <Key>
+      <PropertyRef Name="evidenceID" />
+    </Key>
+    <Property Name="evidenceID" Type="Int32" Nullable="false" />
+    <Property Name="evidence" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="evidenceCode" Type="Int32" />
   </EntityType>
   <EntityType Name="vwlistBeneficiaryRelationship">
     <Key>
@@ -912,6 +1261,14 @@
     <Property Name="MDA" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
     <Property Name="mdaCode" Type="Int32" />
   </EntityType>
+  <EntityType Name="vwlistMemberBenefitEvent">
+    <Key>
+      <PropertyRef Name="eventID" />
+    </Key>
+    <Property Name="eventID" Type="Int32" Nullable="false" />
+    <Property Name="eventName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="eventCode" Type="Int32" />
+  </EntityType>
   <EntityType Name="vwlistMonth">
     <Key>
       <PropertyRef Name="monthID" />
@@ -968,9 +1325,117 @@
     <Property Name="year" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
     <Property Name="yearCode" Type="Int32" />
   </EntityType>
+  <Association Name="FK__aspnet_Me__Appli__40058253">
+    <End Role="aspnet_Applications" Type="PSPITS.Model.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="PSPITS.Model.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__793DFFAF">
+    <End Role="aspnet_Applications" Type="PSPITS.Model.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Paths" Type="PSPITS.Model.aspnet_Paths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__625A9A57">
+    <End Role="aspnet_Applications" Type="PSPITS.Model.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="PSPITS.Model.aspnet_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__2BFE89A6">
+    <End Role="aspnet_Applications" Type="PSPITS.Model.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="PSPITS.Model.aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__40F9A68C">
+    <End Role="aspnet_Users" Type="PSPITS.Model.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="PSPITS.Model.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__00DF2177">
+    <End Role="aspnet_Paths" Type="PSPITS.Model.aspnet_Paths" Multiplicity="1" />
+    <End Role="aspnet_PersonalizationAllUsers" Type="PSPITS.Model.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__0697FACD">
+    <End Role="aspnet_Paths" Type="PSPITS.Model.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="PSPITS.Model.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__078C1F06">
+    <End Role="aspnet_Users" Type="PSPITS.Model.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="PSPITS.Model.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__56E8E7AB">
+    <End Role="aspnet_Users" Type="PSPITS.Model.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="PSPITS.Model.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MemberComputedBenefit_DisabilityBenefitApplication">
-    <End Role="DisabilityBenefitApplication" Type="PSPITSModel.DisabilityBenefitApplication" Multiplicity="1" />
-    <End Role="MemberComputedBenefit" Type="PSPITSModel.MemberComputedBenefit" Multiplicity="0..1" />
+    <End Role="DisabilityBenefitApplication" Type="PSPITS.Model.DisabilityBenefitApplication" Multiplicity="1" />
+    <End Role="MemberComputedBenefit" Type="PSPITS.Model.MemberComputedBenefit" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="DisabilityBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -981,8 +1446,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NominatedAgent_DisabilityBenefitApplication">
-    <End Role="DisabilityBenefitApplication" Type="PSPITSModel.DisabilityBenefitApplication" Multiplicity="1" />
-    <End Role="NominatedAgent" Type="PSPITSModel.NominatedAgent" Multiplicity="*" />
+    <End Role="DisabilityBenefitApplication" Type="PSPITS.Model.DisabilityBenefitApplication" Multiplicity="1" />
+    <End Role="NominatedAgent" Type="PSPITS.Model.NominatedAgent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DisabilityBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -993,8 +1458,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NominatedAgent_LifeBenefitApplication">
-    <End Role="LifeBenefitApplication" Type="PSPITSModel.LifeBenefitApplication" Multiplicity="1" />
-    <End Role="NominatedAgent" Type="PSPITSModel.NominatedAgent" Multiplicity="*" />
+    <End Role="LifeBenefitApplication" Type="PSPITS.Model.LifeBenefitApplication" Multiplicity="1" />
+    <End Role="NominatedAgent" Type="PSPITS.Model.NominatedAgent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LifeBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -1005,8 +1470,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_List_ListType">
-    <End Role="ListType" Type="PSPITSModel.ListType" Multiplicity="1" />
-    <End Role="List" Type="PSPITSModel.List" Multiplicity="*" />
+    <End Role="ListType" Type="PSPITS.Model.ListType" Multiplicity="1" />
+    <End Role="List" Type="PSPITS.Model.List" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ListType">
         <PropertyRef Name="listtypeID" />
@@ -1017,10 +1482,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MemberAllowance_MemberSalary">
-    <End Role="MemberSalary" Type="PSPITSModel.MemberSalary" Multiplicity="1">
+    <End Role="MemberSalary" Type="PSPITS.Model.MemberSalary" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MemberAllowance" Type="PSPITSModel.MemberAllowance" Multiplicity="*" />
+    <End Role="MemberAllowance" Type="PSPITS.Model.MemberAllowance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MemberSalary">
         <PropertyRef Name="pensionID" />
@@ -1035,8 +1500,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NominatedAgent_SurvivorBenefitApplication">
-    <End Role="SurvivorBenefitApplication" Type="PSPITSModel.SurvivorBenefitApplication" Multiplicity="1" />
-    <End Role="NominatedAgent" Type="PSPITSModel.NominatedAgent" Multiplicity="*" />
+    <End Role="SurvivorBenefitApplication" Type="PSPITS.Model.SurvivorBenefitApplication" Multiplicity="1" />
+    <End Role="NominatedAgent" Type="PSPITS.Model.NominatedAgent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SurvivorBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -1045,5 +1510,9 @@
         <PropertyRef Name="pensionID" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnet_UsersInRoles">
+    <End Role="aspnet_Roles" Type="PSPITS.Model.aspnet_Roles" Multiplicity="*" />
+    <End Role="aspnet_Users" Type="PSPITS.Model.aspnet_Users" Multiplicity="*" />
   </Association>
 </Schema>

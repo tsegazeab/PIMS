@@ -55,15 +55,305 @@
 	vertical-align:middle;
 }
 
+.RadComboBox_Default
+{
+	font: 12px "Segoe UI", Arial, sans-serif;
+	color: #333;
+}
+
+.RadComboBox
+{
+	vertical-align: middle;
+    display: -moz-inline-stack;
+    display: inline-block;
+}
+
+.RadComboBox
+{
+	text-align: left;
+}
+
+.RadComboBox_Default
+{
+	font: 12px "Segoe UI", Arial, sans-serif;
+	color: #333;
+}
+
+.RadComboBox
+{
+	vertical-align: middle;
+    display: -moz-inline-stack;
+    display: inline-block;
+}
+
+.RadComboBox
+{
+	text-align: left;
+}
+
+.RadComboBox_Default
+{
+	font: 12px "Segoe UI", Arial, sans-serif;
+	color: #333;
+}
+
+.RadComboBox
+{
+	vertical-align: middle;
+    display: -moz-inline-stack;
+    display: inline-block;
+}
+
+.RadComboBox
+{
+	text-align: left;
+}
+
+.RadComboBox_Default .rcbInputCellLeft
+{
+	background-image: url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Default.ComboBox.rcbSprite.png');
+}
+
+.RadComboBox .rcbInputCellLeft
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.RadComboBox_Default .rcbInputCellLeft
+{
+	background-image: url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Default.ComboBox.rcbSprite.png');
+}
+
+.RadComboBox .rcbInputCellLeft
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.RadComboBox_Default .rcbInputCellLeft
+{
+	background-image: url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Default.ComboBox.rcbSprite.png');
+}
+
+.RadComboBox .rcbInputCellLeft
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.RadComboBox *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.RadComboBox *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.RadComboBox *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.RadComboBox_Default .rcbInput
+{
+	font: 12px "Segoe UI", Arial, sans-serif;
+	color: #333;
+}
+
+.RadComboBox .rcbInput
+{
+	text-align: left;
+}
+
+.RadComboBox_Default .rcbInput
+{
+	font: 12px "Segoe UI", Arial, sans-serif;
+	color: #333;
+}
+
+.RadComboBox .rcbInput
+{
+	text-align: left;
+}
+
+.RadComboBox_Default .rcbInput
+{
+	font: 12px "Segoe UI", Arial, sans-serif;
+	color: #333;
+}
+
+.RadComboBox .rcbInput
+{
+	text-align: left;
+}
+
+.RadComboBox_Default .rcbArrowCellRight
+{
+	background-image: url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Default.ComboBox.rcbSprite.png');
+}
+
+.RadComboBox .rcbArrowCellRight
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.RadComboBox_Default .rcbArrowCellRight
+{
+	background-image: url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Default.ComboBox.rcbSprite.png');
+}
+
+.RadComboBox .rcbArrowCellRight
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.RadComboBox_Default .rcbArrowCellRight
+{
+	background-image: url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Default.ComboBox.rcbSprite.png');
+}
+
+.RadComboBox .rcbArrowCellRight
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.RadPicker
+{
+	vertical-align:middle;
+}
+
+.RadPicker
+{
+	vertical-align:middle;
+}
+
+.RadPicker .rcTable
+{
+	table-layout:auto;
+}
+
+.RadPicker .rcTable
+{
+	table-layout:auto;
+}
+
+.RadPicker .rcCalPopup
+{
+	display:block;
+	overflow:hidden;
+	width:22px;
+	height:22px;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	text-indent:-2222px;
+	text-align:center;
+}
+
+    .RadPicker .rcCalPopup
+{
+	display:block;
+	overflow:hidden;
+	width:22px;
+	height:22px;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	text-indent:-2222px;
+	text-align:center;
+}
+
 </style>
 <link href="../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
 
 <table>
     <tr>
+        <td width="280" colspan="2">
+<telerik:RadGrid ID="RadGridBeneficiaryEvidence" runat="server"   GridLines="None" Skin="WebBlue" 
+                        Width="578px" CellSpacing="0" 
+        onneeddatasource="RadGridBeneficiary_NeedDataSource" >
+                        <MasterTableView autogeneratecolumns="False" datakeynames="beneficiaryID" >
+                            <NoRecordsTemplate>
+                                No records available.
+                            </NoRecordsTemplate>
+
+<CommandItemSettings ExportToPdfText="Export to PDF"></CommandItemSettings>
+
+                            <RowIndicatorColumn>
+                                <HeaderStyle Width="20px" />
+                            </RowIndicatorColumn>
+                            <ExpandCollapseColumn>
+                                <HeaderStyle Width="20px" />
+                            </ExpandCollapseColumn>
+                            <Columns>
+                                    <telerik:GridTemplateColumn DataField="columnRemove"   HeaderText="Remove" UniqueName="columnRemove" ReadOnly="false">
+                                    </telerik:GridTemplateColumn> 
+                                    <telerik:GridBoundColumn DataField="PensionID" DefaultInsertValue=""  Visible="false"
+                                        HeaderText="PensionID" SortExpression="PensionID" UniqueName="PensionID">
+                                    </telerik:GridBoundColumn>                                                       
+                                    <telerik:GridBoundColumn DataField="beneficiaryID" DefaultInsertValue=""  Visible="false"
+                                        HeaderText="beneficiaryID" SortExpression="beneficiaryID" UniqueName="beneficiaryID">
+                                    </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="relationID" DefaultInsertValue=""  Visible="false"
+                                        HeaderText="relationID" SortExpression="relationID" UniqueName="relationID">
+                                    </telerik:GridBoundColumn>
+                                     <telerik:GridBoundColumn DataField="firstName" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Given name" SortExpression="firstName" UniqueName="firstName">
+                                    </telerik:GridBoundColumn>       
+                                     <telerik:GridBoundColumn DataField="lastName" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Surname" SortExpression="lastName" UniqueName="lastName">
+                                    </telerik:GridBoundColumn>                                 
+                                     <telerik:GridBoundColumn DataField="dateofBirth" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Date of birth" SortExpression="dateofBirth" UniqueName="dateofBirth" 
+                                        DataFormatString="{0:dd'/'MM'/'yyyy}">
+                                     </telerik:GridBoundColumn>   
+                                    <telerik:GridBoundColumn DataField="relationship" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Relationship" SortExpression="relationship" UniqueName="relationship">
+                                    </telerik:GridBoundColumn> 
+                                    
+                            </Columns>
+
+<EditFormSettings>
+<EditColumn FilterControlAltText="Filter EditCommandColumn column"></EditColumn>
+</EditFormSettings>
+                        </MasterTableView>
+
+<FilterMenu EnableImageSprites="False"></FilterMenu>
+
+<HeaderContextMenu CssClass="GridContextMenu GridContextMenu_WebBlue"></HeaderContextMenu>
+                    </telerik:RadGrid>
+        </td>
+    </tr>
+    <tr>
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <telerik:RadTextBox ID="RadTextBoxPensionID" Runat="server" Width="295px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True" Visible="False">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
+            </telerik:RadTextBox>
+        </td>
+    </tr>
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label7" runat="server" Text="Scheme ID:" 
+                CssClass="text"></asp:Label>
+          </td>
+        <td>
+            <telerik:RadTextBox ID="RadTextBoxSchemeID" Runat="server" Width="295px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
+            </telerik:RadTextBox>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -73,9 +363,16 @@
     </tr>
     <tr>
         <td width="280">
-            &nbsp;</td>
+            <asp:Label ID="Label8" runat="server" Text="Member Name:" 
+                CssClass="text"></asp:Label>
+          </td>
         <td>
-            &nbsp;</td>
+            <telerik:RadTextBox ID="RadTextBoxMemberFullName" Runat="server" Width="295px" 
+                BackColor="WhiteSmoke" Enabled="False" Font-Bold="True">
+<PasswordStrengthSettings ShowIndicator="False" CalculationWeightings="50;15;15;20" PreferredPasswordLength="10" MinimumNumericCharacters="2" RequiresUpperAndLowerCaseCharacters="True" MinimumLowerCaseCharacters="2" MinimumUpperCaseCharacters="2" MinimumSymbolCharacters="2" OnClientPasswordStrengthCalculating="" TextStrengthDescriptions="Very Weak;Weak;Medium;Strong;Very Strong" TextStrengthDescriptionStyles="riStrengthBarL0;riStrengthBarL1;riStrengthBarL2;riStrengthBarL3;riStrengthBarL4;riStrengthBarL5;" IndicatorElementBaseStyle="riStrengthBar" IndicatorElementID=""></PasswordStrengthSettings>
+                <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
+            </telerik:RadTextBox>
+        </td>
     </tr>
     <tr>
         <td width="280">
@@ -86,87 +383,165 @@
     <tr>
         <td width="280">
             <asp:Label ID="Label1" runat="server" CssClass="text" 
-                Text="Beneficiary First Name"></asp:Label>
+                Text="Beneficiary Name"></asp:Label>
         </td>
         <td>
-            <asp:DropDownList ID="DropDownList2" runat="server" Width="291px" 
-                BackColor="WhiteSmoke">
-            </asp:DropDownList>
-        </td>
-    </tr>
-    <tr>
-        <td width="280">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td width="280">
-            <asp:Label ID="Label7" runat="server" CssClass="text" 
-                Text="Beneficiary Last Name"></asp:Label>
-        </td>
-        <td>
-            <asp:DropDownList ID="DropDownList5" runat="server" Width="291px" 
-                BackColor="WhiteSmoke">
-            </asp:DropDownList>
+            <telerik:RadComboBox ID="RadComboBoxName" Runat="server" Width="295px" 
+                MarkFirstMatch="true" 
+                onselectedindexchanged="RadComboBoxName_SelectedIndexChanged">
+            </telerik:RadComboBox>
         </td>
     </tr>
     <tr>
         <td width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td width="280">
-            <asp:Label ID="Label2" runat="server" CssClass="text" Text="Relation"></asp:Label>
-        </td>
-        <td>
-            <asp:DropDownList ID="DropDownList3" runat="server" Width="291px" 
-                BackColor="WhiteSmoke">
-            </asp:DropDownList>
-        </td>
-    </tr>
-    <tr>
-        <td width="280">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td width="280">
-            <asp:Label ID="Label3" runat="server" CssClass="text" Text="Member Name"></asp:Label>
-        </td>
-        <td>
-            <telerik:RadTextBox ID="RadTextBox3" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke">
-            </telerik:RadTextBox>
-        </td>
-    </tr>
-    <tr>
-        <td width="280">
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorSurname" runat="server" 
+                ControlToValidate="RadComboBoxName" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td style="margin-left: 80px" width="280">
             <asp:Label ID="Label4" runat="server" CssClass="text" Text="Evidence Type"></asp:Label>
         </td>
         <td>
-            <asp:DropDownList ID="DropDownList4" runat="server" Width="291px" 
-                BackColor="WhiteSmoke">
-            </asp:DropDownList>
+            <telerik:RadComboBox ID="RadComboBoxEvidenceType" Runat="server" Width="295px" 
+                MarkFirstMatch="true" 
+                onselectedindexchanged="RadComboBoxName_SelectedIndexChanged">
+            </telerik:RadComboBox>
         </td>
     </tr>
     <tr>
         <td style="margin-left: 80px" width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorSurname0" runat="server" 
+                ControlToValidate="RadComboBoxEvidenceType" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
+          </td>
     </tr>
     <tr>
         <td style="margin-left: 80px" width="280">
+             <asp:Label ID="Label12" runat="server" CssClass="text" Text="Is evidence presented?"></asp:Label>
+        </td>
+        <td>
+            <telerik:RadComboBox ID="RadComboBoxevidencePresented" Runat="server" 
+                Width="80px" MarkFirstMatch="True">
+                <Items>
+                    <telerik:RadComboBoxItem runat="server" Selected="True" 
+                        Owner="RadComboBoxevidencePresented" />
+                    <telerik:RadComboBoxItem runat="server" Text="Yes" Value="Yes" 
+                        Owner="RadComboBoxevidencePresented" />
+                    <telerik:RadComboBoxItem runat="server" Text="No" Value="No" 
+                        Owner="RadComboBoxevidencePresented" />
+                </Items>
+            </telerik:RadComboBox>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+            &nbsp;</td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidencePresented" 
+                runat="server" ControlToValidate="RadComboBoxevidencePresented" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+             <asp:Label ID="Label13" runat="server" CssClass="text" 
+                Text="Is evidence accepted?"></asp:Label>
+        </td>
+        <td>
+            <telerik:RadComboBox ID="RadComboBoxEvidenceAccepted" Runat="server" 
+                Width="80px" MarkFirstMatch="True">
+                <Items>
+                    <telerik:RadComboBoxItem runat="server" Selected="True" 
+                        Owner="RadComboBoxEvidenceAccepted" />
+                    <telerik:RadComboBoxItem runat="server" Text="Yes" Value="Yes" 
+                        Owner="RadComboBoxEvidenceAccepted" />
+                    <telerik:RadComboBoxItem runat="server" Text="No" Value="No" 
+                        Owner="RadComboBoxEvidenceAccepted" />
+                </Items>
+            </telerik:RadComboBox>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+            &nbsp;</td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceAccepted" 
+                runat="server" ControlToValidate="RadComboBoxRadComboBoxevidenceAccepted" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+            <asp:Label ID="Label14" runat="server" CssClass="text" 
+                Text="Evidence verified by"></asp:Label></td>
+        <td>
+             <telerik:RadTextBox ID="RadTextBoxEvidenceVerifiedBy" Width="295px" Runat="server" 
+                Enabled="True">
+            </telerik:RadTextBox></td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+            &nbsp;</td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceVerifiedBy" 
+                runat="server" ControlToValidate="RadTextBoxEvidenceVerifiedBy" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+            <asp:Label ID="Label3" runat="server" CssClass="text" Text="Evidence verified on"></asp:Label></td>
+        <td>
+            <telerik:RadDatePicker ID="RadDatePickerVerifiedOn" Runat="server" Culture="en-US" 
+                Skin="Web20" Width="295px" MinDate="1800-01-01">
+<Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
+                    ViewSelectorText="x" Skin="Web20"></Calendar>
+
+<DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
+
+<DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
+            </telerik:RadDatePicker>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" width="280">
+            &nbsp;</td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceVerfiedOn" 
+                runat="server" ControlToValidate="RadDatePickerVerifiedOn" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" valign="top" width="280">
+            <asp:Label ID="Label6" runat="server" CssClass="text" Text="Comment"></asp:Label>
+        </td>
+        <td>
+            <telerik:RadTextBox ID="RadTextBoxComment" Runat="server" Height="40px" 
+                TextMode="MultiLine" Width="295px" Skin="Outlook" BackColor="WhiteSmoke">
+            </telerik:RadTextBox>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" valign="top" width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td style="margin-left: 80px" valign="top" width="280">
             <asp:Label ID="Label5" runat="server" CssClass="text" Text="Evidence Document"></asp:Label>
         </td>
         <td>
@@ -177,19 +552,21 @@
         </td>
     </tr>
     <tr>
-        <td style="margin-left: 80px" width="280">
+        <td style="margin-left: 80px" valign="top" width="280">
             &nbsp;</td>
         <td>
-            &nbsp;</td>
+            <asp:Label ID="LabelUploadedFile" runat="server" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red"></asp:Label>
+        </td>
     </tr>
     <tr>
         <td style="margin-left: 80px" valign="top" width="280">
-            <asp:Label ID="Label6" runat="server" CssClass="text" Text="Comment"></asp:Label>
-        </td>
+            &nbsp;</td>
         <td>
-            <telerik:RadTextBox ID="RadTextBox1" Runat="server" Height="40px" 
-                TextMode="MultiLine" Width="295px" Skin="Outlook" BackColor="WhiteSmoke">
-            </telerik:RadTextBox>
+            <telerik:RadButton ID="RadButtonSaveEvidence" runat="server" 
+                onclick="RadButtonSaveEvidence_Click" Skin="Vista" Text="Save Evidence" 
+                onload="RadButtonSaveEvidence_Load" ValidationGroup="BeneficiaryEvidence">
+            </telerik:RadButton>
         </td>
     </tr>
 </table>

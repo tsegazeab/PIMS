@@ -15,7 +15,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
     {
 
         public MemberBenefit GetMemberBenefitByPensionId(int pensionId)
-        {
+        {            
             MemberBenefit mb = new MemberBenefit();
             List<MemberEmploymentServiceBreak> serviceBreaks = GetServiceBreaksPriorToJuly2012(pensionId);
             mb.Member = GetMemberByPensionId(pensionId);
@@ -27,17 +27,18 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             return mb;
         }
 
-        public MemberBenefitEligibility GetMemberBenefitEligibility(int pensionId)
+        public MemberBenefitEligibility GetMemberBenefitEligibility(MemberBenefitRequest mbr)
         {
-            Member member = new PSPITSDO().GetMemberByPensionID(pensionId);
             MemberBenefitEligibility mbEligibility = new MemberBenefitEligibility();
-            mbEligibility.Member = member;
+            mbEligibility.Member = mbr.Member;
             mbEligibility.AnnualPensionProcessedCheck = true;
-            mbEligibility.DoACheck = member.dateoffirstAppointment.HasValue;
-            mbEligibility.DoAEvidenceCheck = this.DateOfAppointmentEvidenceExists(pensionId);
-            mbEligibility.DoBCheck = member.dateofBirth.HasValue;
-            mbEligibility.DoBEvidenceCheck = this.DateOfBirthEvidenceExits(pensionId);
-            mbEligibility.ServiceBreakEvidenceCheck = this.AllServiceBreaksEvidenceExists(pensionId);
+            mbEligibility.DoACheck = mbr.Member.dateoffirstAppointment.HasValue;
+            mbEligibility.DoAEvidenceCheck = this.DateOfAppointmentEvidenceExists(mbr.Member.pensionID);
+            mbEligibility.DoBCheck = mbr.Member.dateofBirth.HasValue;
+            mbEligibility.DoBEvidenceCheck = this.DateOfBirthEvidenceExits(mbr.Member.pensionID);
+            MemberAge yearsInService = this.GetYearsOfMemberInService(mbr);
+            mbEligibility.MoreThanTwoYears = yearsInService.Years >= 2;
+            mbEligibility.ServiceBreakEvidenceCheck = this.AllServiceBreaksEvidenceExists(mbr.Member.pensionID);
             return mbEligibility;
         }
 
@@ -157,6 +158,24 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             return age;
         }
 
+        /// <summary>
+        /// Get the number of years, months and days (Age) the member has been in Service up to the time of service termination
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
+        private MemberAge GetYearsOfMemberInService(MemberBenefitRequest mbr)
+        {
+            TimeSpan ts = mbr.ServiceEndDate - mbr.Member.dateoffirstAppointment.Value;
+            int days;
+            MemberAge age = new MemberAge();
+            age.Years = (int)(ts.Days / Constants.NUMBER_OF_DAYS_IN_YEAR);
+            //get number of extra days
+            days = (int)(ts.Days - (age.Years * Constants.NUMBER_OF_DAYS_IN_YEAR));
+            age.Months = (int)(days / Constants.NUMBER_OF_DAYS_IN_MONTH);
+            age.Days = (int)(days - (age.Months * Constants.NUMBER_OF_DAYS_IN_MONTH));
+            return age;
+        }
+
         #endregion
 
         #region .private methods Member Eligibility Checks.
@@ -199,6 +218,87 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 }
                 return evidenceExists;
             }
+        }
+
+        private PensionType DetermineTypeOfPension(MemberBenefitRequest mbr)
+        {
+            MemberAge memberAge = this.GetMemberAge(mbr.Member.dateofBirth.Value);
+            MemberAge memberPensionableAge = this.DeterminePensionableAge(mbr.Member.dateofBirth.Value);
+            int ageCompare = memberAge.Compare(memberPensionableAge);
+            if (ageCompare == 0)
+                return PensionType.PesionableAgePension;
+            if (ageCompare > 0)
+                return PensionType.LatePension;
+            if (IsEarlyPension(mbr, memberAge, memberPensionableAge))
+                return PensionType.EarlyPension;
+            if (IsTerminationLumpSum(mbr, memberAge, memberPensionableAge))
+                return PensionType.TerminationLumpSumAmount;
+            return PensionType.LessThanTwoYears;
+           
+        }
+
+        private bool IsEarlyPension(MemberBenefitRequest mbr, MemberAge memberAge, MemberAge memberPensionableAge)
+        {            
+            //ageDiff refers to the years/age left to attain pensionable age;
+            MemberAge ageDiff = memberPensionableAge - memberAge;
+            if (ageDiff.Years>0 && ageDiff.Years < 10)
+                return true;
+            if (ageDiff.Years == 10 && ageDiff.Months == 0 && ageDiff.Days == 0)
+                return true;
+            return false;
+        }
+
+        private bool IsTerminationLumpSum(MemberBenefitRequest mbr, MemberAge memberAge, MemberAge memberPensionableAge)
+        {
+            //ageDiff refers to the years/age left to attain pensionable age;
+            MemberAge ageDiff = memberPensionableAge - memberAge;
+            if (ageDiff.Years > 10)
+                return true;
+            if (ageDiff.Years == 10 && (ageDiff.Months > 0 || ageDiff.Days > 0))
+                return true;
+            return false;
+        }
+
+        #endregion
+
+        #region .private methods Member Benefits Calculations.
+
+        private void CalculateEarlyPension()
+        { 
+            
+        }
+
+        private void CalculatePenionableAgePension(MemberBenefitRequest mbr, MemberBenefit mb)
+        { 
+            //Get Annual Pension Accrued upto last FY. Ideally this will be picked from the DB but for now we calculate
+
+        }
+
+        /// <summary>
+        /// Get list of MonthlySalary objects representing each month the Member has worked in the current financial year up to the date of service termination
+        /// or retirement or resignation
+        /// </summary>
+        /// <param name="mbr"></param>
+        /// <returns></returns>
+        private List<MonthlySalary> GetMemberSalaryListForCurrentFY(MemberBenefitRequest mbr)
+        { 
+            //we'll pick these from the database. for now we simply use generic data
+            Random rand = new Random();
+            int monthsWorkedInCurrentFY = rand.Next(1, 13);
+            List<MonthlySalary> monthlySalaries = new List<MonthlySalary>();
+            int month = 7, year = 2012;
+            for (int i = 0; i < monthsWorkedInCurrentFY; i++)
+            {
+                monthlySalaries.Add(new MonthlySalary { Month = month, Year = year, GrossSalary = 2500 });
+                month++;
+                if (month > 12)
+                {
+                    month = 1;
+                    year = 2013;
+                }
+            }
+
+            return monthlySalaries;
         }
 
         #endregion
