@@ -181,6 +181,8 @@ public partial class User_Control_BeneficiaryEvidence : System.Web.UI.UserContro
         RadComboBoxName.DataTextField = PSPITS.COMMON.Constants.COL_BENEFICIARY_FULLNAME;
         RadComboBoxName.DataValueField = PSPITS.COMMON.Constants.COL_BENEFICIARY_BENEFICIARYID;
         RadComboBoxName.DataBind();
+        RadComboBoxName.EmptyMessage = "--Please Select--";
+        RadComboBoxName.SelectedIndex = -1;
     }
 
     public void DisplayMemberNameAndPensionID(int pensionID)
@@ -195,32 +197,34 @@ public partial class User_Control_BeneficiaryEvidence : System.Web.UI.UserContro
     {
         //Load function combo box
         RadComboBoxEvidenceType.DataSource = new BeneficiaryEvidenceDO().BeneficiaryEvidenceList;
-        RadComboBoxEvidenceType.DataTextField = PSPITS.COMMON.Constants.COL_LIST_EVIDENCEID;
-        RadComboBoxEvidenceType.DataValueField = PSPITS.COMMON.Constants.COL_LIST_EVIDENCE;
+        RadComboBoxEvidenceType.DataValueField = PSPITS.COMMON.Constants.COL_LIST_EVIDENCEID;
+        RadComboBoxEvidenceType.DataTextField = PSPITS.COMMON.Constants.COL_LIST_EVIDENCE;
         RadComboBoxEvidenceType.DataBind();
+        RadComboBoxEvidenceType.EmptyMessage = "--Please Select--";
+        RadComboBoxEvidenceType.SelectedIndex = -1;
     }
 
     protected void RadButtonSaveEvidence_Load(object sender, EventArgs e)
     {
         Utility utl = new Utility();
 
-        RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as Button).Parent, "RadAjaxManager1") as RadAjaxManager;
-        RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as Button).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
+        RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
+        RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
 
-        RadGrid grid = utl.FindControlToRootOnly((sender as Button).Parent, "RadGridBeneficiaryEvidence") as RadGrid;
-        RadTextBox RadTextBoxEvidenceVerifiedBy = utl.FindControlToRootOnly((sender as Button).Parent, "RadTextBoxEvidenceVerifiedBy") as RadTextBox;
-        RadTextBox RadTextBoxComment = utl.FindControlToRootOnly((sender as Button).Parent, "RadTextBoxComment") as RadTextBox;
-        
-        RadComboBox RadComboBoxEvidenceType = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxEvidenceType") as RadComboBox;
-        RadComboBox RadComboBoxName = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxName") as RadComboBox; 
-        RadDatePicker RadDatePickerVerifiedOn = utl.FindControlToRootOnly((sender as Button).Parent, "RadDatePickerVerifiedOn") as RadDatePicker;
+        RadGrid grid = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadGridBeneficiaryEvidence") as RadGrid;
+        RadTextBox RadTextBoxEvidenceVerifiedBy = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxEvidenceVerifiedBy") as RadTextBox;
+        RadTextBox RadTextBoxComment = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxComment") as RadTextBox;
+
+        RadComboBox RadComboBoxEvidenceType = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxEvidenceType") as RadComboBox;
+        RadComboBox RadComboBoxName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxName") as RadComboBox;
+        RadDatePicker RadDatePickerVerifiedOn = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadDatePickerVerifiedOn") as RadDatePicker;
         //
-        RadComboBox RadComboBoxevidencePresented = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxevidencePresented") as RadComboBox;
-        RadComboBox RadComboBoxEvidenceAccepted = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxEvidenceAccepted") as RadComboBox;
-        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as Button).Parent, "RadAsyncUpload1") as RadAsyncUpload;
-        Label LabelUploadedFile = utl.FindControlToRootOnly((sender as Button).Parent, "LabelUploadedFile") as Label;
+        RadComboBox RadComboBoxevidencePresented = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxevidencePresented") as RadComboBox;
+        RadComboBox RadComboBoxEvidenceAccepted = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxEvidenceAccepted") as RadComboBox;
+        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAsyncUpload1") as RadAsyncUpload;
+        Label LabelUploadedFile = utl.FindControlToRootOnly((sender as RadButton).Parent, "LabelUploadedFile") as Label;
 
-        Button RadButtonSaveEvidence = utl.FindControlToRootOnly((sender as Button).Parent, "RadButtonSaveEvidence") as Button;
+        RadButton RadButtonSaveEvidence = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadButtonSaveEvidence") as RadButton;
 
         //load only when non of the controls are null
         if ((radajaxmanager != null) && (radajaxloading != null) && (RadButtonSaveEvidence != null))
@@ -228,11 +232,14 @@ public partial class User_Control_BeneficiaryEvidence : System.Web.UI.UserContro
             //now check if the various combo boxes have been found 
             if (grid != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, grid, radajaxloading);
             if (RadComboBoxName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadComboBoxName, null);
+            if (RadComboBoxEvidenceType != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadComboBoxEvidenceType, null);
             if (RadComboBoxevidencePresented != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadComboBoxevidencePresented, null);
             if (RadComboBoxEvidenceAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadComboBoxEvidenceAccepted, null);
             if (RadTextBoxEvidenceVerifiedBy != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadTextBoxEvidenceVerifiedBy, null);
             if (RadTextBoxComment != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadTextBoxComment, null);
             if (RadDatePickerVerifiedOn != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadDatePickerVerifiedOn, null);
+            if (RadAsyncUpload1 != null) 
+                radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, RadAsyncUpload1, null);
             if (LabelUploadedFile != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonSaveEvidence, LabelUploadedFile, null);
         }
     }
@@ -253,8 +260,8 @@ public partial class User_Control_BeneficiaryEvidence : System.Web.UI.UserContro
    
     public void LoadMemberEvidenceDetail(BeneficiaryEvidence be)
     {
-        this.BeneficiaryID = be.beneficiaryID.ToString();
-        this.EvidenceID = be.evidenceID.ToString();
+        this.BeneficiaryID = be.beneficiaryID;
+        this.EvidenceID = be.evidenceID;
         this.EvidencePresented = be.evidencePresented;
         this.EvidenceAccepted = be.evidenceAccepted;
         this.whoVerified = be.whoVerified;
@@ -264,8 +271,14 @@ public partial class User_Control_BeneficiaryEvidence : System.Web.UI.UserContro
 
     protected void RadGridEvidence_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
     {
-        RadGridBeneficiaryEvidence.DataSource = new PSPITSDO().GetMemberEvidenceByPensionIDandFunctionID(Int32.Parse(this.PensionID), Int32.Parse(this.));
+        RadGridBeneficiaryEvidence.DataSource = new BeneficiaryEvidenceDO().GetMemberBeneficiaryEvidence(Int32.Parse(this.PensionID));
     }
+
+    protected void RadAsyncUpload1_FileUploaded(object sender, FileUploadedEventArgs e)
+    {
+        this.TheUploadedFile = e.File;
+    }
+
     public void ClearControl()
     {
         Utility.EmptyControl(RadComboBoxName);
@@ -351,23 +364,23 @@ public class RadGridBeneficiaryEvidenceEditTemplate : System.Web.UI.ITemplate
     {
         Utility utl = new Utility();
 
-        RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as Button).Parent, "RadAjaxManager1") as RadAjaxManager;
-        RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as Button).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
+        RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
+        RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
 
-        RadGrid grid = utl.FindControlToRootOnly((sender as Button).Parent, "RadGridBeneficiaryEvidence") as RadGrid;
-        RadTextBox RadTextBoxEvidenceVerifiedBy = utl.FindControlToRootOnly((sender as Button).Parent, "RadTextBoxEvidenceVerifiedBy") as RadTextBox;
-        RadTextBox RadTextBoxComment = utl.FindControlToRootOnly((sender as Button).Parent, "RadTextBoxComment") as RadTextBox;
+        RadGrid grid = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadGridBeneficiaryEvidence") as RadGrid;
+        RadTextBox RadTextBoxEvidenceVerifiedBy = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxEvidenceVerifiedBy") as RadTextBox;
+        RadTextBox RadTextBoxComment = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxComment") as RadTextBox;
 
-        RadComboBox RadComboBoxEvidenceType = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxEvidenceType") as RadComboBox;
-        RadComboBox RadComboBoxName = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxName") as RadComboBox;
-        RadDatePicker RadDatePickerVerifiedOn = utl.FindControlToRootOnly((sender as Button).Parent, "RadDatePickerVerifiedOn") as RadDatePicker;
+        RadComboBox RadComboBoxEvidenceType = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxEvidenceType") as RadComboBox;
+        RadComboBox RadComboBoxName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxName") as RadComboBox;
+        RadDatePicker RadDatePickerVerifiedOn = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadDatePickerVerifiedOn") as RadDatePicker;
         //
-        RadComboBox RadComboBoxevidencePresented = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxevidencePresented") as RadComboBox;
-        RadComboBox RadComboBoxEvidenceAccepted = utl.FindControlToRootOnly((sender as Button).Parent, "RadComboBoxEvidenceAccepted") as RadComboBox;
-        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as Button).Parent, "RadAsyncUpload1") as RadAsyncUpload;
-        Label LabelUploadedFile = utl.FindControlToRootOnly((sender as Button).Parent, "LabelUploadedFile") as Label;
+        RadComboBox RadComboBoxevidencePresented = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxevidencePresented") as RadComboBox;
+        RadComboBox RadComboBoxEvidenceAccepted = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxEvidenceAccepted") as RadComboBox;
+        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAsyncUpload1") as RadAsyncUpload;
+        Label LabelUploadedFile = utl.FindControlToRootOnly((sender as RadButton).Parent, "LabelUploadedFile") as Label;
 
-        Button ButtonEdit = utl.FindControlToRootOnly((sender as Button).Parent, "ButtonEdit") as Button;
+        RadButton ButtonEdit = utl.FindControlToRootOnly((sender as RadButton).Parent, "ButtonEdit") as RadButton;
 
         //load only when non of the controls are null
         if ((radajaxmanager != null) && (radajaxloading != null) && (ButtonEdit != null))
@@ -375,6 +388,7 @@ public class RadGridBeneficiaryEvidenceEditTemplate : System.Web.UI.ITemplate
             //now check if the various combo boxes have been found 
             if (grid != null) radajaxmanager.AjaxSettings.AddAjaxSetting(ButtonEdit, grid, radajaxloading);
             if (RadComboBoxName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(ButtonEdit, RadComboBoxName, null);
+            if (RadComboBoxEvidenceType != null) radajaxmanager.AjaxSettings.AddAjaxSetting(ButtonEdit, RadComboBoxEvidenceType, null);
             if (RadComboBoxevidencePresented != null) radajaxmanager.AjaxSettings.AddAjaxSetting(ButtonEdit, RadComboBoxevidencePresented, null);
             if (RadComboBoxEvidenceAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(ButtonEdit, RadComboBoxEvidenceAccepted, null);
             if (RadTextBoxEvidenceVerifiedBy != null) radajaxmanager.AjaxSettings.AddAjaxSetting(ButtonEdit, RadTextBoxEvidenceVerifiedBy, null);

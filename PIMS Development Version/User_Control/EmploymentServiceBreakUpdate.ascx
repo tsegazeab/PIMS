@@ -150,7 +150,7 @@
                                         DataTextField="columnDelete" FilterControlAltText="Filter columnDelete column" 
                                         HeaderButtonType="PushButton" HeaderText="Remove" 
                                         ImageUrl="mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.WebBlue.Grid.Delete.gif" 
-                                        Text="Remove" UniqueName="columnDelete">
+                                        Text="Remove" UniqueName="columnDelete" Visible="False">
                                     </telerik:GridClientDeleteColumn>
                                     <telerik:GridTemplateColumn DataField="columnEdit"   HeaderText="Edit" UniqueName="columnEdit" ReadOnly="false">
                                     </telerik:GridTemplateColumn> 

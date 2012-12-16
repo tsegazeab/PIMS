@@ -83,8 +83,8 @@ public partial class User_Control_ServiceBreakUpdate : System.Web.UI.UserControl
     {
         if (!Page.IsPostBack)
         {
-            //PSPITSDO _do = new PSPITSDO();
-            //this.serviceBreakID = _do.PadCode(_do.GenServiceBreakID(), 9);
+            PSPITSDO _do = new PSPITSDO();
+            this.serviceBreakID = _do.PadCode(_do.GenServiceBreakID(), 9);
             //this.pensionID = "0";
             LoadComboBox();
 
@@ -95,10 +95,6 @@ public partial class User_Control_ServiceBreakUpdate : System.Web.UI.UserControl
         GridTemplateColumn colEditServiceBreak = (GridTemplateColumn)RadGridServiceBreak.MasterTableView.GetColumn("columnEdit");
         colEditServiceBreak.ItemTemplate = new RadGridServiceBreakUpdateEditTemplate();
         (ServiceBreakToEditSession.ServiceBreakToEdit = new ServiceBreakToEdit()).OnServiceBreakEditClicked += new ServiceBreakEventHandler(ServiceBreakSelectedFromGrid);
-
-        GridClientDeleteColumn colDeleteServiceBreak = (GridClientDeleteColumn)RadGridServiceBreak.MasterTableView.GetColumn("columnDelete");
-        colDeleteServiceBreak.FilterTemplate = new RadGridServiceBreakUpdateDeleteTemplate();
-        (ServiceBreakToEditSession.ServiceBreakToEdit = new ServiceBreakToEdit()).OnServiceBreakEditClicked += new ServiceBreakEventHandler(ServiceBreakDeletedFromGrid);
     }
 
     protected void RadGridServiceBreak_DeleteCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
@@ -202,51 +198,6 @@ public partial class User_Control_ServiceBreakUpdate : System.Web.UI.UserControl
         RadGridServiceBreak.DataSource = new PSPITSDO().GetServiceBreakbyPensionID(Int32.Parse(this.pensionID));
     }
 }
-//public class RadGridServiceBreakTemplate : System.Web.UI.ITemplate
-//{
-
-//    public void InstantiateIn(System.Web.UI.Control container)
-//    {
-//        Button ButtonDelSB = new Button();
-//        ButtonDelSB.ID = "ButtonDelSB";
-//        ButtonDelSB.Text = "Remove";
-//        ButtonDelSB.Click += new EventHandler(RemoveServiceRecord_Click);
-//        ButtonDelSB.Load += new EventHandler(ButtonDelete_Load);
-//        container.Controls.Add(ButtonDelSB);
-
-//    }
-//    protected void RemoveServiceRecord_Click(object sender, EventArgs e)
-//    {
-//        PSPITSDO rdo = new PSPITSDO();
-
-//        MemberServiceBreak oL = new MemberServiceBreak();
-
-//        RadGrid grid = (sender as Button).Parent.Parent.Parent.Parent.Parent as RadGrid;
-//        GridTableView gridTable = (sender as Button).Parent.Parent.Parent.Parent as GridTableView;
-//        GridItem gridItem = ((sender as Button).Parent.Parent as GridItem);
-//        GridDataItem griddataItem = gridTable.Items[gridItem.ItemIndex];
-//        oL.pensionID = int.Parse(griddataItem["pensionID"].Text);
-//        oL.serviceBreakID = int.Parse(griddataItem["servicebreakID"].Text);
-//        int i = rdo.DeleteMemberServiceBreak(oL);
-//        grid.Rebind();
-
-//    }
-//    protected void ButtonDelete_Load(object sender, EventArgs e)
-//    {
-//        RadAjaxManager radajaxmanager = (sender as Button).Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FindControl("RadAjaxManager1") as RadAjaxManager;
-//        RadAjaxLoadingPanel radajaxloading = (sender as Button).Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FindControl("RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
-//        Button btnRmove = (sender as Button).FindControl("ButtonDelSB") as Button;
-
-//        RadGrid grid = (sender as Button).Parent.Parent.Parent.Parent.Parent as RadGrid;
-
-//        //load only when non of the controls are null
-//        if ((radajaxmanager != null) && (radajaxloading != null) && (btnRmove != null) && (grid != null))
-//        {
-//            radajaxmanager.AjaxSettings.AddAjaxSetting(btnRmove, grid, radajaxloading);
-//        }
-
-//    }
-//}
 
 public class RadGridServiceBreakUpdateEditTemplate : System.Web.UI.ITemplate
 {
@@ -297,46 +248,5 @@ public class RadGridServiceBreakUpdateEditTemplate : System.Web.UI.ITemplate
             if (RadDatePickerStartDate != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadDatePickerStartDate, null);
             if (RadDatePickerEndDate != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadDatePickerEndDate, null);
         }
-    }
-}
-
-public class RadGridServiceBreakUpdateDeleteTemplate : System.Web.UI.ITemplate
-{
-
-    public void InstantiateIn(System.Web.UI.Control container)
-    {
-        RadButton ButtonDelete = new RadButton();
-        ButtonDelete.ID = "ButtonDelete";
-        ButtonDelete.Text = "Remove";
-        ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
-        ButtonDelete.Load += new EventHandler(ButtonDelete_Load);
-        container.Controls.Add(ButtonDelete);
-    }
-
-    protected void ButtonDelete_Click(object sender, EventArgs e)
-    {
-        ServiceBreakEventArgs _bArgs = new ServiceBreakEventArgs();
-        RadGrid grid = new Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadGridServiceBreak") as RadGrid;
-        GridTableView gridTable = (sender as RadButton).Parent.Parent.Parent.Parent as GridTableView;
-        GridItem gridItem = ((sender as RadButton).Parent.Parent as GridItem);
-        GridDataItem griddataItem = gridTable.Items[gridItem.ItemIndex];
-        _bArgs.pensionID = griddataItem["pensionID"].Text.Trim();
-        _bArgs.servicebreakID = griddataItem["servicebreakID"].Text.Trim();
-        //Fire the event!
-        ServiceBreakToEditSession.ServiceBreakToEdit.ServiceBreak = _bArgs;
-    }
-
-    protected void ButtonDelete_Load(object sender, EventArgs e)
-    {
-        Utility utl = new Utility();
-
-        RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
-        RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
-
-        RadButton btnDelete = (sender as RadButton).FindControl("ButtonDelete") as RadButton;
-        RadGrid grid = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadGridServiceBreak") as RadGrid;
-
-        if ((radajaxmanager != null) && (radajaxloading != null) && (btnDelete != null) && (grid != null))
-            radajaxmanager.AjaxSettings.AddAjaxSetting(btnDelete, grid, radajaxloading);
     }
 }

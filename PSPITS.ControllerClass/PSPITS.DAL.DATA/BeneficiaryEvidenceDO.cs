@@ -21,6 +21,24 @@ namespace PSPITS.DAL.DATA
             }
         }
 
+        public List<BeneficiaryEvidence> GetMemberBeneficiaryEvidence(int pensionId)
+        {
+            List<BeneficiaryEvidence> benEvidences = new List<BeneficiaryEvidence>();
+            using (var context = new PSPITSEntities())
+            {
+                var beList = context.BeneficiaryEvidences.Where(b => b.pensionID == pensionId).ToList();
+                foreach (var be in beList)
+                {
+                    var beneficiary = context.Beneficiaries.FirstOrDefault(b => b.beneficiaryID == be.beneficiaryID);
+                    be.BeneficiaryName = beneficiary.firstName + " " + beneficiary.lastName;
+                    be.Relationship = context.vwlistBeneficiaryRelationships.FirstOrDefault(b => b.relationshipID == beneficiary.relationID).Relationship;
+                    be.EvidenceType = context.vwlistBeneficiaryEvidences.FirstOrDefault(e => e.evidenceID == be.evidenceID).evidence;
+                    benEvidences.Add(be);
+                }
+                return benEvidences;
+            }
+        }
+
         public BeneficiaryEvidence GetBeneficiaryEvidence(int beneficiaryId, int evidenceId)
         {
             using (var context = new PSPITSEntities())

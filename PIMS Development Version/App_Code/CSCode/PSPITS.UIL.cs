@@ -380,7 +380,7 @@ namespace PSPITS.UIL
             }
             else if ((ctrl.GetType() == typeof(RadAsyncUpload)))
             {
-                ((RadAsyncUpload)(ctrl)).UploadedFiles.RemoveAt(0);
+                if (((RadAsyncUpload)(ctrl)).UploadedFiles.Count > 0) ((RadAsyncUpload)(ctrl)).UploadedFiles.RemoveAt(0);
                 ((RadAsyncUpload)(ctrl)).UploadedFiles.Clear();
             }
             else if ((ctrl.GetType()) == typeof(RadDatePicker))

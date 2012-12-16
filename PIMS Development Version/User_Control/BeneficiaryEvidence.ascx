@@ -278,8 +278,9 @@
         <td width="280" colspan="2">
 <telerik:RadGrid ID="RadGridBeneficiaryEvidence" runat="server"   GridLines="None" Skin="WebBlue" 
                         Width="578px" CellSpacing="0" 
-        onneeddatasource="RadGridBeneficiary_NeedDataSource" >
-                        <MasterTableView autogeneratecolumns="False" datakeynames="beneficiaryID" >
+        onneeddatasource="RadGridEvidence_NeedDataSource" >
+                        <MasterTableView autogeneratecolumns="False" 
+                            datakeynames="beneficiaryID,evidenceID" >
                             <NoRecordsTemplate>
                                 No records available.
                             </NoRecordsTemplate>
@@ -293,30 +294,40 @@
                                 <HeaderStyle Width="20px" />
                             </ExpandCollapseColumn>
                             <Columns>
-                                    <telerik:GridTemplateColumn DataField="columnRemove"   HeaderText="Remove" UniqueName="columnRemove" ReadOnly="false">
+                                    <telerik:GridTemplateColumn DataField="columnEdit"   HeaderText="Edit" 
+                                        UniqueName="columnEdit" ReadOnly="false" 
+                                        FilterControlAltText="Filter columnEdit column">
                                     </telerik:GridTemplateColumn> 
-                                    <telerik:GridBoundColumn DataField="PensionID" DefaultInsertValue=""  Visible="false"
-                                        HeaderText="PensionID" SortExpression="PensionID" UniqueName="PensionID">
+                                    <telerik:GridBoundColumn DataField="pensionID" DefaultInsertValue=""  Visible="false"
+                                        HeaderText="PensionID" SortExpression="PensionID" UniqueName="pensionID" 
+                                        FilterControlAltText="Filter pensionID column">
                                     </telerik:GridBoundColumn>                                                       
                                     <telerik:GridBoundColumn DataField="beneficiaryID" DefaultInsertValue=""  Visible="false"
                                         HeaderText="beneficiaryID" SortExpression="beneficiaryID" UniqueName="beneficiaryID">
                                     </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn DataField="relationID" DefaultInsertValue=""  Visible="false"
-                                        HeaderText="relationID" SortExpression="relationID" UniqueName="relationID">
-                                    </telerik:GridBoundColumn>
-                                     <telerik:GridBoundColumn DataField="firstName" DefaultInsertValue=""  Visible="true"
-                                        HeaderText="Given name" SortExpression="firstName" UniqueName="firstName">
+                                     <telerik:GridBoundColumn DataField="BeneficiaryName" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Beneficiary" SortExpression="BeneficiaryName" 
+                                        UniqueName="BeneficiaryName" 
+                                        FilterControlAltText="Filter BeneficiaryName column">
                                     </telerik:GridBoundColumn>       
-                                     <telerik:GridBoundColumn DataField="lastName" DefaultInsertValue=""  Visible="true"
-                                        HeaderText="Surname" SortExpression="lastName" UniqueName="lastName">
-                                    </telerik:GridBoundColumn>                                 
-                                     <telerik:GridBoundColumn DataField="dateofBirth" DefaultInsertValue=""  Visible="true"
-                                        HeaderText="Date of birth" SortExpression="dateofBirth" UniqueName="dateofBirth" 
-                                        DataFormatString="{0:dd'/'MM'/'yyyy}">
-                                     </telerik:GridBoundColumn>   
-                                    <telerik:GridBoundColumn DataField="relationship" DefaultInsertValue=""  Visible="true"
-                                        HeaderText="Relationship" SortExpression="relationship" UniqueName="relationship">
+                                    <telerik:GridBoundColumn DataField="Relationship" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Relationship" SortExpression="Relationship" 
+                                        UniqueName="Relationship" FilterControlAltText="Filter Relationship column">
                                     </telerik:GridBoundColumn> 
+                                    
+                                     <telerik:GridBoundColumn DataField="EvidenceType" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Evidence" SortExpression="EvidenceType" 
+                                        UniqueName="EvidenceType" FilterControlAltText="Filter EvidenceType column">
+                                    </telerik:GridBoundColumn>                                 
+                                     <telerik:GridBoundColumn DataField="fileOriginalName" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="File Name" SortExpression="fileOriginalName" 
+                                        UniqueName="fileOriginalName" 
+                                        FilterControlAltText="Filter fileOriginalName column">
+                                     </telerik:GridBoundColumn>   
+                                    <telerik:GridBoundColumn DataField="evidenceID" DefaultInsertValue=""  Visible="false"
+                                        HeaderText="Evidence ID" UniqueName="evidenceID" 
+                                        FilterControlAltText="Filter evidenceID column">
+                                    </telerik:GridBoundColumn>
                                     
                             </Columns>
 
@@ -387,8 +398,7 @@
         </td>
         <td>
             <telerik:RadComboBox ID="RadComboBoxName" Runat="server" Width="295px" 
-                MarkFirstMatch="true" 
-                onselectedindexchanged="RadComboBoxName_SelectedIndexChanged">
+                MarkFirstMatch="true">
             </telerik:RadComboBox>
         </td>
     </tr>
@@ -408,8 +418,7 @@
         </td>
         <td>
             <telerik:RadComboBox ID="RadComboBoxEvidenceType" Runat="server" Width="295px" 
-                MarkFirstMatch="true" 
-                onselectedindexchanged="RadComboBoxName_SelectedIndexChanged">
+                MarkFirstMatch="true">
             </telerik:RadComboBox>
         </td>
     </tr>
@@ -475,7 +484,7 @@
             &nbsp;</td>
         <td>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvidenceAccepted" 
-                runat="server" ControlToValidate="RadComboBoxRadComboBoxevidenceAccepted" 
+                runat="server" ControlToValidate="RadComboBoxEvidenceAccepted" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="BeneficiaryEvidence"></asp:RequiredFieldValidator>
         </td>
@@ -546,7 +555,8 @@
         </td>
         <td>
             <telerik:RadAsyncUpload ID="RadAsyncUpload1" runat="server" 
-                MaxFileInputsCount="1" Skin="Windows7">
+                MaxFileInputsCount="1" Skin="Windows7" 
+                onfileuploaded="RadAsyncUpload1_FileUploaded">
                 <Localization Select="Select file" />
             </telerik:RadAsyncUpload>
         </td>

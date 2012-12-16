@@ -29,8 +29,10 @@ public partial class Benefit_Module_MemberBenefitsEligibility : System.Web.UI.Pa
         if (Int32.TryParse(Master.PensionID, out pensionId) && pensionId > 0)
         {
             MemberBenefitCalcs mbc = new MemberBenefitCalcs();
-
-            MemberBenefitEligibility mbe = mbc.GetMemberBenefitEligibility(pensionId);
+            if (Session["MemberBenefitRequest"] == null)
+                return;
+            MemberBenefitRequest mbr = (MemberBenefitRequest)Session["MemberBenefitRequest"];
+            MemberBenefitEligibility mbe = mbc.GetMemberBenefitEligibility(mbr);
             MemberBenefitEligibility1.AnnualPensionProcessedCheck = mbe.AnnualPensionProcessedCheck;
             MemberBenefitEligibility1.DoACheck = mbe.DoACheck;
             MemberBenefitEligibility1.DoAEvidenceCheck = mbe.DoAEvidenceCheck;

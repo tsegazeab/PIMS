@@ -25,8 +25,6 @@
                 <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -40,13 +38,9 @@
                 <DisabledStyle BackColor="#F0F0F0" ForeColor="Black" />
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
@@ -61,20 +55,16 @@
                          <telerik:RadComboBox ID="RadComboBoxprefix" Runat="server"   Width="295px" MarkFirstMatch="true"> 
             </telerik:RadComboBox>
         </td>
-        <td align="left" valign="top">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrefix" runat="server" 
-                ControlToValidate="RadComboBoxprefix" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
-                ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
-        </td>
     </tr>
       <tr>
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrefix" runat="server" 
+                ControlToValidate="RadComboBoxprefix" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
+          </td>
     </tr>
       <tr>
         <td valign="top" width="280">
@@ -86,20 +76,16 @@
                 >
             </telerik:RadTextBox>
           </td>
+    </tr>
+      <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorSurname" runat="server" 
                 ControlToValidate="RadTextBoxlastName" ErrorMessage="Required" 
                 Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
                 ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
           </td>
-    </tr>
-      <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -111,6 +97,10 @@
                >
             </telerik:RadTextBox>
         </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorFirstName" runat="server" 
                 ControlToValidate="RadTextBoxfirstName" ErrorMessage="Required" 
@@ -120,34 +110,22 @@
     </tr>
     <tr>
         <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
             <asp:Label ID="Label9" runat="server" Text="Gender" CssClass="text"></asp:Label>
         &nbsp;</td>
         <td align="left" valign="top">
          <telerik:RadComboBox ID="RadComboBoxgender" Runat="server" Width="295px" MarkFirstMatch="true">
             </telerik:RadComboBox>
         </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorGender" runat="server" 
                 ControlToValidate="RadComboBoxgender" ErrorMessage="Required" 
                 Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
                 ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
         </td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -166,20 +144,16 @@
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
         </td>
-        <td align="left" valign="top">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDoB" runat="server" 
-                ControlToValidate="RadDatePickerDateOfBirth" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
-                ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
-        </td>
     </tr>
        <tr>
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorDoB" runat="server" 
+                ControlToValidate="RadDatePickerDateOfBirth" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
+           </td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -190,20 +164,16 @@
              <telerik:RadComboBox ID="RadComboBoxmaritalStatus" Runat="server"  Width="295px" MarkFirstMatch="true">
             </telerik:RadComboBox>
         </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorMaritalStatus" 
                 runat="server" ControlToValidate="RadComboBoxmaritalStatus" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
         </td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -216,20 +186,16 @@
                 Width="295px">
             </telerik:RadMaskedTextBox>
         </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorNationalID" 
                 runat="server" ControlToValidate="RadTextBoxnationalID" ErrorMessage="Required" 
                 Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
                 ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
         </td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -241,20 +207,16 @@
                 Mask="##############" PromptChar=" " Width="295px">
             </telerik:RadMaskedTextBox>
         </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorPersonalNumber" 
                 runat="server" ControlToValidate="RadTextBoxpersonalNumber" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
         </td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
@@ -266,13 +228,9 @@
               >
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
             &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
@@ -287,16 +245,13 @@
                 >
             </telerik:RadTextBox>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
     </tr>
         <tr>
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
+            
+            </td>
     </tr>
         <tr>
         <td valign="top" width="280">
@@ -315,20 +270,16 @@
 <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
             </telerik:RadDatePicker>
             </td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
         <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorDateOfAppointment" runat="server" 
                 ControlToValidate="RadDatePickerDateOfAppointment" ErrorMessage="Required" 
                 Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
                 ValidationGroup="UpdatePersonalInfo"></asp:RequiredFieldValidator>
             </td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
     </tr>
@@ -342,6 +293,12 @@
             </telerik:RadComboBox>
         </td>
         <td align="left" valign="top">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="280">
+            &nbsp;</td>
+        <td align="left" valign="top">
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCurrentMDA" runat="server" 
                 ControlToValidate="RadComboBoxcurrentMDA" ErrorMessage="Required" 
                 Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
@@ -354,23 +311,11 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td valign="top" width="280">
-            &nbsp;</td>
-        <td align="left" valign="top">
             <telerik:RadButton ID="RadButtonUpdate" runat="server" Text="Update" 
                 Width="150" onclick="RadButtonUpdate_Click" 
                 ValidationGroup="UpdatePersonalInfo">
             </telerik:RadButton>
         </td>
-        <td align="left" valign="top">
-            &nbsp;</td>
         <td align="left" valign="top">
             &nbsp;</td>
     </tr>

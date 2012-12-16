@@ -106,6 +106,11 @@ public partial class User_Control_Life_Benefit_Application_ProcessMemberBenefits
 
     protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
     {
+        MemberBenefitRequest mbr = new MemberBenefitRequest();
+        mbr.Member = new PSPITSDO().GetMemberByPensionID(Int32.Parse(this.PensionID));
+        mbr.EventType = Int32.Parse(RadComboBoxEvent.SelectedValue);
+        mbr.ServiceEndDate = RadDatePickerDateOfEvent.SelectedDate.Value;
+        Session["MemberBenefitRequest"] = mbr;
         Response.Redirect("MemberBenefitsEligibility.aspx");
     }
 
