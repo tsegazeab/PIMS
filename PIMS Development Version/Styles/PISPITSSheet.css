@@ -237,7 +237,9 @@
 table.benefitsDisplayTab
 {
     border-collapse: collapse;
-    border: 1px solid Gray;    
+    border: 1px solid Gray; 
+    font-family: Arial;
+    font-size: small;   
 }
 
 table.benefitsDisplayTab tr

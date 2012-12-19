@@ -47,7 +47,8 @@ public partial class Membership_NewMemberApplication : System.Web.UI.Page
         else if (e.Tab.Text.ToLower().Equals("beneficiary disability"))
         {
             RadMultiPageNewMember.SelectedIndex = RadMultiPageNewMember.FindPageViewByID("RadPageViewDisability").Index;
-            DisabilityInformation1.LoadBeneficiaryNameCombo(Int32.Parse(Master.PensionID));
+            DisabilityInformation1.pensionID = PSPITSModuleSession.PensionID;
+            DisabilityInformation1.LoadBeneficiaryNameCombo(Int32.Parse(PSPITSModuleSession.PensionID));
         }
         else if (e.Tab.Text.ToLower().Equals("declaration"))
         {

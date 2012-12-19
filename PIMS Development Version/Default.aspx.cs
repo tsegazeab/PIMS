@@ -15,6 +15,7 @@ public partial class _Default : System.Web.UI.Page
             LabelCurrentUser.Text = User.Identity.Name;
         else
             Response.Redirect("~/Account/Login.aspx");
+        RadToolBar6.Enabled = User.IsInRole("System Administrator");
     }
 
     protected void LinkButtonSaveNotes_Click(object sender, EventArgs e)
@@ -38,5 +39,9 @@ public partial class _Default : System.Web.UI.Page
     protected void RadToolBar2_ButtonClick(object sender, Telerik.Web.UI.RadToolBarEventArgs e)
     {
 
+    }
+    protected void RadButtonChangePassword_Click(object sender, EventArgs e)
+    {
+        RadToolTipChangePassword.Show();
     }
 }

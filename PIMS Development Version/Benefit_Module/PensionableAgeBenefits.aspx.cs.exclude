@@ -11,16 +11,13 @@ using PSPITS.DAL.DATA;
 using PSPITS.MODEL;
 using PSPITS.DAL.DATA.MemberBenefits;
 
-public partial class Benefit_Module_DisplayMemberBenefits : System.Web.UI.Page
+public partial class Benefit_Module_PensionableAgeBenefits : System.Web.UI.Page
 {
     private const string years = " years";
-   
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {
-            DisplayMemberBenefits();
-        }
+
     }
 
     private void DisplayMemberBenefits()
@@ -36,20 +33,21 @@ public partial class Benefit_Module_DisplayMemberBenefits : System.Web.UI.Page
             Session["MemberBenefitRequest"] = mbr;
             MemberBenefit mb = mbc.GetMemberBenefit(mbr);
 
-            DisplayMemberBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString("dd/MM/yyyy");
-            DisplayMemberBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString("dd/MM/yyyy");
-            DisplayMemberBenefits1.FirstJuly = Constants.JULY_FIRST_2012.ToString("dd/MM/yyyy");
-            DisplayMemberBenefits1.GrossPension = mb.GrossAnnualPensionUpto30June2012.ToString("#,##0.00");
-            DisplayMemberBenefits1.LastMonth = Constants.JULY_FIRST_2012.Subtract(new TimeSpan(1, 0, 0, 0)).ToString("dd/MM/yyyy");
-            DisplayMemberBenefits1.MemberFullName = mb.Member.firstName + " " + mb.Member.lastName;
-            DisplayMemberBenefits1.NetServiceYears = (mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears).ToString("#,##0.00") + years;
-            DisplayMemberBenefits1.PayrollNumber = mb.Member.payrollNumber;
-            DisplayMemberBenefits1.TotalServiceYears = mb.NumberOfServiceYears.ToString("#,##0.00") + years;
-            DisplayMemberBenefits1.TotalServiceBreaks = mb.NumberOfServiceBreakYears.ToString("#,##0.00") + years;
-            DisplayMemberBenefits1.ServiceBreaks = mb.MemberServiceBreaks;
-            DisplayMemberBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
-            DisplayMemberBenefits1.GrossSalary = Constants.JUNE_2012_SALARY.ToString("#,##0.00");
-            DisplayMemberBenefits1.NationalityID = mb.Member.NationalID;
+            PensionableAgeBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString("dd/MM/yyyy");
+            PensionableAgeBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString("dd/MM/yyyy");
+            PensionableAgeBenefits1.FirstJuly = Constants.JULY_FIRST_2012.ToString("dd/MM/yyyy");
+            PensionableAgeBenefits1.GrossPension = mb.GrossAnnualPensionUpto30June2012.ToString("#,##0.00");
+            PensionableAgeBenefits1.LastMonth = Constants.JULY_FIRST_2012.Subtract(new TimeSpan(1, 0, 0, 0)).ToString("dd/MM/yyyy");
+            PensionableAgeBenefits1.MemberFullName = mb.Member.firstName + " " + mb.Member.lastName;
+            PensionableAgeBenefits1.NetServiceYears = (mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears).ToString("#,##0.00") + years;
+            PensionableAgeBenefits1.PayrollNumber = mb.Member.payrollNumber;
+            PensionableAgeBenefits1.TotalServiceYears = mb.NumberOfServiceYears.ToString("#,##0.00") + years;
+            PensionableAgeBenefits1.TotalServiceBreaks = mb.NumberOfServiceBreakYears.ToString("#,##0.00") + years;
+            PensionableAgeBenefits1.ServiceBreaks = mb.MemberServiceBreaks;
+            PensionableAgeBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
+            PensionableAgeBenefits1.GrossSalary = Constants.JUNE_2012_SALARY.ToString("#,##0.00");
+            PensionableAgeBenefits1.NationalityID = mb.Member.NationalID;
+            PensionableAgeBenefits1.ConstructMonthlySalaryTable(mb.MonthlySalaries);
         }
     }
 
@@ -80,5 +78,4 @@ public partial class Benefit_Module_DisplayMemberBenefits : System.Web.UI.Page
         RadToolTip RadToolTipSearch = new Utility().FindControlFromRoot(this, "RadToolTipSearch") as RadToolTip;
         if (RadToolTipSearch != null) RadToolTipSearch.Show();
     }
-
 }

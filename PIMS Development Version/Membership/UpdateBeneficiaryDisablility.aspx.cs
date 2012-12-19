@@ -17,10 +17,10 @@ public partial class Membership_UpdateBeneficiaryDisablility : System.Web.UI.Pag
 
         if (!IsPostBack)
         {
-            DisabilityInformation1.pensionID = Master.PensionID;
+            DisabilityInformation1.pensionID = PSPITSModuleSession.PensionID;
             DisabilityInformation1.beneficiaryID = "0";
             DisabilityInformation1.RebindGrid();
-            DisabilityInformation1.LoadBeneficiaryNameCombo(int.Parse(Master.PensionID));        
+            DisabilityInformation1.LoadBeneficiaryNameCombo(int.Parse(PSPITSModuleSession.PensionID));        
         }
     }
     protected void Page_Init(object sender, System.EventArgs e)

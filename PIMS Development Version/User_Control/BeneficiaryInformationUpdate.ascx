@@ -573,9 +573,9 @@
         </td>
         <td align="left" valign="top">
             <telerik:RadDatePicker ID="RadDatePickerDateOfBirth" Runat="server" Culture="en-US" 
-                Skin="Outlook" Width="295px" MinDate="1800-01-01">
+                Skin="Web20" Width="295px" MinDate="1800-01-01">
 <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" 
-                    ViewSelectorText="x" Skin="Outlook"></Calendar>
+                    ViewSelectorText="x" Skin="Web20"></Calendar>
 
 <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EmptyMessage="DD/MM/YYYY"></DateInput>
 

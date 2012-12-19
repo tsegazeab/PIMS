@@ -32,6 +32,8 @@ public partial class Benefit_Module_MemberBenefitsEligibility : System.Web.UI.Pa
             if (Session["MemberBenefitRequest"] == null)
                 return;
             MemberBenefitRequest mbr = (MemberBenefitRequest)Session["MemberBenefitRequest"];
+            //Save mbr back to session
+            Session["MemberBenefitRequest"] = mbr;
             MemberBenefitEligibility mbe = mbc.GetMemberBenefitEligibility(mbr);
             MemberBenefitEligibility1.AnnualPensionProcessedCheck = mbe.AnnualPensionProcessedCheck;
             MemberBenefitEligibility1.DoACheck = mbe.DoACheck;

@@ -449,7 +449,7 @@ public class RadGridBeneficiaryUpdateEditTemplate : System.Web.UI.ITemplate
         //TEXT BOXES CONTROLS
         RadTextBox RadTextBoxfirstName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxfirstName") as RadTextBox;
         RadTextBox RadTextBoxlastName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxlastName") as RadTextBox;
-        RadTextBox RadTextBoxnationalID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxnationalID") as RadTextBox;
+        RadMaskedTextBox RadTextBoxnationalID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxnationalID") as RadMaskedTextBox;
         RadTextBox RadTextBoxeMail = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxeMail") as RadTextBox;
         //
         RadTextBox RadTextBoxPhoneMobile = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPhoneMobile") as RadTextBox;

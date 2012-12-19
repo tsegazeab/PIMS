@@ -2,6 +2,9 @@
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
+<%@ Register src="User_Control/Search/MemberSearch.ascx" tagname="membersearch" tagprefix="uc2" %>
+<%@ Register src="User_Control/SystemAdministration/ChangePassword.ascx" tagname="ChangePassword" tagprefix="uc1" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,6 +24,17 @@
         {
             width: 100%;
         }
+    
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
     </style>
     <link href="Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
 </head>
@@ -32,8 +46,7 @@
                 Current user:
             <asp:Label ID="LabelCurrentUser" runat="server" 
                 CssClass="text" ForeColor="Navy" Font-Bold="True"></asp:Label>
-                
-            &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
+                &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
                                                 LogoutAction="RedirectToLoginPage" />]
                 
             </td>
@@ -127,7 +140,7 @@
                                 &nbsp;</td>
                             <td>
                                 <telerik:RadToolBar ID="RadToolBar2" Runat="server" Skin="Windows7" 
-                                    onbuttonclick="RadToolBar2_ButtonClick" Enabled="False">
+                                    onbuttonclick="RadToolBar2_ButtonClick">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Contribution" 
@@ -180,8 +193,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar3" Runat="server" Skin="Windows7" 
-                                    Enabled="False">
+                                <telerik:RadToolBar ID="RadToolBar3" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Benefit" ImageUrl="~/images/modules/Desktop_icons/Favorites.png" 
@@ -197,8 +209,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7" 
-                                    Enabled="False">
+                                <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Security_Reader1.png" 
@@ -235,8 +246,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar4" Runat="server" Skin="Windows7" 
-                                    Enabled="False">
+                                <telerik:RadToolBar ID="RadToolBar4" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             Text="Payment" ImageUrl="~/images/modules/Desktop_icons/11.png">
@@ -251,8 +261,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7" 
-                                    Enabled="False">
+                                <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Books-1-icon.png" 
@@ -288,8 +297,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar11" Runat="server" Skin="Windows7" 
-                                    Enabled="False">
+                                <telerik:RadToolBar ID="RadToolBar11" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/search (2).png" Text="Search">
@@ -304,8 +312,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7" 
-                                    Enabled="False">
+                                <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Question_Mark-175x175.png" Text="Help">
@@ -318,10 +325,32 @@
                             <td>
                                 &nbsp;</td>
                         </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
                     </table>
                 </td>
                 <td align="right" width="220">
-                    &nbsp;</td>
+                    <telerik:RadButton ID="RadButtonChangePassword" runat="server" 
+                    Text="Change Password" ButtonType="LinkButton" 
+                        onclick="RadButtonChangePassword_Click">
+                </telerik:RadButton>
+                </td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -532,6 +561,34 @@
                             </telerik:RadToolBarButton>
                         </Items>
                     </telerik:RadToolBar>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+        <telerik:RadToolTip ID="RadToolTipChangePassword" runat="server" Animation="Fade" 
+                    HideEvent="FromCode" Modal="True" Position="Center" RelativeTo="BrowserWindow" 
+                    ShowEvent="FromCode" Skin="WebBlue" ManualClose="True">   
+          <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>--%>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="mybottom">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <uc1:ChangePassword ID="ChangePassword1" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mybottom">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+               <%-- </ContentTemplate>
+            </asp:UpdatePanel>--%>
+        </telerik:RadToolTip>
+            
                 </td>
             </tr>
             </table>

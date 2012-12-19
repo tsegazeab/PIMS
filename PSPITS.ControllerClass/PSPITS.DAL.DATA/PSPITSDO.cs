@@ -861,7 +861,6 @@ namespace PSPITS.DAL.DATA
                 cmdAddEdit = db.GetStoredProcCommand(Constants.SP_UPDATEBENEFICIARYPERSONALDETAIL);
                 db.AddInParameter(cmdAddEdit, Constants.COL_DATEUPDATED, DbType.Date, aPD.dateUpdated);
                 db.AddInParameter(cmdAddEdit, Constants.COL_WHOUPDATED, DbType.String, aPD.whoUpdated);
-
             }
 
             db.AddInParameter(cmdAddEdit, Constants.COL_BENEFICIARY_PENSIONID, DbType.Int32, aPD.pensionID);
@@ -874,13 +873,9 @@ namespace PSPITS.DAL.DATA
             db.AddInParameter(cmdAddEdit, Constants.COL_BENEFICIARY_NATIONALID, DbType.String, aPD.nationalID);
             db.AddInParameter(cmdAddEdit, Constants.COL_BENEFICIARY_RELATIONID, DbType.Int32, aPD.relationID);
             db.AddInParameter(cmdAddEdit, Constants.COL_LOGREF, DbType.Int32, aPD.logRef);
-            //db.AddInParameter(cmdAddEdit, Constants.COL_DATECREATED, DbType.Date, aPD.dateCreated);
-            //db.AddInParameter(cmdAddEdit, Constants.COL_WHOCREATED, DbType.String, aPD.whoCreated);
-            //db.AddInParameter(cmdAddEdit, Constants.COL_DATEUPDATED, DbType.Date, aPD.dateUpdated);
-            //db.AddInParameter(cmdAddEdit, Constants.COL_WHOUPDATED, DbType.String, aPD.whoUpdated);
-
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveBeneficiaryDisabilityDetail(BeneficiaryDisabilityDetail aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -920,6 +915,7 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveMemberPersonalDetail(MemberPersonalDetail aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -971,6 +967,7 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveMemberCurrentPosition(MemberCurrentPosition aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -989,6 +986,7 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveMemberContactDetail(MemberContactDetail aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -1005,6 +1003,7 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveMemberDeclaration(MemberDeclaration aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -1020,6 +1019,7 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveBeneficiaryContactDetail(BeneficiaryContactDetail aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -1037,6 +1037,7 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int SaveMemberServiceBreak(MemberServiceBreak aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
@@ -1071,16 +1072,16 @@ namespace PSPITS.DAL.DATA
 
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int DeleteMemberServiceBreak(MemberServiceBreak aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
             DbCommand cmdAddEdit = db.GetStoredProcCommand(Constants.SP_DELMEMBERSERVICEBREAK);
             db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSERVICEBREAK_PENSIONID, DbType.Int32, aPD.pensionID);
             db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSERVICEBREAK_ID, DbType.Int32, aPD.serviceBreakID);
-
-
             return (ExecuteNonQuery(cmdAddEdit));
         }
+
         public int DeleteBeneficiary(BeneficiaryPersonalDetail aPD)
         {
             Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;

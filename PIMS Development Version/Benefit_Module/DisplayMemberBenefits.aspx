@@ -33,7 +33,6 @@
                 <uc1:DisplayMemberBenefits ID="DisplayMemberBenefits1" runat="server" />                
             </td>
         </tr>
-    </table>
-    
+    </table>    
 </asp:Content>
 

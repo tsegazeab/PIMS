@@ -170,11 +170,21 @@ public partial class User_Control_Life_Benefit_Application_MemberBenefitEligibil
 
     protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
     {
+        if (Session["MemberBenefitRequest"] == null)
+            return;
+        MemberBenefitRequest mbr = (MemberBenefitRequest)Session["MemberBenefitRequest"];
+        //Save mbr back to session
+        Session["MemberBenefitRequest"] = mbr;
         Response.Redirect("DisplayMemberBenefits.aspx");
     }
 
     protected void RadButtonViewGross_Click(object sender, EventArgs e)
     {
+        if (Session["MemberBenefitRequest"] == null)
+            return;
+        MemberBenefitRequest mbr = (MemberBenefitRequest)Session["MemberBenefitRequest"];
+        //Save mbr back to session
+        Session["MemberBenefitRequest"] = mbr;
         Response.Redirect("DisplayMemberBenefits.aspx");
     }
 }

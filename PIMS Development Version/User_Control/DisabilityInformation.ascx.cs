@@ -35,7 +35,7 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
     public string beneficiaryID
     {
         get { return _beneficiaryID; }
-        set {  _beneficiaryID = value; }//RadComboBoxName.SelectedValue = _beneficiaryID = value; }
+        set { RadComboBoxName.SelectedValue = _beneficiaryID = value; }//RadComboBoxName.SelectedValue = _beneficiaryID = value; }
     }
     public string BeneficiaryName
     {
@@ -114,8 +114,6 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
     }
     protected void RadButtonAddDisability_Load(object sender, EventArgs e)
     {
-      
-    
         Utility utl = new Utility();
 
         RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
@@ -145,8 +143,7 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
             if (RadDatePickerDateOfDisability != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadDatePickerDateOfDisability, null);
             //
             if (RadComboBoxReportPresented != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportPresented, null);
-            if (RadComboBoxReportAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportAccepted, null);
-                      
+            if (RadComboBoxReportAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportAccepted, null);                      
         }        
     
     }
@@ -179,7 +176,7 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
     {
         this.pensionID = string.Format("{0}", md.pensionID);
         this.beneficiaryID = string.Format("{0}", md.beneficiaryID);
-        this.BeneficiaryName = md.beneficiaryfullName.Trim();
+        //this.BeneficiaryName = md.beneficiaryfullName.Trim();
         this.DisabilityType = string.Format("{0}", md.disabilityType) ;
         this.ReportPresented = md.evidencePresented.Trim();
         this.ReportAccepted = md.evidenceAccepted.Trim();

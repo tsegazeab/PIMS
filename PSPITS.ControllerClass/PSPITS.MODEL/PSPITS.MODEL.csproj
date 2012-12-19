@@ -67,6 +67,12 @@
       <LastGenOutput>PspitsDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSPITS.DAL.COMMON\PSPITS.COMMON.csproj">
+      <Project>{0F22517C-427D-4326-8645-8E6D8331F166}</Project>
+      <Name>PSPITS.COMMON</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

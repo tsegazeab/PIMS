@@ -14,7 +14,8 @@ public partial class MasterPageSysAdmin : System.Web.UI.MasterPage
     {
         if (!Page.IsPostBack)
         {
-            LabelCurrentUser.Text = this.Page.User.Identity.Name;
+            if (Page.User.Identity.IsAuthenticated)
+                LabelCurrentUser.Text = Page.User.Identity.Name;
         }
     }
 }

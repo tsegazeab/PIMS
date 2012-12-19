@@ -14,16 +14,42 @@ namespace PSPITS.DAL.DATA.MemberBenefits
     public class MemberBenefitCalcs
     {
 
-        public MemberBenefit GetMemberBenefitByPensionId(int pensionId)
+        public MemberBenefit GetMemberBenefit(MemberBenefitRequest mbr)
         {            
             MemberBenefit mb = new MemberBenefit();
-            List<MemberEmploymentServiceBreak> serviceBreaks = GetServiceBreaksPriorToJuly2012(pensionId);
-            mb.Member = GetMemberByPensionId(pensionId);
+            List<MemberEmploymentServiceBreak> serviceBreaks = GetServiceBreaksPriorToJuly2012(mbr.Member.pensionID);
+            mb.Member = mbr.Member;
             mb.MemberServiceBreaks = ConstructMemberServiceBreakList(serviceBreaks);
             mb.NumberOfServiceYears = CalcuateYearsInServicePriorToJuly2012(mb.Member);
             mb.NumberOfServiceBreakYears = CalculateServiceBreakYears(serviceBreaks);
+            //This will eventually be Calculate/Get Gross Annual Pension up to Last Financial Year
             CalculateGrossAnnualPensionUpToJuly2012(mb);
-
+            mb.PensionTypeEnum = DetermineTypeOfPension(mbr);
+            switch (mb.PensionTypeEnum)
+            { 
+                case PensionType.PesionableAgePension:
+                    mb.PensionType = "Pensionable Age Retirement";
+                    break;
+                case PensionType.EarlyPension:
+                    mb.PensionType = "Early Pension";
+                    break;
+                case PensionType.LatePension:
+                    mb.PensionType = "Late Pension";
+                    break;
+                case PensionType.DeathInServicePension:
+                    mb.PensionType = "Death In Service Pension";
+                    break;
+                case PensionType.TerminationLumpSumAmount:
+                    mb.PensionType = "Termination Lump Sum Amount";
+                    break;
+                case PensionType.LessThanTwoYears:
+                    mb.PensionType = "Less Than Two Years In Service";
+                    break;
+                default:
+                    mb.PensionType = "";
+                    break;
+            }
+            this.CalculatePenionableAgePension(mbr, mb);
             return mb;
         }
 
@@ -270,8 +296,17 @@ namespace PSPITS.DAL.DATA.MemberBenefits
 
         private void CalculatePenionableAgePension(MemberBenefitRequest mbr, MemberBenefit mb)
         { 
-            //Get Annual Pension Accrued upto last FY. Ideally this will be picked from the DB but for now we calculate
-
+            //Get Annual Pension Accrued upto last FY. Ideally this will be picked from the DB but for now we calculate it and it is contained in the 
+            //MemberBenefit object
+            //Get MonthlySalaries for the Retiring FY
+            mb.MonthlySalaries = this.GetMemberSalaryListForCurrentFY(mbr);
+            mb.GrossSalaryInRetirementYear = 0;
+            foreach (MonthlySalary ms in mb.MonthlySalaries)
+            {
+                mb.GrossSalaryInRetirementYear += ms.GrossSalary;
+            }
+            //Average Civil Service Salary Increase for last FY
+            mb.AverageCivilServiceSalaryIncrease = 3.25;
         }
 
         /// <summary>
@@ -297,7 +332,6 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                     year = 2013;
                 }
             }
-
             return monthlySalaries;
         }
 
