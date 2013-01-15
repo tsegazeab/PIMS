@@ -174,8 +174,9 @@
                                     <telerik:GridBoundColumn DataField="EvidenceByFunctionID" DefaultInsertValue=""  Visible="false"
                                         HeaderText="EvidenceByFunctionID" SortExpression="EvidenceByFunctionID" UniqueName="EvidenceByFunctionID">
                                     </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn DataField="memberfullName" DefaultInsertValue=""  Visible="true"
-                                        HeaderText="Member full name" SortExpression="memberfullName" UniqueName="memberfullName">
+                                    <telerik:GridBoundColumn DataField="memberfullName" DefaultInsertValue=""  Visible="False"
+                                        HeaderText="Member full name" SortExpression="memberfullName" 
+                                        UniqueName="memberfullName">
                                     </telerik:GridBoundColumn>       
                                          
                                       <telerik:GridBoundColumn DataField="evidence" 
@@ -183,17 +184,19 @@
                                         SortExpression="evidence" UniqueName="evidence" Visible="true">
                                     </telerik:GridBoundColumn>                          
                                      
+                                     <telerik:GridBoundColumn DataField="evidenceType" DefaultInsertValue=""
+                                        HeaderText="Evidence For" 
+                                        UniqueName="evidenceType" FilterControlAltText="Filter filesize column">
+                                    </telerik:GridBoundColumn> 
+                                     
                                     <telerik:GridBoundColumn DataField="fileOriginalName" DefaultInsertValue=""  Visible="true"
                                         HeaderText="File name" SortExpression="fileOriginalName" 
                                         UniqueName="fileOriginalName" FilterControlAltText="Filter fileOriginalName column">
                                     </telerik:GridBoundColumn> 
-                                     <telerik:GridBoundColumn DataField="filesize" DefaultInsertValue=""  Visible="true"
-                                        HeaderText="File size" SortExpression="filesize" 
-                                        UniqueName="filesize" FilterControlAltText="Filter filesize column">
-                                    </telerik:GridBoundColumn> 
-                                    <telerik:GridBoundColumn DataField="fileContentType" DefaultInsertValue=""  Visible="true"
+                                    <telerik:GridBoundColumn DataField="fileContentType" DefaultInsertValue=""  Visible="False"
                                         HeaderText="File type" SortExpression="fileContentType" 
-                                        UniqueName="fileContentType" FilterControlAltText="Filter fileContentType column">
+                                        UniqueName="fileContentType" 
+                                        FilterControlAltText="Filter fileContentType column">
                                     </telerik:GridBoundColumn> 
                                     
                             </Columns>
@@ -275,7 +278,7 @@
     </tr>
     <tr>
         <td width="280">
-            <asp:Label ID="Label1" runat="server" CssClass="text" Text="Type of evidence"></asp:Label>
+            <asp:Label ID="Label1" runat="server" CssClass="text" Text="Evidence For"></asp:Label>
         </td>
         <td>
             <telerik:RadComboBox ID="RadComboBoxevidenceType" Runat="server" Width="325px" 

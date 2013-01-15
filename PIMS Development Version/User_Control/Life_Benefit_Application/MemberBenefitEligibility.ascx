@@ -191,7 +191,7 @@
             </telerik:RadButton>
             &nbsp;
             <telerik:RadButton ID="RadButtonProcessBenefit" runat="server" 
-                Text="Process Benefits">
+                Text="Process Benefits" onclick="RadButtonProcessBenefit_Click1">
             </telerik:RadButton>
         </td>
     </tr>

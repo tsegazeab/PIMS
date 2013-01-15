@@ -13,3 +13,8 @@ F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScr
 F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
 F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.dll
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.pdb
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb

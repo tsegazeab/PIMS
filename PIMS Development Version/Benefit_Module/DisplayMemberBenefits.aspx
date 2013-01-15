@@ -23,7 +23,7 @@
     <table>
         <tr>
             <td align="left">
-                <div class="titleShadow" style=" font-size: 18pt; color: #000066; font-weight: bold; width:575px; font-family:Arial, Helvetica, sans-serif;">
+                <div class="titleShadow" style=" font-size: 18pt; color: #000066; font-weight: bold; width:650px; font-family:Arial, Helvetica, sans-serif;">
                     Member&#39;s Benefits
                 </div>
             </td>

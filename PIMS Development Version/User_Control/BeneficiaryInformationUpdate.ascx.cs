@@ -128,9 +128,8 @@ public partial class User_Control_BeneficiaryInformationUpdate : System.Web.UI.U
     {
         if (!Page.IsPostBack)
         {
-            //PSPITSDO _do = new PSPITSDO();
-            //this.beneficiaryID = _do.PadCode(_do.GenBeneficiaryID(), 9);
-            this.pensionID=this.beneficiaryID = "0";
+            PSPITSDO _do = new PSPITSDO();
+            this.beneficiaryID = _do.PadCode(_do.GenBeneficiaryID(), 9);
             LoadComboBox();
            
         }

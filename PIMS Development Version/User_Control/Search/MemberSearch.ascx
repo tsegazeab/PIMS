@@ -262,8 +262,13 @@
                             </ExpandCollapseColumn>
                             <Columns>
                                     <telerik:GridBoundColumn DataField="PensionID" DefaultInsertValue=""
-                                        HeaderText="PensionID" SortExpression="PensionID" UniqueName="PensionID">
+                                        HeaderText="PensionID" SortExpression="PensionID" UniqueName="PensionID" 
+                                        Visible="False">
                                     </telerik:GridBoundColumn>                                                       
+                                     <telerik:GridBoundColumn DataField="schemeID" 
+                                        FilterControlAltText="Filter schemeID column" HeaderText="Scheme ID" 
+                                        SortExpression="schemeID" UniqueName="schemeID">
+                                    </telerik:GridBoundColumn>
                                      <telerik:GridBoundColumn DataField="firstName" DefaultInsertValue=""  Visible="true"
                                         HeaderText="Given name" SortExpression="firstName" UniqueName="firstName">
                                     </telerik:GridBoundColumn>       

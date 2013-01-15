@@ -65,7 +65,7 @@
                         <tr>
                             <td width="20" valign="top">
                                 <asp:Image ID="Image3" runat="server" Height="70px" ImageAlign="AbsMiddle" 
-                                    ImageUrl="~/images/map/South-Sudan-flag5.gif" Width="110px" />
+                                    ImageUrl="~/images/modules/Desktop_icons/Final_PF_NoWords_Logo2.png" />
                             </td>
                             <td width="20">
                                 &nbsp;</td>

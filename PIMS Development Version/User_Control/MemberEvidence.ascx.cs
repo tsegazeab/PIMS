@@ -258,7 +258,7 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
     protected void MemberEvidenceSelectedFromGrid(object sender, MemberEvidenceEventArgs e)
     {
         PSPITSDO _do = new PSPITSDO();
-
+        this.EvidenceByFunctionID = e.evidencebyfunctionID;
         this.LoadMemberEvidenceDetail(_do.GetMemberEvidenceByPensionIDandEvidenceByFunctionID(int.Parse(e.pensionID), int.Parse(e.evidencebyfunctionID)));
         this.IsUpdate = true;
 
@@ -319,18 +319,13 @@ public partial class User_Control_MemberEvidence : System.Web.UI.UserControl
             return;
         }
         LabelUploadedFile.Text = "";
-        if (this.IsUpdate)
-        {
-            //aPD.serviceBreakID = Int32.Parse(this.serviceBreakID);
-            aPD.whoUpdated = Page.User.Identity.Name;
-            aPD.dateUpdated = DateTime.Now;
-        }
-        else
-        {
-            //aPD.serviceBreakID = int.Parse(this.serviceBreakID = string.Format("{0}", rdo.GenServiceBreakID()));
-            aPD.whoCreated = Page.User.Identity.Name;
-            aPD.dateCreated = DateTime.Now;
-        }
+        
+        //aPD.serviceBreakID = Int32.Parse(this.serviceBreakID);
+        aPD.whoUpdated = Page.User.Identity.Name;
+        aPD.dateUpdated = DateTime.Now;
+        aPD.whoCreated = Page.User.Identity.Name;
+        aPD.dateCreated = DateTime.Now;
+
         aPD.pensionID = Int32.Parse(this.pensionID);
         aPD.EvidenceByFunctionID = Int32.Parse(this.EvidenceByFunctionID);
         aPD.EvidenceTypeID = Int32.Parse(this.evidenceType);

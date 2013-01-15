@@ -13,3 +13,8 @@ F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPI
 F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\ResolveAssemblyReference.cache
 F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.dll
 F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.pdb
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.dll
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Release\PSPITS.DAL.COMMON.pdb
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\ResolveAssemblyReference.cache
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.dll
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Release\PSPITS.DAL.COMMON.pdb

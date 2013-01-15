@@ -12,3 +12,11 @@ F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MO
 F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.pdb
 F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DAL.COMMON.dll
 F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DAL.COMMON.pdb
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.dll.config
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.dll
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.pdb
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DAL.COMMON.dll
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DAL.COMMON.pdb
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\ResolveAssemblyReference.cache
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.dll
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.pdb

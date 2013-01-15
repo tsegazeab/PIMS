@@ -39,7 +39,7 @@ public partial class Benefit_Module_DisplayMemberBenefits : System.Web.UI.Page
             DisplayMemberBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString("dd/MM/yyyy");
             DisplayMemberBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString("dd/MM/yyyy");
             DisplayMemberBenefits1.FirstJuly = Constants.JULY_FIRST_2012.ToString("dd/MM/yyyy");
-            DisplayMemberBenefits1.GrossPension = mb.GrossAnnualPensionUpto30June2012.ToString("#,##0.00");
+            DisplayMemberBenefits1.GrossPension = mb.GrossAnnualPensionUptoLastFY.ToString("#,##0.00");
             DisplayMemberBenefits1.LastMonth = Constants.JULY_FIRST_2012.Subtract(new TimeSpan(1, 0, 0, 0)).ToString("dd/MM/yyyy");
             DisplayMemberBenefits1.MemberFullName = mb.Member.firstName + " " + mb.Member.lastName;
             DisplayMemberBenefits1.NetServiceYears = (mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears).ToString("#,##0.00") + years;

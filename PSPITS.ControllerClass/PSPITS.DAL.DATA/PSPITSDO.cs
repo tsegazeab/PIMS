@@ -1117,7 +1117,6 @@ namespace PSPITS.DAL.DATA
                 cmdAddEdit = db.GetStoredProcCommand(Constants.SP_UPDATEMEMBEREVIDENCEDETAIL);
                 db.AddInParameter(cmdAddEdit, Constants.COL_DATEUPDATED, DbType.Date, aPD.dateUpdated);
                 db.AddInParameter(cmdAddEdit, Constants.COL_WHOUPDATED, DbType.String, aPD.whoUpdated);
-
             }
 
             db.AddInParameter(cmdAddEdit, Constants.COL_MEMBEREVIDENCE_PENSIONID, DbType.Int32, aPD.pensionID);

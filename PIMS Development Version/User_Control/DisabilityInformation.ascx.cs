@@ -128,6 +128,7 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
         RadDatePicker RadDatePickerDateOfDisability = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadDatePickerDateOfDisability") as RadDatePicker;
         RadComboBox RadComboBoxReportPresented = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxReportPresented") as RadComboBox;
         RadComboBox RadComboBoxReportAccepted = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxReportAccepted") as RadComboBox;
+        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAsyncUpload1") as RadAsyncUpload;
      
         //RadComboBox RadComboBoxhomeState = (sender as RadButton).Parent.FindControl("RadComboBoxhomeState") as RadComboBox;
         RadButton RadButtonAddDisability = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadButtonAddDisability") as RadButton;
@@ -141,6 +142,7 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
             if (RadComboBoxName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxName, null);
             if (RadComboBoxDisability != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxDisability, null);
             if (RadDatePickerDateOfDisability != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadDatePickerDateOfDisability, null);
+            if (RadAsyncUpload1 != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadAsyncUpload1, null);
             //
             if (RadComboBoxReportPresented != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportPresented, null);
             if (RadComboBoxReportAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportAccepted, null);                      
@@ -197,6 +199,7 @@ public partial class User_Control_DisabilityInformation : System.Web.UI.UserCont
         Utility.EmptyControl(RadTextBoxDescription);
         Utility.EmptyControl(RadComboBoxReportPresented);
         Utility.EmptyControl(RadComboBoxReportAccepted);
+        Utility.EmptyControl(RadAsyncUpload1);
     }
     protected void RadButtonAddDisability_Click(object sender, EventArgs e)
     {
@@ -287,6 +290,7 @@ public class RadGridBeneficiaryDisabilityEditTemplate : System.Web.UI.ITemplate
         //
         RadComboBox RadComboBoxReportPresented = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxReportPresented") as RadComboBox;
         RadComboBox RadComboBoxReportAccepted = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxReportAccepted") as RadComboBox;
+        RadAsyncUpload RadAsyncUpload1 = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAsyncUpload1") as RadAsyncUpload;
 
         //RadComboBox RadComboBoxhomeState = (sender as RadButton).Parent.FindControl("RadComboBoxhomeState") as RadComboBox;
         RadButton RadButtonAddDisability = utl.FindControlToRootOnly((sender as RadButton).Parent, "ButtonEdit") as RadButton;
@@ -300,6 +304,7 @@ public class RadGridBeneficiaryDisabilityEditTemplate : System.Web.UI.ITemplate
             if (RadComboBoxName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxName, null);
             if (RadComboBoxDisability != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxDisability, null);
             if (RadDatePickerDateOfDisability != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadDatePickerDateOfDisability, null);
+            if (RadAsyncUpload1 != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadAsyncUpload1, null);
             //
             if (RadComboBoxReportPresented != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportPresented, null);
             if (RadComboBoxReportAccepted != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddDisability, RadComboBoxReportAccepted, null);

@@ -123,7 +123,7 @@
                                         HeaderText="servicebreakID" SortExpression="servicebreakID" 
                                         UniqueName="servicebreakID" FilterControlAltText="Filter servicebreakID column">
                                     </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn DataField="memberfullName" DefaultInsertValue=""  Visible="true"
+                                    <telerik:GridBoundColumn DataField="memberfullName" DefaultInsertValue=""  Visible="False"
                                         HeaderText="Member Name" SortExpression="memberfullName" 
                                         UniqueName="memberfullName">
                                     </telerik:GridBoundColumn>       

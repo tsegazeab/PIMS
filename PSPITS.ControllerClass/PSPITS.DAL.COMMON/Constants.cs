@@ -300,6 +300,14 @@ namespace PSPITS.COMMON
 
         #endregion
 
+        #region .string formats.
+
+        public const string DATE_FORMAT = "dd/MM/yyyy";
+        public const string NUMBER_FORMAT_NO_DECIMAL = "#,##0";
+        public const string NUMBER_FORMAT_TWO_DECIMAL = "#,##0.00";
+
+        #endregion
+
     }
 
     public enum PensionType

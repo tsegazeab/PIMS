@@ -10,6 +10,7 @@ using PSPITS.MODEL;
 using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
+using PSPITS.DAL.DATA.MemberBenefits;
 
 public partial class User_Control_Life_Benefit_Application_MemberBenefitEligibility : System.Web.UI.UserControl
 {
@@ -186,5 +187,22 @@ public partial class User_Control_Life_Benefit_Application_MemberBenefitEligibil
         //Save mbr back to session
         Session["MemberBenefitRequest"] = mbr;
         Response.Redirect("DisplayMemberBenefits.aspx");
+    }
+    protected void RadButtonProcessBenefit_Click1(object sender, EventArgs e)
+    {
+        if (Session["MemberBenefitRequest"] == null)
+            return;
+        MemberBenefitRequest mbr = (MemberBenefitRequest)Session["MemberBenefitRequest"];
+        //Save mbr back to session
+        Session["MemberBenefitRequest"] = mbr;
+        MemberBenefitCalcs mbc = new MemberBenefitCalcs();
+        MemberBenefit mb = mbc.GetMemberBenefit(mbr);
+        Session["MemberBenefit"] = mb;
+        if (mb.PensionTypeEnum == PensionType.PesionableAgePension)
+            Response.Redirect("PensionableAgeBenefits.aspx");
+        else if (mb.PensionTypeEnum == PensionType.EarlyPension)
+            Response.Redirect("EarlyPensionBenefits.aspx");
+        else if (mb.PensionTypeEnum == PensionType.TerminationLumpSumAmount)
+            Response.Redirect("EarlyPensionBenefits.aspx");
     }
 }
