@@ -58,6 +58,14 @@ namespace PSPITS.MODEL
 
         public List<MonthlySalary> MonthlySalaries { get; set; }
 
+        /// <summary>
+        /// This applies to Early Retirement
+        /// </summary>
         public int MonthsToPensionableAge { get; set; }
+
+        /// <summary>
+        /// This apply to Late Retirement
+        /// </summary>
+        public int MonthsBeyondPensionableAge { get; set; }
     }
 }

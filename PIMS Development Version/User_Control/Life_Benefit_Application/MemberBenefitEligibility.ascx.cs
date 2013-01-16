@@ -204,5 +204,9 @@ public partial class User_Control_Life_Benefit_Application_MemberBenefitEligibil
             Response.Redirect("EarlyPensionBenefits.aspx");
         else if (mb.PensionTypeEnum == PensionType.TerminationLumpSumAmount)
             Response.Redirect("EarlyPensionBenefits.aspx");
+        else if (mb.PensionTypeEnum == PensionType.LatePension)
+        {
+            Response.Redirect("LatePensionBenefits.aspx");
+        }
     }
 }

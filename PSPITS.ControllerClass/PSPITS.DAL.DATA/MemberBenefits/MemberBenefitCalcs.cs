@@ -254,15 +254,21 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         private PensionType DetermineTypeOfPension(MemberBenefitRequest mbr, MemberBenefit mb)
         {
             MemberAge memberAge = this.GetMemberAge(mbr.Member.dateofBirth.Value);
+            MemberAge ageDiff;
             mb.PensionableAge = this.DeterminePensionableAge(mbr.Member.dateofBirth.Value);
             
             int ageCompare = memberAge.Compare(mb.PensionableAge);
             if (ageCompare == 0)
                 return PensionType.PesionableAgePension;
             if (ageCompare > 0)
+            {
+                //Complete months beyond pensionable age
+                ageDiff = memberAge - mb.PensionableAge;
+                mb.MonthsBeyondPensionableAge = (ageDiff.Years * 12) + ageDiff.Months;
                 return PensionType.LatePension;
+            }
             //Complete months to pensionable age -- applies to early pension and termination lump sum
-            MemberAge ageDiff = mb.PensionableAge - memberAge;
+            ageDiff = mb.PensionableAge - memberAge;
             mb.MonthsToPensionableAge = (ageDiff.Years * 12) + ageDiff.Months;
 
             if (IsEarlyPension(mbr, memberAge, mb.PensionableAge))
@@ -323,12 +329,12 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             //Early/Late Retirement Reduction/Increase Adjustment
             if (mb.PensionTypeEnum == PensionType.EarlyPension)
             {
-                mb.EarlyRetirementReductionAdjustment = (decimal)(0.5 / 100) * 3 * mb.TotalAccruedPension;
+                mb.EarlyRetirementReductionAdjustment = (decimal)(0.5 / 100) * mb.MonthsToPensionableAge * mb.TotalAccruedPension;
                 mb.AnnualGrossPensionEntitlement = mb.TotalAccruedPension - mb.EarlyRetirementReductionAdjustment;
             }
             else if (mb.PensionTypeEnum == PensionType.LatePension)
             {
-                mb.LateRetirementReductionAdjustment = (decimal)(0.5 / 100) * 3 * mb.TotalAccruedPension;
+                mb.LateRetirementReductionAdjustment = (decimal)(0.5 / 100) * mb.MonthsBeyondPensionableAge * mb.TotalAccruedPension;
                 mb.AnnualGrossPensionEntitlement = mb.TotalAccruedPension + mb.LateRetirementReductionAdjustment;
             }
 

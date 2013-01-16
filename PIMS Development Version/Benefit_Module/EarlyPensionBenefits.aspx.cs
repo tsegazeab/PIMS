@@ -72,7 +72,10 @@ public partial class Benefit_Module_EarlyPensionBenefits : System.Web.UI.Page
                 mb.GrossPensionAccruedInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             EarlyPensionBenefits1.EarlyPensionReductionAdjustment = mb.EarlyRetirementReductionAdjustment.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
-            EarlyPensionBenefits1.EarlyPensionReductionAdjustmentFormula = string.Format("0.5 ÷ 100 * 3 * {0}", mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));            
+            EarlyPensionBenefits1.EarlyPensionReductionAdjustmentFormula = string.Format("0.5 ÷ 100 * {0} * {1}", mb.MonthsToPensionableAge.ToString(Constants.NUMBER_FORMAT_NO_DECIMAL), mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
+            EarlyPensionBenefits1.AnnualGrossPensionEntitlement = mb.AnnualGrossPensionEntitlement.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
+            EarlyPensionBenefits1.AnnualGrossPensionEntitlementFormula = string.Format("{0} - {1}", mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), 
+                mb.EarlyRetirementReductionAdjustment.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             EarlyPensionBenefits1.NoCommutation = mb.NoCommutation.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
             EarlyPensionBenefits1.CommutationFormula = string.Format("{0} ÷ {1}", mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), Constants.NUMBER_OF_MONTHS_IN_YEAR);
