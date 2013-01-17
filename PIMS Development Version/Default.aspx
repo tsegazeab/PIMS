@@ -209,12 +209,12 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                            ImageUrl="~/images/modules/Desktop_icons/Security_Reader1.png" 
-                                            Text="Tracking" 
-                                            NavigateUrl="~/Application_Section/FrontDeskApplicationTracker.aspx">
+                                            ImageUrl="~/images/modules/Desktop_icons/Nations-African-Male-icon.png" 
+                                            Owner="RadToolBar7" Text="NPF Retirees" 
+                                            NavigateUrl="~/NPF_Benefits/NpfPensioners.aspx">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>
@@ -261,11 +261,12 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-                                <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7">
+                                <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                            ImageUrl="~/images/modules/Desktop_icons/Books-1-icon.png" 
-                                            Owner="RadToolBar7" Text="Archive">
+                                            ImageUrl="~/images/modules/Desktop_icons/Security_Reader1.png" 
+                                            Text="Tracking" 
+                                            NavigateUrl="~/Application_Section/FrontDeskApplicationTracker.aspx">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>

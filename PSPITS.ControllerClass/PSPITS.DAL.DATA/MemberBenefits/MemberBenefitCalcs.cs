@@ -20,8 +20,10 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             List<MemberEmploymentServiceBreak> serviceBreaks = GetServiceBreaksPriorToJuly2012(mbr.Member.pensionID);
             mb.Member = mbr.Member;
             mb.MemberServiceBreaks = ConstructMemberServiceBreakList(serviceBreaks);
-            mb.NumberOfServiceYears = CalcuateYearsInServicePriorToJuly2012(mb.Member);
+            mb.NumberOfServiceYears = CalcuateYearsInServicePriorTo(mb.Member, Constants.JULY_FIRST_2012);
             mb.NumberOfServiceBreakYears = CalculateServiceBreakYears(serviceBreaks);
+            mb.NumberOfPensionableYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
+
             mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
             //To be picked from table
             mb.AverageCivilServiceSalaryIncrease = 3.25;
@@ -113,10 +115,11 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         /// Calculate years in service prior to July 2012
         /// </summary>
         /// <param name="member"></param>
+        /// <param name="endDate">Date to stop calculating years in service</param>
         /// <returns></returns>
-        private double CalcuateYearsInServicePriorToJuly2012(Member member)
+        private double CalcuateYearsInServicePriorTo(Member member, DateTime endDate)
         {
-            TimeSpan duration = Constants.JULY_FIRST_2012 - member.dateoffirstAppointment.Value;
+            TimeSpan duration = endDate - member.dateoffirstAppointment.Value;
             return duration.TotalDays / Constants.NUMBER_OF_DAYS_IN_YEAR;
         }
 
@@ -169,6 +172,20 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             int yearDiff = dob.Year - Constants.DEC_31_1952.Year;
             yearDiff--;
             return new MemberAge { Years = 60 + yearDiff, Months = dob.Month };
+        }
+
+        /// <summary>
+        /// This applies to Terminal Benefits
+        /// </summary>
+        /// <param name="ageDiff"></param>
+        /// <returns></returns>
+        private DateTime DetermineStandardRetirementDate(MemberBenefit mb)
+        {
+            DateTime retirementDate = mb.Member.dateofBirth.Value;
+            retirementDate = retirementDate.AddYears(mb.PensionableAge.Years);
+            retirementDate = retirementDate.AddMonths(mb.PensionableAge.Months);
+            retirementDate = retirementDate.AddDays(mb.PensionableAge.Days);
+            return retirementDate;
         }
 
         /// <summary>
@@ -274,7 +291,10 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             if (IsEarlyPension(mbr, memberAge, mb.PensionableAge))
                 return PensionType.EarlyPension;
             if (IsTerminationLumpSum(mbr, memberAge, mb.PensionableAge))
+            {
+                mb.StandardRetirementDate = DetermineStandardRetirementDate(mb);
                 return PensionType.TerminationLumpSumAmount;
+            }
             return PensionType.LessThanTwoYears;
            
         }
@@ -349,6 +369,13 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.NetAnnualPension = mb.TotalAccruedPension - mb.AThirdAnnualPension;
             //Monthl Pension
             mb.MonthlyPension = mb.NetAnnualPension / Constants.NUMBER_OF_MONTHS_IN_YEAR;
+
+            if (mb.PensionTypeEnum == PensionType.TerminationLumpSumAmount)
+            {
+                mb.FinalMonthGrossSalary = 2500;//To be picked from db
+                mb.GrossPensionAccruedInRetirementYear = (decimal)(1.5 / 100) * mb.FinalMonthGrossSalary * (decimal)(Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.NumberOfPensionableYears);
+                mb.LumpSumPension = mb.GrossPensionAccruedInRetirementYear * (decimal)mb.CommutationFactor;                
+            }
 
         }
 

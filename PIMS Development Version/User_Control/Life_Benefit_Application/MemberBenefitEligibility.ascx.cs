@@ -203,7 +203,7 @@ public partial class User_Control_Life_Benefit_Application_MemberBenefitEligibil
         else if (mb.PensionTypeEnum == PensionType.EarlyPension)
             Response.Redirect("EarlyPensionBenefits.aspx");
         else if (mb.PensionTypeEnum == PensionType.TerminationLumpSumAmount)
-            Response.Redirect("EarlyPensionBenefits.aspx");
+            Response.Redirect("TerminalBenefits.aspx");
         else if (mb.PensionTypeEnum == PensionType.LatePension)
         {
             Response.Redirect("LatePensionBenefits.aspx");

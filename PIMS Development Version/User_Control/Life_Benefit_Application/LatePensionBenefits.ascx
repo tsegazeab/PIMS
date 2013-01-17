@@ -513,18 +513,6 @@
         <td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td>C</td>
-        <td valign="top" align="left" colspan="3" rowspan="2">
-            Prospective pensioner may elect Level of Commutation up to 1/3 rd of Gross 
-            Pension. In case this option is selected the percentage of commutation desired 
-            must be indicated and the calculations be revised accordingly</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
         <td>&nbsp;</td>
         <td valign="top" align="left" colspan="2">
             &nbsp;</td>

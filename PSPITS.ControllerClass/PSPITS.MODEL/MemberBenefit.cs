@@ -18,6 +18,8 @@ namespace PSPITS.MODEL
 
         public double NumberOfServiceBreakYears { get; set; }
 
+        public double NumberOfPensionableYears { get; set; }
+
         public decimal GrossAnnualPensionUptoLastFY { get; set; }
 
         public decimal GrossSalaryInRetirementYear { get; set; }
@@ -50,6 +52,8 @@ namespace PSPITS.MODEL
 
         public decimal AnnualGrossPensionEntitlement { get; set; }
 
+        public decimal FinalMonthGrossSalary { get; set; }
+
         public string PensionType { get; set; }
 
         public PensionType PensionTypeEnum { get; set; }
@@ -67,5 +71,9 @@ namespace PSPITS.MODEL
         /// This apply to Late Retirement
         /// </summary>
         public int MonthsBeyondPensionableAge { get; set; }
+
+        public DateTime StandardRetirementDate { get; set; }
+
+        public decimal LumpSumPension { get; set; }
     }
 }

@@ -17,6 +17,6 @@ F:\Projects\HTSPE\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DA
 \\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.MODEL.pdb
 \\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DAL.COMMON.dll
 \\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\bin\Release\PSPITS.DAL.COMMON.pdb
-\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\ResolveAssemblyReference.cache
+\\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.csprojResolveAssemblyReference.cache
 \\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.dll
 \\psf\Home\Documents\PIMS\PSPITS.ControllerClass\PSPITS.MODEL\obj\Release\PSPITS.MODEL.pdb

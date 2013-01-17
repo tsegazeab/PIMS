@@ -1,0 +1,157 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageNpfBenefit.master.cs" Inherits="MasterPageNpfBenefit" %>
+
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+
+<%@ Register src="User_Control/Search/MemberSearch.ascx" tagname="MemberSearch" tagprefix="uc2" %>
+
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+         .style1
+        {
+            width: 100%;
+            height: 649px;
+        }
+        .mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+        .mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+    </style>
+    <link href="Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <telerik:RadScriptManager ID="RadScriptManager1" Runat="server">
+        </telerik:RadScriptManager>
+        <table cellpadding="0" cellspacing="0" class="style1">
+            <tr>                
+                <td valign="top" colspan="3">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td width="20" valign="top">
+                                <asp:Image ID="Image3" runat="server" Height="70px" ImageAlign="AbsMiddle" 
+                                    ImageUrl="~/images/modules/Desktop_icons/Final_PF_NoWords_Logo2.png" />
+                            </td>
+                            <td width="20">
+                                &nbsp;</td>
+                            <td align="left">
+                                <span class="mybottom3">Pension Information Management System (PIMS)</span></td>
+                            <td align="right" valign="bottom">
+                                <b class="moduleTitle">&nbsp;NPF Pensioner Benefits&nbsp;</b>
+                                <br />&nbsp;
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center">
+                                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="textBlueU" 
+                                                NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                                        </td>
+                                        <td align="center">
+&nbsp; |&nbsp;
+                                        </td>
+                                        <td style=" font-family:Arial; font-size: small;">
+                                            Current user:
+                                            <asp:Label ID="LabelCurrentUser" runat="server" 
+                                                CssClass="text" ForeColor="Navy" Font-Bold="True"></asp:Label>
+                                        </td>
+                                        <td align="center"  style=" font-family:Arial; font-size: small;">
+                                            &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
+                                                LogoutAction="RedirectToLoginPage" />]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>                
+                <td colspan="3">
+                    <hr />
+                </td> 
+            </tr>
+            <tr>
+                <td colspan="3" valign="top">
+                    <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%" 
+                        CssClass="masterToolStrip" onbuttonclick="RadToolBar1_ButtonClick">
+                        <Items>
+                            <telerik:RadToolBarButton runat="server" Text="Register NPF Pensioners" 
+                                Width="170px" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/add-user (24x24).png" 
+                                NavigateUrl="~/NPF_Benefits/NpfPensioners.aspx">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Process Monthly Payments" 
+                                Width="170px" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png" 
+                                NavigateUrl="~/NPF_Benefits/NpfPensionPayments.aspx">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 5" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Return of contribution" Width="170px" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/leaves.png" 
+                                Visible="False">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True" 
+                                Visible="False">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" 
+                                ImageUrl="~/images/modules/Desktop_icons/search.png" Text="Search" 
+                                Visible="False">
+                            </telerik:RadToolBarButton>
+                        </Items>
+                    </telerik:RadToolBar>
+                </td>
+            </tr>
+            <tr>
+                <td width="15%" style=" border-right: 1px solid Gray;" valign="top">
+                    &nbsp;
+                    </td>
+                <td align="center" valign="top" width="70%">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                        
+                    </asp:ContentPlaceHolder>
+                </td>                               
+                <td width="15%" style=" border-left: 1px solid Gray;">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="mybottom" height="20" colspan="3">
+                    &nbsp;Public Servants Pensions Information Technology System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>
+            </tr>
+        </table>
+    </div>
+                <telerik:RadFormDecorator ID="RadFormDecorator1" Runat="server" 
+        
+        DecoratedControls="Default, Textbox, Textarea, Fieldset, Label, H4H5H6, Select, GridFormDetailsViews, ValidationSummary, LoginControls" 
+        Skin="Windows7" />
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" Runat="server" 
+        Skin="Default">
+    </telerik:RadAjaxLoadingPanel>
+    </form>
+</body>
+</html>
