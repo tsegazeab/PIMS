@@ -7,7 +7,7 @@
         <tr>
             <td align="left" style="font-family: Arial; font-size: large; font-weight: bold;">
                             
-                NPF Pensioners</td>
+                NPF Pensioners Payments</td>
         </tr>
         <tr>
             <td>
@@ -16,28 +16,117 @@
         <tr>
             <td style="overflow: auto;">
                 <dx:aspxgridview ID="ASPxGridViewNfpRetiree" runat="server" 
-                    DataSourceID="ObjectDataSource1" Theme="Office2003Blue" 
+                    DataSourceID="ObjectDataSourcePaymentList" Theme="Office2003Blue" 
                     AutoGenerateColumns="False">
                     <Columns>
-                        <dx:GridViewDataTextColumn FieldName="NpfPensionerBenefitId" VisibleIndex="0">
+                        <dx:GridViewDataTextColumn FieldName="NpfPensionerId" VisibleIndex="0" 
+                            Visible="False" ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="NpfPensionerId" VisibleIndex="1">
+                        <dx:GridViewDataTextColumn FieldName="NpfPensionerBenefitId" VisibleIndex="1" 
+                            Visible="False" ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Month" VisibleIndex="2">
+                        <dx:GridViewDataTextColumn FieldName="IndexNumber" VisibleIndex="2" 
+                            ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Year" VisibleIndex="3">
+                        <dx:GridViewDataTextColumn FieldName="Surname" VisibleIndex="3" 
+                            ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="NetPension" VisibleIndex="4">
+                        <dx:GridViewDataTextColumn FieldName="OtherNames" VisibleIndex="4" 
+                            ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Arrears" VisibleIndex="5">
+                        <dx:GridViewDataTextColumn FieldName="BankName" VisibleIndex="5" 
+                            ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="TotalPension" VisibleIndex="6">
+                        <dx:GridViewDataTextColumn FieldName="BankAddress" VisibleIndex="6" 
+                            ShowInCustomizationForm="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataCheckColumn FieldName="PensionPaid" VisibleIndex="7">
+                        <dx:GridViewDataTextColumn FieldName="BranchName" VisibleIndex="7" 
+                            ShowInCustomizationForm="True">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="AccountNumber" VisibleIndex="8" 
+                            ShowInCustomizationForm="True">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Sum" VisibleIndex="9" 
+                            ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Pension" VisibleIndex="10" 
+                            ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="ADD 1" FieldName="Addition1" 
+                            VisibleIndex="11" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="ADD 2" FieldName="Addition2" 
+                            VisibleIndex="12" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="ADD 3" FieldName="Addition3" 
+                            VisibleIndex="13" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="ADD 4" FieldName="Addition4" 
+                            VisibleIndex="14" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="DED 1" FieldName="Deduction1" 
+                            VisibleIndex="15" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="DED 2" FieldName="Deduction2" 
+                            VisibleIndex="16" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="DED 3" FieldName="Deduction3" 
+                            VisibleIndex="17" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="DED 4" FieldName="Deduction4" 
+                            VisibleIndex="18" ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="NetPension" VisibleIndex="19" 
+                            ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Arrears" VisibleIndex="20" 
+                            ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="TotalPension" VisibleIndex="21" 
+                            ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataCheckColumn FieldName="PensionPaid" VisibleIndex="22" 
+                            ShowInCustomizationForm="True" Visible="False">
                         </dx:GridViewDataCheckColumn>
-                        <dx:GridViewDataTextColumn FieldName="OutstandingBalance" VisibleIndex="8">
+                        <dx:GridViewDataTextColumn FieldName="OutstandingBalance" VisibleIndex="23" 
+                            ShowInCustomizationForm="True">
+                            <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
+                            </PropertiesTextEdit>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataCheckColumn FieldName="PensionStopped" VisibleIndex="9">
+                        <dx:GridViewDataCheckColumn FieldName="PensionStopped" VisibleIndex="26" 
+                            ShowInCustomizationForm="True" Visible="False">
+                        </dx:GridViewDataCheckColumn>
+                        <dx:GridViewDataCheckColumn Caption="Approve" UnboundType="Boolean" 
+                            VisibleIndex="24">
+                        </dx:GridViewDataCheckColumn>
+                        <dx:GridViewDataCheckColumn Caption="Stop Pension" UnboundType="Boolean" 
+                            VisibleIndex="25">
                         </dx:GridViewDataCheckColumn>
                     </Columns>
                     <SettingsBehavior ConfirmDelete="True" />
@@ -45,7 +134,7 @@
                     </settingspager>
                     <settings showfilterrow="True" />
                 </dx:aspxgridview>
-                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+                <asp:ObjectDataSource ID="ObjectDataSourcePaymentList" runat="server" 
                     SelectMethod="GetMonthlyPaymentList" 
                     TypeName="PSPITS.DAL.DATA.MemberBenefits.NpfPensionerService">
                     <SelectParameters>

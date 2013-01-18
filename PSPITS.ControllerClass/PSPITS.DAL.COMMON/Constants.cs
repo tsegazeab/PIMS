@@ -6,6 +6,7 @@ namespace PSPITS.COMMON
 {
     public class Constants
     {
+
         #region Stored Procedures
 
         public const string SP_GETDAY = "GetDay";
@@ -258,6 +259,8 @@ namespace PSPITS.COMMON
         #region Month Codes
 
         public static string[] MONTH_CODES = new string[] { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L" };
+
+        public static string[] MONTHS = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
         #endregion
 

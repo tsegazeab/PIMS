@@ -51,6 +51,7 @@
     <Compile Include="MemberPensionRequest.cs" />
     <Compile Include="MemberServiceBreak.cs" />
     <Compile Include="MonthlySalary.cs" />
+    <Compile Include="NpfPayment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PspitsDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
