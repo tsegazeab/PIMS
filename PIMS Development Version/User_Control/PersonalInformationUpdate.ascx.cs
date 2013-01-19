@@ -204,15 +204,15 @@ public partial class User_Control_PersonalInformationUpdate : System.Web.UI.User
     {
         this.PensionID = string.Format("{0}", md.pensionID);
         this.SchemeID = new PSPITSDO().GetSchemeIDByPensionID(md.pensionID);
-        this.Prefix = md.prefix.Trim();
-        this.firstName = md.firstName.Trim();
-        this.lastName = md.lastName.Trim();
-        this.Gender = md.gender.Trim();
+        this.Prefix = md.prefix;
+        this.firstName = md.firstName;
+        this.lastName = md.lastName;
+        this.Gender = md.gender;
         this.MaritalStatus = string.Format("{0}", md.maritalStatus);
-        this.nationalID = md.nationalID.Trim();
-        this.PersonalNumber = md.personalNo.Trim();
-        this.payrollNumber = md.payrollNumber.Trim();
-        this.establishmentNumber = md.establishmentNumber.Trim();
+        this.nationalID = md.nationalID;
+        this.PersonalNumber = md.personalNo;
+        this.payrollNumber = md.payrollNumber;
+        this.establishmentNumber = md.establishmentNumber;
         this.DateOfBirth = md.dateofBirth;
         this.DateOfAppointment = md.dateofFirstAppointment;
         this.CurrentMDA = md.currentMDA;
