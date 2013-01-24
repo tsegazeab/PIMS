@@ -10,6 +10,7 @@ using PSPITS.MODEL;
 using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
+using PSPITS.DAL.DATA.Membership;
 
 public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefits : System.Web.UI.UserControl
 {
@@ -34,42 +35,44 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
         get { return RadTextBoxMemberFullName.Text; }
         set { RadTextBoxMemberFullName.Text = value; }
     }
+
+    public string SchemeID
+    {
+        get { return RadTextBoxSchemeID.Text; }
+        set { RadTextBoxSchemeID.Text = value; }
+    }
+
+    public string DateOfBirth
+    {
+        get { return RadTextBoxDateOfBirth.Text; }
+        set { RadTextBoxDateOfBirth.Text = value; }
+    }
+
+    public string DateOfAppointment
+    {
+        get { return RadTextBoxDateOfAppointment.Text; }
+        set { RadTextBoxDateOfAppointment.Text = value; }
+    }
+
+    public string DateOfDeath
+    {
+        get { return RadTextBoxDateOfDeath.Text; }
+        set { RadTextBoxDateOfDeath.Text = value; }
+    }
+
+    public string StatusMessage
+    {
+        get { return LabelStatusMsg.Text; }
+        set { LabelStatusMsg.Text = value; }
+    }
     
     #endregion 
-
-    public void DisplayMemberNameAndPensionID(int pensionID)
-    {
-        MemberPersonalDetail md = new PSPITSDO().GetMemberbyPensionID(pensionID);
-        Member selectedMember = new PSPITSDO().GetMemberByPensionID(md.pensionID);
-        this.MemberFullName = string.Format("{0}{1}{2}", md.firstName, ' ', md.lastName);
-        this.PensionID = string.Format("{0}", pensionID);
-        if (selectedMember != null)
-        {
-            this.RadTextBoxSchemeID.Text = selectedMember.schemeID;
-            this.RadTextBoxDateOfAppointment.Text = selectedMember.dateoffirstAppointment.HasValue ? selectedMember.dateoffirstAppointment.Value.ToString("dd/MM/yyyy") : "";
-        }
-        this.PayrollNo = md.payrollNumber;        
-    }
-
-    public void LoadEventCombo()
-    {
-        //Load evidencetype comboBox        
-        RadComboDeceasedMember.DataSource = new PSPITSDO().GetMemberBenefitEvents();
-        RadComboDeceasedMember.DataTextField = PSPITS.COMMON.Constants.COL_LIST_EVENTNAME;
-        RadComboDeceasedMember.DataValueField = PSPITS.COMMON.Constants.COL_LIST_EVENTCODE;
-        RadComboDeceasedMember.SelectedIndex = -1;
-        RadComboDeceasedMember.EmptyMessage = "--Please Select--";    
-        RadComboDeceasedMember.DataBind();
-
-    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            this.PensionID = this.PensionID.Length > 3 ? this.PensionID : "0";
-            DisplayMemberNameAndPensionID(Int32.Parse(this.PensionID));
-            LoadEventCombo();
+            RadComboDeceasedMember.DataBind();
         }
     }
 
@@ -80,15 +83,7 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
         RadAjaxManager radajaxmanager = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
         RadAjaxLoadingPanel radajaxloading = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
 
-        RadTextBox RadTextBoxPensionID = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPensionID") as RadTextBox;
-        RadTextBox RadTextBoxMemberFullName = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxMemberFullName") as RadTextBox;
-        RadTextBox RadTextBoxPayrollNo = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPayrollNo") as RadTextBox;
-        //
-        //RadAsyncUpload
-        //                
-        
-        RadComboBox RadComboBoxEvent = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxEvent") as RadComboBox;
-        RadDatePicker RadDatePickerDateOfEvent = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadDatePickerDateOfEvent") as RadDatePicker;
+        RadComboBox RadComboDeceasedMember = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadComboDeceasedMember") as RadComboBox;
 
         RadButton RadButtonProcessBenefit = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadButtonProcessBenefit") as RadButton;
 
@@ -96,28 +91,83 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
         if ((radajaxmanager != null) && (radajaxloading != null) && (RadButtonProcessBenefit != null))
         {
             //now check if the various combo boxes have been found 
-            if (RadTextBoxPensionID != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxPensionID, null);
-            if (RadTextBoxMemberFullName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxMemberFullName, null);
-            if (RadTextBoxPayrollNo != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxPayrollNo, null);
-            if (RadComboBoxEvent != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadComboBoxEvent, null);
-            if (RadDatePickerDateOfEvent != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadDatePickerDateOfEvent, null);                        
+            if (RadComboDeceasedMember != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadComboDeceasedMember, null);                        
         }
     }
 
     protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
     {
-        MemberBenefitRequest mbr = new MemberBenefitRequest();
-        mbr.Member = new PSPITSDO().GetMemberByPensionID(Int32.Parse(this.PensionID));
-        mbr.EventType = Int32.Parse(RadComboDeceasedMember.SelectedValue);
-        mbr.ServiceEndDate = RadDatePickerDateOfEvent.SelectedDate.Value;
-        Session["MemberBenefitRequest"] = mbr;
-        Response.Redirect("MemberBenefitsEligibility.aspx");
+        //MemberBenefitRequest mbr = new MemberBenefitRequest();
+        //mbr.Member = new PSPITSDO().GetMemberByPensionID(Int32.Parse(this.PensionID));
+        //mbr.EventType = Int32.Parse(RadComboDeceasedMember.SelectedValue);
+        //mbr.ServiceEndDate = RadDatePickerDateOfEvent.SelectedDate.Value;
+        //Session["MemberBenefitRequest"] = mbr;
+        //Response.Redirect("MemberBenefitsEligibility.aspx");
     }
 
     protected void RadComboDeceasedMember_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
     {
-
+        try
+        {
+            if (RadComboDeceasedMember.SelectedItem != null)
+            {
+                Session["PensionID"] = RadComboDeceasedMember.SelectedItem.Value;
+                MemberDeath md = new MembershipService().GetMemberDeathByPensionId(Int32.Parse(RadComboDeceasedMember.SelectedItem.Value));
+                if (md != null)
+                {
+                    this.PensionID = md.PensionId.ToString();
+                    this.SchemeID = md.Member.schemeID;
+                    this.MemberFullName = string.Format("{0} {1}", md.Member.firstName, md.Member.lastName);
+                    this.PayrollNo = md.Member.payrollNumber;
+                    this.DateOfAppointment = md.Member.dateoffirstAppointment.Value.ToString("dd/MM/yyyy");
+                    this.DateOfBirth = md.Member.dateofBirth.Value.ToString("dd/MM/yyyy");
+                    this.DateOfDeath = md.DateOfDeath.ToString("dd/MM/yyyy");
+                    GridViewSurvivors.DataSourceID = "odsMemberSurvivors";
+                    GridViewSurvivors.DataBind();
+                    if (GridViewSurvivors.Rows.Count == 0)
+                    {
+                        this.StatusMessage = "No survivors";
+                        RadButtonProcessBenefit.Enabled = false;
+                    }
+                    else
+                    {
+                        RadButtonProcessBenefit.Enabled = true;
+                    }
+                    VisualizeControls(true);
+                }
+                else
+                {
+                    this.StatusMessage = "Member details not found";
+                    VisualizeControls(false);
+                    RadButtonProcessBenefit.Enabled = false;
+                }
+            }
+        }
+        catch (Exception ex)
+        { 
+        
+        }
     }
+
+    private void VisualizeControls(bool visualize)
+    {
+        LabelDateOfBirth.Visible = visualize;
+        LabelDateOfDeath.Visible = visualize;
+        LabelDateOfFirstAppointment.Visible = visualize;
+        LabelMemberName.Visible = visualize;
+        LabelPayrollNo.Visible = visualize;
+        LabelSchemeID.Visible = visualize;
+
+        RadTextBoxDateOfAppointment.Visible = visualize;
+        RadTextBoxDateOfBirth.Visible = visualize;
+        RadTextBoxDateOfDeath.Visible = visualize;
+        RadTextBoxMemberFullName.Visible = visualize;
+        RadTextBoxPayrollNo.Visible = visualize;
+        RadTextBoxSchemeID.Visible = visualize;
+
+        GridViewSurvivors.Visible = true;
+    }
+
     protected void RadComboDeceasedMember_Load(object sender, EventArgs e)
     {
         Utility utl = new Utility();
@@ -128,6 +178,7 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
         //TextBoxes
         //
         RadTextBox RadTextBoxPensionID = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadTextBoxPensionID") as RadTextBox;
+        RadTextBox RadTextBoxSchemeID = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadTextBoxSchemeID") as RadTextBox;
         RadTextBox RadTextBoxMemberFullName = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadTextBoxMemberFullName") as RadTextBox;
         RadTextBox RadTextBoxPayrollNo = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadTextBoxPayrollNo") as RadTextBox;
         RadTextBox RadTextBoxDateOfBirth = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadTextBoxDateOfBirth") as RadTextBox;
@@ -151,18 +202,33 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
         //RadButton
         //
         RadButton RadButtonProcessBenefit = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadButtonProcessBenefit") as RadButton;
-
-        RadButton RadButtonProcessBenefit = utl.FindControlToRootOnly((sender as RadButton).Parent, "RadButtonProcessBenefit") as RadButton;
+        //
+        //RadCombobox
+        //
+        RadComboBox RadComboDeceasedMember = utl.FindControlToRootOnly((sender as RadComboBox).Parent, "RadComboDeceasedMember") as RadComboBox;
 
         //load only when non of the controls are null
-        if ((radajaxmanager != null) && (radajaxloading != null) && (RadButtonProcessBenefit != null))
+        if ((radajaxmanager != null) && (radajaxloading != null) && (RadComboDeceasedMember != null))
         {
             //now check if the various combo boxes have been found 
-            if (RadTextBoxPensionID != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxPensionID, null);
-            if (RadTextBoxMemberFullName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxMemberFullName, null);
-            if (RadTextBoxPayrollNo != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadTextBoxPayrollNo, null);
-            if (RadComboDeceasedMember != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadComboDeceasedMember, null);
-            if (RadDatePickerDateOfEvent != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonProcessBenefit, RadDatePickerDateOfEvent, null);
+            if (RadTextBoxPensionID != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxPensionID, null);
+            if (RadTextBoxMemberFullName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxMemberFullName, null);
+            if (RadTextBoxPayrollNo != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxPayrollNo, null);
+            if (RadTextBoxSchemeID != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxSchemeID, radajaxloading);
+            if (RadTextBoxDateOfBirth != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxDateOfBirth, null);
+            if (RadTextBoxDateOfAppointment != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxDateOfAppointment, null);
+            if (RadTextBoxDateOfDeath != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadTextBoxDateOfDeath, null);
+
+            if (LabelSchemeID != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelSchemeID, null);
+            if (LabelPayrollNo != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelPayrollNo, null);
+            if (LabelMemberName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelMemberName, null);
+            if (LabelDateOfBirth != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelDateOfBirth, null);
+            if (LabelDateOfFirstAppointment != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelDateOfFirstAppointment, null);
+            if (LabelDateOfDeath != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelDateOfDeath, null);
+            if (LabelStatusMsg != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, LabelStatusMsg, null);
+
+            if (GridViewSurvivors != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, GridViewSurvivors, null);
+            if (RadButtonProcessBenefit != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadComboDeceasedMember, RadButtonProcessBenefit, null);
         }
     }
 }

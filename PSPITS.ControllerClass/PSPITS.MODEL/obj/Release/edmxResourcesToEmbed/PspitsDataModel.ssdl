@@ -319,6 +319,10 @@
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
     </AssociationSet>
+    <AssociationSet Name="FK_Beneficiary_Member" Association="PSPITSModel.Store.FK_Beneficiary_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Beneficiary" EntitySet="Beneficiary" />
+    </AssociationSet>
     <AssociationSet Name="FK_List_ListType" Association="PSPITSModel.Store.FK_List_ListType">
       <End Role="ListType" EntitySet="ListType" />
       <End Role="List" EntitySet="List" />
@@ -1856,6 +1860,18 @@
       </Principal>
       <Dependent Role="aspnet_UsersInRoles">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Beneficiary_Member">
+    <End Role="Member" Type="PSPITSModel.Store.Member" Multiplicity="1" />
+    <End Role="Beneficiary" Type="PSPITSModel.Store.Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="pensionID" />
+      </Principal>
+      <Dependent Role="Beneficiary">
+        <PropertyRef Name="pensionID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

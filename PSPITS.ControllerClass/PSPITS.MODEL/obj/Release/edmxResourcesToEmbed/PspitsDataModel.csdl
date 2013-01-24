@@ -114,6 +114,10 @@
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
     </AssociationSet>
+    <AssociationSet Name="FK_Beneficiary_Member" Association="PSPITSModel.FK_Beneficiary_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Beneficiary" EntitySet="Beneficiaries" />
+    </AssociationSet>
     <AssociationSet Name="FK_MemberComputedBenefit_DisabilityBenefitApplication" Association="PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication">
       <End Role="DisabilityBenefitApplication" EntitySet="DisabilityBenefitApplications" />
       <End Role="MemberComputedBenefit" EntitySet="MemberComputedBenefits" />
@@ -375,6 +379,7 @@
     <Property Name="whoCreated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="logRef" Type="Int32" />
+    <NavigationProperty Name="Member" Relationship="PSPITSModel.FK_Beneficiary_Member" FromRole="Beneficiary" ToRole="Member" />
   </EntityType>
   <EntityType Name="BeneficiaryDisability">
     <Key>
@@ -645,6 +650,7 @@
     <Property Name="logRef" Type="Int32" />
     <Property Name="establishmentNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="PersonalNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Beneficiaries" Relationship="PSPITSModel.FK_Beneficiary_Member" FromRole="Member" ToRole="Beneficiary" />
     <NavigationProperty Name="MemberBenefits" Relationship="PSPITSModel.FK_MemberBenefit_Member" FromRole="Member" ToRole="MemberBenefit" />
     <NavigationProperty Name="MemberDeaths" Relationship="PSPITSModel.FK_MemberDeath_Member" FromRole="Member" ToRole="MemberDeath" />
     <NavigationProperty Name="MemberSalaries" Relationship="PSPITSModel.FK_MemberSalary_Member" FromRole="Member" ToRole="MemberSalary" />
@@ -1579,6 +1585,18 @@
       </Principal>
       <Dependent Role="aspnet_Profile">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Beneficiary_Member">
+    <End Role="Member" Type="PSPITSModel.Member" Multiplicity="1" />
+    <End Role="Beneficiary" Type="PSPITSModel.Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="pensionID" />
+      </Principal>
+      <Dependent Role="Beneficiary">
+        <PropertyRef Name="pensionID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

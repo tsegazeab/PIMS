@@ -25,14 +25,10 @@
     <table>
         <tr>
             <td align="left">
-                <div class="titleShadow" style=" font-size: 18pt; color: #000066; font-weight: bold; width:575px; font-family:Arial, Helvetica, sans-serif;">
-                    &nbsp;&nbsp;Update Member Identity
+                <div class="titleShadow" style="width:575px;">
+                    <h4 class="cardHeader">Update Member Identity</h4>
+                    <uc1:MemberIdentity ID="MemberIdentity1" runat="server" />
                 </div>
-            </td>
-        </tr>        
-        <tr>
-            <td>
-                <uc1:MemberIdentity ID="MemberIdentity1" runat="server" />
             </td>
         </tr>
     </table>

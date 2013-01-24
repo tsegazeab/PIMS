@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beneficiary.cs" />
     <Compile Include="BeneficiaryEvidence.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="MemberAge.cs" />
     <Compile Include="MemberBenefit.cs" />
     <Compile Include="MemberBenefitEligibility.cs" />
+    <Compile Include="MemberDeath.cs" />
     <Compile Include="MemberPensionRequest.cs" />
     <Compile Include="MemberServiceBreak.cs" />
     <Compile Include="MonthlySalary.cs" />

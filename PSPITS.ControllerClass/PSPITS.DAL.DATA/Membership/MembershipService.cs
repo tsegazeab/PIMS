@@ -50,5 +50,31 @@ namespace PSPITS.DAL.DATA.Membership
                 context.SaveChanges();
             }
         }
+
+        public List<MemberDeath> GetMemberDeaths()
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var memberDeaths = context.MemberDeaths.OrderBy(m => m.Member.firstName).ThenBy(m => m.Member.lastName).ToList();
+                foreach (var md in memberDeaths)
+                {
+                    var member = md.Member;
+                }
+                return memberDeaths;
+            }
+        }
+
+        public List<Beneficiary> GetMemberBeneficiaries(int pensionId)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var beneficiaries = context.Beneficiaries.Where(b => b.pensionID == pensionId).OrderBy(b => b.firstName).ThenBy(b => b.lastName).ToList();
+                foreach (var beneficiary in beneficiaries)
+                {
+                    beneficiary.Relationship = context.vwlistBeneficiaryRelationships.FirstOrDefault(r => r.relationshipID == beneficiary.relationID).Relationship;
+                }
+                return beneficiaries;
+            }
+        }
     }
 }

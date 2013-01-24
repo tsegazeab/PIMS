@@ -28,6 +28,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_PersonalizationAllUsers), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_PersonalizationPerUser), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Profile), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_Beneficiary_Member", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.Member), "Beneficiary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.Beneficiary), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "MemberComputedBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.MemberComputedBenefit), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.LifeBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
@@ -6156,6 +6157,48 @@ namespace PSPITS.MODEL
         #endregion
 
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_Beneficiary_Member", "Member")]
+        public Member Member
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_Beneficiary_Member", "Member").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_Beneficiary_Member", "Member").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Member> MemberReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_Beneficiary_Member", "Member");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("PSPITSModel.FK_Beneficiary_Member", "Member", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -11427,6 +11470,28 @@ namespace PSPITS.MODEL
 
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_Beneficiary_Member", "Beneficiary")]
+        public EntityCollection<Beneficiary> Beneficiaries
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Beneficiary>("PSPITSModel.FK_Beneficiary_Member", "Beneficiary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Beneficiary>("PSPITSModel.FK_Beneficiary_Member", "Beneficiary", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.

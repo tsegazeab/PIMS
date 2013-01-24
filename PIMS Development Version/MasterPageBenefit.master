@@ -106,7 +106,7 @@
                             <telerik:RadToolBarButton runat="server" Text="Process survivor benefit" 
                                 Width="170px" 
                                 ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png" 
-                                NavigateUrl="~/Benefit/SurvivorBenefitApplication.aspx">
+                                NavigateUrl="~/Benefit_Module/ProcessSurvivorBenefits.aspx">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 5" IsSeparator="True">
                             </telerik:RadToolBarButton>
