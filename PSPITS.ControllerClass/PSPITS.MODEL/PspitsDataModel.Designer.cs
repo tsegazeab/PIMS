@@ -19,23 +19,26 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Membership), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Paths), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Roles), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Users), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Membership), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_PersonalizationPerUser), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_PersonalizationAllUsers), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_PersonalizationPerUser), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Profile), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "MemberComputedBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.MemberComputedBenefit), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.LifeBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_List_ListType", "ListType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.ListType), "List", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.List), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_MemberAllowance_MemberSalary", "MemberSalary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.MemberSalary), "MemberAllowance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberAllowance), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.SurvivorBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.NpfPensioner), "NpfPensionerBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NpfPensionerBenefit), true)]
-[assembly: EdmRelationshipAttribute("PSPITS.Model", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Users))]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Paths), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Roles), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Users), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_PersonalizationAllUsers), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.aspnet_Profile), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "MemberComputedBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.MemberComputedBenefit), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.LifeBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_List_ListType", "ListType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.ListType), "List", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.List), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberBenefit_Member", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.Member), "MemberBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberBenefit), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberDeath_Member", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.Member), "MemberDeath", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberDeath), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberSalary_Member", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.Member), "MemberSalary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberSalary), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberAllowance_MemberSalary", "MemberSalary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.MemberSalary), "MemberAllowance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberAllowance), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.SurvivorBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.NpfPensioner), "NpfPensionerBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NpfPensionerBenefit), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.aspnet_Users))]
 
 #endregion
 
@@ -378,6 +381,22 @@ namespace PSPITS.MODEL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<CommutationFactor> CommutationFactors
+        {
+            get
+            {
+                if ((_CommutationFactors == null))
+                {
+                    _CommutationFactors = base.CreateObjectSet<CommutationFactor>("CommutationFactors");
+                }
+                return _CommutationFactors;
+            }
+        }
+        private ObjectSet<CommutationFactor> _CommutationFactors;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<dbLog> dbLogs
         {
             get
@@ -538,6 +557,22 @@ namespace PSPITS.MODEL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<MemberBenefit> MemberBenefits
+        {
+            get
+            {
+                if ((_MemberBenefits == null))
+                {
+                    _MemberBenefits = base.CreateObjectSet<MemberBenefit>("MemberBenefits");
+                }
+                return _MemberBenefits;
+            }
+        }
+        private ObjectSet<MemberBenefit> _MemberBenefits;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<MemberComputedBenefit> MemberComputedBenefits
         {
             get
@@ -550,6 +585,22 @@ namespace PSPITS.MODEL
             }
         }
         private ObjectSet<MemberComputedBenefit> _MemberComputedBenefits;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<MemberDeath> MemberDeaths
+        {
+            get
+            {
+                if ((_MemberDeaths == null))
+                {
+                    _MemberDeaths = base.CreateObjectSet<MemberDeath>("MemberDeaths");
+                }
+                return _MemberDeaths;
+            }
+        }
+        private ObjectSet<MemberDeath> _MemberDeaths;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1420,6 +1471,14 @@ namespace PSPITS.MODEL
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the CommutationFactors EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCommutationFactors(CommutationFactor commutationFactor)
+        {
+            base.AddObject("CommutationFactors", commutationFactor);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the dbLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTodbLogs(dbLog dbLog)
@@ -1500,11 +1559,27 @@ namespace PSPITS.MODEL
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the MemberBenefits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMemberBenefits(MemberBenefit memberBenefit)
+        {
+            base.AddObject("MemberBenefits", memberBenefit);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the MemberComputedBenefits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToMemberComputedBenefits(MemberComputedBenefit memberComputedBenefit)
         {
             base.AddObject("MemberComputedBenefits", memberComputedBenefit);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the MemberDeaths EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMemberDeaths(MemberDeath memberDeath)
+        {
+            base.AddObject("MemberDeaths", memberDeath);
         }
     
         /// <summary>
@@ -1878,7 +1953,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="ActualContribution")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="ActualContribution")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ActualContribution : EntityObject
@@ -2211,7 +2286,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="ActuarialEquivalent")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="ActuarialEquivalent")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ActuarialEquivalent : EntityObject
@@ -2424,7 +2499,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_Applications")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_Applications")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_Applications : EntityObject
@@ -2560,18 +2635,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Me__Appli__7D0E9093", "aspnet_Membership")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Me__Appli__7D0E9093", "aspnet_Membership")]
         public EntityCollection<aspnet_Membership> aspnet_Membership
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Membership>("PSPITS.Model.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Membership");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Membership>("PSPITSModel.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("PSPITS.Model.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Membership", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("PSPITSModel.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Membership", value);
                 }
             }
         }
@@ -2582,18 +2657,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Paths")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Paths")]
         public EntityCollection<aspnet_Paths> aspnet_Paths
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Paths");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Paths>("PSPITSModel.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Paths");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Paths", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Paths>("PSPITSModel.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Paths", value);
                 }
             }
         }
@@ -2604,18 +2679,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Roles")]
         public EntityCollection<aspnet_Roles> aspnet_Roles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("PSPITS.Model.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("PSPITSModel.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("PSPITS.Model.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("PSPITSModel.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Roles", value);
                 }
             }
         }
@@ -2626,18 +2701,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Us__Appli__04AFB25B", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Us__Appli__04AFB25B", "aspnet_Users")]
         public EntityCollection<aspnet_Users> aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("PSPITS.Model.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("PSPITSModel.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("PSPITS.Model.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("PSPITSModel.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Users", value);
                 }
             }
         }
@@ -2649,7 +2724,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_Membership")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_Membership")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_Membership : EntityObject
@@ -3217,16 +3292,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -3238,13 +3313,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Me__Appli__7D0E9093", "aspnet_Applications", value);
                 }
             }
         }
@@ -3255,16 +3330,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -3276,13 +3351,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Users", value);
                 }
             }
         }
@@ -3294,7 +3369,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_Paths")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_Paths")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_Paths : EntityObject
@@ -3432,16 +3507,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -3453,13 +3528,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Pa__Appli__7EF6D905", "aspnet_Applications", value);
                 }
             }
         }
@@ -3470,18 +3545,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pe__PathI__00DF2177", "aspnet_PersonalizationPerUser")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__00DF2177", "aspnet_PersonalizationPerUser")]
         public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177", "aspnet_PersonalizationPerUser");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("PSPITSModel.FK__aspnet_Pe__PathI__00DF2177", "aspnet_PersonalizationPerUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177", "aspnet_PersonalizationPerUser", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("PSPITSModel.FK__aspnet_Pe__PathI__00DF2177", "aspnet_PersonalizationPerUser", value);
                 }
             }
         }
@@ -3492,16 +3567,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers")]
         public aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers").Value = value;
             }
         }
         /// <summary>
@@ -3513,13 +3588,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_PersonalizationAllUsers>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_PersonalizationAllUsers>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_PersonalizationAllUsers", value);
                 }
             }
         }
@@ -3531,7 +3606,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_PersonalizationAllUsers")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_PersonalizationAllUsers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_PersonalizationAllUsers : EntityObject
@@ -3643,16 +3718,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths")]
         public aspnet_Paths aspnet_Paths
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths").Value = value;
             }
         }
         /// <summary>
@@ -3664,13 +3739,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__7FEAFD3E", "aspnet_Paths", value);
                 }
             }
         }
@@ -3682,7 +3757,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_PersonalizationPerUser")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_PersonalizationPerUser")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_PersonalizationPerUser : EntityObject
@@ -3842,16 +3917,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths")]
         public aspnet_Paths aspnet_Paths
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths").Value = value;
             }
         }
         /// <summary>
@@ -3863,13 +3938,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("PSPITS.Model.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("PSPITSModel.FK__aspnet_Pe__PathI__00DF2177", "aspnet_Paths", value);
                 }
             }
         }
@@ -3880,16 +3955,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -3901,13 +3976,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pe__UserI__01D345B0", "aspnet_Users", value);
                 }
             }
         }
@@ -3919,7 +3994,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_Profile")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_Profile")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_Profile : EntityObject
@@ -4083,16 +4158,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -4104,13 +4179,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Users", value);
                 }
             }
         }
@@ -4122,7 +4197,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_Roles")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_Roles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_Roles : EntityObject
@@ -4284,16 +4359,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -4305,13 +4380,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Ro__Appli__03BB8E22", "aspnet_Applications", value);
                 }
             }
         }
@@ -4322,18 +4397,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "aspnet_UsersInRoles", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "aspnet_UsersInRoles", "aspnet_Users")]
         public EntityCollection<aspnet_Users> aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("PSPITS.Model.aspnet_UsersInRoles", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("PSPITSModel.aspnet_UsersInRoles", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("PSPITS.Model.aspnet_UsersInRoles", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("PSPITSModel.aspnet_UsersInRoles", "aspnet_Users", value);
                 }
             }
         }
@@ -4345,7 +4420,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_SchemaVersions")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_SchemaVersions")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_SchemaVersions : EntityObject
@@ -4457,7 +4532,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_Users")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_Users")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_Users : EntityObject
@@ -4671,16 +4746,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -4692,13 +4767,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITS.Model.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("PSPITSModel.FK__aspnet_Us__Appli__04AFB25B", "aspnet_Applications", value);
                 }
             }
         }
@@ -4709,16 +4784,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership")]
         public aspnet_Membership aspnet_Membership
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -4730,13 +4805,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("PSPITS.Model.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("PSPITSModel.FK__aspnet_Me__UserI__7E02B4CC", "aspnet_Membership", value);
                 }
             }
         }
@@ -4747,18 +4822,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_PersonalizationPerUser")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pe__UserI__01D345B0", "aspnet_PersonalizationPerUser")]
         public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("PSPITS.Model.FK__aspnet_Pe__UserI__01D345B0", "aspnet_PersonalizationPerUser");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("PSPITSModel.FK__aspnet_Pe__UserI__01D345B0", "aspnet_PersonalizationPerUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("PSPITS.Model.FK__aspnet_Pe__UserI__01D345B0", "aspnet_PersonalizationPerUser", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("PSPITSModel.FK__aspnet_Pe__UserI__01D345B0", "aspnet_PersonalizationPerUser", value);
                 }
             }
         }
@@ -4769,16 +4844,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile")]
         public aspnet_Profile aspnet_Profile
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile").Value = value;
             }
         }
         /// <summary>
@@ -4790,13 +4865,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("PSPITS.Model.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("PSPITSModel.FK__aspnet_Pr__UserI__02C769E9", "aspnet_Profile", value);
                 }
             }
         }
@@ -4807,18 +4882,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "aspnet_UsersInRoles", "aspnet_Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "aspnet_UsersInRoles", "aspnet_Roles")]
         public EntityCollection<aspnet_Roles> aspnet_Roles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("PSPITS.Model.aspnet_UsersInRoles", "aspnet_Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("PSPITSModel.aspnet_UsersInRoles", "aspnet_Roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("PSPITS.Model.aspnet_UsersInRoles", "aspnet_Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("PSPITSModel.aspnet_UsersInRoles", "aspnet_Roles", value);
                 }
             }
         }
@@ -4830,7 +4905,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="aspnet_WebEvent_Events")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="aspnet_WebEvent_Events")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class aspnet_WebEvent_Events : EntityObject
@@ -5239,7 +5314,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="BankAccountDetail")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="BankAccountDetail")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BankAccountDetail : EntityObject
@@ -5518,7 +5593,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="Beneficiary")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="Beneficiary")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Beneficiary : EntityObject
@@ -6086,7 +6161,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="BeneficiaryDisability")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="BeneficiaryDisability")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BeneficiaryDisability : EntityObject
@@ -6436,7 +6511,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="BeneficiaryEvidence")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="BeneficiaryEvidence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BeneficiaryEvidence : EntityObject
@@ -6887,7 +6962,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="BenefitPaymentMember")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="BenefitPaymentMember")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BenefitPaymentMember : EntityObject
@@ -7308,7 +7383,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="BenefitPaymentSurvivor")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="BenefitPaymentSurvivor")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BenefitPaymentSurvivor : EntityObject
@@ -7729,7 +7804,116 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="dbLog")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="CommutationFactor")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CommutationFactor : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CommutationFactor object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="pensionableAge">Initial value of the PensionableAge property.</param>
+        /// <param name="factor">Initial value of the Factor property.</param>
+        public static CommutationFactor CreateCommutationFactor(global::System.Int32 id, global::System.Int32 pensionableAge, global::System.Double factor)
+        {
+            CommutationFactor commutationFactor = new CommutationFactor();
+            commutationFactor.Id = id;
+            commutationFactor.PensionableAge = pensionableAge;
+            commutationFactor.Factor = factor;
+            return commutationFactor;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PensionableAge
+        {
+            get
+            {
+                return _PensionableAge;
+            }
+            set
+            {
+                OnPensionableAgeChanging(value);
+                ReportPropertyChanging("PensionableAge");
+                _PensionableAge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PensionableAge");
+                OnPensionableAgeChanged();
+            }
+        }
+        private global::System.Int32 _PensionableAge;
+        partial void OnPensionableAgeChanging(global::System.Int32 value);
+        partial void OnPensionableAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double Factor
+        {
+            get
+            {
+                return _Factor;
+            }
+            set
+            {
+                OnFactorChanging(value);
+                ReportPropertyChanging("Factor");
+                _Factor = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Factor");
+                OnFactorChanged();
+            }
+        }
+        private global::System.Double _Factor;
+        partial void OnFactorChanging(global::System.Double value);
+        partial void OnFactorChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="dbLog")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class dbLog : EntityObject
@@ -7954,7 +8138,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="DisabilityBenefitApplication")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="DisabilityBenefitApplication")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class DisabilityBenefitApplication : EntityObject
@@ -8566,16 +8750,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit")]
         public MemberComputedBenefit MemberComputedBenefit
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberComputedBenefit>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberComputedBenefit>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberComputedBenefit>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberComputedBenefit>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit").Value = value;
             }
         }
         /// <summary>
@@ -8587,13 +8771,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberComputedBenefit>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberComputedBenefit>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MemberComputedBenefit>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MemberComputedBenefit>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "MemberComputedBenefit", value);
                 }
             }
         }
@@ -8604,18 +8788,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NominatedAgent_DisabilityBenefitApplication", "NominatedAgent")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NominatedAgent_DisabilityBenefitApplication", "NominatedAgent")]
         public EntityCollection<NominatedAgent> NominatedAgents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NominatedAgent>("PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication", "NominatedAgent");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NominatedAgent>("PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication", "NominatedAgent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NominatedAgent>("PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication", "NominatedAgent", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NominatedAgent>("PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication", "NominatedAgent", value);
                 }
             }
         }
@@ -8627,7 +8811,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="EvidenceByFunction")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="EvidenceByFunction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class EvidenceByFunction : EntityObject
@@ -8915,7 +9099,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="EvidenceByRelation")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="EvidenceByRelation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class EvidenceByRelation : EntityObject
@@ -9121,7 +9305,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="LifeBenefitApplication")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="LifeBenefitApplication")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class LifeBenefitApplication : EntityObject
@@ -9757,18 +9941,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NominatedAgent_LifeBenefitApplication", "NominatedAgent")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NominatedAgent_LifeBenefitApplication", "NominatedAgent")]
         public EntityCollection<NominatedAgent> NominatedAgents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NominatedAgent>("PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication", "NominatedAgent");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NominatedAgent>("PSPITSModel.FK_NominatedAgent_LifeBenefitApplication", "NominatedAgent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NominatedAgent>("PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication", "NominatedAgent", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NominatedAgent>("PSPITSModel.FK_NominatedAgent_LifeBenefitApplication", "NominatedAgent", value);
                 }
             }
         }
@@ -9780,7 +9964,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="List")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="List")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class List : EntityObject
@@ -10058,16 +10242,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_List_ListType", "ListType")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_List_ListType", "ListType")]
         public ListType ListType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListType>("PSPITS.Model.FK_List_ListType", "ListType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListType>("PSPITSModel.FK_List_ListType", "ListType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListType>("PSPITS.Model.FK_List_ListType", "ListType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListType>("PSPITSModel.FK_List_ListType", "ListType").Value = value;
             }
         }
         /// <summary>
@@ -10079,13 +10263,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListType>("PSPITS.Model.FK_List_ListType", "ListType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListType>("PSPITSModel.FK_List_ListType", "ListType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ListType>("PSPITS.Model.FK_List_ListType", "ListType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ListType>("PSPITSModel.FK_List_ListType", "ListType", value);
                 }
             }
         }
@@ -10097,7 +10281,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="ListType")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="ListType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ListType : EntityObject
@@ -10303,18 +10487,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_List_ListType", "List")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_List_ListType", "List")]
         public EntityCollection<List> Lists
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<List>("PSPITS.Model.FK_List_ListType", "List");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<List>("PSPITSModel.FK_List_ListType", "List");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<List>("PSPITS.Model.FK_List_ListType", "List", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<List>("PSPITSModel.FK_List_ListType", "List", value);
                 }
             }
         }
@@ -10326,7 +10510,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="Member")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="Member")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Member : EntityObject
@@ -11242,12 +11426,82 @@ namespace PSPITS.MODEL
         #endregion
 
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberBenefit_Member", "MemberBenefit")]
+        public EntityCollection<MemberBenefit> MemberBenefits
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MemberBenefit>("PSPITSModel.FK_MemberBenefit_Member", "MemberBenefit");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MemberBenefit>("PSPITSModel.FK_MemberBenefit_Member", "MemberBenefit", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberDeath_Member", "MemberDeath")]
+        public EntityCollection<MemberDeath> MemberDeaths
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MemberDeath>("PSPITSModel.FK_MemberDeath_Member", "MemberDeath");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MemberDeath>("PSPITSModel.FK_MemberDeath_Member", "MemberDeath", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberSalary_Member", "MemberSalary")]
+        public EntityCollection<MemberSalary> MemberSalaries
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MemberSalary>("PSPITSModel.FK_MemberSalary_Member", "MemberSalary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MemberSalary>("PSPITSModel.FK_MemberSalary_Member", "MemberSalary", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberAllowance")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberAllowance")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberAllowance : EntityObject
@@ -11538,16 +11792,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_MemberAllowance_MemberSalary", "MemberSalary")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberAllowance_MemberSalary", "MemberSalary")]
         public MemberSalary MemberSalary
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberSalary>("PSPITS.Model.FK_MemberAllowance_MemberSalary", "MemberSalary").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberSalary>("PSPITSModel.FK_MemberAllowance_MemberSalary", "MemberSalary").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberSalary>("PSPITS.Model.FK_MemberAllowance_MemberSalary", "MemberSalary").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberSalary>("PSPITSModel.FK_MemberAllowance_MemberSalary", "MemberSalary").Value = value;
             }
         }
         /// <summary>
@@ -11559,13 +11813,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberSalary>("PSPITS.Model.FK_MemberAllowance_MemberSalary", "MemberSalary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MemberSalary>("PSPITSModel.FK_MemberAllowance_MemberSalary", "MemberSalary");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MemberSalary>("PSPITS.Model.FK_MemberAllowance_MemberSalary", "MemberSalary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MemberSalary>("PSPITSModel.FK_MemberAllowance_MemberSalary", "MemberSalary", value);
                 }
             }
         }
@@ -11577,7 +11831,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberArrear")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberArrear")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberArrear : EntityObject
@@ -12195,7 +12449,876 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberComputedBenefit")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberBenefit")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class MemberBenefit : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new MemberBenefit object.
+        /// </summary>
+        /// <param name="memberBenefitId">Initial value of the MemberBenefitId property.</param>
+        /// <param name="memberId">Initial value of the MemberId property.</param>
+        /// <param name="numberOfServiceYears">Initial value of the NumberOfServiceYears property.</param>
+        /// <param name="numberOfServiceBreakYears">Initial value of the NumberOfServiceBreakYears property.</param>
+        /// <param name="numberOfPensionableYears">Initial value of the NumberOfPensionableYears property.</param>
+        /// <param name="grossAnnualPensionUptoLastFY">Initial value of the GrossAnnualPensionUptoLastFY property.</param>
+        /// <param name="grossSalaryInRetirementYear">Initial value of the GrossSalaryInRetirementYear property.</param>
+        /// <param name="averageCivilServiceSalaryIncrease">Initial value of the AverageCivilServiceSalaryIncrease property.</param>
+        /// <param name="commutationFactor">Initial value of the CommutationFactor property.</param>
+        /// <param name="pensionAccrualUpdateForCurrentFY">Initial value of the PensionAccrualUpdateForCurrentFY property.</param>
+        /// <param name="updatedGrossAnnualPension">Initial value of the UpdatedGrossAnnualPension property.</param>
+        /// <param name="grossPensionAccruedInRetirementYear">Initial value of the GrossPensionAccruedInRetirementYear property.</param>
+        /// <param name="totalAccruedPension">Initial value of the TotalAccruedPension property.</param>
+        /// <param name="noCommutation">Initial value of the NoCommutation property.</param>
+        /// <param name="aThirdAnnualPension">Initial value of the AThirdAnnualPension property.</param>
+        /// <param name="lumpSumCommutation">Initial value of the LumpSumCommutation property.</param>
+        /// <param name="netAnnualPension">Initial value of the NetAnnualPension property.</param>
+        /// <param name="monthlyPension">Initial value of the MonthlyPension property.</param>
+        /// <param name="earlyRetirementReductionAdjustment">Initial value of the EarlyRetirementReductionAdjustment property.</param>
+        /// <param name="lateRetirementReductionAdjustment">Initial value of the LateRetirementReductionAdjustment property.</param>
+        /// <param name="annualGrossPensionEntitlement">Initial value of the AnnualGrossPensionEntitlement property.</param>
+        /// <param name="finalMonthGrossSalary">Initial value of the FinalMonthGrossSalary property.</param>
+        /// <param name="pensionType">Initial value of the PensionType property.</param>
+        /// <param name="monthsToPensionableAge">Initial value of the MonthsToPensionableAge property.</param>
+        /// <param name="monthsBeyondPensionableAge">Initial value of the MonthsBeyondPensionableAge property.</param>
+        /// <param name="lumpSumPension">Initial value of the LumpSumPension property.</param>
+        public static MemberBenefit CreateMemberBenefit(global::System.Int32 memberBenefitId, global::System.Int32 memberId, global::System.Double numberOfServiceYears, global::System.Double numberOfServiceBreakYears, global::System.Double numberOfPensionableYears, global::System.Decimal grossAnnualPensionUptoLastFY, global::System.Decimal grossSalaryInRetirementYear, global::System.Double averageCivilServiceSalaryIncrease, global::System.Double commutationFactor, global::System.Decimal pensionAccrualUpdateForCurrentFY, global::System.Decimal updatedGrossAnnualPension, global::System.Decimal grossPensionAccruedInRetirementYear, global::System.Decimal totalAccruedPension, global::System.Decimal noCommutation, global::System.Decimal aThirdAnnualPension, global::System.Decimal lumpSumCommutation, global::System.Decimal netAnnualPension, global::System.Decimal monthlyPension, global::System.Decimal earlyRetirementReductionAdjustment, global::System.Decimal lateRetirementReductionAdjustment, global::System.Decimal annualGrossPensionEntitlement, global::System.Decimal finalMonthGrossSalary, global::System.Int32 pensionType, global::System.Int32 monthsToPensionableAge, global::System.Int32 monthsBeyondPensionableAge, global::System.Decimal lumpSumPension)
+        {
+            MemberBenefit memberBenefit = new MemberBenefit();
+            memberBenefit.MemberBenefitId = memberBenefitId;
+            memberBenefit.MemberId = memberId;
+            memberBenefit.NumberOfServiceYears = numberOfServiceYears;
+            memberBenefit.NumberOfServiceBreakYears = numberOfServiceBreakYears;
+            memberBenefit.NumberOfPensionableYears = numberOfPensionableYears;
+            memberBenefit.GrossAnnualPensionUptoLastFY = grossAnnualPensionUptoLastFY;
+            memberBenefit.GrossSalaryInRetirementYear = grossSalaryInRetirementYear;
+            memberBenefit.AverageCivilServiceSalaryIncrease = averageCivilServiceSalaryIncrease;
+            memberBenefit.CommutationFactor = commutationFactor;
+            memberBenefit.PensionAccrualUpdateForCurrentFY = pensionAccrualUpdateForCurrentFY;
+            memberBenefit.UpdatedGrossAnnualPension = updatedGrossAnnualPension;
+            memberBenefit.GrossPensionAccruedInRetirementYear = grossPensionAccruedInRetirementYear;
+            memberBenefit.TotalAccruedPension = totalAccruedPension;
+            memberBenefit.NoCommutation = noCommutation;
+            memberBenefit.AThirdAnnualPension = aThirdAnnualPension;
+            memberBenefit.LumpSumCommutation = lumpSumCommutation;
+            memberBenefit.NetAnnualPension = netAnnualPension;
+            memberBenefit.MonthlyPension = monthlyPension;
+            memberBenefit.EarlyRetirementReductionAdjustment = earlyRetirementReductionAdjustment;
+            memberBenefit.LateRetirementReductionAdjustment = lateRetirementReductionAdjustment;
+            memberBenefit.AnnualGrossPensionEntitlement = annualGrossPensionEntitlement;
+            memberBenefit.FinalMonthGrossSalary = finalMonthGrossSalary;
+            memberBenefit.PensionType = pensionType;
+            memberBenefit.MonthsToPensionableAge = monthsToPensionableAge;
+            memberBenefit.MonthsBeyondPensionableAge = monthsBeyondPensionableAge;
+            memberBenefit.LumpSumPension = lumpSumPension;
+            return memberBenefit;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MemberBenefitId
+        {
+            get
+            {
+                return _MemberBenefitId;
+            }
+            set
+            {
+                if (_MemberBenefitId != value)
+                {
+                    OnMemberBenefitIdChanging(value);
+                    ReportPropertyChanging("MemberBenefitId");
+                    _MemberBenefitId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MemberBenefitId");
+                    OnMemberBenefitIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MemberBenefitId;
+        partial void OnMemberBenefitIdChanging(global::System.Int32 value);
+        partial void OnMemberBenefitIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MemberId
+        {
+            get
+            {
+                return _MemberId;
+            }
+            set
+            {
+                OnMemberIdChanging(value);
+                ReportPropertyChanging("MemberId");
+                _MemberId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MemberId");
+                OnMemberIdChanged();
+            }
+        }
+        private global::System.Int32 _MemberId;
+        partial void OnMemberIdChanging(global::System.Int32 value);
+        partial void OnMemberIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double NumberOfServiceYears
+        {
+            get
+            {
+                return _NumberOfServiceYears;
+            }
+            set
+            {
+                OnNumberOfServiceYearsChanging(value);
+                ReportPropertyChanging("NumberOfServiceYears");
+                _NumberOfServiceYears = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NumberOfServiceYears");
+                OnNumberOfServiceYearsChanged();
+            }
+        }
+        private global::System.Double _NumberOfServiceYears;
+        partial void OnNumberOfServiceYearsChanging(global::System.Double value);
+        partial void OnNumberOfServiceYearsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double NumberOfServiceBreakYears
+        {
+            get
+            {
+                return _NumberOfServiceBreakYears;
+            }
+            set
+            {
+                OnNumberOfServiceBreakYearsChanging(value);
+                ReportPropertyChanging("NumberOfServiceBreakYears");
+                _NumberOfServiceBreakYears = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NumberOfServiceBreakYears");
+                OnNumberOfServiceBreakYearsChanged();
+            }
+        }
+        private global::System.Double _NumberOfServiceBreakYears;
+        partial void OnNumberOfServiceBreakYearsChanging(global::System.Double value);
+        partial void OnNumberOfServiceBreakYearsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double NumberOfPensionableYears
+        {
+            get
+            {
+                return _NumberOfPensionableYears;
+            }
+            set
+            {
+                OnNumberOfPensionableYearsChanging(value);
+                ReportPropertyChanging("NumberOfPensionableYears");
+                _NumberOfPensionableYears = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NumberOfPensionableYears");
+                OnNumberOfPensionableYearsChanged();
+            }
+        }
+        private global::System.Double _NumberOfPensionableYears;
+        partial void OnNumberOfPensionableYearsChanging(global::System.Double value);
+        partial void OnNumberOfPensionableYearsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal GrossAnnualPensionUptoLastFY
+        {
+            get
+            {
+                return _GrossAnnualPensionUptoLastFY;
+            }
+            set
+            {
+                OnGrossAnnualPensionUptoLastFYChanging(value);
+                ReportPropertyChanging("GrossAnnualPensionUptoLastFY");
+                _GrossAnnualPensionUptoLastFY = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GrossAnnualPensionUptoLastFY");
+                OnGrossAnnualPensionUptoLastFYChanged();
+            }
+        }
+        private global::System.Decimal _GrossAnnualPensionUptoLastFY;
+        partial void OnGrossAnnualPensionUptoLastFYChanging(global::System.Decimal value);
+        partial void OnGrossAnnualPensionUptoLastFYChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal GrossSalaryInRetirementYear
+        {
+            get
+            {
+                return _GrossSalaryInRetirementYear;
+            }
+            set
+            {
+                OnGrossSalaryInRetirementYearChanging(value);
+                ReportPropertyChanging("GrossSalaryInRetirementYear");
+                _GrossSalaryInRetirementYear = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GrossSalaryInRetirementYear");
+                OnGrossSalaryInRetirementYearChanged();
+            }
+        }
+        private global::System.Decimal _GrossSalaryInRetirementYear;
+        partial void OnGrossSalaryInRetirementYearChanging(global::System.Decimal value);
+        partial void OnGrossSalaryInRetirementYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double AverageCivilServiceSalaryIncrease
+        {
+            get
+            {
+                return _AverageCivilServiceSalaryIncrease;
+            }
+            set
+            {
+                OnAverageCivilServiceSalaryIncreaseChanging(value);
+                ReportPropertyChanging("AverageCivilServiceSalaryIncrease");
+                _AverageCivilServiceSalaryIncrease = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AverageCivilServiceSalaryIncrease");
+                OnAverageCivilServiceSalaryIncreaseChanged();
+            }
+        }
+        private global::System.Double _AverageCivilServiceSalaryIncrease;
+        partial void OnAverageCivilServiceSalaryIncreaseChanging(global::System.Double value);
+        partial void OnAverageCivilServiceSalaryIncreaseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double CommutationFactor
+        {
+            get
+            {
+                return _CommutationFactor;
+            }
+            set
+            {
+                OnCommutationFactorChanging(value);
+                ReportPropertyChanging("CommutationFactor");
+                _CommutationFactor = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CommutationFactor");
+                OnCommutationFactorChanged();
+            }
+        }
+        private global::System.Double _CommutationFactor;
+        partial void OnCommutationFactorChanging(global::System.Double value);
+        partial void OnCommutationFactorChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal PensionAccrualUpdateForCurrentFY
+        {
+            get
+            {
+                return _PensionAccrualUpdateForCurrentFY;
+            }
+            set
+            {
+                OnPensionAccrualUpdateForCurrentFYChanging(value);
+                ReportPropertyChanging("PensionAccrualUpdateForCurrentFY");
+                _PensionAccrualUpdateForCurrentFY = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PensionAccrualUpdateForCurrentFY");
+                OnPensionAccrualUpdateForCurrentFYChanged();
+            }
+        }
+        private global::System.Decimal _PensionAccrualUpdateForCurrentFY;
+        partial void OnPensionAccrualUpdateForCurrentFYChanging(global::System.Decimal value);
+        partial void OnPensionAccrualUpdateForCurrentFYChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal UpdatedGrossAnnualPension
+        {
+            get
+            {
+                return _UpdatedGrossAnnualPension;
+            }
+            set
+            {
+                OnUpdatedGrossAnnualPensionChanging(value);
+                ReportPropertyChanging("UpdatedGrossAnnualPension");
+                _UpdatedGrossAnnualPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedGrossAnnualPension");
+                OnUpdatedGrossAnnualPensionChanged();
+            }
+        }
+        private global::System.Decimal _UpdatedGrossAnnualPension;
+        partial void OnUpdatedGrossAnnualPensionChanging(global::System.Decimal value);
+        partial void OnUpdatedGrossAnnualPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal GrossPensionAccruedInRetirementYear
+        {
+            get
+            {
+                return _GrossPensionAccruedInRetirementYear;
+            }
+            set
+            {
+                OnGrossPensionAccruedInRetirementYearChanging(value);
+                ReportPropertyChanging("GrossPensionAccruedInRetirementYear");
+                _GrossPensionAccruedInRetirementYear = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GrossPensionAccruedInRetirementYear");
+                OnGrossPensionAccruedInRetirementYearChanged();
+            }
+        }
+        private global::System.Decimal _GrossPensionAccruedInRetirementYear;
+        partial void OnGrossPensionAccruedInRetirementYearChanging(global::System.Decimal value);
+        partial void OnGrossPensionAccruedInRetirementYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal TotalAccruedPension
+        {
+            get
+            {
+                return _TotalAccruedPension;
+            }
+            set
+            {
+                OnTotalAccruedPensionChanging(value);
+                ReportPropertyChanging("TotalAccruedPension");
+                _TotalAccruedPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalAccruedPension");
+                OnTotalAccruedPensionChanged();
+            }
+        }
+        private global::System.Decimal _TotalAccruedPension;
+        partial void OnTotalAccruedPensionChanging(global::System.Decimal value);
+        partial void OnTotalAccruedPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal NoCommutation
+        {
+            get
+            {
+                return _NoCommutation;
+            }
+            set
+            {
+                OnNoCommutationChanging(value);
+                ReportPropertyChanging("NoCommutation");
+                _NoCommutation = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NoCommutation");
+                OnNoCommutationChanged();
+            }
+        }
+        private global::System.Decimal _NoCommutation;
+        partial void OnNoCommutationChanging(global::System.Decimal value);
+        partial void OnNoCommutationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal AThirdAnnualPension
+        {
+            get
+            {
+                return _AThirdAnnualPension;
+            }
+            set
+            {
+                OnAThirdAnnualPensionChanging(value);
+                ReportPropertyChanging("AThirdAnnualPension");
+                _AThirdAnnualPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AThirdAnnualPension");
+                OnAThirdAnnualPensionChanged();
+            }
+        }
+        private global::System.Decimal _AThirdAnnualPension;
+        partial void OnAThirdAnnualPensionChanging(global::System.Decimal value);
+        partial void OnAThirdAnnualPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal LumpSumCommutation
+        {
+            get
+            {
+                return _LumpSumCommutation;
+            }
+            set
+            {
+                OnLumpSumCommutationChanging(value);
+                ReportPropertyChanging("LumpSumCommutation");
+                _LumpSumCommutation = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LumpSumCommutation");
+                OnLumpSumCommutationChanged();
+            }
+        }
+        private global::System.Decimal _LumpSumCommutation;
+        partial void OnLumpSumCommutationChanging(global::System.Decimal value);
+        partial void OnLumpSumCommutationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal NetAnnualPension
+        {
+            get
+            {
+                return _NetAnnualPension;
+            }
+            set
+            {
+                OnNetAnnualPensionChanging(value);
+                ReportPropertyChanging("NetAnnualPension");
+                _NetAnnualPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NetAnnualPension");
+                OnNetAnnualPensionChanged();
+            }
+        }
+        private global::System.Decimal _NetAnnualPension;
+        partial void OnNetAnnualPensionChanging(global::System.Decimal value);
+        partial void OnNetAnnualPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal MonthlyPension
+        {
+            get
+            {
+                return _MonthlyPension;
+            }
+            set
+            {
+                OnMonthlyPensionChanging(value);
+                ReportPropertyChanging("MonthlyPension");
+                _MonthlyPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MonthlyPension");
+                OnMonthlyPensionChanged();
+            }
+        }
+        private global::System.Decimal _MonthlyPension;
+        partial void OnMonthlyPensionChanging(global::System.Decimal value);
+        partial void OnMonthlyPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal EarlyRetirementReductionAdjustment
+        {
+            get
+            {
+                return _EarlyRetirementReductionAdjustment;
+            }
+            set
+            {
+                OnEarlyRetirementReductionAdjustmentChanging(value);
+                ReportPropertyChanging("EarlyRetirementReductionAdjustment");
+                _EarlyRetirementReductionAdjustment = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EarlyRetirementReductionAdjustment");
+                OnEarlyRetirementReductionAdjustmentChanged();
+            }
+        }
+        private global::System.Decimal _EarlyRetirementReductionAdjustment;
+        partial void OnEarlyRetirementReductionAdjustmentChanging(global::System.Decimal value);
+        partial void OnEarlyRetirementReductionAdjustmentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal LateRetirementReductionAdjustment
+        {
+            get
+            {
+                return _LateRetirementReductionAdjustment;
+            }
+            set
+            {
+                OnLateRetirementReductionAdjustmentChanging(value);
+                ReportPropertyChanging("LateRetirementReductionAdjustment");
+                _LateRetirementReductionAdjustment = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LateRetirementReductionAdjustment");
+                OnLateRetirementReductionAdjustmentChanged();
+            }
+        }
+        private global::System.Decimal _LateRetirementReductionAdjustment;
+        partial void OnLateRetirementReductionAdjustmentChanging(global::System.Decimal value);
+        partial void OnLateRetirementReductionAdjustmentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal AnnualGrossPensionEntitlement
+        {
+            get
+            {
+                return _AnnualGrossPensionEntitlement;
+            }
+            set
+            {
+                OnAnnualGrossPensionEntitlementChanging(value);
+                ReportPropertyChanging("AnnualGrossPensionEntitlement");
+                _AnnualGrossPensionEntitlement = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AnnualGrossPensionEntitlement");
+                OnAnnualGrossPensionEntitlementChanged();
+            }
+        }
+        private global::System.Decimal _AnnualGrossPensionEntitlement;
+        partial void OnAnnualGrossPensionEntitlementChanging(global::System.Decimal value);
+        partial void OnAnnualGrossPensionEntitlementChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal FinalMonthGrossSalary
+        {
+            get
+            {
+                return _FinalMonthGrossSalary;
+            }
+            set
+            {
+                OnFinalMonthGrossSalaryChanging(value);
+                ReportPropertyChanging("FinalMonthGrossSalary");
+                _FinalMonthGrossSalary = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FinalMonthGrossSalary");
+                OnFinalMonthGrossSalaryChanged();
+            }
+        }
+        private global::System.Decimal _FinalMonthGrossSalary;
+        partial void OnFinalMonthGrossSalaryChanging(global::System.Decimal value);
+        partial void OnFinalMonthGrossSalaryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PensionType
+        {
+            get
+            {
+                return _PensionType;
+            }
+            set
+            {
+                OnPensionTypeChanging(value);
+                ReportPropertyChanging("PensionType");
+                _PensionType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PensionType");
+                OnPensionTypeChanged();
+            }
+        }
+        private global::System.Int32 _PensionType;
+        partial void OnPensionTypeChanging(global::System.Int32 value);
+        partial void OnPensionTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MonthsToPensionableAge
+        {
+            get
+            {
+                return _MonthsToPensionableAge;
+            }
+            set
+            {
+                OnMonthsToPensionableAgeChanging(value);
+                ReportPropertyChanging("MonthsToPensionableAge");
+                _MonthsToPensionableAge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MonthsToPensionableAge");
+                OnMonthsToPensionableAgeChanged();
+            }
+        }
+        private global::System.Int32 _MonthsToPensionableAge;
+        partial void OnMonthsToPensionableAgeChanging(global::System.Int32 value);
+        partial void OnMonthsToPensionableAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MonthsBeyondPensionableAge
+        {
+            get
+            {
+                return _MonthsBeyondPensionableAge;
+            }
+            set
+            {
+                OnMonthsBeyondPensionableAgeChanging(value);
+                ReportPropertyChanging("MonthsBeyondPensionableAge");
+                _MonthsBeyondPensionableAge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MonthsBeyondPensionableAge");
+                OnMonthsBeyondPensionableAgeChanged();
+            }
+        }
+        private global::System.Int32 _MonthsBeyondPensionableAge;
+        partial void OnMonthsBeyondPensionableAgeChanging(global::System.Int32 value);
+        partial void OnMonthsBeyondPensionableAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StandardRetirementDate
+        {
+            get
+            {
+                return _StandardRetirementDate;
+            }
+            set
+            {
+                OnStandardRetirementDateChanging(value);
+                ReportPropertyChanging("StandardRetirementDate");
+                _StandardRetirementDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StandardRetirementDate");
+                OnStandardRetirementDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StandardRetirementDate;
+        partial void OnStandardRetirementDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStandardRetirementDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal LumpSumPension
+        {
+            get
+            {
+                return _LumpSumPension;
+            }
+            set
+            {
+                OnLumpSumPensionChanging(value);
+                ReportPropertyChanging("LumpSumPension");
+                _LumpSumPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LumpSumPension");
+                OnLumpSumPensionChanged();
+            }
+        }
+        private global::System.Decimal _LumpSumPension;
+        partial void OnLumpSumPensionChanging(global::System.Decimal value);
+        partial void OnLumpSumPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FinancialYearEndDate
+        {
+            get
+            {
+                return _FinancialYearEndDate;
+            }
+            set
+            {
+                OnFinancialYearEndDateChanging(value);
+                ReportPropertyChanging("FinancialYearEndDate");
+                _FinancialYearEndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FinancialYearEndDate");
+                OnFinancialYearEndDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FinancialYearEndDate;
+        partial void OnFinancialYearEndDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnFinancialYearEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> ProjectedRemainingService
+        {
+            get
+            {
+                return _ProjectedRemainingService;
+            }
+            set
+            {
+                OnProjectedRemainingServiceChanging(value);
+                ReportPropertyChanging("ProjectedRemainingService");
+                _ProjectedRemainingService = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProjectedRemainingService");
+                OnProjectedRemainingServiceChanged();
+            }
+        }
+        private Nullable<global::System.Double> _ProjectedRemainingService;
+        partial void OnProjectedRemainingServiceChanging(Nullable<global::System.Double> value);
+        partial void OnProjectedRemainingServiceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> ProjectedAnnualPension
+        {
+            get
+            {
+                return _ProjectedAnnualPension;
+            }
+            set
+            {
+                OnProjectedAnnualPensionChanging(value);
+                ReportPropertyChanging("ProjectedAnnualPension");
+                _ProjectedAnnualPension = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProjectedAnnualPension");
+                OnProjectedAnnualPensionChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _ProjectedAnnualPension;
+        partial void OnProjectedAnnualPensionChanging(Nullable<global::System.Decimal> value);
+        partial void OnProjectedAnnualPensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FirstOfFollowingMonth
+        {
+            get
+            {
+                return _FirstOfFollowingMonth;
+            }
+            set
+            {
+                OnFirstOfFollowingMonthChanging(value);
+                ReportPropertyChanging("FirstOfFollowingMonth");
+                _FirstOfFollowingMonth = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FirstOfFollowingMonth");
+                OnFirstOfFollowingMonthChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FirstOfFollowingMonth;
+        partial void OnFirstOfFollowingMonthChanging(Nullable<global::System.DateTime> value);
+        partial void OnFirstOfFollowingMonthChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberBenefit_Member", "Member")]
+        public Member Member
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberBenefit_Member", "Member").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberBenefit_Member", "Member").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Member> MemberReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberBenefit_Member", "Member");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("PSPITSModel.FK_MemberBenefit_Member", "Member", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberComputedBenefit")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberComputedBenefit : EntityObject
@@ -12959,16 +14082,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication")]
         public DisabilityBenefitApplication DisabilityBenefitApplication
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value = value;
             }
         }
         /// <summary>
@@ -12980,13 +14103,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication", value);
                 }
             }
         }
@@ -12998,7 +14121,528 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberEmployment")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberDeath")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class MemberDeath : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new MemberDeath object.
+        /// </summary>
+        /// <param name="memberDeathId">Initial value of the MemberDeathId property.</param>
+        /// <param name="pensionId">Initial value of the PensionId property.</param>
+        /// <param name="dateOfDeath">Initial value of the DateOfDeath property.</param>
+        /// <param name="deathCertificateNumber">Initial value of the DeathCertificateNumber property.</param>
+        /// <param name="deathCertificatePresented">Initial value of the DeathCertificatePresented property.</param>
+        /// <param name="deathCertificateAccepted">Initial value of the DeathCertificateAccepted property.</param>
+        /// <param name="dateCreated">Initial value of the DateCreated property.</param>
+        /// <param name="whoCreated">Initial value of the WhoCreated property.</param>
+        public static MemberDeath CreateMemberDeath(global::System.Int32 memberDeathId, global::System.Int32 pensionId, global::System.DateTime dateOfDeath, global::System.String deathCertificateNumber, global::System.Boolean deathCertificatePresented, global::System.Boolean deathCertificateAccepted, global::System.DateTime dateCreated, global::System.String whoCreated)
+        {
+            MemberDeath memberDeath = new MemberDeath();
+            memberDeath.MemberDeathId = memberDeathId;
+            memberDeath.PensionId = pensionId;
+            memberDeath.DateOfDeath = dateOfDeath;
+            memberDeath.DeathCertificateNumber = deathCertificateNumber;
+            memberDeath.DeathCertificatePresented = deathCertificatePresented;
+            memberDeath.DeathCertificateAccepted = deathCertificateAccepted;
+            memberDeath.DateCreated = dateCreated;
+            memberDeath.WhoCreated = whoCreated;
+            return memberDeath;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MemberDeathId
+        {
+            get
+            {
+                return _MemberDeathId;
+            }
+            set
+            {
+                if (_MemberDeathId != value)
+                {
+                    OnMemberDeathIdChanging(value);
+                    ReportPropertyChanging("MemberDeathId");
+                    _MemberDeathId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MemberDeathId");
+                    OnMemberDeathIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MemberDeathId;
+        partial void OnMemberDeathIdChanging(global::System.Int32 value);
+        partial void OnMemberDeathIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PensionId
+        {
+            get
+            {
+                return _PensionId;
+            }
+            set
+            {
+                OnPensionIdChanging(value);
+                ReportPropertyChanging("PensionId");
+                _PensionId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PensionId");
+                OnPensionIdChanged();
+            }
+        }
+        private global::System.Int32 _PensionId;
+        partial void OnPensionIdChanging(global::System.Int32 value);
+        partial void OnPensionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateOfDeath
+        {
+            get
+            {
+                return _DateOfDeath;
+            }
+            set
+            {
+                OnDateOfDeathChanging(value);
+                ReportPropertyChanging("DateOfDeath");
+                _DateOfDeath = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateOfDeath");
+                OnDateOfDeathChanged();
+            }
+        }
+        private global::System.DateTime _DateOfDeath;
+        partial void OnDateOfDeathChanging(global::System.DateTime value);
+        partial void OnDateOfDeathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PlaceOfDeath
+        {
+            get
+            {
+                return _PlaceOfDeath;
+            }
+            set
+            {
+                OnPlaceOfDeathChanging(value);
+                ReportPropertyChanging("PlaceOfDeath");
+                _PlaceOfDeath = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PlaceOfDeath");
+                OnPlaceOfDeathChanged();
+            }
+        }
+        private global::System.String _PlaceOfDeath;
+        partial void OnPlaceOfDeathChanging(global::System.String value);
+        partial void OnPlaceOfDeathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DeathCertificateNumber
+        {
+            get
+            {
+                return _DeathCertificateNumber;
+            }
+            set
+            {
+                OnDeathCertificateNumberChanging(value);
+                ReportPropertyChanging("DeathCertificateNumber");
+                _DeathCertificateNumber = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DeathCertificateNumber");
+                OnDeathCertificateNumberChanged();
+            }
+        }
+        private global::System.String _DeathCertificateNumber;
+        partial void OnDeathCertificateNumberChanging(global::System.String value);
+        partial void OnDeathCertificateNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean DeathCertificatePresented
+        {
+            get
+            {
+                return _DeathCertificatePresented;
+            }
+            set
+            {
+                OnDeathCertificatePresentedChanging(value);
+                ReportPropertyChanging("DeathCertificatePresented");
+                _DeathCertificatePresented = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DeathCertificatePresented");
+                OnDeathCertificatePresentedChanged();
+            }
+        }
+        private global::System.Boolean _DeathCertificatePresented;
+        partial void OnDeathCertificatePresentedChanging(global::System.Boolean value);
+        partial void OnDeathCertificatePresentedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean DeathCertificateAccepted
+        {
+            get
+            {
+                return _DeathCertificateAccepted;
+            }
+            set
+            {
+                OnDeathCertificateAcceptedChanging(value);
+                ReportPropertyChanging("DeathCertificateAccepted");
+                _DeathCertificateAccepted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DeathCertificateAccepted");
+                OnDeathCertificateAcceptedChanged();
+            }
+        }
+        private global::System.Boolean _DeathCertificateAccepted;
+        partial void OnDeathCertificateAcceptedChanging(global::System.Boolean value);
+        partial void OnDeathCertificateAcceptedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FileContentType
+        {
+            get
+            {
+                return _FileContentType;
+            }
+            set
+            {
+                OnFileContentTypeChanging(value);
+                ReportPropertyChanging("FileContentType");
+                _FileContentType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FileContentType");
+                OnFileContentTypeChanged();
+            }
+        }
+        private global::System.String _FileContentType;
+        partial void OnFileContentTypeChanging(global::System.String value);
+        partial void OnFileContentTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FileOriginalName
+        {
+            get
+            {
+                return _FileOriginalName;
+            }
+            set
+            {
+                OnFileOriginalNameChanging(value);
+                ReportPropertyChanging("FileOriginalName");
+                _FileOriginalName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FileOriginalName");
+                OnFileOriginalNameChanged();
+            }
+        }
+        private global::System.String _FileOriginalName;
+        partial void OnFileOriginalNameChanging(global::System.String value);
+        partial void OnFileOriginalNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] FileContent
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_FileContent);
+            }
+            set
+            {
+                OnFileContentChanging(value);
+                ReportPropertyChanging("FileContent");
+                _FileContent = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FileContent");
+                OnFileContentChanged();
+            }
+        }
+        private global::System.Byte[] _FileContent;
+        partial void OnFileContentChanging(global::System.Byte[] value);
+        partial void OnFileContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FileSize
+        {
+            get
+            {
+                return _FileSize;
+            }
+            set
+            {
+                OnFileSizeChanging(value);
+                ReportPropertyChanging("FileSize");
+                _FileSize = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FileSize");
+                OnFileSizeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FileSize;
+        partial void OnFileSizeChanging(Nullable<global::System.Int32> value);
+        partial void OnFileSizeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateCreated
+        {
+            get
+            {
+                return _DateCreated;
+            }
+            set
+            {
+                OnDateCreatedChanging(value);
+                ReportPropertyChanging("DateCreated");
+                _DateCreated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateCreated");
+                OnDateCreatedChanged();
+            }
+        }
+        private global::System.DateTime _DateCreated;
+        partial void OnDateCreatedChanging(global::System.DateTime value);
+        partial void OnDateCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateUpdated
+        {
+            get
+            {
+                return _DateUpdated;
+            }
+            set
+            {
+                OnDateUpdatedChanging(value);
+                ReportPropertyChanging("DateUpdated");
+                _DateUpdated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateUpdated");
+                OnDateUpdatedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateUpdated;
+        partial void OnDateUpdatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateUpdatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateVerified
+        {
+            get
+            {
+                return _DateVerified;
+            }
+            set
+            {
+                OnDateVerifiedChanging(value);
+                ReportPropertyChanging("DateVerified");
+                _DateVerified = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateVerified");
+                OnDateVerifiedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateVerified;
+        partial void OnDateVerifiedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateVerifiedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String WhoCreated
+        {
+            get
+            {
+                return _WhoCreated;
+            }
+            set
+            {
+                OnWhoCreatedChanging(value);
+                ReportPropertyChanging("WhoCreated");
+                _WhoCreated = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("WhoCreated");
+                OnWhoCreatedChanged();
+            }
+        }
+        private global::System.String _WhoCreated;
+        partial void OnWhoCreatedChanging(global::System.String value);
+        partial void OnWhoCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String WhoUpdated
+        {
+            get
+            {
+                return _WhoUpdated;
+            }
+            set
+            {
+                OnWhoUpdatedChanging(value);
+                ReportPropertyChanging("WhoUpdated");
+                _WhoUpdated = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("WhoUpdated");
+                OnWhoUpdatedChanged();
+            }
+        }
+        private global::System.String _WhoUpdated;
+        partial void OnWhoUpdatedChanging(global::System.String value);
+        partial void OnWhoUpdatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String WhoVerified
+        {
+            get
+            {
+                return _WhoVerified;
+            }
+            set
+            {
+                OnWhoVerifiedChanging(value);
+                ReportPropertyChanging("WhoVerified");
+                _WhoVerified = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("WhoVerified");
+                OnWhoVerifiedChanged();
+            }
+        }
+        private global::System.String _WhoVerified;
+        partial void OnWhoVerifiedChanging(global::System.String value);
+        partial void OnWhoVerifiedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LogRef
+        {
+            get
+            {
+                return _LogRef;
+            }
+            set
+            {
+                OnLogRefChanging(value);
+                ReportPropertyChanging("LogRef");
+                _LogRef = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LogRef");
+                OnLogRefChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LogRef;
+        partial void OnLogRefChanging(Nullable<global::System.Int32> value);
+        partial void OnLogRefChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberDeath_Member", "Member")]
+        public Member Member
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberDeath_Member", "Member").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberDeath_Member", "Member").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Member> MemberReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberDeath_Member", "Member");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("PSPITSModel.FK_MemberDeath_Member", "Member", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberEmployment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberEmployment : EntityObject
@@ -13516,7 +15160,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberEmploymentEvidence")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberEmploymentEvidence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberEmploymentEvidence : EntityObject
@@ -13871,7 +15515,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberEmploymentServiceBreak")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberEmploymentServiceBreak")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberEmploymentServiceBreak : EntityObject
@@ -14225,7 +15869,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberEmploymentServiceBreakEvidence")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberEmploymentServiceBreakEvidence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberEmploymentServiceBreakEvidence : EntityObject
@@ -14772,7 +16416,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberEvidence")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberEvidence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberEvidence : EntityObject
@@ -15196,7 +16840,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberIdentity")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberIdentity")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberIdentity : EntityObject
@@ -15541,7 +17185,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="MemberSalary")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="MemberSalary")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MemberSalary : EntityObject
@@ -15971,18 +17615,56 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_MemberAllowance_MemberSalary", "MemberAllowance")]
-        public EntityCollection<MemberAllowance> MemberAllowances
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberSalary_Member", "Member")]
+        public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MemberAllowance>("PSPITS.Model.FK_MemberAllowance_MemberSalary", "MemberAllowance");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberSalary_Member", "Member").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberSalary_Member", "Member").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Member> MemberReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("PSPITSModel.FK_MemberSalary_Member", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MemberAllowance>("PSPITS.Model.FK_MemberAllowance_MemberSalary", "MemberAllowance", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("PSPITSModel.FK_MemberSalary_Member", "Member", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberAllowance_MemberSalary", "MemberAllowance")]
+        public EntityCollection<MemberAllowance> MemberAllowances
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MemberAllowance>("PSPITSModel.FK_MemberAllowance_MemberSalary", "MemberAllowance");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MemberAllowance>("PSPITSModel.FK_MemberAllowance_MemberSalary", "MemberAllowance", value);
                 }
             }
         }
@@ -15994,7 +17676,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="NominatedAgent")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="NominatedAgent")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class NominatedAgent : EntityObject
@@ -16563,16 +18245,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication")]
         public DisabilityBenefitApplication DisabilityBenefitApplication
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication").Value = value;
             }
         }
         /// <summary>
@@ -16584,13 +18266,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DisabilityBenefitApplication>("PSPITS.Model.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DisabilityBenefitApplication>("PSPITSModel.FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication", value);
                 }
             }
         }
@@ -16601,16 +18283,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication")]
         public LifeBenefitApplication LifeBenefitApplication
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LifeBenefitApplication>("PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LifeBenefitApplication>("PSPITSModel.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LifeBenefitApplication>("PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LifeBenefitApplication>("PSPITSModel.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication").Value = value;
             }
         }
         /// <summary>
@@ -16622,13 +18304,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LifeBenefitApplication>("PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LifeBenefitApplication>("PSPITSModel.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LifeBenefitApplication>("PSPITS.Model.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LifeBenefitApplication>("PSPITSModel.FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication", value);
                 }
             }
         }
@@ -16639,16 +18321,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication")]
         public SurvivorBenefitApplication SurvivorBenefitApplication
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SurvivorBenefitApplication>("PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SurvivorBenefitApplication>("PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SurvivorBenefitApplication>("PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SurvivorBenefitApplication>("PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication").Value = value;
             }
         }
         /// <summary>
@@ -16660,13 +18342,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SurvivorBenefitApplication>("PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SurvivorBenefitApplication>("PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SurvivorBenefitApplication>("PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SurvivorBenefitApplication>("PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication", "SurvivorBenefitApplication", value);
                 }
             }
         }
@@ -16678,7 +18360,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="NonMemberAllowance")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="NonMemberAllowance")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class NonMemberAllowance : EntityObject
@@ -16966,7 +18648,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="NonMemberSalary")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="NonMemberSalary")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class NonMemberSalary : EntityObject
@@ -17369,7 +19051,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="NpfPensioner")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="NpfPensioner")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class NpfPensioner : EntityObject
@@ -17893,18 +19575,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NpfPensionerBenefit_NpfPensioner", "NpfPensionerBenefit")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NpfPensionerBenefit_NpfPensioner", "NpfPensionerBenefit")]
         public EntityCollection<NpfPensionerBenefit> NpfPensionerBenefits
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NpfPensionerBenefit>("PSPITS.Model.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensionerBenefit");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NpfPensionerBenefit>("PSPITSModel.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensionerBenefit");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NpfPensionerBenefit>("PSPITS.Model.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensionerBenefit", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NpfPensionerBenefit>("PSPITSModel.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensionerBenefit", value);
                 }
             }
         }
@@ -17916,7 +19598,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="NpfPensionerBenefit")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="NpfPensionerBenefit")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class NpfPensionerBenefit : EntityObject
@@ -18236,16 +19918,16 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner")]
         public NpfPensioner NpfPensioner
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NpfPensioner>("PSPITS.Model.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NpfPensioner>("PSPITSModel.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NpfPensioner>("PSPITS.Model.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NpfPensioner>("PSPITSModel.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner").Value = value;
             }
         }
         /// <summary>
@@ -18257,13 +19939,13 @@ namespace PSPITS.MODEL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NpfPensioner>("PSPITS.Model.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NpfPensioner>("PSPITSModel.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<NpfPensioner>("PSPITS.Model.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<NpfPensioner>("PSPITSModel.FK_NpfPensionerBenefit_NpfPensioner", "NpfPensioner", value);
                 }
             }
         }
@@ -18275,7 +19957,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="SurvivorArrear")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="SurvivorArrear")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SurvivorArrear : EntityObject
@@ -18922,7 +20604,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="SurvivorBenefitApplication")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="SurvivorBenefitApplication")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SurvivorBenefitApplication : EntityObject
@@ -19438,18 +21120,18 @@ namespace PSPITS.MODEL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PSPITS.Model", "FK_NominatedAgent_SurvivorBenefitApplication", "NominatedAgent")]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_NominatedAgent_SurvivorBenefitApplication", "NominatedAgent")]
         public EntityCollection<NominatedAgent> NominatedAgents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NominatedAgent>("PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication", "NominatedAgent");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NominatedAgent>("PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication", "NominatedAgent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NominatedAgent>("PSPITS.Model.FK_NominatedAgent_SurvivorBenefitApplication", "NominatedAgent", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NominatedAgent>("PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication", "NominatedAgent", value);
                 }
             }
         }
@@ -19461,7 +21143,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="SurvivorComputedBenefit")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="SurvivorComputedBenefit")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SurvivorComputedBenefit : EntityObject
@@ -20101,7 +21783,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="TaxRule")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="TaxRule")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TaxRule : EntityObject
@@ -20472,7 +22154,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="TransLog")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="TransLog")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TransLog : EntityObject
@@ -20805,7 +22487,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_Applications")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_Applications")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_Applications : EntityObject
@@ -20944,7 +22626,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_MembershipUsers")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_MembershipUsers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_MembershipUsers : EntityObject
@@ -21604,7 +23286,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_Profiles")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_Profiles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_Profiles : EntityObject
@@ -21714,7 +23396,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_Roles")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_Roles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_Roles : EntityObject
@@ -21882,7 +23564,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_Users")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_Users")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_Users : EntityObject
@@ -22108,7 +23790,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_UsersInRoles")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_UsersInRoles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_UsersInRoles : EntityObject
@@ -22194,7 +23876,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_WebPartState_Paths")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_WebPartState_Paths")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_WebPartState_Paths : EntityObject
@@ -22338,7 +24020,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_WebPartState_Shared")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_WebPartState_Shared")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_WebPartState_Shared : EntityObject
@@ -22448,7 +24130,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vw_aspnet_WebPartState_User")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vw_aspnet_WebPartState_User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vw_aspnet_WebPartState_User : EntityObject
@@ -22577,7 +24259,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistBeneficiaryEvidence")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistBeneficiaryEvidence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistBeneficiaryEvidence : EntityObject
@@ -22682,7 +24364,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistBeneficiaryRelationship")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistBeneficiaryRelationship")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistBeneficiaryRelationship : EntityObject
@@ -22787,7 +24469,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistDay")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistDay")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistDay : EntityObject
@@ -22892,7 +24574,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistDisabilityType")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistDisabilityType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistDisabilityType : EntityObject
@@ -22997,7 +24679,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistEvidence")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistEvidence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistEvidence : EntityObject
@@ -23102,7 +24784,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistEvidenceType")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistEvidenceType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistEvidenceType : EntityObject
@@ -23207,7 +24889,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistFunction")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistFunction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistFunction : EntityObject
@@ -23312,7 +24994,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistGender")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistGender")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistGender : EntityObject
@@ -23417,7 +25099,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistGrade")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistGrade")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistGrade : EntityObject
@@ -23522,7 +25204,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistMarital")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistMarital")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistMarital : EntityObject
@@ -23627,7 +25309,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistMDA")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistMDA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistMDA : EntityObject
@@ -23732,7 +25414,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistMemberBenefitEvent")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistMemberBenefitEvent")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistMemberBenefitEvent : EntityObject
@@ -23837,7 +25519,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistMonth")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistMonth")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistMonth : EntityObject
@@ -23942,7 +25624,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistPrefix")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistPrefix")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistPrefix : EntityObject
@@ -24047,7 +25729,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistServiceBreakType")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistServiceBreakType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistServiceBreakType : EntityObject
@@ -24152,7 +25834,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistState")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistState")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistState : EntityObject
@@ -24257,7 +25939,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistStatu")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistStatu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistStatu : EntityObject
@@ -24362,7 +26044,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistWorkstation")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistWorkstation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistWorkstation : EntityObject
@@ -24467,7 +26149,7 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PSPITS.Model", Name="vwlistYear")]
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="vwlistYear")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vwlistYear : EntityObject

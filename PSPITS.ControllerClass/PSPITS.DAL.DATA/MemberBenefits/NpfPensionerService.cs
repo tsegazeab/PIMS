@@ -141,7 +141,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         {
             using (var context = new PSPITSEntities())
             {
-                var paymentList = context.NpfPensionerBenefits.Where(b => b.Month == month && b.Year == year).ToList();
+                var paymentList = context.NpfPensionerBenefits.Where(b => b.Month == month && b.Year == year).ToList();                
                 foreach (var payment in paymentList)
                 {
                     payment.PaymentApproved = true;

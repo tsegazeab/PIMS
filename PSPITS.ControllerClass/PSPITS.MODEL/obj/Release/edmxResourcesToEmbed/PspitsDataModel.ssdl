@@ -1,54 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="PSPITS.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+<Schema Namespace="PSPITSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="PSPITSModelStoreContainer">
-    <EntitySet Name="ActualContribution" EntityType="PSPITS.Model.Store.ActualContribution" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ActuarialEquivalent" EntityType="PSPITS.Model.Store.ActuarialEquivalent" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_Applications" EntityType="PSPITS.Model.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_Membership" EntityType="PSPITS.Model.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_Paths" EntityType="PSPITS.Model.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="PSPITS.Model.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="PSPITS.Model.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_Profile" EntityType="PSPITS.Model.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_Roles" EntityType="PSPITS.Model.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_SchemaVersions" EntityType="PSPITS.Model.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_Users" EntityType="PSPITS.Model.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_UsersInRoles" EntityType="PSPITS.Model.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="aspnet_WebEvent_Events" EntityType="PSPITS.Model.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BankAccountDetail" EntityType="PSPITS.Model.Store.BankAccountDetail" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Beneficiary" EntityType="PSPITS.Model.Store.Beneficiary" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BeneficiaryDisability" EntityType="PSPITS.Model.Store.BeneficiaryDisability" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BeneficiaryEvidence" EntityType="PSPITS.Model.Store.BeneficiaryEvidence" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BenefitPaymentMember" EntityType="PSPITS.Model.Store.BenefitPaymentMember" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BenefitPaymentSurvivor" EntityType="PSPITS.Model.Store.BenefitPaymentSurvivor" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="dbLog" EntityType="PSPITS.Model.Store.dbLog" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DisabilityBenefitApplication" EntityType="PSPITS.Model.Store.DisabilityBenefitApplication" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EvidenceByFunction" EntityType="PSPITS.Model.Store.EvidenceByFunction" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EvidenceByRelation" EntityType="PSPITS.Model.Store.EvidenceByRelation" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LifeBenefitApplication" EntityType="PSPITS.Model.Store.LifeBenefitApplication" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="List" EntityType="PSPITS.Model.Store.List" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ListType" EntityType="PSPITS.Model.Store.ListType" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Member" EntityType="PSPITS.Model.Store.Member" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberAllowance" EntityType="PSPITS.Model.Store.MemberAllowance" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberArrear" EntityType="PSPITS.Model.Store.MemberArrear" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberComputedBenefit" EntityType="PSPITS.Model.Store.MemberComputedBenefit" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberEmployment" EntityType="PSPITS.Model.Store.MemberEmployment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberEmploymentEvidence" EntityType="PSPITS.Model.Store.MemberEmploymentEvidence" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberEmploymentServiceBreak" EntityType="PSPITS.Model.Store.MemberEmploymentServiceBreak" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberEmploymentServiceBreakEvidence" EntityType="PSPITS.Model.Store.MemberEmploymentServiceBreakEvidence" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberEvidence" EntityType="PSPITS.Model.Store.MemberEvidence" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberIdentity" EntityType="PSPITS.Model.Store.MemberIdentity" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MemberSalary" EntityType="PSPITS.Model.Store.MemberSalary" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NominatedAgent" EntityType="PSPITS.Model.Store.NominatedAgent" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NonMemberAllowance" EntityType="PSPITS.Model.Store.NonMemberAllowance" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NonMemberSalary" EntityType="PSPITS.Model.Store.NonMemberSalary" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NpfPensioner" EntityType="PSPITS.Model.Store.NpfPensioner" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="NpfPensionerBenefit" EntityType="PSPITS.Model.Store.NpfPensionerBenefit" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SurvivorArrear" EntityType="PSPITS.Model.Store.SurvivorArrear" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SurvivorBenefitApplication" EntityType="PSPITS.Model.Store.SurvivorBenefitApplication" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SurvivorComputedBenefit" EntityType="PSPITS.Model.Store.SurvivorComputedBenefit" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TaxRule" EntityType="PSPITS.Model.Store.TaxRule" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TransLog" EntityType="PSPITS.Model.Store.TransLog" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="vw_aspnet_Applications" EntityType="PSPITS.Model.Store.vw_aspnet_Applications" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Applications">
+    <EntitySet Name="ActualContribution" EntityType="PSPITSModel.Store.ActualContribution" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActuarialEquivalent" EntityType="PSPITSModel.Store.ActuarialEquivalent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Applications" EntityType="PSPITSModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Membership" EntityType="PSPITSModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Paths" EntityType="PSPITSModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="PSPITSModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="PSPITSModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Profile" EntityType="PSPITSModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Roles" EntityType="PSPITSModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="PSPITSModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Users" EntityType="PSPITSModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="PSPITSModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="PSPITSModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BankAccountDetail" EntityType="PSPITSModel.Store.BankAccountDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Beneficiary" EntityType="PSPITSModel.Store.Beneficiary" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BeneficiaryDisability" EntityType="PSPITSModel.Store.BeneficiaryDisability" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BeneficiaryEvidence" EntityType="PSPITSModel.Store.BeneficiaryEvidence" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BenefitPaymentMember" EntityType="PSPITSModel.Store.BenefitPaymentMember" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BenefitPaymentSurvivor" EntityType="PSPITSModel.Store.BenefitPaymentSurvivor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommutationFactor" EntityType="PSPITSModel.Store.CommutationFactor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dbLog" EntityType="PSPITSModel.Store.dbLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DisabilityBenefitApplication" EntityType="PSPITSModel.Store.DisabilityBenefitApplication" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EvidenceByFunction" EntityType="PSPITSModel.Store.EvidenceByFunction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EvidenceByRelation" EntityType="PSPITSModel.Store.EvidenceByRelation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LifeBenefitApplication" EntityType="PSPITSModel.Store.LifeBenefitApplication" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="List" EntityType="PSPITSModel.Store.List" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListType" EntityType="PSPITSModel.Store.ListType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Member" EntityType="PSPITSModel.Store.Member" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberAllowance" EntityType="PSPITSModel.Store.MemberAllowance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberArrear" EntityType="PSPITSModel.Store.MemberArrear" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberBenefit" EntityType="PSPITSModel.Store.MemberBenefit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberComputedBenefit" EntityType="PSPITSModel.Store.MemberComputedBenefit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberDeath" EntityType="PSPITSModel.Store.MemberDeath" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberEmployment" EntityType="PSPITSModel.Store.MemberEmployment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberEmploymentEvidence" EntityType="PSPITSModel.Store.MemberEmploymentEvidence" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberEmploymentServiceBreak" EntityType="PSPITSModel.Store.MemberEmploymentServiceBreak" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberEmploymentServiceBreakEvidence" EntityType="PSPITSModel.Store.MemberEmploymentServiceBreakEvidence" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberEvidence" EntityType="PSPITSModel.Store.MemberEvidence" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberIdentity" EntityType="PSPITSModel.Store.MemberIdentity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberSalary" EntityType="PSPITSModel.Store.MemberSalary" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NominatedAgent" EntityType="PSPITSModel.Store.NominatedAgent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NonMemberAllowance" EntityType="PSPITSModel.Store.NonMemberAllowance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NonMemberSalary" EntityType="PSPITSModel.Store.NonMemberSalary" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NpfPensioner" EntityType="PSPITSModel.Store.NpfPensioner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NpfPensionerBenefit" EntityType="PSPITSModel.Store.NpfPensionerBenefit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurvivorArrear" EntityType="PSPITSModel.Store.SurvivorArrear" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurvivorBenefitApplication" EntityType="PSPITSModel.Store.SurvivorBenefitApplication" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurvivorComputedBenefit" EntityType="PSPITSModel.Store.SurvivorComputedBenefit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaxRule" EntityType="PSPITSModel.Store.TaxRule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TransLog" EntityType="PSPITSModel.Store.TransLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vw_aspnet_Applications" EntityType="PSPITSModel.Store.vw_aspnet_Applications" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Applications">
       <DefiningQuery>SELECT 
       [vw_aspnet_Applications].[ApplicationName] AS [ApplicationName], 
       [vw_aspnet_Applications].[LoweredApplicationName] AS [LoweredApplicationName], 
@@ -56,7 +59,7 @@
       [vw_aspnet_Applications].[Description] AS [Description]
       FROM [dbo].[vw_aspnet_Applications] AS [vw_aspnet_Applications]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="PSPITS.Model.Store.vw_aspnet_MembershipUsers" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_MembershipUsers">
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="PSPITSModel.Store.vw_aspnet_MembershipUsers" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_MembershipUsers">
       <DefiningQuery>SELECT 
       [vw_aspnet_MembershipUsers].[UserId] AS [UserId], 
       [vw_aspnet_MembershipUsers].[PasswordFormat] AS [PasswordFormat], 
@@ -83,14 +86,14 @@
       [vw_aspnet_MembershipUsers].[LastActivityDate] AS [LastActivityDate]
       FROM [dbo].[vw_aspnet_MembershipUsers] AS [vw_aspnet_MembershipUsers]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_Profiles" EntityType="PSPITS.Model.Store.vw_aspnet_Profiles" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Profiles">
+    <EntitySet Name="vw_aspnet_Profiles" EntityType="PSPITSModel.Store.vw_aspnet_Profiles" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Profiles">
       <DefiningQuery>SELECT 
       [vw_aspnet_Profiles].[UserId] AS [UserId], 
       [vw_aspnet_Profiles].[LastUpdatedDate] AS [LastUpdatedDate], 
       [vw_aspnet_Profiles].[DataSize] AS [DataSize]
       FROM [dbo].[vw_aspnet_Profiles] AS [vw_aspnet_Profiles]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_Roles" EntityType="PSPITS.Model.Store.vw_aspnet_Roles" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Roles">
+    <EntitySet Name="vw_aspnet_Roles" EntityType="PSPITSModel.Store.vw_aspnet_Roles" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Roles">
       <DefiningQuery>SELECT 
       [vw_aspnet_Roles].[ApplicationId] AS [ApplicationId], 
       [vw_aspnet_Roles].[RoleId] AS [RoleId], 
@@ -99,7 +102,7 @@
       [vw_aspnet_Roles].[Description] AS [Description]
       FROM [dbo].[vw_aspnet_Roles] AS [vw_aspnet_Roles]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_Users" EntityType="PSPITS.Model.Store.vw_aspnet_Users" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Users">
+    <EntitySet Name="vw_aspnet_Users" EntityType="PSPITSModel.Store.vw_aspnet_Users" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Users">
       <DefiningQuery>SELECT 
       [vw_aspnet_Users].[ApplicationId] AS [ApplicationId], 
       [vw_aspnet_Users].[UserId] AS [UserId], 
@@ -110,13 +113,13 @@
       [vw_aspnet_Users].[LastActivityDate] AS [LastActivityDate]
       FROM [dbo].[vw_aspnet_Users] AS [vw_aspnet_Users]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_UsersInRoles" EntityType="PSPITS.Model.Store.vw_aspnet_UsersInRoles" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_UsersInRoles">
+    <EntitySet Name="vw_aspnet_UsersInRoles" EntityType="PSPITSModel.Store.vw_aspnet_UsersInRoles" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_UsersInRoles">
       <DefiningQuery>SELECT 
       [vw_aspnet_UsersInRoles].[UserId] AS [UserId], 
       [vw_aspnet_UsersInRoles].[RoleId] AS [RoleId]
       FROM [dbo].[vw_aspnet_UsersInRoles] AS [vw_aspnet_UsersInRoles]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_WebPartState_Paths" EntityType="PSPITS.Model.Store.vw_aspnet_WebPartState_Paths" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_WebPartState_Paths">
+    <EntitySet Name="vw_aspnet_WebPartState_Paths" EntityType="PSPITSModel.Store.vw_aspnet_WebPartState_Paths" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_WebPartState_Paths">
       <DefiningQuery>SELECT 
       [vw_aspnet_WebPartState_Paths].[ApplicationId] AS [ApplicationId], 
       [vw_aspnet_WebPartState_Paths].[PathId] AS [PathId], 
@@ -124,14 +127,14 @@
       [vw_aspnet_WebPartState_Paths].[LoweredPath] AS [LoweredPath]
       FROM [dbo].[vw_aspnet_WebPartState_Paths] AS [vw_aspnet_WebPartState_Paths]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_WebPartState_Shared" EntityType="PSPITS.Model.Store.vw_aspnet_WebPartState_Shared" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_WebPartState_Shared">
+    <EntitySet Name="vw_aspnet_WebPartState_Shared" EntityType="PSPITSModel.Store.vw_aspnet_WebPartState_Shared" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_WebPartState_Shared">
       <DefiningQuery>SELECT 
       [vw_aspnet_WebPartState_Shared].[PathId] AS [PathId], 
       [vw_aspnet_WebPartState_Shared].[DataSize] AS [DataSize], 
       [vw_aspnet_WebPartState_Shared].[LastUpdatedDate] AS [LastUpdatedDate]
       FROM [dbo].[vw_aspnet_WebPartState_Shared] AS [vw_aspnet_WebPartState_Shared]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="PSPITS.Model.Store.vw_aspnet_WebPartState_User" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_WebPartState_User">
+    <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="PSPITSModel.Store.vw_aspnet_WebPartState_User" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_WebPartState_User">
       <DefiningQuery>SELECT 
       [vw_aspnet_WebPartState_User].[PathId] AS [PathId], 
       [vw_aspnet_WebPartState_User].[UserId] AS [UserId], 
@@ -139,208 +142,220 @@
       [vw_aspnet_WebPartState_User].[LastUpdatedDate] AS [LastUpdatedDate]
       FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistBeneficiaryEvidence" EntityType="PSPITS.Model.Store.vwlistBeneficiaryEvidence" store:Type="Views" store:Schema="dbo" store:Name="vwlistBeneficiaryEvidence">
+    <EntitySet Name="vwlistBeneficiaryEvidence" EntityType="PSPITSModel.Store.vwlistBeneficiaryEvidence" store:Type="Views" store:Schema="dbo" store:Name="vwlistBeneficiaryEvidence">
       <DefiningQuery>SELECT 
       [vwlistBeneficiaryEvidence].[evidenceID] AS [evidenceID], 
       [vwlistBeneficiaryEvidence].[evidence] AS [evidence], 
       [vwlistBeneficiaryEvidence].[evidenceCode] AS [evidenceCode]
       FROM [dbo].[vwlistBeneficiaryEvidence] AS [vwlistBeneficiaryEvidence]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistBeneficiaryRelationship" EntityType="PSPITS.Model.Store.vwlistBeneficiaryRelationship" store:Type="Views" store:Schema="dbo" store:Name="vwlistBeneficiaryRelationship">
+    <EntitySet Name="vwlistBeneficiaryRelationship" EntityType="PSPITSModel.Store.vwlistBeneficiaryRelationship" store:Type="Views" store:Schema="dbo" store:Name="vwlistBeneficiaryRelationship">
       <DefiningQuery>SELECT 
       [vwlistBeneficiaryRelationship].[relationshipID] AS [relationshipID], 
       [vwlistBeneficiaryRelationship].[Relationship] AS [Relationship], 
       [vwlistBeneficiaryRelationship].[relationshipCode] AS [relationshipCode]
       FROM [dbo].[vwlistBeneficiaryRelationship] AS [vwlistBeneficiaryRelationship]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistDay" EntityType="PSPITS.Model.Store.vwlistDay" store:Type="Views" store:Schema="dbo" store:Name="vwlistDay">
+    <EntitySet Name="vwlistDay" EntityType="PSPITSModel.Store.vwlistDay" store:Type="Views" store:Schema="dbo" store:Name="vwlistDay">
       <DefiningQuery>SELECT 
       [vwlistDay].[dayID] AS [dayID], 
       [vwlistDay].[Day] AS [Day], 
       [vwlistDay].[dayCode] AS [dayCode]
       FROM [dbo].[vwlistDay] AS [vwlistDay]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistDisabilityType" EntityType="PSPITS.Model.Store.vwlistDisabilityType" store:Type="Views" store:Schema="dbo" store:Name="vwlistDisabilityType">
+    <EntitySet Name="vwlistDisabilityType" EntityType="PSPITSModel.Store.vwlistDisabilityType" store:Type="Views" store:Schema="dbo" store:Name="vwlistDisabilityType">
       <DefiningQuery>SELECT 
       [vwlistDisabilityType].[DisabilityTypeID] AS [DisabilityTypeID], 
       [vwlistDisabilityType].[DisabilityType] AS [DisabilityType], 
       [vwlistDisabilityType].[disabilitytypeCode] AS [disabilitytypeCode]
       FROM [dbo].[vwlistDisabilityType] AS [vwlistDisabilityType]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistEvidence" EntityType="PSPITS.Model.Store.vwlistEvidence" store:Type="Views" store:Schema="dbo" store:Name="vwlistEvidence">
+    <EntitySet Name="vwlistEvidence" EntityType="PSPITSModel.Store.vwlistEvidence" store:Type="Views" store:Schema="dbo" store:Name="vwlistEvidence">
       <DefiningQuery>SELECT 
       [vwlistEvidence].[evidenceID] AS [evidenceID], 
       [vwlistEvidence].[evidence] AS [evidence], 
       [vwlistEvidence].[evidenceCode] AS [evidenceCode]
       FROM [dbo].[vwlistEvidence] AS [vwlistEvidence]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistEvidenceType" EntityType="PSPITS.Model.Store.vwlistEvidenceType" store:Type="Views" store:Schema="dbo" store:Name="vwlistEvidenceType">
+    <EntitySet Name="vwlistEvidenceType" EntityType="PSPITSModel.Store.vwlistEvidenceType" store:Type="Views" store:Schema="dbo" store:Name="vwlistEvidenceType">
       <DefiningQuery>SELECT 
       [vwlistEvidenceType].[evidencetypeID] AS [evidencetypeID], 
       [vwlistEvidenceType].[evidenceType] AS [evidenceType], 
       [vwlistEvidenceType].[evidenceTypeCode] AS [evidenceTypeCode]
       FROM [dbo].[vwlistEvidenceType] AS [vwlistEvidenceType]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistFunction" EntityType="PSPITS.Model.Store.vwlistFunction" store:Type="Views" store:Schema="dbo" store:Name="vwlistFunction">
+    <EntitySet Name="vwlistFunction" EntityType="PSPITSModel.Store.vwlistFunction" store:Type="Views" store:Schema="dbo" store:Name="vwlistFunction">
       <DefiningQuery>SELECT 
       [vwlistFunction].[functionID] AS [functionID], 
       [vwlistFunction].[functionText] AS [functionText], 
       [vwlistFunction].[functionCode] AS [functionCode]
       FROM [dbo].[vwlistFunction] AS [vwlistFunction]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistGender" EntityType="PSPITS.Model.Store.vwlistGender" store:Type="Views" store:Schema="dbo" store:Name="vwlistGender">
+    <EntitySet Name="vwlistGender" EntityType="PSPITSModel.Store.vwlistGender" store:Type="Views" store:Schema="dbo" store:Name="vwlistGender">
       <DefiningQuery>SELECT 
       [vwlistGender].[genderID] AS [genderID], 
       [vwlistGender].[Gender] AS [Gender], 
       [vwlistGender].[genderCode] AS [genderCode]
       FROM [dbo].[vwlistGender] AS [vwlistGender]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistGrade" EntityType="PSPITS.Model.Store.vwlistGrade" store:Type="Views" store:Schema="dbo" store:Name="vwlistGrade">
+    <EntitySet Name="vwlistGrade" EntityType="PSPITSModel.Store.vwlistGrade" store:Type="Views" store:Schema="dbo" store:Name="vwlistGrade">
       <DefiningQuery>SELECT 
       [vwlistGrade].[gradeID] AS [gradeID], 
       [vwlistGrade].[Grade] AS [Grade], 
       [vwlistGrade].[gradeCode] AS [gradeCode]
       FROM [dbo].[vwlistGrade] AS [vwlistGrade]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistMarital" EntityType="PSPITS.Model.Store.vwlistMarital" store:Type="Views" store:Schema="dbo" store:Name="vwlistMarital">
+    <EntitySet Name="vwlistMarital" EntityType="PSPITSModel.Store.vwlistMarital" store:Type="Views" store:Schema="dbo" store:Name="vwlistMarital">
       <DefiningQuery>SELECT 
       [vwlistMarital].[maritalID] AS [maritalID], 
       [vwlistMarital].[Marital] AS [Marital], 
       [vwlistMarital].[maritalCode] AS [maritalCode]
       FROM [dbo].[vwlistMarital] AS [vwlistMarital]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistMDA" EntityType="PSPITS.Model.Store.vwlistMDA" store:Type="Views" store:Schema="dbo" store:Name="vwlistMDA">
+    <EntitySet Name="vwlistMDA" EntityType="PSPITSModel.Store.vwlistMDA" store:Type="Views" store:Schema="dbo" store:Name="vwlistMDA">
       <DefiningQuery>SELECT 
       [vwlistMDA].[mdaID] AS [mdaID], 
       [vwlistMDA].[MDA] AS [MDA], 
       [vwlistMDA].[mdaCode] AS [mdaCode]
       FROM [dbo].[vwlistMDA] AS [vwlistMDA]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistMemberBenefitEvent" EntityType="PSPITS.Model.Store.vwlistMemberBenefitEvent" store:Type="Views" store:Schema="dbo" store:Name="vwlistMemberBenefitEvent">
+    <EntitySet Name="vwlistMemberBenefitEvent" EntityType="PSPITSModel.Store.vwlistMemberBenefitEvent" store:Type="Views" store:Schema="dbo" store:Name="vwlistMemberBenefitEvent">
       <DefiningQuery>SELECT 
       [vwlistMemberBenefitEvent].[eventID] AS [eventID], 
       [vwlistMemberBenefitEvent].[eventName] AS [eventName], 
       [vwlistMemberBenefitEvent].[eventCode] AS [eventCode]
       FROM [dbo].[vwlistMemberBenefitEvent] AS [vwlistMemberBenefitEvent]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistMonth" EntityType="PSPITS.Model.Store.vwlistMonth" store:Type="Views" store:Schema="dbo" store:Name="vwlistMonth">
+    <EntitySet Name="vwlistMonth" EntityType="PSPITSModel.Store.vwlistMonth" store:Type="Views" store:Schema="dbo" store:Name="vwlistMonth">
       <DefiningQuery>SELECT 
       [vwlistMonth].[monthID] AS [monthID], 
       [vwlistMonth].[Month] AS [Month], 
       [vwlistMonth].[MonthCode] AS [MonthCode]
       FROM [dbo].[vwlistMonth] AS [vwlistMonth]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistPrefix" EntityType="PSPITS.Model.Store.vwlistPrefix" store:Type="Views" store:Schema="dbo" store:Name="vwlistPrefix">
+    <EntitySet Name="vwlistPrefix" EntityType="PSPITSModel.Store.vwlistPrefix" store:Type="Views" store:Schema="dbo" store:Name="vwlistPrefix">
       <DefiningQuery>SELECT 
       [vwlistPrefix].[prefixID] AS [prefixID], 
       [vwlistPrefix].[prefix] AS [prefix], 
       [vwlistPrefix].[prefixCode] AS [prefixCode]
       FROM [dbo].[vwlistPrefix] AS [vwlistPrefix]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistServiceBreakType" EntityType="PSPITS.Model.Store.vwlistServiceBreakType" store:Type="Views" store:Schema="dbo" store:Name="vwlistServiceBreakType">
+    <EntitySet Name="vwlistServiceBreakType" EntityType="PSPITSModel.Store.vwlistServiceBreakType" store:Type="Views" store:Schema="dbo" store:Name="vwlistServiceBreakType">
       <DefiningQuery>SELECT 
       [vwlistServiceBreakType].[servicebreakTypeID] AS [servicebreakTypeID], 
       [vwlistServiceBreakType].[servicebreakType] AS [servicebreakType], 
       [vwlistServiceBreakType].[servicebreaktypeCode] AS [servicebreaktypeCode]
       FROM [dbo].[vwlistServiceBreakType] AS [vwlistServiceBreakType]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistState" EntityType="PSPITS.Model.Store.vwlistState" store:Type="Views" store:Schema="dbo" store:Name="vwlistState">
+    <EntitySet Name="vwlistState" EntityType="PSPITSModel.Store.vwlistState" store:Type="Views" store:Schema="dbo" store:Name="vwlistState">
       <DefiningQuery>SELECT 
       [vwlistState].[stateID] AS [stateID], 
       [vwlistState].[State] AS [State], 
       [vwlistState].[stateCode] AS [stateCode]
       FROM [dbo].[vwlistState] AS [vwlistState]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistStatus" EntityType="PSPITS.Model.Store.vwlistStatus" store:Type="Views" store:Schema="dbo" store:Name="vwlistStatus">
+    <EntitySet Name="vwlistStatus" EntityType="PSPITSModel.Store.vwlistStatus" store:Type="Views" store:Schema="dbo" store:Name="vwlistStatus">
       <DefiningQuery>SELECT 
       [vwlistStatus].[maritalID] AS [maritalID], 
       [vwlistStatus].[Marital] AS [Marital], 
       [vwlistStatus].[maritalCode] AS [maritalCode]
       FROM [dbo].[vwlistStatus] AS [vwlistStatus]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistWorkstation" EntityType="PSPITS.Model.Store.vwlistWorkstation" store:Type="Views" store:Schema="dbo" store:Name="vwlistWorkstation">
+    <EntitySet Name="vwlistWorkstation" EntityType="PSPITSModel.Store.vwlistWorkstation" store:Type="Views" store:Schema="dbo" store:Name="vwlistWorkstation">
       <DefiningQuery>SELECT 
       [vwlistWorkstation].[workstationID] AS [workstationID], 
       [vwlistWorkstation].[workstation] AS [workstation], 
       [vwlistWorkstation].[workstationCode] AS [workstationCode]
       FROM [dbo].[vwlistWorkstation] AS [vwlistWorkstation]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwlistYear" EntityType="PSPITS.Model.Store.vwlistYear" store:Type="Views" store:Schema="dbo" store:Name="vwlistYear">
+    <EntitySet Name="vwlistYear" EntityType="PSPITSModel.Store.vwlistYear" store:Type="Views" store:Schema="dbo" store:Name="vwlistYear">
       <DefiningQuery>SELECT 
       [vwlistYear].[yearID] AS [yearID], 
       [vwlistYear].[year] AS [year], 
       [vwlistYear].[yearCode] AS [yearCode]
       FROM [dbo].[vwlistYear] AS [vwlistYear]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__aspnet_Me__Appli__7D0E9093" Association="PSPITS.Model.Store.FK__aspnet_Me__Appli__7D0E9093">
+    <AssociationSet Name="FK__aspnet_Me__Appli__7D0E9093" Association="PSPITSModel.Store.FK__aspnet_Me__Appli__7D0E9093">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Me__UserI__7E02B4CC" Association="PSPITS.Model.Store.FK__aspnet_Me__UserI__7E02B4CC">
+    <AssociationSet Name="FK__aspnet_Me__UserI__7E02B4CC" Association="PSPITSModel.Store.FK__aspnet_Me__UserI__7E02B4CC">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pa__Appli__7EF6D905" Association="PSPITS.Model.Store.FK__aspnet_Pa__Appli__7EF6D905">
+    <AssociationSet Name="FK__aspnet_Pa__Appli__7EF6D905" Association="PSPITSModel.Store.FK__aspnet_Pa__Appli__7EF6D905">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__PathI__00DF2177" Association="PSPITS.Model.Store.FK__aspnet_Pe__PathI__00DF2177">
+    <AssociationSet Name="FK__aspnet_Pe__PathI__00DF2177" Association="PSPITSModel.Store.FK__aspnet_Pe__PathI__00DF2177">
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
       <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__PathI__7FEAFD3E" Association="PSPITS.Model.Store.FK__aspnet_Pe__PathI__7FEAFD3E">
+    <AssociationSet Name="FK__aspnet_Pe__PathI__7FEAFD3E" Association="PSPITSModel.Store.FK__aspnet_Pe__PathI__7FEAFD3E">
       <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
       <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pe__UserI__01D345B0" Association="PSPITS.Model.Store.FK__aspnet_Pe__UserI__01D345B0">
+    <AssociationSet Name="FK__aspnet_Pe__UserI__01D345B0" Association="PSPITSModel.Store.FK__aspnet_Pe__UserI__01D345B0">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Pr__UserI__02C769E9" Association="PSPITS.Model.Store.FK__aspnet_Pr__UserI__02C769E9">
+    <AssociationSet Name="FK__aspnet_Pr__UserI__02C769E9" Association="PSPITSModel.Store.FK__aspnet_Pr__UserI__02C769E9">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Ro__Appli__03BB8E22" Association="PSPITS.Model.Store.FK__aspnet_Ro__Appli__03BB8E22">
+    <AssociationSet Name="FK__aspnet_Ro__Appli__03BB8E22" Association="PSPITSModel.Store.FK__aspnet_Ro__Appli__03BB8E22">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__Appli__04AFB25B" Association="PSPITS.Model.Store.FK__aspnet_Us__Appli__04AFB25B">
+    <AssociationSet Name="FK__aspnet_Us__Appli__04AFB25B" Association="PSPITSModel.Store.FK__aspnet_Us__Appli__04AFB25B">
       <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__RoleI__05A3D694" Association="PSPITS.Model.Store.FK__aspnet_Us__RoleI__05A3D694">
+    <AssociationSet Name="FK__aspnet_Us__RoleI__05A3D694" Association="PSPITSModel.Store.FK__aspnet_Us__RoleI__05A3D694">
       <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
       <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
     </AssociationSet>
-    <AssociationSet Name="FK__aspnet_Us__UserI__0697FACD" Association="PSPITS.Model.Store.FK__aspnet_Us__UserI__0697FACD">
+    <AssociationSet Name="FK__aspnet_Us__UserI__0697FACD" Association="PSPITSModel.Store.FK__aspnet_Us__UserI__0697FACD">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
     </AssociationSet>
-    <AssociationSet Name="FK_List_ListType" Association="PSPITS.Model.Store.FK_List_ListType">
+    <AssociationSet Name="FK_List_ListType" Association="PSPITSModel.Store.FK_List_ListType">
       <End Role="ListType" EntitySet="ListType" />
       <End Role="List" EntitySet="List" />
     </AssociationSet>
-    <AssociationSet Name="FK_MemberAllowance_MemberSalary" Association="PSPITS.Model.Store.FK_MemberAllowance_MemberSalary">
+    <AssociationSet Name="FK_MemberAllowance_MemberSalary" Association="PSPITSModel.Store.FK_MemberAllowance_MemberSalary">
       <End Role="MemberSalary" EntitySet="MemberSalary" />
       <End Role="MemberAllowance" EntitySet="MemberAllowance" />
     </AssociationSet>
-    <AssociationSet Name="FK_MemberComputedBenefit_DisabilityBenefitApplication" Association="PSPITS.Model.Store.FK_MemberComputedBenefit_DisabilityBenefitApplication">
+    <AssociationSet Name="FK_MemberBenefit_Member" Association="PSPITSModel.Store.FK_MemberBenefit_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberBenefit" EntitySet="MemberBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberComputedBenefit_DisabilityBenefitApplication" Association="PSPITSModel.Store.FK_MemberComputedBenefit_DisabilityBenefitApplication">
       <End Role="DisabilityBenefitApplication" EntitySet="DisabilityBenefitApplication" />
       <End Role="MemberComputedBenefit" EntitySet="MemberComputedBenefit" />
     </AssociationSet>
-    <AssociationSet Name="FK_NominatedAgent_DisabilityBenefitApplication" Association="PSPITS.Model.Store.FK_NominatedAgent_DisabilityBenefitApplication">
+    <AssociationSet Name="FK_MemberDeath_Member" Association="PSPITSModel.Store.FK_MemberDeath_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberDeath" EntitySet="MemberDeath" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberSalary_Member" Association="PSPITSModel.Store.FK_MemberSalary_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberSalary" EntitySet="MemberSalary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NominatedAgent_DisabilityBenefitApplication" Association="PSPITSModel.Store.FK_NominatedAgent_DisabilityBenefitApplication">
       <End Role="DisabilityBenefitApplication" EntitySet="DisabilityBenefitApplication" />
       <End Role="NominatedAgent" EntitySet="NominatedAgent" />
     </AssociationSet>
-    <AssociationSet Name="FK_NominatedAgent_LifeBenefitApplication" Association="PSPITS.Model.Store.FK_NominatedAgent_LifeBenefitApplication">
+    <AssociationSet Name="FK_NominatedAgent_LifeBenefitApplication" Association="PSPITSModel.Store.FK_NominatedAgent_LifeBenefitApplication">
       <End Role="LifeBenefitApplication" EntitySet="LifeBenefitApplication" />
       <End Role="NominatedAgent" EntitySet="NominatedAgent" />
     </AssociationSet>
-    <AssociationSet Name="FK_NominatedAgent_SurvivorBenefitApplication" Association="PSPITS.Model.Store.FK_NominatedAgent_SurvivorBenefitApplication">
+    <AssociationSet Name="FK_NominatedAgent_SurvivorBenefitApplication" Association="PSPITSModel.Store.FK_NominatedAgent_SurvivorBenefitApplication">
       <End Role="SurvivorBenefitApplication" EntitySet="SurvivorBenefitApplication" />
       <End Role="NominatedAgent" EntitySet="NominatedAgent" />
     </AssociationSet>
-    <AssociationSet Name="FK_NpfPensionerBenefit_NpfPensioner" Association="PSPITS.Model.Store.FK_NpfPensionerBenefit_NpfPensioner">
+    <AssociationSet Name="FK_NpfPensionerBenefit_NpfPensioner" Association="PSPITSModel.Store.FK_NpfPensionerBenefit_NpfPensioner">
       <End Role="NpfPensioner" EntitySet="NpfPensioner" />
       <End Role="NpfPensionerBenefit" EntitySet="NpfPensionerBenefit" />
     </AssociationSet>
@@ -635,6 +650,14 @@
     <Property Name="whoUpdated" Type="varchar" MaxLength="50" />
     <Property Name="logRef" Type="int" />
   </EntityType>
+  <EntityType Name="CommutationFactor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PensionableAge" Type="int" Nullable="false" />
+    <Property Name="Factor" Type="float" Nullable="false" />
+  </EntityType>
   <EntityType Name="dbLog">
     <Key>
       <PropertyRef Name="logRef" />
@@ -855,6 +878,42 @@
     <Property Name="whoUpdated" Type="varchar" MaxLength="50" />
     <Property Name="logRef" Type="int" />
   </EntityType>
+  <EntityType Name="MemberBenefit">
+    <Key>
+      <PropertyRef Name="MemberBenefitId" />
+    </Key>
+    <Property Name="MemberBenefitId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="NumberOfServiceYears" Type="float" Nullable="false" />
+    <Property Name="NumberOfServiceBreakYears" Type="float" Nullable="false" />
+    <Property Name="NumberOfPensionableYears" Type="float" Nullable="false" />
+    <Property Name="GrossAnnualPensionUptoLastFY" Type="money" Nullable="false" />
+    <Property Name="GrossSalaryInRetirementYear" Type="money" Nullable="false" />
+    <Property Name="AverageCivilServiceSalaryIncrease" Type="float" Nullable="false" />
+    <Property Name="CommutationFactor" Type="float" Nullable="false" />
+    <Property Name="PensionAccrualUpdateForCurrentFY" Type="money" Nullable="false" />
+    <Property Name="UpdatedGrossAnnualPension" Type="money" Nullable="false" />
+    <Property Name="GrossPensionAccruedInRetirementYear" Type="money" Nullable="false" />
+    <Property Name="TotalAccruedPension" Type="money" Nullable="false" />
+    <Property Name="NoCommutation" Type="money" Nullable="false" />
+    <Property Name="AThirdAnnualPension" Type="money" Nullable="false" />
+    <Property Name="LumpSumCommutation" Type="money" Nullable="false" />
+    <Property Name="NetAnnualPension" Type="money" Nullable="false" />
+    <Property Name="MonthlyPension" Type="money" Nullable="false" />
+    <Property Name="EarlyRetirementReductionAdjustment" Type="money" Nullable="false" />
+    <Property Name="LateRetirementReductionAdjustment" Type="money" Nullable="false" />
+    <Property Name="AnnualGrossPensionEntitlement" Type="money" Nullable="false" />
+    <Property Name="FinalMonthGrossSalary" Type="money" Nullable="false" />
+    <Property Name="PensionType" Type="int" Nullable="false" />
+    <Property Name="MonthsToPensionableAge" Type="int" Nullable="false" />
+    <Property Name="MonthsBeyondPensionableAge" Type="int" Nullable="false" />
+    <Property Name="StandardRetirementDate" Type="date" />
+    <Property Name="LumpSumPension" Type="money" Nullable="false" />
+    <Property Name="FinancialYearEndDate" Type="date" />
+    <Property Name="ProjectedRemainingService" Type="float" />
+    <Property Name="ProjectedAnnualPension" Type="money" />
+    <Property Name="FirstOfFollowingMonth" Type="date" />
+  </EntityType>
   <EntityType Name="MemberComputedBenefit">
     <Key>
       <PropertyRef Name="pensionID" />
@@ -889,6 +948,29 @@
     <Property Name="whoCreated" Type="varchar" MaxLength="50" />
     <Property Name="whoUpdated" Type="varchar" MaxLength="50" />
     <Property Name="logRef" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberDeath">
+    <Key>
+      <PropertyRef Name="MemberDeathId" />
+    </Key>
+    <Property Name="MemberDeathId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PensionId" Type="int" Nullable="false" />
+    <Property Name="DateOfDeath" Type="date" Nullable="false" />
+    <Property Name="PlaceOfDeath" Type="varchar" MaxLength="250" />
+    <Property Name="DeathCertificateNumber" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DeathCertificatePresented" Type="bit" Nullable="false" />
+    <Property Name="DeathCertificateAccepted" Type="bit" Nullable="false" />
+    <Property Name="FileContentType" Type="varchar" MaxLength="250" />
+    <Property Name="FileOriginalName" Type="varchar" MaxLength="250" />
+    <Property Name="FileContent" Type="varbinary(max)" />
+    <Property Name="FileSize" Type="int" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="DateVerified" Type="datetime" />
+    <Property Name="WhoCreated" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="WhoUpdated" Type="varchar" MaxLength="250" />
+    <Property Name="WhoVerified" Type="varchar" MaxLength="250" />
+    <Property Name="LogRef" Type="int" />
   </EntityType>
   <EntityType Name="MemberEmployment">
     <Key>
@@ -1646,8 +1728,8 @@
     <Property Name="yearCode" Type="int" />
   </EntityType>
   <Association Name="FK__aspnet_Me__Appli__7D0E9093">
-    <End Role="aspnet_Applications" Type="PSPITS.Model.Store.aspnet_Applications" Multiplicity="1" />
-    <End Role="aspnet_Membership" Type="PSPITS.Model.Store.aspnet_Membership" Multiplicity="*" />
+    <End Role="aspnet_Applications" Type="PSPITSModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="PSPITSModel.Store.aspnet_Membership" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Applications">
         <PropertyRef Name="ApplicationId" />
@@ -1658,8 +1740,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Me__UserI__7E02B4CC">
-    <End Role="aspnet_Users" Type="PSPITS.Model.Store.aspnet_Users" Multiplicity="1" />
-    <End Role="aspnet_Membership" Type="PSPITS.Model.Store.aspnet_Membership" Multiplicity="0..1" />
+    <End Role="aspnet_Users" Type="PSPITSModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="PSPITSModel.Store.aspnet_Membership" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Users">
         <PropertyRef Name="UserId" />
@@ -1670,8 +1752,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Pa__Appli__7EF6D905">
-    <End Role="aspnet_Applications" Type="PSPITS.Model.Store.aspnet_Applications" Multiplicity="1" />
-    <End Role="aspnet_Paths" Type="PSPITS.Model.Store.aspnet_Paths" Multiplicity="*" />
+    <End Role="aspnet_Applications" Type="PSPITSModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Paths" Type="PSPITSModel.Store.aspnet_Paths" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Applications">
         <PropertyRef Name="ApplicationId" />
@@ -1682,8 +1764,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Pe__PathI__00DF2177">
-    <End Role="aspnet_Paths" Type="PSPITS.Model.Store.aspnet_Paths" Multiplicity="0..1" />
-    <End Role="aspnet_PersonalizationPerUser" Type="PSPITS.Model.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <End Role="aspnet_Paths" Type="PSPITSModel.Store.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="PSPITSModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Paths">
         <PropertyRef Name="PathId" />
@@ -1694,8 +1776,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Pe__PathI__7FEAFD3E">
-    <End Role="aspnet_Paths" Type="PSPITS.Model.Store.aspnet_Paths" Multiplicity="1" />
-    <End Role="aspnet_PersonalizationAllUsers" Type="PSPITS.Model.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <End Role="aspnet_Paths" Type="PSPITSModel.Store.aspnet_Paths" Multiplicity="1" />
+    <End Role="aspnet_PersonalizationAllUsers" Type="PSPITSModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Paths">
         <PropertyRef Name="PathId" />
@@ -1706,8 +1788,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Pe__UserI__01D345B0">
-    <End Role="aspnet_Users" Type="PSPITS.Model.Store.aspnet_Users" Multiplicity="0..1" />
-    <End Role="aspnet_PersonalizationPerUser" Type="PSPITS.Model.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <End Role="aspnet_Users" Type="PSPITSModel.Store.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="PSPITSModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Users">
         <PropertyRef Name="UserId" />
@@ -1718,8 +1800,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Pr__UserI__02C769E9">
-    <End Role="aspnet_Users" Type="PSPITS.Model.Store.aspnet_Users" Multiplicity="1" />
-    <End Role="aspnet_Profile" Type="PSPITS.Model.Store.aspnet_Profile" Multiplicity="0..1" />
+    <End Role="aspnet_Users" Type="PSPITSModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="PSPITSModel.Store.aspnet_Profile" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Users">
         <PropertyRef Name="UserId" />
@@ -1730,8 +1812,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Ro__Appli__03BB8E22">
-    <End Role="aspnet_Applications" Type="PSPITS.Model.Store.aspnet_Applications" Multiplicity="1" />
-    <End Role="aspnet_Roles" Type="PSPITS.Model.Store.aspnet_Roles" Multiplicity="*" />
+    <End Role="aspnet_Applications" Type="PSPITSModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="PSPITSModel.Store.aspnet_Roles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Applications">
         <PropertyRef Name="ApplicationId" />
@@ -1742,8 +1824,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Us__Appli__04AFB25B">
-    <End Role="aspnet_Applications" Type="PSPITS.Model.Store.aspnet_Applications" Multiplicity="1" />
-    <End Role="aspnet_Users" Type="PSPITS.Model.Store.aspnet_Users" Multiplicity="*" />
+    <End Role="aspnet_Applications" Type="PSPITSModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="PSPITSModel.Store.aspnet_Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Applications">
         <PropertyRef Name="ApplicationId" />
@@ -1754,8 +1836,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Us__RoleI__05A3D694">
-    <End Role="aspnet_Roles" Type="PSPITS.Model.Store.aspnet_Roles" Multiplicity="1" />
-    <End Role="aspnet_UsersInRoles" Type="PSPITS.Model.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <End Role="aspnet_Roles" Type="PSPITSModel.Store.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="PSPITSModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Roles">
         <PropertyRef Name="RoleId" />
@@ -1766,8 +1848,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__aspnet_Us__UserI__0697FACD">
-    <End Role="aspnet_Users" Type="PSPITS.Model.Store.aspnet_Users" Multiplicity="1" />
-    <End Role="aspnet_UsersInRoles" Type="PSPITS.Model.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <End Role="aspnet_Users" Type="PSPITSModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="PSPITSModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Users">
         <PropertyRef Name="UserId" />
@@ -1778,8 +1860,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_List_ListType">
-    <End Role="ListType" Type="PSPITS.Model.Store.ListType" Multiplicity="1" />
-    <End Role="List" Type="PSPITS.Model.Store.List" Multiplicity="*" />
+    <End Role="ListType" Type="PSPITSModel.Store.ListType" Multiplicity="1" />
+    <End Role="List" Type="PSPITSModel.Store.List" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ListType">
         <PropertyRef Name="listtypeID" />
@@ -1790,10 +1872,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MemberAllowance_MemberSalary">
-    <End Role="MemberSalary" Type="PSPITS.Model.Store.MemberSalary" Multiplicity="1">
+    <End Role="MemberSalary" Type="PSPITSModel.Store.MemberSalary" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MemberAllowance" Type="PSPITS.Model.Store.MemberAllowance" Multiplicity="*" />
+    <End Role="MemberAllowance" Type="PSPITSModel.Store.MemberAllowance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MemberSalary">
         <PropertyRef Name="pensionID" />
@@ -1807,9 +1889,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MemberBenefit_Member">
+    <End Role="Member" Type="PSPITSModel.Store.Member" Multiplicity="1" />
+    <End Role="MemberBenefit" Type="PSPITSModel.Store.MemberBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="pensionID" />
+      </Principal>
+      <Dependent Role="MemberBenefit">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MemberComputedBenefit_DisabilityBenefitApplication">
-    <End Role="DisabilityBenefitApplication" Type="PSPITS.Model.Store.DisabilityBenefitApplication" Multiplicity="1" />
-    <End Role="MemberComputedBenefit" Type="PSPITS.Model.Store.MemberComputedBenefit" Multiplicity="0..1" />
+    <End Role="DisabilityBenefitApplication" Type="PSPITSModel.Store.DisabilityBenefitApplication" Multiplicity="1" />
+    <End Role="MemberComputedBenefit" Type="PSPITSModel.Store.MemberComputedBenefit" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="DisabilityBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -1819,9 +1913,33 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MemberDeath_Member">
+    <End Role="Member" Type="PSPITSModel.Store.Member" Multiplicity="1" />
+    <End Role="MemberDeath" Type="PSPITSModel.Store.MemberDeath" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="pensionID" />
+      </Principal>
+      <Dependent Role="MemberDeath">
+        <PropertyRef Name="PensionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberSalary_Member">
+    <End Role="Member" Type="PSPITSModel.Store.Member" Multiplicity="1" />
+    <End Role="MemberSalary" Type="PSPITSModel.Store.MemberSalary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="pensionID" />
+      </Principal>
+      <Dependent Role="MemberSalary">
+        <PropertyRef Name="pensionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_NominatedAgent_DisabilityBenefitApplication">
-    <End Role="DisabilityBenefitApplication" Type="PSPITS.Model.Store.DisabilityBenefitApplication" Multiplicity="1" />
-    <End Role="NominatedAgent" Type="PSPITS.Model.Store.NominatedAgent" Multiplicity="*" />
+    <End Role="DisabilityBenefitApplication" Type="PSPITSModel.Store.DisabilityBenefitApplication" Multiplicity="1" />
+    <End Role="NominatedAgent" Type="PSPITSModel.Store.NominatedAgent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DisabilityBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -1832,8 +1950,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NominatedAgent_LifeBenefitApplication">
-    <End Role="LifeBenefitApplication" Type="PSPITS.Model.Store.LifeBenefitApplication" Multiplicity="1" />
-    <End Role="NominatedAgent" Type="PSPITS.Model.Store.NominatedAgent" Multiplicity="*" />
+    <End Role="LifeBenefitApplication" Type="PSPITSModel.Store.LifeBenefitApplication" Multiplicity="1" />
+    <End Role="NominatedAgent" Type="PSPITSModel.Store.NominatedAgent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LifeBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -1844,8 +1962,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NominatedAgent_SurvivorBenefitApplication">
-    <End Role="SurvivorBenefitApplication" Type="PSPITS.Model.Store.SurvivorBenefitApplication" Multiplicity="1" />
-    <End Role="NominatedAgent" Type="PSPITS.Model.Store.NominatedAgent" Multiplicity="*" />
+    <End Role="SurvivorBenefitApplication" Type="PSPITSModel.Store.SurvivorBenefitApplication" Multiplicity="1" />
+    <End Role="NominatedAgent" Type="PSPITSModel.Store.NominatedAgent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SurvivorBenefitApplication">
         <PropertyRef Name="pensionID" />
@@ -1856,10 +1974,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NpfPensionerBenefit_NpfPensioner">
-    <End Role="NpfPensioner" Type="PSPITS.Model.Store.NpfPensioner" Multiplicity="1">
+    <End Role="NpfPensioner" Type="PSPITSModel.Store.NpfPensioner" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="NpfPensionerBenefit" Type="PSPITS.Model.Store.NpfPensionerBenefit" Multiplicity="*" />
+    <End Role="NpfPensionerBenefit" Type="PSPITSModel.Store.NpfPensionerBenefit" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NpfPensioner">
         <PropertyRef Name="NpfPensionerId" />

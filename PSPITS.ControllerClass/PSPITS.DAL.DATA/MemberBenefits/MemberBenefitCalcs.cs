@@ -27,37 +27,74 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
             //To be picked from table
             mb.AverageCivilServiceSalaryIncrease = 3.25;
-            //To be picked from table
-            mb.CommutationFactor = 14.10;
             //This will eventually be Calculate/Get Gross Annual Pension up to Last Financial Year
             CalculateGrossAnnualPensionUpToJuly2012(mb);
             mb.PensionTypeEnum = DetermineTypeOfPension(mbr, mb);
-            switch (mb.PensionTypeEnum)
-            { 
-                case PensionType.PesionableAgePension:
-                    mb.PensionType = "Pensionable Age Retirement";
-                    break;
-                case PensionType.EarlyPension:
-                    mb.PensionType = "Early Pension";
-                    break;
-                case PensionType.LatePension:
-                    mb.PensionType = "Late Pension";
-                    break;
-                case PensionType.DeathInServicePension:
-                    mb.PensionType = "Death In Service Pension";
-                    break;
-                case PensionType.TerminationLumpSumAmount:
-                    mb.PensionType = "Termination Lump Sum Amount";
-                    break;
-                case PensionType.LessThanTwoYears:
-                    mb.PensionType = "Less Than Two Years In Service";
-                    break;
-                default:
-                    mb.PensionType = "";
-                    break;
-            }
+            SetPensionTypeString(mb);
             this.CalculateBenefits(mbr, mb);
             return mb;
+        }
+        
+        private static void SetPensionTypeString(MemberBenefit mb)
+        {
+            switch (mb.PensionTypeEnum)
+            {
+                case PensionType.PesionableAgePension:
+                    mb.PensionTypeString = "Pensionable Age Retirement";
+                    break;
+                case PensionType.EarlyPension:
+                    mb.PensionTypeString = "Early Pension";
+                    break;
+                case PensionType.LatePension:
+                    mb.PensionTypeString = "Late Pension";
+                    break;
+                case PensionType.DeathInServicePension:
+                    mb.PensionTypeString = "Death In Service Pension";
+                    break;
+                case PensionType.TerminationLumpSumAmount:
+                    mb.PensionTypeString = "Termination Lump Sum Amount";
+                    break;
+                case PensionType.LessThanTwoYears:
+                    mb.PensionTypeString = "Less Than Two Years In Service";
+                    break;
+                case PensionType.DisabilityPension:
+                    mb.PensionTypeString = "Disability Pension";
+                    break;
+                default:
+                    mb.PensionTypeString = "";
+                    break;
+            }
+        }
+
+        public MemberBenefit GetMemberBenefitByPensionID(int pensionId)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                MemberBenefit mb = context.MemberBenefits.FirstOrDefault(m => m.MemberId == pensionId);
+                if (mb == null)
+                    return mb;
+
+                mb.MemberServiceBreaks = ConstructMemberServiceBreakList(GetServiceBreaksPriorToJuly2012(pensionId));
+                mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
+                mb.PensionableAge = this.DeterminePensionableAge(mb.Member.dateofBirth.Value);
+                mb.PensionTypeEnum = (PensionType)mb.PensionType;
+                SetPensionTypeString(mb);
+
+                return mb;
+            }
+        }
+
+        private double GetCommutationFactor(MemberAge memberAge)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var commutationFactor = context.CommutationFactors.FirstOrDefault(c => c.PensionableAge == memberAge.Years);
+                if (commutationFactor != null)
+                    return commutationFactor.Factor;
+                if (memberAge.Years < 55)
+                    return context.CommutationFactors.FirstOrDefault(c => c.PensionableAge == 55).Factor;
+                return context.CommutationFactors.FirstOrDefault(c => c.PensionableAge > 70).Factor;
+            }
         }
 
         public MemberBenefitEligibility GetMemberBenefitEligibility(MemberBenefitRequest mbr)
@@ -120,6 +157,12 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         private double CalcuateYearsInServicePriorTo(Member member, DateTime endDate)
         {
             TimeSpan duration = endDate - member.dateoffirstAppointment.Value;
+            return duration.TotalDays / Constants.NUMBER_OF_DAYS_IN_YEAR;
+        }
+
+        private double GetDateDiffInYears(DateTime date1, DateTime date2)
+        {
+            TimeSpan duration = date2 - date1;
             return duration.TotalDays / Constants.NUMBER_OF_DAYS_IN_YEAR;
         }
 
@@ -207,6 +250,25 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         }
 
         /// <summary>
+        /// Assumes date2 > date1
+        /// </summary>
+        /// <param name="date1"></param>
+        /// <param name="date2"></param>
+        /// <returns></returns>
+        private MemberAge GetDateDiff(DateTime date1, DateTime date2)
+        {
+            TimeSpan ts = date2 - date1;
+            int days;
+            MemberAge age = new MemberAge();
+            age.Years = (int)(ts.Days / Constants.NUMBER_OF_DAYS_IN_YEAR);
+            //get number of extra days
+            days = (int)(ts.Days - (age.Years * Constants.NUMBER_OF_DAYS_IN_YEAR));
+            age.Months = (int)(days / Constants.NUMBER_OF_DAYS_IN_MONTH);
+            age.Days = (int)(days - (age.Months * Constants.NUMBER_OF_DAYS_IN_MONTH));
+            return age;
+        }
+
+        /// <summary>
         /// Get the number of years, months and days (Age) the member has been in Service up to the time of service termination
         /// </summary>
         /// <param name="member"></param>
@@ -270,33 +332,54 @@ namespace PSPITS.DAL.DATA.MemberBenefits
 
         private PensionType DetermineTypeOfPension(MemberBenefitRequest mbr, MemberBenefit mb)
         {
-            MemberAge memberAge = this.GetMemberAge(mbr.Member.dateofBirth.Value);
             MemberAge ageDiff;
             mb.PensionableAge = this.DeterminePensionableAge(mbr.Member.dateofBirth.Value);
-            
-            int ageCompare = memberAge.Compare(mb.PensionableAge);
+            mb.CommutationFactor = this.GetCommutationFactor(mb.MemberAge);
+
+            //Check if Disability was selected
+            if (mbr.EventType == 2)
+            {
+                mb.StandardRetirementDate = DetermineStandardRetirementDate(mb);                
+                int day = mbr.ServiceEndDate.Day, month = mbr.ServiceEndDate.Month, year = mbr.ServiceEndDate.Year;
+                if (month < 12)
+                {
+                    month++;
+                }
+                else
+                {
+                    month = 1;
+                    year++;
+                }
+                mb.FirstOfFollowingMonth = new DateTime(year, month, 1);
+                mb.ProjectedRemainingServiceAge = this.GetDateDiff(mb.FirstOfFollowingMonth.Value , mb.StandardRetirementDate.Value);
+
+                return PensionType.DisabilityPension;
+            }
+
+            int ageCompare = mb.MemberAge.Compare(mb.PensionableAge);
             if (ageCompare == 0)
                 return PensionType.PesionableAgePension;
             if (ageCompare > 0)
             {
                 //Complete months beyond pensionable age
-                ageDiff = memberAge - mb.PensionableAge;
+                ageDiff = mb.MemberAge - mb.PensionableAge;
                 mb.MonthsBeyondPensionableAge = (ageDiff.Years * 12) + ageDiff.Months;
                 return PensionType.LatePension;
             }
             //Complete months to pensionable age -- applies to early pension and termination lump sum
-            ageDiff = mb.PensionableAge - memberAge;
+            ageDiff = mb.PensionableAge - mb.MemberAge;
             mb.MonthsToPensionableAge = (ageDiff.Years * 12) + ageDiff.Months;
 
-            if (IsEarlyPension(mbr, memberAge, mb.PensionableAge))
+            if (IsEarlyPension(mbr, mb.MemberAge, mb.PensionableAge))
+            {                
                 return PensionType.EarlyPension;
-            if (IsTerminationLumpSum(mbr, memberAge, mb.PensionableAge))
+            }
+            if (IsTerminationLumpSum(mbr, mb.MemberAge, mb.PensionableAge))
             {
                 mb.StandardRetirementDate = DetermineStandardRetirementDate(mb);
                 return PensionType.TerminationLumpSumAmount;
             }
-            return PensionType.LessThanTwoYears;
-           
+            return PensionType.LessThanTwoYears;           
         }
 
         private bool IsEarlyPension(MemberBenefitRequest mbr, MemberAge memberAge, MemberAge memberPensionableAge)
@@ -330,7 +413,9 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             //Get Annual Pension Accrued upto last FY. Ideally this will be picked from the DB but for now we calculate it and it is contained in the 
             //MemberBenefit object
             //Get MonthlySalaries for the Retiring FY
-            mb.MonthlySalaries = this.GetMemberSalaryListForCurrentFY(mbr);
+            //mb.MonthlySalaries = this.GetMemberSalaryListForCurrentFY(mbr);
+            int year = DateTime.Today.Month >= 7 ? DateTime.Today.Year : DateTime.Today.Year - 1;
+            mb.MonthlySalaries = this.GetMemberSalaryListForCurrentFY(mb.Member, 7, year);
             mb.GrossSalaryInRetirementYear = 0;
             foreach (MonthlySalary ms in mb.MonthlySalaries)
             {
@@ -372,9 +457,17 @@ namespace PSPITS.DAL.DATA.MemberBenefits
 
             if (mb.PensionTypeEnum == PensionType.TerminationLumpSumAmount)
             {
-                mb.FinalMonthGrossSalary = 2500;//To be picked from db
-                mb.GrossPensionAccruedInRetirementYear = (decimal)(1.5 / 100) * mb.FinalMonthGrossSalary * (decimal)(Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.NumberOfPensionableYears);
-                mb.LumpSumPension = mb.GrossPensionAccruedInRetirementYear * (decimal)mb.CommutationFactor;                
+                mb.FinalMonthGrossSalary = GetFinalMonthGrossSalary(mb.Member); ;//To be picked from db
+                mb.GrossPensionAccruedInRetirementYear = (decimal)((1.5 / 100)*(Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.NumberOfPensionableYears)) * mb.FinalMonthGrossSalary;
+                mb.LumpSumPension = mb.GrossPensionAccruedInRetirementYear * (decimal)mb.CommutationFactor;
+            }
+            else if (mb.PensionTypeEnum == PensionType.DisabilityPension)
+            {
+                mb.FinalMonthGrossSalary = GetFinalMonthGrossSalary(mb.Member);
+                mb.ProjectedRemainingService = this.GetDateDiffInYears(mb.FirstOfFollowingMonth.Value, mb.StandardRetirementDate.Value);
+                mb.ProjectedAnnualPension = (decimal)((1.5 / 100) * (Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.ProjectedRemainingService)) * mb.FinalMonthGrossSalary;
+                mb.MonthlyPension = mb.ProjectedAnnualPension.Value / Constants.NUMBER_OF_MONTHS_IN_YEAR;
+                mb.TotalAccruedPension += mb.ProjectedAnnualPension.Value;
             }
 
         }
@@ -409,6 +502,38 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         }
 
         /// <summary>
+        /// Gets list of monthly salaries for currenty financial year
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="month">first month of current financial year</param>
+        /// <param name="year">current year</param>
+        /// <returns></returns>
+        private List<MonthlySalary> GetMemberSalaryListForCurrentFY(Member member, int month, int year)
+        { 
+            List<MonthlySalary> monthlySalaries = new List<MonthlySalary>();
+            using (var context = new PSPITSEntities())
+            {
+                var salaries = context.MemberSalaries.Where(s => s.pensionID == member.pensionID && (s.month >= month && s.year == year) || (s.month < month && s.year == (year + 1))).OrderBy(s => s.year).ThenBy(s => s.month).ToList();
+                foreach (var salary in salaries)
+                {
+                    monthlySalaries.Add(new MonthlySalary { GrossSalary = salary.grossPay.Value, Month = salary.month, Year = salary.year }); 
+                }
+                return monthlySalaries;
+            }
+        }
+
+        private decimal GetFinalMonthGrossSalary(Member member)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var salary = context.MemberSalaries.Where(s => s.pensionID == member.pensionID).OrderByDescending(s => s.year).ThenByDescending(s => s.month).FirstOrDefault();
+                if (salary != null)
+                    return salary.grossPay.Value;
+                return 2500;//To be handle smarter
+            }
+        }
+
+        /// <summary>
         /// Get number of months worked in current financial year basing on service end date provided by user
         /// </summary>
         /// <param name="mbr"></param>
@@ -429,7 +554,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             }
             return monthsWorked;
         }
-            
+        
         #endregion
 
     }

@@ -128,6 +128,9 @@
                                         NavigateUrl="~/Membership/MemberIdentityForm.aspx" Text="Member Identity" 
                                         CausesValidation="False">
                                     </telerik:RadToolBarButton>
+                                    <telerik:RadToolBarButton runat="server" CausesValidation="False" 
+                                        Text="Register Death" NavigateUrl="~/Membership/MemberDeath.aspx">
+                                    </telerik:RadToolBarButton>
                                 </Buttons>
                             </telerik:RadToolBarDropDown>
                             <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 14" 

@@ -315,11 +315,12 @@ namespace PSPITS.COMMON
 
     public enum PensionType
     { 
-        PesionableAgePension,
-        EarlyPension,
-        LatePension,
-        DeathInServicePension,
-        TerminationLumpSumAmount,
-        LessThanTwoYears
+        PesionableAgePension = 100,
+        EarlyPension =101,
+        LatePension = 102,
+        DeathInServicePension = 103,
+        TerminationLumpSumAmount = 104,
+        LessThanTwoYears = 105,
+        DisabilityPension = 106
     }
 }

@@ -45,7 +45,7 @@ public partial class Benefit_Module_PensionableAgeBenefits : System.Web.UI.Page
             PensionableAgeBenefits1.LastYearAnnualPension = mb.GrossAnnualPensionUptoLastFY.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             PensionableAgeBenefits1.ConstructMonthlySalaryTable(mb.MonthlySalaries);
             PensionableAgeBenefits1.AgeAtRetirement = mb.MemberAge.ToString();
-            PensionableAgeBenefits1.TypeOfRetirement = mb.PensionType;
+            PensionableAgeBenefits1.TypeOfRetirement = mb.PensionTypeString;
             PensionableAgeBenefits1.GrossSalaryAtRetirement = mb.GrossSalaryInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             PensionableAgeBenefits1.CommutationText = string.Format("Commutation factor at age {0} last birthday", mb.MemberAge.Years);
             PensionableAgeBenefits1.CommutationFactor = mb.CommutationFactor.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);

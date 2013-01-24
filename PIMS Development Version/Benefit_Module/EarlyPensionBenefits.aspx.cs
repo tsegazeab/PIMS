@@ -49,7 +49,7 @@ public partial class Benefit_Module_EarlyPensionBenefits : System.Web.UI.Page
             EarlyPensionBenefits1.AgeAtRetirement = mb.MemberAge.ToString();
             EarlyPensionBenefits1.NormalPensionableAge = mb.PensionableAge.ToString();
             EarlyPensionBenefits1.MonthsToPensionableAge = mb.MonthsToPensionableAge.ToString();
-            EarlyPensionBenefits1.TypeOfRetirement = mb.PensionType;
+            EarlyPensionBenefits1.TypeOfRetirement = mb.PensionTypeString;
             EarlyPensionBenefits1.GrossSalaryAtRetirement = mb.GrossSalaryInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             EarlyPensionBenefits1.CommutationText = string.Format("Commutation factor at age {0} last birthday", mb.MemberAge.Years);
             EarlyPensionBenefits1.CommutationFactor = mb.CommutationFactor.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);

@@ -50,11 +50,11 @@ public partial class Benefit_Module_TerminalBenefits : System.Web.UI.Page
             TerminalBenefits1.TotalServiceYears = string.Format("{0} {1}", mb.NumberOfServiceYears.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), years);
             TerminalBenefits1.ServiceBreakYears = string.Format("{0} {1}", mb.NumberOfServiceBreakYears.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), years);
             TerminalBenefits1.PensionableYears = string.Format("{0} {1}", mb.NumberOfPensionableYears.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), years);
-            TerminalBenefits1.StandardRetirementDate = mb.StandardRetirementDate.ToString(Constants.DATE_FORMAT);
-            TerminalBenefits1.LastDateBeforeResignationDate = (mb.StandardRetirementDate.AddDays(-1)).ToString(Constants.DATE_FORMAT);
+            TerminalBenefits1.StandardRetirementDate = mb.StandardRetirementDate.Value.ToString(Constants.DATE_FORMAT);
+            TerminalBenefits1.LastDateBeforeResignationDate = (mb.StandardRetirementDate.Value.AddDays(-1)).ToString(Constants.DATE_FORMAT);
             TerminalBenefits1.GrossAccruedPension = mb.GrossPensionAccruedInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
-            TerminalBenefits1.GrossAccruedPensionFormula = string.Format("1.5 ÷ 100 x {0} X {1} X {2}", mb.GrossPensionAccruedInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL),
+            TerminalBenefits1.GrossAccruedPensionFormula = string.Format("1.5 ÷ 100 x {0} X {1} X {2}", mb.FinalMonthGrossSalary.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL),
                 Constants.NUMBER_OF_MONTHS_IN_YEAR, mb.NumberOfPensionableYears.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             TerminalBenefits1.DeferredMonthlyPension = mb.GrossPensionAccruedInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
 

@@ -208,5 +208,9 @@ public partial class User_Control_Life_Benefit_Application_MemberBenefitEligibil
         {
             Response.Redirect("LatePensionBenefits.aspx");
         }
+        else if (mb.PensionTypeEnum == PensionType.DisabilityPension)
+        {
+            Response.Redirect("DisabilityPensionBenefits.aspx");
+        }
     }
 }

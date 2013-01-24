@@ -7,7 +7,7 @@
         <tr>
             <td align="left" style="font-family: Arial; font-size: large; font-weight: bold;">
                             
-                NPF Pensioners Payments</td>
+                NPF Pensioners Payment Schedule</td>
         </tr>
         <tr>
             <td>
@@ -17,7 +17,10 @@
             <td style="overflow: auto;">
                 <dx:aspxgridview ID="ASPxGridViewNfpRetiree" runat="server" ClientInstanceName="grid"
                     DataSourceID="ObjectDataSourcePaymentList" Theme="Office2003Blue" 
-                    AutoGenerateColumns="False">
+                    AutoGenerateColumns="False" 
+                    onrowcommand="ASPxGridViewNfpRetiree_RowCommand" 
+                    onselectionchanged="ASPxGridViewNfpRetiree_SelectionChanged" 
+                    EnableCallBacks="False">
                     <Columns>
                         <dx:GridViewDataTextColumn FieldName="NpfPensionerId" VisibleIndex="0" 
                             Visible="False">
@@ -106,11 +109,17 @@
                             <PropertiesTextEdit DisplayFormatInEditMode="True" DisplayFormatString="#,##0">
                             </PropertiesTextEdit>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataCheckColumn FieldName="PensionStopped" VisibleIndex="24" 
+                        <dx:GridViewDataCheckColumn FieldName="PensionStopped" VisibleIndex="25" 
                             Visible="False">
                         </dx:GridViewDataCheckColumn>
+                        <dx:GridViewCommandColumn Caption="Select" ShowSelectCheckbox="True" 
+                            VisibleIndex="24">
+                            <ClearFilterButton Visible="True">
+                            </ClearFilterButton>
+                        </dx:GridViewCommandColumn>
                     </Columns>
-                    <SettingsBehavior ConfirmDelete="True" />
+                    <SettingsBehavior ConfirmDelete="True" ProcessFocusedRowChangedOnServer="True" 
+                        ProcessSelectionChangedOnServer="True" />
                     <settingspager pagesize="50">
                     </settingspager>
                 </dx:aspxgridview>
@@ -130,8 +139,8 @@
         <tr>
             <td style="overflow: auto;" align="left">
                             <dx:ASPxButton ID="ASPxButtonApprove" runat="server" UseSubmitBehavior="false" AutoPostBack="true"
-                                Text="Approve Payment" Theme="Office2003Blue" 
-                                onclick="ASPxButtonApprove_Click" Width="150px">                                
+                                Text="Approve Payment Schedule" Theme="Office2003Blue" 
+                                onclick="ASPxButtonApprove_Click" Width="200px">                                
                             </dx:ASPxButton>
                 </td>
         </tr>

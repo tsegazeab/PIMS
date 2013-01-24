@@ -35,8 +35,6 @@ public partial class Benefit_Module_LatePensionBenefits : System.Web.UI.Page
             Session["MemberBenefitRequest"] = mbr;
             MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
 
-            MemberAge testAge = mb.PensionableAge - mb.MemberAge;
-
             LatePensionBenefits1.MemberFullName = mb.Member.firstName + " " + mb.Member.lastName;
             LatePensionBenefits1.PayrollNumber = mb.Member.payrollNumber;
             LatePensionBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
@@ -49,7 +47,7 @@ public partial class Benefit_Module_LatePensionBenefits : System.Web.UI.Page
             LatePensionBenefits1.AgeAtRetirement = mb.MemberAge.ToString();
             LatePensionBenefits1.NormalPensionableAge = mb.PensionableAge.ToString();
             LatePensionBenefits1.MonthsBeyondPensionableAge = mb.MonthsBeyondPensionableAge.ToString();
-            LatePensionBenefits1.TypeOfRetirement = mb.PensionType;
+            LatePensionBenefits1.TypeOfRetirement = mb.PensionTypeString;
             LatePensionBenefits1.GrossSalaryAtRetirement = mb.GrossSalaryInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             LatePensionBenefits1.CommutationText = string.Format("Commutation factor at age {0} last birthday", mb.MemberAge.Years);
             LatePensionBenefits1.CommutationFactor = mb.CommutationFactor.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
@@ -72,7 +70,7 @@ public partial class Benefit_Module_LatePensionBenefits : System.Web.UI.Page
                 mb.GrossPensionAccruedInRetirementYear.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             LatePensionBenefits1.LatePensionReductionAdjustment = mb.LateRetirementReductionAdjustment.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
-            LatePensionBenefits1.LatePensionReductionAdjustmentFormula = string.Format("0.5 ÷ 100 * {0} * {1}", mb.MonthsBeyondPensionableAge.ToString(Constants.NUMBER_FORMAT_NO_DECIMAL), mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
+            LatePensionBenefits1.LatePensionReductionAdjustmentFormula = string.Format("0.5 ÷ 100 x {0} x {1}", mb.MonthsBeyondPensionableAge.ToString(Constants.NUMBER_FORMAT_NO_DECIMAL), mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             LatePensionBenefits1.AnnualGrossPensionEntitlement = mb.AnnualGrossPensionEntitlement.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
             LatePensionBenefits1.AnnualGrossPensionEntitlementFormula = string.Format("{0} + {1}", mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), 
