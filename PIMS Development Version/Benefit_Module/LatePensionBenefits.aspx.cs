@@ -77,10 +77,10 @@ public partial class Benefit_Module_LatePensionBenefits : System.Web.UI.Page
                 mb.LateRetirementReductionAdjustment.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             LatePensionBenefits1.NoCommutation = mb.NoCommutation.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
-            LatePensionBenefits1.CommutationFormula = string.Format("{0} ÷ {1}", mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), Constants.NUMBER_OF_MONTHS_IN_YEAR);
+            LatePensionBenefits1.CommutationFormula = string.Format("{0} ÷ {1}", mb.AnnualGrossPensionEntitlement.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), Constants.NUMBER_OF_MONTHS_IN_YEAR);
             LatePensionBenefits1.AThirdAnnualPension = mb.AThirdAnnualPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
-            LatePensionBenefits1.AThirdAnnualPensionFormula = string.Format("{0} ÷ 3", mb.TotalAccruedPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
+            LatePensionBenefits1.AThirdAnnualPensionFormula = string.Format("{0} ÷ 3", mb.AnnualGrossPensionEntitlement.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL));
             LatePensionBenefits1.LumpSumCommutation = mb.LumpSumCommutation.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL);
             //Formula
             LatePensionBenefits1.LumpSumCommutationFormula = string.Format("{0} x {1}", mb.AThirdAnnualPension.ToString(Constants.NUMBER_FORMAT_TWO_DECIMAL), 

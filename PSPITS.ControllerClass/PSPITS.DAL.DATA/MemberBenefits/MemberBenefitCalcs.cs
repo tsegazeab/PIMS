@@ -24,8 +24,10 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         public MemberBenefit GetMemberBenefit(MemberBenefitRequest mbr)
         {            
             MemberBenefit mb = new MemberBenefit();
+            FinancialYear currentFY = membershipService.GetCurrentFinancialYear();
             List<MemberEmploymentServiceBreak> serviceBreaks = GetServiceBreaksPriorToJuly2012(mbr.Member.pensionID);
             mb.Member = mbr.Member;
+            mb.GrossAnnualPensionUptoLastFY = 0;
             mb.MemberServiceBreaks = ConstructMemberServiceBreakList(serviceBreaks);
             mb.NumberOfServiceYears = CalcuateYearsInServicePriorTo(mb.Member, Constants.JULY_FIRST_2012);
             mb.NumberOfServiceBreakYears = CalculateServiceBreakYears(serviceBreaks);
@@ -33,7 +35,9 @@ namespace PSPITS.DAL.DATA.MemberBenefits
 
             mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
             //To be picked from table
-            mb.AverageCivilServiceSalaryIncrease = 3.25;
+            mb.AverageCivilServiceSalaryIncrease = currentFY != null && currentFY.AverageCivilServiceSalaryIncrease.HasValue ? currentFY.AverageCivilServiceSalaryIncrease.Value : 3.25;
+            mb.FinancialYear = currentFY;
+            if (currentFY != null) mb.FinancialYearId = currentFY.FinancialYearId;
             //This will eventually be Calculate/Get Gross Annual Pension up to Last Financial Year
             CalculateGrossAnnualPensionUpToJuly2012(mb);
             mb.PensionTypeEnum = DetermineTypeOfPension(mbr, mb);
@@ -86,7 +90,9 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 mb.PensionableAge = this.DeterminePensionableAge(mb.Member.dateofBirth.Value);
                 mb.PensionTypeEnum = (PensionType)mb.PensionType;
                 SetPensionTypeString(mb);
-
+                mb.MonthlySalaries = this.GetMemberSalaryListForFinancialYear(mb.Member, mb.FinancialYear);
+                if (mb.PensionTypeEnum == PensionType.DeathInServicePension)
+                    ComputeSurvivorBenefits(mb);
                 return mb;
             }
         }
@@ -209,8 +215,16 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         /// <param name="mb"></param>
         private void CalculateGrossAnnualPensionUpToJuly2012(MemberBenefit mb)
         {
-            double netServiceYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;            
-            mb.GrossAnnualPensionUptoLastFY = (decimal)(Constants.ONE_POINT_FIVE_PERCENT * (double)Constants.JUNE_2012_SALARY * Constants.NUMBER_OF_MONTHS_IN_YEAR * netServiceYears);
+            decimal june2012Salary; 
+            using (var context = new PSPITSEntities())
+            {
+                var salary = context.MemberSalaries.FirstOrDefault(s => s.pensionID == mb.Member.pensionID && s.month == 6 && s.year == 2012);
+                if (salary != null)
+                    june2012Salary = salary.grossPay.Value;
+                else
+                    june2012Salary = Constants.JUNE_2012_SALARY;//Just for testing
+            }
+            mb.GrossAnnualPensionUptoLastFY = (decimal)(Constants.ONE_POINT_FIVE_PERCENT * (double)june2012Salary * Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.NumberOfPensionableYears);
         }
 
         private MemberAge DeterminePensionableAge(DateTime dob)
@@ -422,7 +436,9 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             //Get MonthlySalaries for the Retiring FY
             //mb.MonthlySalaries = this.GetMemberSalaryListForCurrentFY(mbr);
             int year = DateTime.Today.Month >= 7 ? DateTime.Today.Year : DateTime.Today.Year - 1;
-            mb.MonthlySalaries = this.GetMemberSalaryListForCurrentFY(mb.Member, 7, year);
+            //Use this for Calculations below especially No Commutation, Lumpsum etc
+            decimal FinalGrossPension = 0;
+            mb.MonthlySalaries = this.GetMemberSalaryListForFinancialYear(mb.Member, mb.FinancialYear);
             mb.GrossSalaryInRetirementYear = 0;
             foreach (MonthlySalary ms in mb.MonthlySalaries)
             {
@@ -438,27 +454,30 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.GrossPensionAccruedInRetirementYear = (decimal)(1.5 / 100) * mb.GrossSalaryInRetirementYear;
             //Total Accrued Annual Pension
             mb.TotalAccruedPension = mb.UpdatedGrossAnnualPension + mb.GrossPensionAccruedInRetirementYear;
+            FinalGrossPension = mb.TotalAccruedPension;
             //Early/Late Retirement Reduction/Increase Adjustment
             if (mb.PensionTypeEnum == PensionType.EarlyPension)
             {
                 mb.EarlyRetirementReductionAdjustment = (decimal)(0.5 / 100) * mb.MonthsToPensionableAge * mb.TotalAccruedPension;
                 mb.AnnualGrossPensionEntitlement = mb.TotalAccruedPension - mb.EarlyRetirementReductionAdjustment;
+                FinalGrossPension = mb.AnnualGrossPensionEntitlement;
             }
             else if (mb.PensionTypeEnum == PensionType.LatePension)
             {
                 mb.LateRetirementReductionAdjustment = (decimal)(0.5 / 100) * mb.MonthsBeyondPensionableAge * mb.TotalAccruedPension;
                 mb.AnnualGrossPensionEntitlement = mb.TotalAccruedPension + mb.LateRetirementReductionAdjustment;
+                FinalGrossPension = mb.AnnualGrossPensionEntitlement;
             }
 
             //BENEFIT OPTIONS
             //No Commutation and Only Monthly Pension
-            mb.NoCommutation = mb.TotalAccruedPension / Constants.NUMBER_OF_MONTHS_IN_YEAR;
+            mb.NoCommutation = FinalGrossPension / Constants.NUMBER_OF_MONTHS_IN_YEAR;
             // 1/3 rd Annual Pension
-            mb.AThirdAnnualPension = mb.TotalAccruedPension / 3;
+            mb.AThirdAnnualPension = FinalGrossPension / 3;
             //Lump Sum Commutation Amount 
             mb.LumpSumCommutation = mb.AThirdAnnualPension * (decimal)mb.CommutationFactor;
             //Net Annual Pension After Commutation
-            mb.NetAnnualPension = mb.TotalAccruedPension - mb.AThirdAnnualPension;
+            mb.NetAnnualPension = FinalGrossPension - mb.AThirdAnnualPension;
             //Monthl Pension
             mb.MonthlyPension = mb.NetAnnualPension / Constants.NUMBER_OF_MONTHS_IN_YEAR;
 
@@ -549,47 +568,20 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 else
                     mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Parent", Percentage = "40%", BenefitAmount = mb.MonthlyPension * (decimal)0.4 });
             }
-        }        
+        } 
 
         /// <summary>
-        /// Get list of MonthlySalary objects representing each month the Member has worked in the current financial year up to the date of service termination
-        /// or retirement or resignation
-        /// </summary>
-        /// <param name="mbr"></param>
-        /// <returns></returns>
-        private List<MonthlySalary> GetMemberSalaryListForCurrentFY(MemberBenefitRequest mbr)
-        { 
-            //we'll pick these from the database. for now we simply use generic data
-            Random rand = new Random();
-            int month = 7, year, nextYear;
-            int monthsWorkedInCurrentFY = GetMonthsWorkedInCurrentFY(mbr, out year);
-            nextYear = year + 1;
-            List<MonthlySalary> monthlySalaries = new List<MonthlySalary>();
-            
-            
-            for (int i = 0; i < monthsWorkedInCurrentFY; i++)
-            {
-                monthlySalaries.Add(new MonthlySalary { Month = month, Year = year, GrossSalary = 2500 });
-                month++;
-                if (month > 12)
-                {
-                    month = 1;
-                    year = nextYear;
-                }
-            }
-            return monthlySalaries;
-        }
-
-        /// <summary>
-        /// Gets list of monthly salaries for currenty financial year
+        /// Gets list of monthly salaries for financial year
         /// </summary>
         /// <param name="member"></param>
-        /// <param name="month">first month of current financial year</param>
+        /// <param name="month">first month of financial year</param>
         /// <param name="year">current year</param>
         /// <returns></returns>
-        private List<MonthlySalary> GetMemberSalaryListForCurrentFY(Member member, int month, int year)
+        private List<MonthlySalary> GetMemberSalaryListForFinancialYear(Member member, FinancialYear fy)
         { 
             List<MonthlySalary> monthlySalaries = new List<MonthlySalary>();
+            int month = fy.StartDate.Month;
+            int year = fy.StartDate.Year;
             using (var context = new PSPITSEntities())
             {
                 var salaries = context.MemberSalaries.Where(s => s.pensionID == member.pensionID && (s.month >= month && s.year == year) || (s.month < month && s.year == (year + 1))).OrderBy(s => s.year).ThenBy(s => s.month).ToList();
@@ -612,28 +604,6 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             }
         }
 
-        /// <summary>
-        /// Get number of months worked in current financial year basing on service end date provided by user
-        /// </summary>
-        /// <param name="mbr"></param>
-        /// <param name="year"></param>
-        /// <returns></returns>
-        private int GetMonthsWorkedInCurrentFY(MemberBenefitRequest mbr, out int year)
-        {
-            int monthsWorked;
-            if (mbr.ServiceEndDate.Month > 6)
-            {
-                year = mbr.ServiceEndDate.Year;
-                monthsWorked = mbr.ServiceEndDate.Month - 7 + 1;
-            }
-            else
-            {
-                year = mbr.ServiceEndDate.Year - 1;
-                monthsWorked = mbr.ServiceEndDate.Month + 6;
-            }
-            return monthsWorked;
-        }
-        
         #endregion
 
     }

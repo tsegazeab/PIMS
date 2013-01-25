@@ -376,6 +376,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FinancialYears">
+      <EntityTypeMapping TypeName="PSPITSModel.FinancialYear">
+        <MappingFragment StoreEntitySet="FinancialYear">
+          <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AverageCivilServiceSalaryIncrease" ColumnName="AverageCivilServiceSalaryIncrease" />
+          <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LifeBenefitApplications">
       <EntityTypeMapping TypeName="PSPITSModel.LifeBenefitApplication">
         <MappingFragment StoreEntitySet="LifeBenefitApplication">
@@ -559,6 +571,7 @@
           <ScalarProperty Name="ProjectedRemainingService" ColumnName="ProjectedRemainingService" />
           <ScalarProperty Name="ProjectedAnnualPension" ColumnName="ProjectedAnnualPension" />
           <ScalarProperty Name="FirstOfFollowingMonth" ColumnName="FirstOfFollowingMonth" />
+          <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

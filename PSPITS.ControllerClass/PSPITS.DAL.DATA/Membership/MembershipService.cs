@@ -76,5 +76,13 @@ namespace PSPITS.DAL.DATA.Membership
                 return beneficiaries;
             }
         }
+
+        public FinancialYear GetCurrentFinancialYear()
+        {
+            using (var context = new PSPITSEntities())
+            {
+                return context.FinancialYears.Where(f => f.IsCurrent == true).OrderByDescending(f => f.EndDate).FirstOrDefault();
+            }
+        }
     }
 }

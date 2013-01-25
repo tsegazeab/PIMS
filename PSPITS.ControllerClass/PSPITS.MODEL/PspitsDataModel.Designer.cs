@@ -31,6 +31,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_Beneficiary_Member", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.Member), "Beneficiary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.Beneficiary), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberComputedBenefit_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "MemberComputedBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PSPITS.MODEL.MemberComputedBenefit), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_DisabilityBenefitApplication", "DisabilityBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.DisabilityBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
+[assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberBenefit_FinancialYear", "FinancialYear", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.FinancialYear), "MemberBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberBenefit), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_NominatedAgent_LifeBenefitApplication", "LifeBenefitApplication", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.LifeBenefitApplication), "NominatedAgent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.NominatedAgent), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_List_ListType", "ListType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.ListType), "List", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.List), true)]
 [assembly: EdmRelationshipAttribute("PSPITSModel", "FK_MemberBenefit_Member", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PSPITS.MODEL.Member), "MemberBenefit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PSPITS.MODEL.MemberBenefit), true)]
@@ -458,6 +459,22 @@ namespace PSPITS.MODEL
             }
         }
         private ObjectSet<EvidenceByRelation> _EvidenceByRelations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FinancialYear> FinancialYears
+        {
+            get
+            {
+                if ((_FinancialYears == null))
+                {
+                    _FinancialYears = base.CreateObjectSet<FinancialYear>("FinancialYears");
+                }
+                return _FinancialYears;
+            }
+        }
+        private ObjectSet<FinancialYear> _FinancialYears;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1509,6 +1526,14 @@ namespace PSPITS.MODEL
         public void AddToEvidenceByRelations(EvidenceByRelation evidenceByRelation)
         {
             base.AddObject("EvidenceByRelations", evidenceByRelation);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FinancialYears EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFinancialYears(FinancialYear financialYear)
+        {
+            base.AddObject("FinancialYears", financialYear);
         }
     
         /// <summary>
@@ -9348,6 +9373,217 @@ namespace PSPITS.MODEL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="FinancialYear")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FinancialYear : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new FinancialYear object.
+        /// </summary>
+        /// <param name="financialYearId">Initial value of the FinancialYearId property.</param>
+        /// <param name="startDate">Initial value of the StartDate property.</param>
+        /// <param name="endDate">Initial value of the EndDate property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="isCurrent">Initial value of the IsCurrent property.</param>
+        public static FinancialYear CreateFinancialYear(global::System.Int32 financialYearId, global::System.DateTime startDate, global::System.DateTime endDate, global::System.String name, global::System.Boolean isCurrent)
+        {
+            FinancialYear financialYear = new FinancialYear();
+            financialYear.FinancialYearId = financialYearId;
+            financialYear.StartDate = startDate;
+            financialYear.EndDate = endDate;
+            financialYear.Name = name;
+            financialYear.IsCurrent = isCurrent;
+            return financialYear;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FinancialYearId
+        {
+            get
+            {
+                return _FinancialYearId;
+            }
+            set
+            {
+                if (_FinancialYearId != value)
+                {
+                    OnFinancialYearIdChanging(value);
+                    ReportPropertyChanging("FinancialYearId");
+                    _FinancialYearId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("FinancialYearId");
+                    OnFinancialYearIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _FinancialYearId;
+        partial void OnFinancialYearIdChanging(global::System.Int32 value);
+        partial void OnFinancialYearIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private global::System.DateTime _StartDate;
+        partial void OnStartDateChanging(global::System.DateTime value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private global::System.DateTime _EndDate;
+        partial void OnEndDateChanging(global::System.DateTime value);
+        partial void OnEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> AverageCivilServiceSalaryIncrease
+        {
+            get
+            {
+                return _AverageCivilServiceSalaryIncrease;
+            }
+            set
+            {
+                OnAverageCivilServiceSalaryIncreaseChanging(value);
+                ReportPropertyChanging("AverageCivilServiceSalaryIncrease");
+                _AverageCivilServiceSalaryIncrease = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AverageCivilServiceSalaryIncrease");
+                OnAverageCivilServiceSalaryIncreaseChanged();
+            }
+        }
+        private Nullable<global::System.Double> _AverageCivilServiceSalaryIncrease;
+        partial void OnAverageCivilServiceSalaryIncreaseChanging(Nullable<global::System.Double> value);
+        partial void OnAverageCivilServiceSalaryIncreaseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsCurrent
+        {
+            get
+            {
+                return _IsCurrent;
+            }
+            set
+            {
+                OnIsCurrentChanging(value);
+                ReportPropertyChanging("IsCurrent");
+                _IsCurrent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsCurrent");
+                OnIsCurrentChanged();
+            }
+        }
+        private global::System.Boolean _IsCurrent;
+        partial void OnIsCurrentChanging(global::System.Boolean value);
+        partial void OnIsCurrentChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberBenefit_FinancialYear", "MemberBenefit")]
+        public EntityCollection<MemberBenefit> MemberBenefits
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MemberBenefit>("PSPITSModel.FK_MemberBenefit_FinancialYear", "MemberBenefit");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MemberBenefit>("PSPITSModel.FK_MemberBenefit_FinancialYear", "MemberBenefit", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="PSPITSModel", Name="LifeBenefitApplication")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -12550,7 +12786,8 @@ namespace PSPITS.MODEL
         /// <param name="monthsToPensionableAge">Initial value of the MonthsToPensionableAge property.</param>
         /// <param name="monthsBeyondPensionableAge">Initial value of the MonthsBeyondPensionableAge property.</param>
         /// <param name="lumpSumPension">Initial value of the LumpSumPension property.</param>
-        public static MemberBenefit CreateMemberBenefit(global::System.Int32 memberBenefitId, global::System.Int32 memberId, global::System.Double numberOfServiceYears, global::System.Double numberOfServiceBreakYears, global::System.Double numberOfPensionableYears, global::System.Decimal grossAnnualPensionUptoLastFY, global::System.Decimal grossSalaryInRetirementYear, global::System.Double averageCivilServiceSalaryIncrease, global::System.Double commutationFactor, global::System.Decimal pensionAccrualUpdateForCurrentFY, global::System.Decimal updatedGrossAnnualPension, global::System.Decimal grossPensionAccruedInRetirementYear, global::System.Decimal totalAccruedPension, global::System.Decimal noCommutation, global::System.Decimal aThirdAnnualPension, global::System.Decimal lumpSumCommutation, global::System.Decimal netAnnualPension, global::System.Decimal monthlyPension, global::System.Decimal earlyRetirementReductionAdjustment, global::System.Decimal lateRetirementReductionAdjustment, global::System.Decimal annualGrossPensionEntitlement, global::System.Decimal finalMonthGrossSalary, global::System.Int32 pensionType, global::System.Int32 monthsToPensionableAge, global::System.Int32 monthsBeyondPensionableAge, global::System.Decimal lumpSumPension)
+        /// <param name="financialYearId">Initial value of the FinancialYearId property.</param>
+        public static MemberBenefit CreateMemberBenefit(global::System.Int32 memberBenefitId, global::System.Int32 memberId, global::System.Double numberOfServiceYears, global::System.Double numberOfServiceBreakYears, global::System.Double numberOfPensionableYears, global::System.Decimal grossAnnualPensionUptoLastFY, global::System.Decimal grossSalaryInRetirementYear, global::System.Double averageCivilServiceSalaryIncrease, global::System.Double commutationFactor, global::System.Decimal pensionAccrualUpdateForCurrentFY, global::System.Decimal updatedGrossAnnualPension, global::System.Decimal grossPensionAccruedInRetirementYear, global::System.Decimal totalAccruedPension, global::System.Decimal noCommutation, global::System.Decimal aThirdAnnualPension, global::System.Decimal lumpSumCommutation, global::System.Decimal netAnnualPension, global::System.Decimal monthlyPension, global::System.Decimal earlyRetirementReductionAdjustment, global::System.Decimal lateRetirementReductionAdjustment, global::System.Decimal annualGrossPensionEntitlement, global::System.Decimal finalMonthGrossSalary, global::System.Int32 pensionType, global::System.Int32 monthsToPensionableAge, global::System.Int32 monthsBeyondPensionableAge, global::System.Decimal lumpSumPension, global::System.Int32 financialYearId)
         {
             MemberBenefit memberBenefit = new MemberBenefit();
             memberBenefit.MemberBenefitId = memberBenefitId;
@@ -12579,6 +12816,7 @@ namespace PSPITS.MODEL
             memberBenefit.MonthsToPensionableAge = monthsToPensionableAge;
             memberBenefit.MonthsBeyondPensionableAge = monthsBeyondPensionableAge;
             memberBenefit.LumpSumPension = lumpSumPension;
+            memberBenefit.FinancialYearId = financialYearId;
             return memberBenefit;
         }
 
@@ -13332,11 +13570,73 @@ namespace PSPITS.MODEL
         private Nullable<global::System.DateTime> _FirstOfFollowingMonth;
         partial void OnFirstOfFollowingMonthChanging(Nullable<global::System.DateTime> value);
         partial void OnFirstOfFollowingMonthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FinancialYearId
+        {
+            get
+            {
+                return _FinancialYearId;
+            }
+            set
+            {
+                OnFinancialYearIdChanging(value);
+                ReportPropertyChanging("FinancialYearId");
+                _FinancialYearId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FinancialYearId");
+                OnFinancialYearIdChanged();
+            }
+        }
+        private global::System.Int32 _FinancialYearId;
+        partial void OnFinancialYearIdChanging(global::System.Int32 value);
+        partial void OnFinancialYearIdChanged();
 
         #endregion
 
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PSPITSModel", "FK_MemberBenefit_FinancialYear", "FinancialYear")]
+        public FinancialYear FinancialYear
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FinancialYear>("PSPITSModel.FK_MemberBenefit_FinancialYear", "FinancialYear").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FinancialYear>("PSPITSModel.FK_MemberBenefit_FinancialYear", "FinancialYear").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<FinancialYear> FinancialYearReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FinancialYear>("PSPITSModel.FK_MemberBenefit_FinancialYear", "FinancialYear");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FinancialYear>("PSPITSModel.FK_MemberBenefit_FinancialYear", "FinancialYear", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.

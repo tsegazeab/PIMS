@@ -25,6 +25,7 @@
     <EntitySet Name="DisabilityBenefitApplication" EntityType="PSPITSModel.Store.DisabilityBenefitApplication" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EvidenceByFunction" EntityType="PSPITSModel.Store.EvidenceByFunction" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EvidenceByRelation" EntityType="PSPITSModel.Store.EvidenceByRelation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FinancialYear" EntityType="PSPITSModel.Store.FinancialYear" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LifeBenefitApplication" EntityType="PSPITSModel.Store.LifeBenefitApplication" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="List" EntityType="PSPITSModel.Store.List" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListType" EntityType="PSPITSModel.Store.ListType" store:Type="Tables" Schema="dbo" />
@@ -330,6 +331,10 @@
     <AssociationSet Name="FK_MemberAllowance_MemberSalary" Association="PSPITSModel.Store.FK_MemberAllowance_MemberSalary">
       <End Role="MemberSalary" EntitySet="MemberSalary" />
       <End Role="MemberAllowance" EntitySet="MemberAllowance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberBenefit_FinancialYear" Association="PSPITSModel.Store.FK_MemberBenefit_FinancialYear">
+      <End Role="FinancialYear" EntitySet="FinancialYear" />
+      <End Role="MemberBenefit" EntitySet="MemberBenefit" />
     </AssociationSet>
     <AssociationSet Name="FK_MemberBenefit_Member" Association="PSPITSModel.Store.FK_MemberBenefit_Member">
       <End Role="Member" EntitySet="Member" />
@@ -735,6 +740,17 @@
     <Property Name="whoUpdated" Type="varchar" MaxLength="50" />
     <Property Name="logRef" Type="int" />
   </EntityType>
+  <EntityType Name="FinancialYear">
+    <Key>
+      <PropertyRef Name="FinancialYearId" />
+    </Key>
+    <Property Name="FinancialYearId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AverageCivilServiceSalaryIncrease" Type="float" />
+    <Property Name="IsCurrent" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="LifeBenefitApplication">
     <Key>
       <PropertyRef Name="pensionID" />
@@ -917,6 +933,7 @@
     <Property Name="ProjectedRemainingService" Type="float" />
     <Property Name="ProjectedAnnualPension" Type="money" />
     <Property Name="FirstOfFollowingMonth" Type="date" />
+    <Property Name="FinancialYearId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MemberComputedBenefit">
     <Key>
@@ -1902,6 +1919,18 @@
         <PropertyRef Name="pensionID" />
         <PropertyRef Name="month" />
         <PropertyRef Name="year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberBenefit_FinancialYear">
+    <End Role="FinancialYear" Type="PSPITSModel.Store.FinancialYear" Multiplicity="1" />
+    <End Role="MemberBenefit" Type="PSPITSModel.Store.MemberBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FinancialYear">
+        <PropertyRef Name="FinancialYearId" />
+      </Principal>
+      <Dependent Role="MemberBenefit">
+        <PropertyRef Name="FinancialYearId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -96,21 +96,21 @@
                     <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%" 
                         CssClass="masterToolStrip" onbuttonclick="RadToolBar1_ButtonClick">
                         <Items>
-                            <telerik:RadToolBarButton runat="server" Text="Process member benefit" 
+                            <telerik:RadToolBarButton runat="server" Text="Process Member Benefit" 
                                 Width="170px" 
                                 ImageUrl="~/images/Icons/small icons (16 and 24)/add-user (24x24).png" 
                                 NavigateUrl="~/Benefit_Module/ProcessMemberBenefits.aspx">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
                             </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Text="Process survivor benefit" 
+                            <telerik:RadToolBarButton runat="server" Text="Process Survivor Benefit" 
                                 Width="170px" 
                                 ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png" 
                                 NavigateUrl="~/Benefit_Module/ProcessSurvivorBenefits.aspx">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 5" IsSeparator="True">
                             </telerik:RadToolBarButton>
-                            <telerik:RadToolBarButton runat="server" Text="Return of contribution" Width="170px" 
+                            <telerik:RadToolBarButton runat="server" Text="Return of Contribution" Width="170px" 
                                 ImageUrl="~/images/Icons/small icons (16 and 24)/leaves.png">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True">
