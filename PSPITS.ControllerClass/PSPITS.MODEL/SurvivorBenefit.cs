@@ -9,7 +9,7 @@ namespace PSPITS.MODEL
     {
         public string Relationship { get; set; }
 
-        public double Percentage { get; set; }
+        public string Percentage { get; set; }
 
         public decimal BenefitAmount { get; set; }
     }

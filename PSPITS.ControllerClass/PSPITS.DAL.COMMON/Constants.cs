@@ -291,6 +291,10 @@ namespace PSPITS.COMMON
         public const int FUNCTION_BENEFICIARY_REGISTRATION = 1278;
         public const int FUNCTION_MEMBER_SERVICE_BREAKS = 1281;
 
+        public const int BENEFIT_RELATIONSHIP_CHILD = 1239;
+        public const int BENEFIT_RELATIONSHIP_SPOUSE = 1240;
+        public const int BENEFIT_RELATIONSHIP_PARENT = 1241;
+
         //MemberBenefitEvents
         /// <summary>
         /// Employee Terminated/Resigned/Retired

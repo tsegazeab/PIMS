@@ -8,11 +8,18 @@ using System.Configuration;
 using System.Linq.Expressions;
 using PSPITS.COMMON;
 using PSPITS.MODEL;
+using PSPITS.DAL.DATA.Membership;
 
 namespace PSPITS.DAL.DATA.MemberBenefits
 {
     public class MemberBenefitCalcs
     {
+        private MembershipService membershipService;
+
+        public MemberBenefitCalcs()
+        {
+            membershipService = new MembershipService();
+        }
 
         public MemberBenefit GetMemberBenefit(MemberBenefitRequest mbr)
         {            
@@ -202,7 +209,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         /// <param name="mb"></param>
         private void CalculateGrossAnnualPensionUpToJuly2012(MemberBenefit mb)
         {
-            double netServiceYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
+            double netServiceYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;            
             mb.GrossAnnualPensionUptoLastFY = (decimal)(Constants.ONE_POINT_FIVE_PERCENT * (double)Constants.JUNE_2012_SALARY * Constants.NUMBER_OF_MONTHS_IN_YEAR * netServiceYears);
         }
 
@@ -336,8 +343,8 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.PensionableAge = this.DeterminePensionableAge(mbr.Member.dateofBirth.Value);
             mb.CommutationFactor = this.GetCommutationFactor(mb.MemberAge);
 
-            //Check if Disability was selected
-            if (mbr.EventType == 2)
+            //Check if Disability was selected or if is DeathInService
+            if (mbr.EventType >= 2)
             {
                 mb.StandardRetirementDate = DetermineStandardRetirementDate(mb);                
                 int day = mbr.ServiceEndDate.Day, month = mbr.ServiceEndDate.Month, year = mbr.ServiceEndDate.Year;
@@ -353,8 +360,8 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 mb.FirstOfFollowingMonth = new DateTime(year, month, 1);
                 mb.ProjectedRemainingServiceAge = this.GetDateDiff(mb.FirstOfFollowingMonth.Value , mb.StandardRetirementDate.Value);
 
-                return PensionType.DisabilityPension;
-            }
+                return mbr.EventType == 2 ? PensionType.DisabilityPension : PensionType.DeathInServicePension;
+            }          
 
             int ageCompare = mb.MemberAge.Compare(mb.PensionableAge);
             if (ageCompare == 0)
@@ -461,16 +468,88 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 mb.GrossPensionAccruedInRetirementYear = (decimal)((1.5 / 100)*(Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.NumberOfPensionableYears)) * mb.FinalMonthGrossSalary;
                 mb.LumpSumPension = mb.GrossPensionAccruedInRetirementYear * (decimal)mb.CommutationFactor;
             }
-            else if (mb.PensionTypeEnum == PensionType.DisabilityPension)
+            else if (mb.PensionTypeEnum == PensionType.DisabilityPension || mb.PensionTypeEnum == PensionType.DeathInServicePension)
             {
                 mb.FinalMonthGrossSalary = GetFinalMonthGrossSalary(mb.Member);
                 mb.ProjectedRemainingService = this.GetDateDiffInYears(mb.FirstOfFollowingMonth.Value, mb.StandardRetirementDate.Value);
                 mb.ProjectedAnnualPension = (decimal)((1.5 / 100) * (Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.ProjectedRemainingService)) * mb.FinalMonthGrossSalary;
                 mb.MonthlyPension = mb.ProjectedAnnualPension.Value / Constants.NUMBER_OF_MONTHS_IN_YEAR;
                 mb.TotalAccruedPension += mb.ProjectedAnnualPension.Value;
+                if (mb.PensionTypeEnum == PensionType.DeathInServicePension)
+                    ComputeSurvivorBenefits(mb);
             }
-
         }
+
+        private void ComputeSurvivorBenefits(MemberBenefit mb)
+        {
+            List<Beneficiary> beneficiaries = membershipService.GetMemberBeneficiaries(mb.Member.pensionID);
+            int parentCount = 0;
+            bool hasChild = false, hasSpouse = false, hasParent = false;
+            foreach (var beneficiary in beneficiaries)
+            {
+                if (beneficiary.relationID == Constants.BENEFIT_RELATIONSHIP_CHILD)
+                    hasChild = true;
+                else if (beneficiary.relationID == Constants.BENEFIT_RELATIONSHIP_SPOUSE)
+                    hasSpouse = true;
+                else if (beneficiary.relationID == Constants.BENEFIT_RELATIONSHIP_PARENT)
+                {
+                    hasParent = true;
+                    parentCount++;
+                }
+            }
+            //All
+            if (hasParent && hasSpouse && hasChild)
+            {
+                mb.SurvivorBenefits = new List<SurvivorBenefit>();
+                mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Spouse(s)", Percentage = "50%", BenefitAmount = mb.MonthlyPension * (decimal)0.5 });
+                mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Children", Percentage = "30%", BenefitAmount = mb.MonthlyPension * (decimal)0.3 });
+                if (parentCount > 1)
+                {
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Father", Percentage = "10%", BenefitAmount = mb.MonthlyPension * (decimal)0.1 });
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Mother", Percentage = "10%", BenefitAmount = mb.MonthlyPension * (decimal)0.1 });
+                }
+                else
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Parent", Percentage = "10%", BenefitAmount = mb.MonthlyPension * (decimal)0.1 });
+            }
+            //No Spouse
+            else if (!hasSpouse && hasParent && hasChild)
+            {
+                mb.SurvivorBenefits = new List<SurvivorBenefit>();
+                mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Children", Percentage = "60%", BenefitAmount = mb.MonthlyPension * (decimal)0.6 });
+                if (parentCount > 1)
+                {
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Father", Percentage = "20%", BenefitAmount = mb.MonthlyPension * (decimal)0.2 });
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Mother", Percentage = "20%", BenefitAmount = mb.MonthlyPension * (decimal)0.2 });
+                }
+                else
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Parent", Percentage = "20%", BenefitAmount = mb.MonthlyPension * (decimal)0.2 });
+            }
+            //No Parents
+            else if (!hasParent && hasSpouse && hasChild)
+            {
+                mb.SurvivorBenefits = new List<SurvivorBenefit>();
+                mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Spouse(s)", Percentage = "50%", BenefitAmount = mb.MonthlyPension * (decimal)0.5 });
+                mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Children", Percentage = "40%", BenefitAmount = mb.MonthlyPension * (decimal)0.4 });                
+            }
+            //No spouse and parents
+            else if (!hasParent && !hasSpouse && hasChild)
+            {
+                mb.SurvivorBenefits = new List<SurvivorBenefit>();
+                mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Children", Percentage = "100%", BenefitAmount = mb.MonthlyPension }); 
+            }
+            //No spouse and children
+            else if (!hasSpouse && !hasChild)
+            {
+                mb.SurvivorBenefits = new List<SurvivorBenefit>();
+                if (parentCount > 1)
+                {
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Father", Percentage = "40%", BenefitAmount = mb.MonthlyPension * (decimal)0.4 });
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Mother", Percentage = "40%", BenefitAmount = mb.MonthlyPension * (decimal)0.4 });
+                }
+                else
+                    mb.SurvivorBenefits.Add(new SurvivorBenefit { Relationship = "Parent", Percentage = "40%", BenefitAmount = mb.MonthlyPension * (decimal)0.4 });
+            }
+        }        
 
         /// <summary>
         /// Get list of MonthlySalary objects representing each month the Member has worked in the current financial year up to the date of service termination
