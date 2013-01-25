@@ -203,9 +203,7 @@
           </td>
     </tr>
     <tr>
-        <td valign="top">
-            &nbsp;</td>
-        <td align="left" valign="top">
+        <td valign="top" align="center" colspan="2">
             <telerik:RadButton ID="RadButtonProcessBenefit" runat="server" 
                 onclick="RadButtonProcessBenefit_Click" Skin="Vista" Text="Process Survivor Benefits" 
                 onload="RadButtonProcessBenefit_Load" 

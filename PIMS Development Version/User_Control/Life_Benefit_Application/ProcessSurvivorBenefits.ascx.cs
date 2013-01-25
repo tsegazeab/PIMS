@@ -97,12 +97,16 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
 
     protected void RadButtonProcessBenefit_Click(object sender, EventArgs e)
     {
-        //MemberBenefitRequest mbr = new MemberBenefitRequest();
-        //mbr.Member = new PSPITSDO().GetMemberByPensionID(Int32.Parse(this.PensionID));
-        //mbr.EventType = Int32.Parse(RadComboDeceasedMember.SelectedValue);
-        //mbr.ServiceEndDate = RadDatePickerDateOfEvent.SelectedDate.Value;
-        //Session["MemberBenefitRequest"] = mbr;
-        //Response.Redirect("MemberBenefitsEligibility.aspx");
+        if (Session["MemberDeath"] != null)
+        {
+            MemberDeath md = (MemberDeath)Session["MemberDeath"];
+            MemberBenefitRequest mbr = new MemberBenefitRequest();
+            mbr.Member = md.Member;
+            mbr.EventType = 3;
+            mbr.ServiceEndDate = md.DateOfDeath;
+            Session["MemberBenefitRequest"] = mbr;
+            Response.Redirect("MemberBenefitsEligibility.aspx");
+        }
     }
 
     protected void RadComboDeceasedMember_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
@@ -111,8 +115,9 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
         {
             if (RadComboDeceasedMember.SelectedItem != null)
             {
-                Session["PensionID"] = RadComboDeceasedMember.SelectedItem.Value;
                 MemberDeath md = new MembershipService().GetMemberDeathByPensionId(Int32.Parse(RadComboDeceasedMember.SelectedItem.Value));
+                Session["PensionID"] = RadComboDeceasedMember.SelectedItem.Value;                
+                Session["MemberDeath"] = md;
                 if (md != null)
                 {
                     this.PensionID = md.PensionId.ToString();
