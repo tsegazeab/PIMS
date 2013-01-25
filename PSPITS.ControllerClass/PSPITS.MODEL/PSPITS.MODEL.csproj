@@ -60,6 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PspitsDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SurvivorBenefit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

@@ -21,5 +21,7 @@ namespace PSPITS.MODEL
         public MemberAge ProjectedRemainingServiceAge { get; set; }
 
         public List<MonthlySalary> MonthlySalaries { get; set; }
+
+        public List<SurvivorBenefit> SurvivorBenefits { get; set; }
     }
 }

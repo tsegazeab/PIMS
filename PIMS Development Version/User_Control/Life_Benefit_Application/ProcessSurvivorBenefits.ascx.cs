@@ -11,6 +11,7 @@ using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
 using PSPITS.DAL.DATA.Membership;
+using PSPITS.DAL.DATA.MemberBenefits;
 
 public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefits : System.Web.UI.UserControl
 {
@@ -104,8 +105,10 @@ public partial class User_Control_Life_Benefit_Application_ProcessSurvivorBenefi
             mbr.Member = md.Member;
             mbr.EventType = 3;
             mbr.ServiceEndDate = md.DateOfDeath;
-            Session["MemberBenefitRequest"] = mbr;
-            Response.Redirect("MemberBenefitsEligibility.aspx");
+
+            MemberBenefitCalcs mbc = new MemberBenefitCalcs();
+            MemberBenefit mb = mbc.GetMemberBenefit(mbr);
+            Response.Redirect("SurvivorBenefits.aspx");
         }
     }
 
