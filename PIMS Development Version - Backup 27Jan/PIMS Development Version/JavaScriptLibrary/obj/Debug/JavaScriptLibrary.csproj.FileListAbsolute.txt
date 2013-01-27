@@ -1,0 +1,19 @@
+G:\wwwroot\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.dll
+G:\wwwroot\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.pdb
+G:\wwwroot\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
+G:\wwwroot\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
+G:\wwwroot\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb
+F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.dll
+F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.pdb
+F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
+F:\Projects\SS Pensions\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.dll
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.pdb
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
+F:\Projects\HTSPE\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.dll
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\bin\Debug\JavaScriptLibrary.pdb
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.dll
+\\psf\Home\Documents\PIMS\PIMS Development Version\PIMS Development Version\JavaScriptLibrary\obj\Debug\JavaScriptLibrary.pdb

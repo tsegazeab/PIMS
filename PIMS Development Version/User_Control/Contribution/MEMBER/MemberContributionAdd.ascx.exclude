@@ -1,0 +1,540 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MemberContributionAdd.ascx.cs" Inherits="User_Control_Contribution_MEMBER_MemberContributionAdd" %>
+
+<link href="../../../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+
+.RadPicker
+{
+	vertical-align:middle;
+}
+
+.RadPicker
+{
+	vertical-align:middle;
+}
+
+.RadPicker .rcTable
+{
+	table-layout:auto;
+}
+
+.RadPicker .rcTable
+{
+	table-layout:auto;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadInput
+{
+	vertical-align:middle;
+}
+
+
+.RadInput_Default
+{
+	font:12px "segoe ui",arial,sans-serif;
+}
+
+.RadPicker .rcCalPopup
+{
+	display:block;
+	overflow:hidden;
+	width:22px;
+	height:22px;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	text-indent:-2222px;
+	text-align:center;
+}
+
+.RadPicker .rcCalPopup
+{
+	display:block;
+	overflow:hidden;
+	width:22px;
+	height:22px;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	text-indent:-2222px;
+	text-align:center;
+}
+
+.RadPicker_Outlook .rcCalPopup
+{
+	background-image:url('mvwres://Telerik.Web.UI, Version=2011.2.712.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4/Telerik.Web.UI.Skins.Outlook.Calendar.sprite.gif');
+}
+
+.RadPicker_Outlook .rcCalPopup
+{
+	background-position:0 0;
+}
+
+    .style1
+    {
+        width: 53px;
+    }
+
+    .style2
+    {
+        height: 23px;
+    }
+    .style3
+    {
+        width: 53px;
+        height: 23px;
+    }
+
+</style>
+<table>
+<tr>
+<td>
+<telerik:RadGrid ID="RadGridMemberContribution" runat="server"   GridLines="None" Skin="WebBlue" 
+                        Width="578px" 
+        onneeddatasource="RadGridMemberContribution_NeedDataSource" CellSpacing="0" 
+        AutoGenerateColumns="False" >
+                        <MasterTableView datakeynames="servicebreakID" 
+                            >
+                            <NoRecordsTemplate>
+                                No records available.
+                            </NoRecordsTemplate>
+
+<CommandItemSettings ExportToPdfText="Export to PDF"></CommandItemSettings>
+
+                            <RowIndicatorColumn>
+                                <HeaderStyle Width="20px" />
+                            </RowIndicatorColumn>
+                            <ExpandCollapseColumn>
+                                <HeaderStyle Width="20px" />
+                            </ExpandCollapseColumn>
+                            <Columns>
+                                    <telerik:GridTemplateColumn DataField="columnEdit"   HeaderText="Edit" 
+                                        UniqueName="columnRemove" ReadOnly="false">
+                                    </telerik:GridTemplateColumn> 
+                                    <telerik:GridBoundColumn DataField="PensionID" DefaultInsertValue=""  Visible="false"
+                                        HeaderText="PensionID" SortExpression="PensionID" UniqueName="PensionID">
+                                    </telerik:GridBoundColumn>                                                       
+                                    <telerik:GridBoundColumn DataField="month" DefaultInsertValue=""
+                                        HeaderText="Month" SortExpression="month" UniqueName="month" 
+                                        FilterControlAltText="Filter month column">
+                                    </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="year" DefaultInsertValue=""
+                                        HeaderText="year" SortExpression="year" UniqueName="year" 
+                                        FilterControlAltText="Filter year column">
+                                    </telerik:GridBoundColumn>
+                                     <telerik:GridBoundColumn DataField="memberName" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="Member Name" SortExpression="memberName" 
+                                        UniqueName="memberName" FilterControlAltText="Filter memberName column">
+                                    </telerik:GridBoundColumn>                                   
+                                     <telerik:GridBoundColumn DataField="grossPay" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="grossPay" SortExpression="grossPay" UniqueName="grossPay" 
+                                        FilterControlAltText="Filter grossPay column">
+                                    </telerik:GridBoundColumn>     
+                                       <telerik:GridBoundColumn DataField="basicPay" DefaultInsertValue=""  Visible="true"
+                                        HeaderText="basicPay" SortExpression="basicPay" UniqueName="basicPay" 
+                                        FilterControlAltText="Filter basicPay column">
+                                    </telerik:GridBoundColumn>                                  
+                                    
+                                    <telerik:GridBoundColumn DataField="cola" 
+                                        FilterControlAltText="Filter cola column" HeaderText="COLA" UniqueName="cola">
+                                    </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="employeeDeduction" 
+                                        FilterControlAltText="Filter employeeDeduction column" HeaderText="Employee" 
+                                        UniqueName="employeeDeduction">
+                                    </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="monthGrade" 
+                                        FilterControlAltText="Filter monthgrade column" HeaderText="Grade" 
+                                        UniqueName="monthGrade">
+                                    </telerik:GridBoundColumn>
+                                    
+                            </Columns>
+
+<EditFormSettings>
+<EditColumn FilterControlAltText="Filter EditCommandColumn column"></EditColumn>
+</EditFormSettings>
+                        </MasterTableView>
+
+<FilterMenu EnableImageSprites="False"></FilterMenu>
+
+<HeaderContextMenu CssClass="GridContextMenu GridContextMenu_WebBlue"></HeaderContextMenu>
+                    </telerik:RadGrid>
+</td>
+</tr>
+</table>
+<table style="width: 651px">
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+              <asp:Label ID="Label2" runat="server" CssClass="text" Text="Member name"></asp:Label></td>
+        <td>
+            <telerik:RadTextBox ID="RadTextBoxmemberName" Runat="server" Width="292px" 
+                Enabled="False">
+            </telerik:RadTextBox></td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label7" runat="server" CssClass="text" Text="MDA/Agency"></asp:Label></td></td>
+        <td>
+               <telerik:RadComboBox ID="RadComboBoxMDA" Runat="server"   
+                Width="295px" MarkFirstMatch="true" CausesValidation="False" 
+                ValidationGroup="ServiceBreak"> 
+            </telerik:RadComboBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorMDA" 
+                runat="server" ControlToValidate="RadComboBoxMDA" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label3" runat="server" CssClass="text" Text="Month"></asp:Label></td></td>
+        <td>
+               <telerik:RadComboBox ID="RadComboBoxMonth" Runat="server"   
+                Width="295px" MarkFirstMatch="true" CausesValidation="False" 
+                ValidationGroup="ServiceBreak"> 
+            </telerik:RadComboBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorMonth" 
+                runat="server" ControlToValidate="RadComboBoxMonth" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label4" runat="server" CssClass="text" Text="Year"></asp:Label></td></td>
+        <td>
+               <telerik:RadComboBox ID="RadComboBoxYear" Runat="server"   
+                Width="295px" MarkFirstMatch="true" CausesValidation="False" 
+                ValidationGroup="ServiceBreak"> 
+            </telerik:RadComboBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorYear" 
+                runat="server" ControlToValidate="RadComboBoxYear" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            Payroll number</td>
+        <td>
+            <telerik:RadTextBox ID="RadTextBoxPayrollNumber" Runat="server" Width="292px" 
+                Enabled="True" CausesValidation="False" 
+                ValidationGroup="ServiceBreak">
+            </telerik:RadTextBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorPayrollNumber" 
+                runat="server" ControlToValidate="RadTextBoxPayrollNumber" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label5" runat="server" CssClass="text" Text="Gross pay"></asp:Label></td></td>
+        <td>
+               <telerik:RadTextBox ID="RadTextBoxgrossPay" Runat="server" Width="292px" 
+                Enabled="True" CausesValidation="False" 
+                ValidationGroup="ServiceBreak">
+            </telerik:RadTextBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorgrossPay" 
+                runat="server" ControlToValidate="RadTextBoxgrossPay" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label6" runat="server" CssClass="text" Text="Basic pay"></asp:Label></td></td>
+        <td>
+               <telerik:RadTextBox ID="RadTextBoxBasicPay" Runat="server" Width="292px" 
+                Enabled="True" CausesValidation="False" 
+                ValidationGroup="ServiceBreak">
+            </telerik:RadTextBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorbasicPay" 
+                runat="server" ControlToValidate="RadTextBoxBasicPay" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label8" runat="server" CssClass="text" Text="COLA"></asp:Label></td></td>
+        <td>
+               <telerik:RadTextBox ID="RadTextBoxCola" Runat="server" Width="292px" 
+                Enabled="True" CausesValidation="False" 
+                ValidationGroup="ServiceBreak">
+            </telerik:RadTextBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorCOLA" 
+                runat="server" ControlToValidate="RadTextBoxCola" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+             <asp:Label ID="Label10" runat="server" CssClass="text" Text="Employee contribution"></asp:Label></td>
+        <td>
+               <telerik:RadTextBox ID="RadTextBoxemployeeDeduction" Runat="server" Width="292px" 
+                Enabled="True" CausesValidation="False" 
+                ValidationGroup="ServiceBreak">
+            </telerik:RadTextBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorEmployee" 
+                runat="server" ControlToValidate="RadTextBoxemployeeDeduction" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>        
+        <td class="style1">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            <asp:Label ID="Label9" runat="server" CssClass="text" Text="Employer contribution"></asp:Label></td></td>
+        <td>
+               <telerik:RadTextBox ID="RadTextBoxemployerDeduction" Runat="server" Width="292px" 
+                Enabled="True" CausesValidation="False" 
+                ValidationGroup="ServiceBreak">
+            </telerik:RadTextBox></td>        
+        <td class="style1"><asp:RequiredFieldValidator ID="RequiredFieldValidatorEmployer" 
+                runat="server" ControlToValidate="RadTextBoxemployerDeduction" 
+                ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
+                Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
+    </tr>
+
+    <tr>
+        <td width="280" class="style2">
+            </td>
+        <td class="style2">
+            </td>        
+        <td class="style3"></td>
+    </tr>
+
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td class="style1">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td class="style1">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="280">
+            &nbsp;</td>
+        <td>
+                    <telerik:RadButton ID="RadButtonAddMemberContribution" runat="server" 
+                        Text="Add Contribution Record" onclick="RadButtonAddMemberContribution_Click" 
+                        onload="RadButtonAddMemberContribution_Load" ValidationGroup="ServiceBreak">
+            </telerik:RadButton>
+            </td>
+        <td class="style1">&nbsp;</td>
+    </tr>
+</table>
+

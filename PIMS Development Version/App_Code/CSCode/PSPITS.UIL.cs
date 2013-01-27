@@ -14,6 +14,62 @@ using PSPITS.COMMON;
 using Telerik.Web.UI;
 namespace PSPITS.UIL
 {
+
+    #region .From Gabriel.
+        
+    public static class ActualContributionToEditSession
+    {
+        public static ActualContributionToEdit ActualContributionToEdit
+        {
+            get
+            {
+                if (HttpContext.Current.Session["ActualContributionToEdit"] != null)
+                {
+                    return (ActualContributionToEdit)HttpContext.Current.Session["ActualContributionToEdit"];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (HttpContext.Current.Session["ActualContributionToEdit"] == null)
+                {
+                    HttpContext.Current.Session["ActualContributionToEdit"] = new ActualContributionToEdit();
+                }
+                HttpContext.Current.Session["ActualContributionToEdit"] = value;
+            }
+        }
+    }
+    public static class MemberContributionToEditSession
+    {
+        public static MemberContributionToEdit MemberContributionToEdit
+        {
+            get
+            {
+                if (HttpContext.Current.Session["MemberContributionToEdit"] != null)
+                {
+                    return (MemberContributionToEdit)HttpContext.Current.Session["MemberContributionToEdit"];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (HttpContext.Current.Session["MemberContributionToEdit"] == null)
+                {
+                    HttpContext.Current.Session["MemberContributionToEdit"] = new MemberContributionToEdit();
+                }
+                HttpContext.Current.Session["MemberContributionToEdit"] = value;
+            }
+        }
+    }
+
+    #endregion
+
     public static class PSPITSModuleSession
     {
         # region Private Constants
@@ -25,6 +81,8 @@ namespace PSPITS.UIL
         private const string memberPhoto = "memberPhoto";
         private const string startDate = "StartDate";
         private const string endDate = "EndDate";
+        private const string MDAID = "mdaid";
+        private const string MDANAME = "mdaName";
         //---------------------------------------------------------------------
         # endregion
 
@@ -33,6 +91,42 @@ namespace PSPITS.UIL
         /// <summary>
         ///     The Username is the domain name and username of the current user.
         /// </summary>
+        /// 
+
+        public static string mdaID
+        {
+            get
+            {
+                if (HttpContext.Current.Session[MDAID] != null)
+                    return (string)HttpContext.Current.Session[MDAID];
+                else return "0";
+            }
+            set
+            {
+                if (HttpContext.Current.Session[MDAID] != null)
+                    HttpContext.Current.Session[MDAID] = value;
+                else
+                    HttpContext.Current.Session[MDAID] = "0";
+            }
+        }
+
+        public static string mdaName
+        {
+            get
+            {
+                if (HttpContext.Current.Session[MDANAME] != null)
+                    return (string)HttpContext.Current.Session[MDANAME];
+                else return "0";
+            }
+            set
+            {
+                if (HttpContext.Current.Session[MDANAME] != null)
+                    HttpContext.Current.Session[MDANAME] = value;
+                else
+                    HttpContext.Current.Session[MDANAME] = "0";
+            }
+        }
+
         public static string Username
         {
             get { return HttpContext.Current.User.Identity.Name; }
@@ -293,7 +387,7 @@ namespace PSPITS.UIL
     /// <summary>
     /// Summary description for Utility
     /// </summary>   
-    
+
     public class Utility
     {
         public Utility()
@@ -302,7 +396,7 @@ namespace PSPITS.UIL
             // TODO: Add constructor logic here
             //
         }
-        
+
         public Control FindControlToRootOnly(Control parent, string id)
         {
             //Checking if the control can’t be found on the current level
@@ -392,26 +486,26 @@ namespace PSPITS.UIL
                 ((RadDatePicker)(ctrl)).DateInput.Clear();
             }
         }
-    //    private string CurrentControl
-    //    {
-    //        get
-    //        {
-    //            return this.ViewState["CurrentControl"] == null ? string.Empty : (string)this.ViewState["CurrentControl"];
-    //        }
-    //        set
-    //        {
-    //            this.ViewState["CurrentControl"] = value;
-    //        }
-    //    }
-    //    private void LoadMyUserControl(string controlName, Control parent)
-    //    {
-    //        parent.Controls.Clear();
-    //        UserControl MyControl = (UserControl)LoadControl(controlName);
-    //        string userControlID = controlName.Split('.')[0];
-    //        MyControl.ID = userControlID.Replace("/", "").Replace("~", "");
-    //        parent.Controls.Add(MyControl);
-    //        this.CurrentControl = controlName;
-    //    }
+        //    private string CurrentControl
+        //    {
+        //        get
+        //        {
+        //            return this.ViewState["CurrentControl"] == null ? string.Empty : (string)this.ViewState["CurrentControl"];
+        //        }
+        //        set
+        //        {
+        //            this.ViewState["CurrentControl"] = value;
+        //        }
+        //    }
+        //    private void LoadMyUserControl(string controlName, Control parent)
+        //    {
+        //        parent.Controls.Clear();
+        //        UserControl MyControl = (UserControl)LoadControl(controlName);
+        //        string userControlID = controlName.Split('.')[0];
+        //        MyControl.ID = userControlID.Replace("/", "").Replace("~", "");
+        //        parent.Controls.Add(MyControl);
+        //        this.CurrentControl = controlName;
+        //    }
 
     }
 }

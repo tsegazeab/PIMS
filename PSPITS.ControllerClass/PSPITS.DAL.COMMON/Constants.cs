@@ -7,6 +7,41 @@ namespace PSPITS.COMMON
     public class Constants
     {
 
+        #region .From Gabriel.
+        
+        public const string SP_ADDMEMBERSALARY = "AddMemberSalary";
+        public const string SP_GETMDACONTRIBUTIONHISTORYBYID = "GetMDAContributionHistoryByID";
+        public const string SP_GETMDACONTRIBUTIONHISTORYBYPERIOD = "GetMDAContributionHistoryByPeriod";
+        public const string SP_GETMDACONTRIBUTIONHISTORYALL = "GetMDAContributionHistoryAll";
+        public const string SP_GETMDAACTUALCONTRIBUTIONHISTORYBYPERIODANDID = "GetMDA_ActualContributionHistoryByPeriodAndID";
+        public const string SP_UPDATEMEMBERSALARY = "UpdateMemberSalary";
+        public const string SP_GETMEMBERSALARY = "GetMemberSalary";
+        public const string SP_GETMDAWITHAll = "GetMDAWithAll";
+        public const string SP_GETMDAACTUALCONTRIBUTIONHISTORYALL = "GetMDA_ActualContributionHistoryAll";
+        public const string SP_GETMDAACTUALCONTRIBUTIONHISTORYBYID = "GetMDA_ActualContributionHistoryByID";
+        public const string SP_GETMDAACTUALCONTRIBUTIONHISTORYBYPERIOD = "GetMDA_ActualContributionHistoryByPeriod";
+        public const string SP_GETMDACONTRIBUTIONHISTORYBYPERIODANDID = "GetMDAContributionHistoryByPeriodAndID";
+        //
+        public const string COL_MEMBERSALARY_PENSIONID = "pensionID";
+        public const string COL_MEMBERSALARY_MONTH = "month";
+        public const string COL_MEMBERSALARY_YEAR = "year";
+        public const string COL_MEMBERSALARY_PERIOD = "period";
+        public const string COL_MEMBERSALARY_PAYROLLNUMBER = "payrollnumber";
+        public const string COL_MEMBERSALARY_BASICPAY = "basicpay";
+        public const string COL_MEMBERSALARY_COLA = "cola";
+        public const string COL_MEMBERSALARY_GROSSPAY = "grosspay";
+        public const string COL_MEMBERSALARY_EMPLOYEEDEDUCTION = "employeededuction";
+        public const string COL_MEMBERSALARY_EMPLOYERDEDUCTION = "employerdeduction";
+        public const string COL_MEMBERSALARY_MONTHGRADE = "monthgrade";
+        public const string COL_MEMBERSALARY_MONTHRSSAGENCY = "monthrssagency";
+        //
+        public const string COL_LIST_PERIOD = "period";
+        public const string COL_LIST_PERIODSTART = "periodStart";
+        public const string COL_LIST_PERIODEND = "periodEnd";
+        public const string COL_LIST_STAFF = "staff";
+
+        #endregion
+
         #region Stored Procedures
 
         public const string SP_GETDAY = "GetDay";
@@ -162,7 +197,7 @@ namespace PSPITS.COMMON
         public const string COL_LIST_GRADE = "grade";
         public const string COL_LIST_GRADECODE = "gradeCode";
         public const string COL_LIST_MDAID = "mdaID";
-        public const string COL_LIST_MDA = "MDA";
+        public const string COL_LIST_MDA = "mdaName";
         public const string COL_LIST_MDACODE = "MDACode";
         public const string COL_LIST_WORKSTATIONID = "workstationID";
         public const string COL_LIST_WORKSTATION = "workstation";

@@ -7,6 +7,7 @@ using System.Data.Common;
 using System.Configuration;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using PSPITS.COMMON;
 using PSPITS.MODEL;
 
@@ -14,6 +15,325 @@ namespace PSPITS.DAL.DATA
 {
     public class PSPITSDO : DataObject
     {
+
+        #region .From Gabriel.
+
+        public IEnumerable<vwMemberSalary> GetMemberSalaryByPensionID(int pensionID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+
+                return context.vwMemberSalaries.Where(m => m.pensionID == pensionID).Select(m => m).ToArray();
+            }
+        }
+        public IEnumerable<vwMemberSalary> GetMemberSalaryByMDAID(int mdaID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+
+                return context.vwMemberSalaries.Where(m => m.mdaID == mdaID).Select(m => m).ToArray();
+            }
+        }
+        public DataTable GetMemberSalaryContributionByPensionID(int pensionID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var rows = from contribution in context.vwMemberSalaries
+                           where (contribution.pensionID == pensionID)
+                           select new { BodyText1 = contribution.year, BodyText2 = contribution.month, BodyText3 = contribution.mdaName, BodyText20 = contribution.mdaName, BodyText4 = contribution.grossPay, BodyText5 = contribution.basicPay, BodyText6 = contribution.employerDeduction, BodyText7 = contribution.employeeDeduction, BodyText8 = contribution.employeeDeduction + contribution.employerDeduction, BodyGroup1 = contribution.schemeID, BodyGroup2 = contribution.firstName, BodyGroup3 = contribution.lastName, BodyGroup4 = contribution.pensionID, BodyGroup5 = contribution.maritalStatus, BodyGroup6 = contribution.dateoffirstAppointment, BodyGroup7 = contribution.dateofBirth, BodyGroup8 = contribution.dateoffirstAppointment };
+                return LINQToDataTable(rows);
+            }
+        }
+        public vwMemberSalary GetMemberSalaryContributionByPeriod(int pensionID, int month, int year)
+        {
+            using (var context = new PSPITSEntities())
+            {
+
+                return context.vwMemberSalaries.FirstOrDefault(m => m.pensionID == pensionID && m.month == month && m.year == year);
+            }
+        }
+        public ActualContribution GetActualContributionByPeriod(int pensionID, int month, int year)
+        {
+            using (var context = new PSPITSEntities())
+            {
+
+                return context.ActualContributions.FirstOrDefault(m => m.mdaID == pensionID && m.month == month && m.year == year);
+            }
+        }
+        public DataTable GetMemberSalaryContributionByMDAID(int mdaID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var rows = from contribution in context.vwMemberSalaries
+                           where (contribution.mdaID == mdaID)
+                           select new { BodyText1 = contribution.year, BodyText2 = contribution.month, BodyText3 = contribution.mdaName, BodyText20 = contribution.mdaName, BodyText4 = contribution.grossPay, BodyText5 = contribution.basicPay, BodyText6 = contribution.employerDeduction, BodyText7 = contribution.employeeDeduction, BodyText8 = contribution.employeeDeduction + contribution.employerDeduction, BodyGroup1 = contribution.schemeID, BodyGroup2 = contribution.firstName, BodyGroup3 = contribution.lastName, BodyGroup4 = contribution.pensionID, BodyGroup5 = contribution.maritalStatus, BodyGroup6 = contribution.dateoffirstAppointment, BodyGroup7 = contribution.dateofBirth, BodyGroup8 = contribution.dateoffirstAppointment };
+                return LINQToDataTable(rows);
+            }
+        }
+        public DataTable GetMemberSalaryContributionByPensionIDFirst(int pensionID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var rows = from contribution in context.vwMemberSalaries
+                           where (contribution.pensionID == pensionID)
+                           select new { BodyText1 = contribution.year, BodyText2 = contribution.month, BodyText3 = contribution.mdaName, BodyText4 = contribution.grossPay, BodyText5 = contribution.basicPay, BodyText6 = contribution.employerDeduction, BodyText7 = contribution.employeeDeduction, BodyText8 = contribution.employeeDeduction + contribution.employerDeduction, BodyGroup1 = contribution.schemeID, BodyGroup2 = contribution.firstName, BodyGroup3 = contribution.lastName, BodyGroup4 = contribution.pensionID, BodyGroup5 = contribution.maritalStatus, BodyGroup6 = contribution.dateoffirstAppointment, BodyGroup7 = contribution.dateofBirth, BodyGroup8 = contribution.dateoffirstAppointment };
+                return LINQToDataTableFirst(rows);
+            }
+        }
+        public DataTable LINQToDataTable<T>(IEnumerable<T> varlist)
+        {
+            DataTable dtReturn = new DataTable();
+
+
+            // column names
+            PropertyInfo[] oProps = null;
+
+
+            if (varlist == null) return dtReturn;
+
+
+            foreach (T rec in varlist)
+            {
+                // Use reflection to get property names, to create table, Only first time, others will follow
+                if (oProps == null)
+                {
+                    oProps = ((Type)rec.GetType()).GetProperties();
+                    foreach (PropertyInfo pi in oProps)
+                    {
+                        Type colType = pi.PropertyType;
+
+
+                        if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition() == typeof(Nullable<>)))
+                        {
+                            colType = colType.GetGenericArguments()[0];
+                        }
+
+
+                        dtReturn.Columns.Add(new DataColumn(pi.Name, colType));
+                    }
+                }
+
+
+                DataRow dr = dtReturn.NewRow();
+
+
+                foreach (PropertyInfo pi in oProps)
+                {
+                    dr[pi.Name] = pi.GetValue(rec, null) == null ? DBNull.Value : pi.GetValue
+                    (rec, null);
+                }
+
+
+                dtReturn.Rows.Add(dr);
+            }
+            return dtReturn;
+        }
+        public DataTable LINQToDataTableFirst<T>(IEnumerable<T> varlist)
+        {
+            DataTable dtReturn = new DataTable();
+
+
+            // column names
+            PropertyInfo[] oProps = null;
+
+
+            if (varlist == null) return dtReturn;
+
+
+            foreach (T rec in varlist)
+            {
+                // Use reflection to get property names, to create table, Only first time, others will follow
+                if (oProps == null)
+                {
+                    oProps = ((Type)rec.GetType()).GetProperties();
+                    foreach (PropertyInfo pi in oProps)
+                    {
+                        Type colType = pi.PropertyType;
+
+
+                        if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition() == typeof(Nullable<>)))
+                        {
+                            colType = colType.GetGenericArguments()[0];
+                        }
+
+
+                        dtReturn.Columns.Add(new DataColumn(pi.Name, colType));
+                    }
+                }
+
+
+                DataRow dr = dtReturn.NewRow();
+
+
+                foreach (PropertyInfo pi in oProps)
+                {
+                    dr[pi.Name] = pi.GetValue(rec, null) == null ? DBNull.Value : pi.GetValue
+                    (rec, null);
+                }
+                dtReturn.Rows.Add(dr);
+                break;
+            }
+            return dtReturn;
+        }
+        public int SaveMemberSalary(MemberSalary aPD)
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            DbCommand cmdAddEdit;
+            DbCommand cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMEMBERSALARY);
+
+            db.AddInParameter(cmdSelect, Constants.COL_MEMBERSALARY_PENSIONID, DbType.Int32, aPD.pensionID);
+            db.AddInParameter(cmdSelect, Constants.COL_MEMBERSALARY_MONTH, DbType.Int32, aPD.month);
+            db.AddInParameter(cmdSelect, Constants.COL_MEMBERSALARY_YEAR, DbType.Int32, aPD.year);
+            //see if this is a new record or an update
+            DataSet ds = GetData(cmdSelect, null);
+            DataTable dt = ds.Tables[0];
+
+            // DataRow row;
+            if (dt.Rows.Count == 0)
+            {
+                cmdAddEdit = db.GetStoredProcCommand(Constants.SP_ADDMEMBERSALARY);
+                db.AddInParameter(cmdAddEdit, Constants.COL_DATECREATED, DbType.Date, aPD.dateCreated);
+                db.AddInParameter(cmdAddEdit, Constants.COL_WHOCREATED, DbType.String, aPD.whoCreated);
+                db.AddInParameter(cmdAddEdit, Constants.COL_LOGREF, DbType.String, aPD.logRef);
+            }
+            else
+            {
+                cmdAddEdit = db.GetStoredProcCommand(Constants.SP_UPDATEMEMBERSALARY);//
+                db.AddInParameter(cmdAddEdit, Constants.COL_DATEUPDATED, DbType.Date, aPD.dateUpdated);
+                db.AddInParameter(cmdAddEdit, Constants.COL_WHOUPDATED, DbType.String, aPD.whoUpdated);
+            }
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_PENSIONID, DbType.Int32, aPD.pensionID);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_MONTH, DbType.Int32, aPD.month);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_YEAR, DbType.Int32, aPD.year);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_PERIOD, DbType.Int32, aPD.period);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_PAYROLLNUMBER, DbType.String, aPD.payrollNumber);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_BASICPAY, DbType.Decimal, aPD.basicPay);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_COLA, DbType.Decimal, aPD.cola);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_GROSSPAY, DbType.Decimal, aPD.grossPay);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_EMPLOYEEDEDUCTION, DbType.Decimal, aPD.employeeDeduction);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_EMPLOYERDEDUCTION, DbType.Decimal, aPD.employerDeduction);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_MONTHGRADE, DbType.Int32, aPD.monthGrade);
+            db.AddInParameter(cmdAddEdit, Constants.COL_MEMBERSALARY_MONTHRSSAGENCY, DbType.Int32, aPD.monthRSSAgency);
+
+
+            return (ExecuteNonQuery(cmdAddEdit));
+        }
+        public DataTable GetMDAContributionHistoryByID(int mdaID)
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            DbCommand cmdSelect;
+            if (mdaID == -1)
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDACONTRIBUTIONHISTORYALL);
+
+            }
+            else
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDACONTRIBUTIONHISTORYBYID);
+                db.AddInParameter(cmdSelect, Constants.COL_LIST_MDAID, DbType.Int32, mdaID);
+            }
+
+
+
+            //see if this is a new record or an update
+            return (GetData(cmdSelect, null).Tables[0]);
+
+        }
+        public DataTable GetMDA_ActualContributionHistoryByID(int mdaID)
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            DbCommand cmdSelect;
+            if (mdaID == -1)
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDAACTUALCONTRIBUTIONHISTORYALL);
+
+            }
+            else
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDAACTUALCONTRIBUTIONHISTORYBYID);
+                db.AddInParameter(cmdSelect, Constants.COL_LIST_MDAID, DbType.Int32, mdaID);
+            }
+
+            return (GetData(cmdSelect, null).Tables[0]);
+
+        }
+        public DataTable GetMDAContributionHistoryByIDandPeriod(int mdaID, int periodStart, int periodEnd)
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            DbCommand cmdSelect;
+            if (mdaID == -1) //ALL MDA's
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDACONTRIBUTIONHISTORYBYPERIOD);
+            }
+            else  //FOR Selected MDA
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDACONTRIBUTIONHISTORYBYPERIODANDID);
+                db.AddInParameter(cmdSelect, Constants.COL_LIST_MDAID, DbType.Int32, mdaID);
+            }
+
+            db.AddInParameter(cmdSelect, Constants.COL_LIST_PERIODSTART, DbType.Int32, periodStart);
+            db.AddInParameter(cmdSelect, Constants.COL_LIST_PERIODEND, DbType.Int32, periodEnd);
+
+            return (GetData(cmdSelect, null).Tables[0]);
+
+        }
+        public DataTable GetMDA_ActualContributionHistoryByIDandPeriod(int mdaID, int periodStart, int periodEnd)
+        {
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            DbCommand cmdSelect;
+            if (mdaID == -1) //ALL MDA'sal
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDAACTUALCONTRIBUTIONHISTORYBYPERIOD);
+            }
+            else  //FOR Selected MDA
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDAACTUALCONTRIBUTIONHISTORYBYPERIODANDID);
+                db.AddInParameter(cmdSelect, Constants.COL_LIST_MDAID, DbType.Int32, mdaID);
+            }
+
+            db.AddInParameter(cmdSelect, Constants.COL_LIST_PERIODSTART, DbType.Int32, periodStart);
+            db.AddInParameter(cmdSelect, Constants.COL_LIST_PERIODEND, DbType.Int32, periodEnd);
+
+            return (GetData(cmdSelect, null).Tables[0]);
+
+        }
+        public DataTable GetMDA(Boolean withALL)
+        {
+            DbCommand cmdSelect;
+            Microsoft.Practices.EnterpriseLibrary.Data.Database db = DatabaseInstance;
+            if (withALL)
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDAWITHAll);
+            }
+            else
+            {
+                cmdSelect = db.GetStoredProcCommand(Constants.SP_GETMDA);
+            }
+            return GetData(cmdSelect, null).Tables[0];
+
+        }
+        public bool SaveActualContribution(ActualContribution be)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                var actualContribution = context.ActualContributions.FirstOrDefault(b => b.mdaID == be.mdaID && b.month == be.month && b.year == be.year);
+                if (actualContribution != null)
+                {
+                    actualContribution.dateRemitted = be.dateRemitted;
+                    actualContribution.employeeDeduction = be.employeeDeduction;
+                    actualContribution.employerDeduction = be.employerDeduction;
+                    actualContribution.dateUpdated = DateTime.Now;
+                    actualContribution.whoUpdated = be.whoUpdated;
+                }
+                else
+                {
+                    context.ActualContributions.AddObject(be);
+                }
+                return context.SaveChanges() > 0;
+            }
+        }
+
+        #endregion
 
         public int GenPensionID()
         {
@@ -1452,4 +1772,34 @@ namespace PSPITS.DAL.DATA
         public string EvidenceFunction { set; get; }
         public string Mandatory { set; get; }        
     }
+
+
+    public class MemberSalary
+    {
+        public MemberSalary()
+        {
+            whoUpdated = whoCreated = string.Empty;
+
+        }
+        public int pensionID { set; get; }
+        public int month { set; get; }
+        public int year { set; get; }
+        public int period { set; get; }
+        public string payrollNumber { set; get; }
+        public decimal basicPay { set; get; }
+        public decimal cola { set; get; }
+        public decimal grossPay { set; get; }
+        public decimal employeeDeduction { set; get; }
+        public decimal employerDeduction { set; get; }
+        public int monthGrade { set; get; }
+        public int monthRSSAgency { set; get; }
+        public int logRef { set; get; }
+        public DateTime dateCreated { set; get; }
+        public string whoCreated { set; get; }
+        public DateTime dateUpdated { set; get; }
+        public string whoUpdated { set; get; }
+
+
+    }
+
 } //PSPITS.DAL

@@ -1,0 +1,27 @@
+1. Computation
+2. Save
+3. Print
+4. Select Option
+5. Update Saved record with selected option
+6. Authorization of payment [LATER]
+
+Registration of NFP Members
+- Include flag(dropdown) to specify whether member being registered is retired, deceased or contributor 
+
+Register Benefits for NPF Members
+- Present UI for entry of the computed benefits for selected NPF Member
+
+At the point of saving member benefits, update member's record to reflect that he/she is retired or deceased (no longer a contributor)
+
+
+TERMINATION BENEFITS
+1. Refund of contribution (less than 2 years)
+2. Lumpsum based on actuarial equivalents (10 or more years to Pensionable Age)
+
+NPF BENEFICIARIES
+
+1. Create a separate module that caters for registration and payments for NPF Beneficiaries
+	Register Benefits for NPF Members
+	- Present UI for entry of the computed benefits for selected NPF Member
+
+

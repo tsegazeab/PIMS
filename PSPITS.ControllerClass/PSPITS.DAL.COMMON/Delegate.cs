@@ -5,7 +5,145 @@ using System.Text;
 
 namespace PSPITS.COMMON
 {
-    
+    #region .From Gabriel.
+
+    public delegate void MemberContributionEventHandler(object sender, MemberContributionEventArgs e);
+    public delegate void ActualContributionEventHandler(object sender, ActualContributionEventArgs e);
+    public class MemberContributionEventArgs : EventArgs
+    {
+        private string _pid = string.Empty;
+        private string _month = string.Empty;
+        private string _year = string.Empty;
+        public string pensionID
+        {
+            get
+            {
+                return _pid;
+            }
+            set
+            {
+                this._pid = value;
+            }
+        }
+        public string year
+        {
+            get
+            {
+                return _year;
+            }
+            set
+            {
+                this._year = value;
+            }
+        }
+        public string month
+        {
+            get
+            {
+                return _month;
+            }
+            set
+            {
+                this._month = value;
+            }
+        }
+        public MemberContributionEventArgs()
+        {
+
+        }
+
+        public MemberContributionEventArgs(string _pensionID, string _month, string _year)
+        {
+            this._pid = _pensionID;
+            this._month = _month;
+            this._year = _year;
+
+        }
+    }
+    public class ActualContributionEventArgs : EventArgs
+    {
+        private string _mdaid = string.Empty;
+        private string _month = string.Empty;
+        private string _year = string.Empty;
+        public string mdaID
+        {
+            get
+            {
+                return _mdaid;
+            }
+            set
+            {
+                this._mdaid = value;
+            }
+        }
+        public string year
+        {
+            get
+            {
+                return _year;
+            }
+            set
+            {
+                this._year = value;
+            }
+        }
+        public string month
+        {
+            get
+            {
+                return _month;
+            }
+            set
+            {
+                this._month = value;
+            }
+        }
+        public ActualContributionEventArgs()
+        {
+
+        }
+
+        public ActualContributionEventArgs(string _mdaid, string _month, string _year)
+        {
+            this._mdaid = _mdaid;
+            this._month = _month;
+            this._year = _year;
+
+        }
+    }
+    public class MemberContributionToEdit
+    {
+        private MemberContributionEventArgs _memberContribution;
+        public MemberContributionEventArgs MemberContribution
+        {
+
+            set
+            {
+                if (OnMemberContributionEditClicked != null) OnMemberContributionEditClicked(this, new MemberContributionEventArgs(value.pensionID, value.month, value.year));
+                _memberContribution = value;
+            }
+
+        }
+        public event MemberContributionEventHandler OnMemberContributionEditClicked;
+    }
+    public class ActualContributionToEdit
+    {
+        private ActualContributionEventArgs _memberContribution;
+        public ActualContributionEventArgs ActualContribution
+        {
+
+            set
+            {
+                if (OnActualContributionEditClicked != null) OnActualContributionEditClicked(this, new ActualContributionEventArgs(value.mdaID, value.month, value.year));
+                _memberContribution = value;
+            }
+
+        }
+        public event ActualContributionEventHandler OnActualContributionEditClicked;
+    }
+
+    #endregion
+
     public delegate void BeneficiaryEventHandler(object sender, BeneficiaryEventArgs e);
     public delegate void MemberEvidenceEventHandler(object sender, MemberEvidenceEventArgs e);
     public delegate void MemberEventHandler(object sender, MemberEventArgs e);

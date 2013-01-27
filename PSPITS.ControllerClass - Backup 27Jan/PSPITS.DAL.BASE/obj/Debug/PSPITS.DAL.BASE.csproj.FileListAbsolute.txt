@@ -1,0 +1,11 @@
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Debug\ResolveAssemblyReference.cache
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\PSPITS.DAL.BASE.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\PSPITS.DAL.BASE.pdb
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\bin\Debug\Microsoft.Practices.ObjectBuilder.xml
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Debug\PSPITS.DAL.BASE.dll
+G:\PSPITS.ControllerClass\PSPITS.DAL.BASE\obj\Debug\PSPITS.DAL.BASE.pdb

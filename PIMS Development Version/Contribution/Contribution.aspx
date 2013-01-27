@@ -1,18 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageContribution.master" AutoEventWireup="true" CodeFile="Contribution.aspx.cs" Inherits="Contribution_Contribution" %>
-
+<%@ MasterType VirtualPath="~/MasterPageContribution.master" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
-<%@ Register src="../User_Control/Contribution/RSSAGENCY/MDADetails.ascx" tagname="MDADetails" tagprefix="uc1" %>
+<%@ Register src="../User_Control/Contribution/RSSAGENCY/AgencyActualContribution.ascx" tagname="AgencyActualContribution" tagprefix="uc1" %>
 <%@ Register src="../User_Control/Contribution/RSSAGENCY/ContactPerson.ascx" tagname="ContactPerson" tagprefix="uc2" %>
 <%@ Register src="../User_Control/Contribution/MEMBER/MemberContributionHistory.ascx" tagname="MemberContributionHistory" tagprefix="uc3" %>
-<%@ Register src="../User_Control/Contribution/RSSAGENCY/WorkstationWithinAgencyContributionHistory.ascx" tagname="WorkstationWithinAgencyContributionHistory" tagprefix="uc4" %>
-<%@ Register src="../User_Control/Contribution/RSSAGENCY/MemberWithinAgencyContributionHistory.ascx" tagname="MemberWithinAgencyContributionHistory" tagprefix="uc5" %>
 <%@ Register src="../User_Control/Contribution/RSSAGENCY/AgencyContributionArreas.ascx" tagname="AgencyContributionArreas" tagprefix="uc6" %>
 <%@ Register src="../User_Control/Contribution/MEMBER/MemberInformation.ascx" tagname="MemberInformation" tagprefix="uc7" %>
 <%@ Register src="../User_Control/Contribution/MEMBER/MemberContributionArrears.ascx" tagname="MemberContributionArrears" tagprefix="uc8" %>
-<%@ Register src="../User_Control/Contribution/MEMBER/MemberBreakInService.ascx" tagname="MemberBreakInService" tagprefix="uc9" %>
-
-<%@ Register src="../User_Control/EmploymentServiceBreakEvidence.ascx" tagname="employmentservicebreakevidence" tagprefix="uc14" %>
-<%@ Register src="../User_Control/Contribution/RSSAGENCY/NewContribution.ascx" tagname="NewContribution" tagprefix="uc10" %>
+<%@ Register src="../User_Control/Contribution/RSSAGENCY/AGENCYContributionHistory.ascx" tagname="AGENCYContributionHistory" tagprefix="uc10" %>
+<%@ Register src="../User_Control/Contribution/MEMBER/MemberContributionAdded.ascx" tagname="MemberContributionAdded" tagprefix="uc20" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
@@ -540,66 +538,101 @@
 	vertical-align:top;
 }
 
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table class="style3">
+            <table>
                 <tr>
-                    <td align="left" valign="top" width="300">
-                        <telerik:RadPanelBar ID="RadPanelBar1" Runat="server" 
-                            onitemclick="RadPanelBar1_ItemClick" Skin="Windows7">
-                            <Items>
-                                <telerik:RadPanelItem runat="server" Expanded="True" PreventCollapse="True" 
-                                    Text="CONTRIBUTION (RSS AGENCY)">
-                                    <Items>
-                                        <telerik:RadPanelItem runat="server" Text="MDA Details">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Contact Person">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Contribution History">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Workstation within Agency">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Member within Agency">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Contribution Arrears">
-                                        </telerik:RadPanelItem>
-                                    </Items>
-                                </telerik:RadPanelItem>
-                                <telerik:RadPanelItem runat="server" Expanded="True" PreventCollapse="True" 
-                                    Selected="True" Text="CONTRIBUTION (MEMBER)">
-                                    <Items>
-                                        <telerik:RadPanelItem runat="server" Text="Member Information">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Member Contribution History">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Member Contribution Arrears">
-                                        </telerik:RadPanelItem>
-                                        <telerik:RadPanelItem runat="server" Text="Break in Service">
-                                        </telerik:RadPanelItem>
-                                    </Items>
-                                </telerik:RadPanelItem>
-                            </Items>
-                        </telerik:RadPanelBar>
-                    </td>
-                    <td>
-                        &nbsp;</td>
                     <td valign="top">
-                        <table class="style3">
+                        <table>
+                            <tr>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <telerik:RadMultiPage ID="RadMultiPageSubMenu" Runat="server">
+                                    <telerik:RadPageView ID="RadPageViewBlank" runat="server"> </telerik:RadPageView>
+                                        <telerik:RadPageView ID="RadPageViewMDAMenu" runat="server">
+                                            <telerik:RadToolBar ID="RadToolBarMDAMenu" Runat="server" Skin="Windows7" 
+                                                onbuttonclick="RadToolBarMDAMenu_ButtonClick">
+                                                <Items>
+                                                    <telerik:RadToolBarButton runat="server" Text="MDA Contribution History" 
+                                                        Owner="RadToolBarMDAMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 4" 
+                                                        Owner="RadToolBarMDAMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" Text="Add/Edit Bank Deposit">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 5">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" Text="Reconcile contribution with salary data" 
+                                                        Owner="RadToolBarMDAMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 3">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" 
+                                                        Text="Reconcile contribution with bank deposit">
+                                                    </telerik:RadToolBarButton>
+                                                </Items>
+                                            </telerik:RadToolBar>
+                                        </telerik:RadPageView>
+                                        <telerik:RadPageView ID="RadPageViewMemberMenu" runat="server">
+                                            <telerik:RadToolBar ID="RadToolBarMemberMenu" Runat="server" Skin="Windows7" 
+                                                onbuttonclick="RadToolBarMemberMenu_ButtonClick">
+                                                <Items>
+                                                    <telerik:RadToolBarButton runat="server" Text="Member Information" 
+                                                        Owner="RadToolBarMemberMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 3" 
+                                                        Owner="RadToolBarMemberMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" Text="Member Contribution History" 
+                                                        Owner="RadToolBarMemberMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 4" 
+                                                        Owner="RadToolBarMemberMenu">
+                                                    </telerik:RadToolBarButton>
+                                                    <telerik:RadToolBarButton runat="server" Text="Add Member Contribution" 
+                                                        Owner="RadToolBarMemberMenu">
+                                                    </telerik:RadToolBarButton>
+                                                </Items>
+                                            </telerik:RadToolBar>
+                                        </telerik:RadPageView>
+                                    </telerik:RadMultiPage>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
                             <tr>
                                 <td>
                                     &nbsp;</td>
                                 <td>
                                     <telerik:RadMultiPage ID="contributionRadMultiPage" Runat="server">
-                                        <telerik:RadPageView ID="MDADetailsView" runat="server">
-                                            <table class="style3">
+                                        <telerik:RadPageView ID="AgencyActualContribution" runat="server">
+                                            <table>
                                                 <tr>
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <uc1:MDADetails ID="MDADetails1" runat="server" />
+                                                        <uc1:AgencyActualContribution ID="AgencyActualContribution1" runat="server" />
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -615,7 +648,7 @@
                                             </table>
                                         </telerik:RadPageView>
                                         <telerik:RadPageView ID="ContactPersonView" runat="server">
-                                            <table class="style3">
+                                            <table>
                                                 <tr>
                                                     <td>
                                                         &nbsp;</td>
@@ -627,13 +660,236 @@
                                                 </tr>
                                             </table>
                                         </telerik:RadPageView>
-                                        <telerik:RadPageView ID="AgencyContributionHistoryView" runat="server">
-                                            <table class="style3">
-                                                <tr>
+                                          <telerik:RadPageView ID="RadPageViewDefault" runat="server">
+                                           <%-- <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="left" valign="top">
+                &nbsp;</td>
+            <td width="50">
+                &nbsp;</td>
+            <td align="left" valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <table align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="130">
+                            <asp:ImageButton ID="ImageButton1" runat="server" 
+                                ImageUrl="~/images/coins-icon.png" 
+                                PostBackUrl="~/Benefit_Module/ProcessMemberBenefits.aspx" 
+                                ToolTip="Click here" Width="128px" />
+                        </td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="mymenu2">
+                                        Process Member Benefits</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="text" title="Use this for processing a Member's benefits">
+                                        Use this for processing a Member&#39;s...</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" width="130">
+                            <asp:ImageButton ID="ImageButton2" runat="server" 
+                                ImageUrl="~/images/1340947992_06.png" ToolTip="Click here" 
+                                Width="128px" />
+                        </td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="mymenu2">
+                                        Return of Contribution</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="text">
+                                        This is for updating user information....</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            &nbsp;</td>
+                    </tr>
+                    </table>
+            </td>
+            <td width="50">
+                &nbsp;</td>
+            <td align="left" valign="top">
+                <table align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" style="margin-left: 80px" width="130">
+                            <asp:ImageButton ID="ImageButton10" runat="server" 
+                                ImageUrl="~/images/11.png" 
+                                PostBackUrl="~/Benefit/SurvivorBenefitApplication.aspx" ToolTip="Click here" 
+                                Width="128px" />
+                        </td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="mymenu2">
+                                        Process Survivor Benefits</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="text">
+                                        This is for 
+                                        computing survivor benefits...</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="margin-left: 80px" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="margin-left: 80px" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="text">
+                                        &nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="margin-left: 80px" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="margin-left: 80px" width="130">
+                            &nbsp;</td>
+                        <td align="left">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>--%>
+    <br />
+    <br />
+                                        </telerik:RadPageView>
+                                        <telerik:RadPageView ID="AgencyContributionHistoryView" runat="server" 
+                                            oninit="AgencyContributionHistoryView_Init" 
+                                            onload="AgencyContributionHistoryView_Load">
+                                            <table>
+                                             <tr>
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <uc3:MemberContributionHistory ID="MemberContributionHistory1" runat="server" />
+                                                       <div class="titleShadow" 
+                     
+                                                            style=" font-size: 18pt; color: #000066; font-weight: bold; width:422px; font-family:Arial, Helvetica, sans-serif; text-align: left;">
+                    Agency contribution History</div>
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                                       <tr>
+                                                                           <td>
+                                                                               &nbsp;</td>
+                                                                           <td>
+                                                                               &nbsp;</td>
+                                                                           <td>
+                                                                               &nbsp;</td>
+                                                </tr>
+                                                                       <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        <asp:Panel ID="PanelPeriod" runat="server">
+              Start period     <telerik:RadMonthYearPicker ID="RadMonthYearPickerStart" Runat="server">
+            </telerik:RadMonthYearPicker>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="RadMonthYearPickerStart" runat="server" ForeColor="Red" ErrorMessage="Required" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>
+             &nbsp; &nbsp; &nbsp; End period
+            <telerik:RadMonthYearPicker ID="RadMonthYearPickerEnd" Runat="server">
+                 </telerik:RadMonthYearPicker>  
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="RadMonthYearPickerEnd" ForeColor="Red" ErrorMessage="Required" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<telerik:RadButton ID="RadButtonPeriod" ValidationGroup="validatePeriod" 
+                                                                runat="server" Text="View for selected period" onclick="RadButtonPeriod_Click">
+                 </telerik:RadButton>
+             </asp:Panel>
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -642,31 +898,24 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <table align="center" class="style4">
-                                                            <tr>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar2" Runat="server" Skin="Windows7" 
-                                                                        onbuttonclick="RadToolBar2_ButtonClick">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/Icons/add.png" Text="New">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                                <td width="50">
-                                                                    &nbsp;</td>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar3" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/xlsx-win-icon.png" Owner="RadToolBar3" Text="Import">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        <uc10:AGENCYContributionHistory ID="AGENCYContributionHistory1" runat="server" />
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                       
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -681,121 +930,14 @@
                                                 </tr>
                                             </table>
                                         </telerik:RadPageView>
-                                        <telerik:RadPageView ID="WorkstationWithinAgencyView" runat="server">
-                                            <table class="style3">
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <uc4:WorkstationWithinAgencyContributionHistory ID="WorkstationWithinAgencyContributionHistory1" 
-                                                            runat="server" />
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <table align="center" class="style4">
-                                                            <tr>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar4" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/Icons/add.png" Text="New">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                                <td width="50">
-                                                                    &nbsp;</td>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar5" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/xlsx-win-icon.png" Owner="RadToolBar3" Text="Import">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                            </table>
-                                        </telerik:RadPageView>
-                                        <telerik:RadPageView ID="MemberWithinAgenecyView" runat="server">
-                                            <table class="style3">
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <uc5:MemberWithinAgencyContributionHistory ID="MemberWithinAgencyContributionHistory1" 
-                                                            runat="server" />
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <table align="center" class="style4">
-                                                            <tr>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar6" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/Icons/add.png" Text="New">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                                <td width="50">
-                                                                    &nbsp;</td>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar7" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/xlsx-win-icon.png" Owner="RadToolBar3" Text="Import">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                            </table>
-                                        </telerik:RadPageView>
+                                        
                                         <telerik:RadPageView ID="AgencyContributionArrearsView" runat="server">
-                                            <table class="style3">
+                                            <table>
                                                 <tr>
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <uc6:AgencyContributionArreas ID="AgencyContributionArreas1" runat="server" />
+                                                        <uc10:AGENCYContributionHistory ID="AGENCYContributionHistory2" runat="server" />
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -804,7 +946,7 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <table align="center" class="style4">
+                                                        <table align="center">
                                                             <tr>
                                                                 <td>
                                                                     <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7">
@@ -843,7 +985,7 @@
                                             </table>
                                         </telerik:RadPageView>
                                         <telerik:RadPageView ID="MemberInformationView" runat="server">
-                                            <table class="style3">
+                                            <table>
                                                 <tr>
                                                     <td>
                                                         &nbsp;</td>
@@ -871,61 +1013,8 @@
                                                 </tr>
                                             </table>
                                         </telerik:RadPageView>
-                                        <telerik:RadPageView ID="MemberContributionHistoryView" runat="server">
-                                            <table class="style3">
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <uc3:MemberContributionHistory ID="MemberContributionHistory2" runat="server" />
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <table align="center" class="style4">
-                                                            <tr>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar10" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/Icons/add.png" Text="New">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                                <td width="50">
-                                                                    &nbsp;</td>
-                                                                <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar11" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/xlsx-win-icon.png" Owner="RadToolBar3" Text="Import">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
-                                                                    </telerik:RadToolBar>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                            </table>
-                                        </telerik:RadPageView>
-                                        <telerik:RadPageView ID="MemberArrearsView" runat="server">
-                                            <table class="style3">
+                                          <telerik:RadPageView ID="MemberArrearsView" runat="server">
+                                            <table>
                                                 <tr>
                                                     <td>
                                                         &nbsp;</td>
@@ -953,13 +1042,23 @@
                                                 </tr>
                                             </table>
                                         </telerik:RadPageView>
-                                        <telerik:RadPageView ID="MemberBreakInServiceView" runat="server">
-                                            <table class="style3">
+                                        <telerik:RadPageView ID="RadPageViewMemberContributionAdd" runat="server">
+                                           
+                                            <table>
                                                 <tr>
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <uc9:MemberBreakInService ID="MemberBreakInService1" runat="server" />
+                                                                                                           
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        <uc20:MemberContributionAdded ID="MemberContributionAdded1" runat="server" />
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -969,6 +1068,31 @@
                                                         &nbsp;</td>
                                                     <td>
                                                         &nbsp;</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </table>
+                                                        
+                                                  
+                                        </telerik:RadPageView>
+                                        <telerik:RadPageView ID="MemberContributionHistoryView" runat="server" 
+                                            oninit="MemberContributionHistoryView_Init">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        <uc3:MemberContributionHistory ID="MemberContributionHistory2" runat="server" />
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                   
+                                                    </td>
                                                     <td>
                                                         &nbsp;</td>
                                                 </tr>
@@ -982,6 +1106,9 @@
                                                 </tr>
                                             </table>
                                         </telerik:RadPageView>
+                                        <telerik:RadPageView ID="RadPageViewPrint" runat="server">
+                                           <rsweb:ReportViewer ID="ReportViewerContribution" runat="server" Width="905px"></rsweb:ReportViewer>
+                                        </telerik:RadPageView>
                                     </telerik:RadMultiPage>
                                 </td>
                                 <td>
@@ -991,10 +1118,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="300">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
                     <td>
                         <telerik:RadFormDecorator ID="RadFormDecorator1" Runat="server" 
                             DecoratedControls="Default, Textbox, Textarea, Fieldset, Label, H4H5H6, Select, GridFormDetailsViews, ValidationSummary, LoginControls" 
@@ -1002,121 +1125,6 @@
                     </td>
                 </tr>
             </table>
-            <telerik:RadToolTip ID="NewAgencyContributionTip" runat="server" 
-                Animation="Fade" HideEvent="FromCode" Modal="True" Position="Center" 
-                RelativeTo="BrowserWindow" ShowEvent="FromCode">
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td align="center" class="mybottom" colspan="5">
-                            New agency contribution record</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            <uc10:NewContribution ID="NewContribution1" runat="server" />
-                        </td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td align="center">
-                            <table>
-                                <tr>
-                                    <td>
-                                        |&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                    <td>
-                                        <asp:Image ID="Image9" runat="server" 
-                                            ImageUrl="~/images/modules/Save-icon(16x16).png" />
-                                    </td>
-                                    <td>
-                                        <asp:LinkButton ID="btnOK1" runat="server" CssClass="textBlueU">Save</asp:LinkButton>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                    <td>
-                                        |</td>
-                                    <td>
-                                        &nbsp;
-                                        <asp:Image ID="Image10" runat="server" 
-                                            ImageUrl="~/images/modules/Cancel-icon(16x16).png" />
-                                    </td>
-                                    <td>
-                                        <asp:LinkButton ID="btnHome" runat="server" CssClass="textBlueU">Cancel</asp:LinkButton>
-                                        &nbsp;&nbsp;&nbsp;
-                                    </td>
-                                    <td>
-                                        |</td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="mybottom" colspan="5">
-                            &nbsp;</td>
-                    </tr>
-                </table>
-            </telerik:RadToolTip>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
