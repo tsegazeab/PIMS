@@ -375,7 +375,7 @@
             &nbsp;</td>
         <td align="right" colspan="2">
             <telerik:RadButton ID="RadButtonSaveBenefit" runat="server" Skin="Vista" 
-                Text="Save Option">
+                Text="Save Option" onclick="RadButtonSaveBenefit_Click">
             </telerik:RadButton>
         </td>
     </tr>

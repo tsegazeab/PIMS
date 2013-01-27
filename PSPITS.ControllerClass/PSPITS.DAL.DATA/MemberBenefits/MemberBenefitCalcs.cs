@@ -32,6 +32,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.NumberOfServiceYears = CalcuateYearsInServicePriorTo(mb.Member, Constants.JULY_FIRST_2012);
             mb.NumberOfServiceBreakYears = CalculateServiceBreakYears(serviceBreaks);
             mb.NumberOfPensionableYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
+            mb.ServiceEndDate = mbr.ServiceEndDate;
 
             mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
             //To be picked from table
@@ -93,6 +94,57 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 if (mb.PensionTypeEnum == PensionType.DeathInServicePension)
                     ComputeSurvivorBenefits(mb);
                 return mb;
+            }
+        }
+
+        public void SaveMemberBenefit(MemberBenefit mb)
+        {
+            bool isNew = false;
+            using (var context = new PSPITSEntities())
+            {
+                MemberBenefit memberBenefit = context.MemberBenefits.FirstOrDefault(p => p.MemberId == mb.MemberId);
+                if (memberBenefit == null)
+                {
+                    memberBenefit = new MemberBenefit();
+                    isNew = true;
+                }
+                memberBenefit.AnnualGrossPensionEntitlement = mb.AnnualGrossPensionEntitlement;
+                memberBenefit.AThirdAnnualPension = mb.AThirdAnnualPension;
+                memberBenefit.AverageCivilServiceSalaryIncrease = mb.AverageCivilServiceSalaryIncrease;
+                memberBenefit.BenefitOption = mb.BenefitOption;
+                memberBenefit.CommutationFactor = mb.CommutationFactor;
+                memberBenefit.EarlyRetirementReductionAdjustment = mb.EarlyRetirementReductionAdjustment;
+                memberBenefit.FinalMonthGrossSalary = mb.FinalMonthGrossSalary;
+                memberBenefit.FinancialYearEndDate = mb.FinancialYearEndDate;
+                memberBenefit.FinancialYearId = mb.FinancialYearId;
+                memberBenefit.FirstOfFollowingMonth = mb.FirstOfFollowingMonth;
+                memberBenefit.GrossAnnualPensionUptoLastFY = mb.GrossAnnualPensionUptoLastFY;
+                memberBenefit.GrossPensionAccruedInRetirementYear = mb.GrossPensionAccruedInRetirementYear;
+                memberBenefit.GrossSalaryInRetirementYear = mb.GrossSalaryInRetirementYear;
+                memberBenefit.LateRetirementReductionAdjustment = mb.LateRetirementReductionAdjustment;
+                memberBenefit.LumpSumCommutation = mb.LumpSumCommutation;
+                memberBenefit.LumpSumPension = mb.LumpSumPension;
+                memberBenefit.MemberId = mb.MemberId;
+                memberBenefit.MonthlyPension = mb.MonthlyPension;
+                memberBenefit.MonthsBeyondPensionableAge = mb.MonthsBeyondPensionableAge;
+                memberBenefit.MonthsToPensionableAge = mb.MonthsToPensionableAge;
+                memberBenefit.NetAnnualPension = mb.NetAnnualPension;
+                memberBenefit.NoCommutation = mb.NoCommutation;
+                memberBenefit.NumberOfPensionableYears = mb.NumberOfPensionableYears;
+                memberBenefit.NumberOfServiceBreakYears = mb.NumberOfServiceBreakYears;
+                memberBenefit.NumberOfServiceYears = mb.NumberOfServiceYears;
+                memberBenefit.PensionAccrualUpdateForCurrentFY = mb.PensionAccrualUpdateForCurrentFY;
+                memberBenefit.PensionType = mb.PensionType;
+                memberBenefit.ProjectedAnnualPension = mb.ProjectedAnnualPension;
+                memberBenefit.ProjectedRemainingService = mb.ProjectedRemainingService;
+                memberBenefit.ProjectedRemainingServiceAge = mb.ProjectedRemainingServiceAge;
+                memberBenefit.ServiceEndDate = mb.ServiceEndDate;
+                memberBenefit.StandardRetirementDate = mb.StandardRetirementDate;
+                memberBenefit.TotalAccruedPension = mb.TotalAccruedPension;
+                memberBenefit.UpdatedGrossAnnualPension = mb.UpdatedGrossAnnualPension;
+                if (isNew)
+                    context.MemberBenefits.AddObject(memberBenefit);
+                context.SaveChanges();
             }
         }
 

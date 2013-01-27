@@ -1003,6 +1003,7 @@
           <Property Name="FirstOfFollowingMonth" Type="date" />
           <Property Name="FinancialYearId" Type="int" Nullable="false" />
           <Property Name="ServiceEndDate" Type="datetime" />
+          <Property Name="BenefitOption" Type="int" />
         </EntityType>
         <EntityType Name="MemberComputedBenefit">
           <Key>
@@ -3157,6 +3158,7 @@
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
+          <FunctionImport Name="GetMDA" />
         </EntityContainer>
         <EntityType Name="ActualContribution">
           <Key>
@@ -3780,6 +3782,7 @@
           <Property Name="FirstOfFollowingMonth" Type="DateTime" />
           <Property Name="FinancialYearId" Type="Int32" Nullable="false" />
           <Property Name="ServiceEndDate" Type="DateTime" />
+          <Property Name="BenefitOption" Type="Int32" />
           <NavigationProperty Name="FinancialYear" Relationship="PSPITSModel.FK_MemberBenefit_FinancialYear" FromRole="MemberBenefit" ToRole="FinancialYear" />
           <NavigationProperty Name="Member" Relationship="PSPITSModel.FK_MemberBenefit_Member" FromRole="MemberBenefit" ToRole="Member" />
         </EntityType>
@@ -5445,6 +5448,7 @@
                 <ScalarProperty Name="FirstOfFollowingMonth" ColumnName="FirstOfFollowingMonth" />
                 <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
                 <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
+                <ScalarProperty Name="BenefitOption" ColumnName="BenefitOption" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -6215,6 +6219,8 @@
               <ScalarProperty Name="UserId" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetMDA" FunctionName="PSPITSModel.Store.GetMDA">
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -6249,7 +6255,7 @@
         <EntityTypeShape EntityType="PSPITSModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="11.375" Height="3.3263964843750031" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="9.75" Height="3.9033007812500031" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.BankAccountDetail" Width="1.5" PointX="5.75" PointY="15.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.Beneficiary" Width="1.5" PointX="15" PointY="6.375" Height="5.4417122395833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.Beneficiary" Width="1.5" PointX="15" PointY="6.5" Height="5.4417122395833388" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.BeneficiaryDisability" Width="1.5" PointX="14.75" PointY="16.75" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.BeneficiaryEvidence" Width="1.5" PointX="17.75" PointY="5.75" Height="4.2879036458333388" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.BenefitPaymentMember" Width="1.5" PointX="0.75" PointY="19.75" Height="4.0956022135416674" IsExpanded="true" />
@@ -6259,25 +6265,25 @@
         <EntityTypeShape EntityType="PSPITSModel.DisabilityBenefitApplication" Width="1.5" PointX="5.75" PointY="20.25" Height="6.0186165364583388" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.EvidenceByFunction" Width="1.5" PointX="7.75" PointY="15.75" Height="2.9417936197916674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.EvidenceByRelation" Width="1.5" PointX="9.75" PointY="15.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.FinancialYear" Width="1.5" PointX="15.75" PointY="13.5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.FinancialYear" Width="1.5" PointX="15.75" PointY="13.625" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.GossSector" Width="1.5" PointX="12.75" PointY="1.25" Height="2.749492187499996" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.LifeBenefitApplication" Width="1.5" PointX="8.75" PointY="28.375" Height="6.0186165364583246" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.List" Width="1.5" PointX="20" PointY="1" Height="3.1340950520833246" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.ListType" Width="1.5" PointX="17.75" PointY="1.25" Height="2.5571907552083246" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MdaListing" Width="1.5" PointX="15" PointY="1" Height="3.326396484374996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.Member" Width="1.5" PointX="12.75" PointY="10.25" Height="8.9031380208333264" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.MemberAllowance" Width="1.5" PointX="17.25" PointY="27.375" Height="3.1340950520833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.Member" Width="1.5" PointX="12.75" PointY="10.375" Height="8.9031380208333264" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.MemberAllowance" Width="1.5" PointX="17.25" PointY="27.75" Height="3.1340950520833246" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberArrear" Width="1.5" PointX="17.75" PointY="19.75" Height="5.63401367187501" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.MemberBenefit" Width="1.5" PointX="18" PointY="10.75" Height="7.7493294270833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.MemberBenefit" Width="1.5" PointX="18" PointY="10.75" Height="7.94163085937501" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberComputedBenefit" Width="1.5" PointX="8" PointY="19.75" Height="6.9801236979166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.MemberDeath" Width="1.5" PointX="15" PointY="21" Height="4.6725065104166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.MemberDeath" Width="1.5" PointX="15" PointY="21.375" Height="4.6725065104166674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberEmployment" Width="1.5" PointX="19.75" PointY="19.75" Height="4.8648079427083246" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberEmploymentEvidence" Width="1.5" PointX="19.75" PointY="5.75" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberEmploymentServiceBreak" Width="1.5" PointX="20.75" PointY="10.75" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberEmploymentServiceBreakEvidence" Width="1.5" PointX="21.75" PointY="15.75" Height="5.05710937500001" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberEvidence" Width="1.5" PointX="21.75" PointY="5.75" Height="4.0956022135416674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.MemberIdentity" Width="1.5" PointX="21.75" PointY="21.75" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PSPITSModel.MemberSalary" Width="1.5" PointX="15" PointY="26.5" Height="5.05710937500001" IsExpanded="true" />
+        <EntityTypeShape EntityType="PSPITSModel.MemberSalary" Width="1.5" PointX="15" PointY="26.75" Height="5.05710937500001" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.NominatedAgent" Width="1.5" PointX="11" PointY="20.375" Height="5.8263151041666674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.NonMemberAllowance" Width="1.5" PointX="22.75" PointY="0.75" Height="2.9417936197916674" IsExpanded="true" />
         <EntityTypeShape EntityType="PSPITSModel.NonMemberSalary" Width="1.5" PointX="22.75" PointY="10.75" Height="3.9033007812499818" IsExpanded="true" />
@@ -6364,8 +6370,8 @@
           <ConnectorPoint PointX="10.5" PointY="12.9612939453125" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_Beneficiary_Member" ManuallyRouted="false">
-          <ConnectorPoint PointX="14.25" PointY="11.033356119791669" />
-          <ConnectorPoint PointX="15" PointY="11.033356119791669" />
+          <ConnectorPoint PointX="14.25" PointY="11.158356119791669" />
+          <ConnectorPoint PointX="15" PointY="11.158356119791669" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MemberComputedBenefit_DisabilityBenefitApplication" ManuallyRouted="false">
           <ConnectorPoint PointX="7.25" PointY="23.259308268229169" />
@@ -6379,8 +6385,8 @@
           <ConnectorPoint PointX="11" PointY="23.288157552083334" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MemberBenefit_FinancialYear" ManuallyRouted="false">
-          <ConnectorPoint PointX="17.25" PointY="14.682444661458334" />
-          <ConnectorPoint PointX="18" PointY="14.682444661458334" />
+          <ConnectorPoint PointX="17.25" PointY="14.807444661458334" />
+          <ConnectorPoint PointX="18" PointY="14.807444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MdaListing_GossSector" ManuallyRouted="false">
           <ConnectorPoint PointX="14.25" PointY="2.624746093749998" />
@@ -6396,24 +6402,24 @@
           <ConnectorPoint PointX="20" PointY="2.5285953776041623" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MemberBenefit_Member" ManuallyRouted="false">
-          <ConnectorPoint PointX="14.25" PointY="12.658356119791669" />
-          <ConnectorPoint PointX="18" PointY="12.658356119791669" />
+          <ConnectorPoint PointX="14.25" PointY="12.783356119791669" />
+          <ConnectorPoint PointX="18" PointY="12.783356119791669" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MemberDeath_Member" ManuallyRouted="false">
-          <ConnectorPoint PointX="13.5" PointY="19.153138020833325" />
-          <ConnectorPoint PointX="13.5" PointY="23.336253255208334" />
-          <ConnectorPoint PointX="13.822919166666667" PointY="23.336253255208334" />
-          <ConnectorPoint PointX="13.989585833333335" PointY="23.336253255208334" />
-          <ConnectorPoint PointX="15" PointY="23.336253255208334" />
+          <ConnectorPoint PointX="13.5" PointY="19.278138020833325" />
+          <ConnectorPoint PointX="13.5" PointY="23.711253255208334" />
+          <ConnectorPoint PointX="13.822919166666667" PointY="23.711253255208334" />
+          <ConnectorPoint PointX="13.989585833333335" PointY="23.711253255208334" />
+          <ConnectorPoint PointX="15" PointY="23.711253255208334" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MemberSalary_Member" ManuallyRouted="false">
-          <ConnectorPoint PointX="13.9062525" PointY="19.153138020833325" />
-          <ConnectorPoint PointX="13.9062525" PointY="29.028554687500005" />
-          <ConnectorPoint PointX="15" PointY="29.028554687500005" />
+          <ConnectorPoint PointX="13.9062525" PointY="19.278138020833325" />
+          <ConnectorPoint PointX="13.9062525" PointY="29.278554687500005" />
+          <ConnectorPoint PointX="15" PointY="29.278554687500005" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_MemberAllowance_MemberSalary" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.5" PointY="28.942047526041662" />
-          <ConnectorPoint PointX="17.25" PointY="28.942047526041662" />
+          <ConnectorPoint PointX="16.5" PointY="29.317047526041662" />
+          <ConnectorPoint PointX="17.25" PointY="29.317047526041662" />
         </AssociationConnector>
         <AssociationConnector Association="PSPITSModel.FK_NominatedAgent_SurvivorBenefitApplication" ManuallyRouted="false">
           <ConnectorPoint PointX="10.25" PointY="37.653554687499991" />

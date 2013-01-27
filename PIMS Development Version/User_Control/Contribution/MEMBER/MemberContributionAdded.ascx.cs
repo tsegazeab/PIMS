@@ -230,11 +230,9 @@ public partial class User_Control_Contribution_MEMBER_MemberContributionAdded : 
             if (RadTextBoxCola != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxCola, null);
             if (RadTextBoxemployeeDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxemployeeDeduction, null);
             if (RadTextBoxemployerDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxemployerDeduction, null);
-
-
         }
-
     }
+
     protected void RadGridMemberContribution_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
     {
 

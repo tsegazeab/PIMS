@@ -605,6 +605,7 @@
           <ScalarProperty Name="FirstOfFollowingMonth" ColumnName="FirstOfFollowingMonth" />
           <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
           <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
+          <ScalarProperty Name="BenefitOption" ColumnName="BenefitOption" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

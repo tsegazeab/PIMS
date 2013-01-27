@@ -998,6 +998,7 @@
     <Property Name="FirstOfFollowingMonth" Type="date" />
     <Property Name="FinancialYearId" Type="int" Nullable="false" />
     <Property Name="ServiceEndDate" Type="datetime" />
+    <Property Name="BenefitOption" Type="int" />
   </EntityType>
   <EntityType Name="MemberComputedBenefit">
     <Key>

@@ -2043,6 +2043,18 @@ namespace PSPITS.MODEL
 
         #endregion
 
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public int GetMDA()
+        {
+            return base.ExecuteFunction("GetMDA");
+        }
+
+        #endregion
+
     }
 
     #endregion
@@ -14331,6 +14343,30 @@ namespace PSPITS.MODEL
         private Nullable<global::System.DateTime> _ServiceEndDate;
         partial void OnServiceEndDateChanging(Nullable<global::System.DateTime> value);
         partial void OnServiceEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> BenefitOption
+        {
+            get
+            {
+                return _BenefitOption;
+            }
+            set
+            {
+                OnBenefitOptionChanging(value);
+                ReportPropertyChanging("BenefitOption");
+                _BenefitOption = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BenefitOption");
+                OnBenefitOptionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _BenefitOption;
+        partial void OnBenefitOptionChanging(Nullable<global::System.Int32> value);
+        partial void OnBenefitOptionChanged();
 
         #endregion
 

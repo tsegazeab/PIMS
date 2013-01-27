@@ -11,6 +11,7 @@ using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
 using System.Data;
+using PSPITS.DAL.DATA.MemberBenefits;
 
 public partial class User_Control_Life_Benefit_Application_TerminalBenefits : System.Web.UI.UserControl
 {
@@ -154,5 +155,25 @@ public partial class User_Control_Life_Benefit_Application_TerminalBenefits : Sy
     protected void Page_Load(object sender, EventArgs e)
     {
         
+    }
+    protected void RadButtonSaveBenefit_Click(object sender, EventArgs e)
+    {
+        if (Session["MemberBenefit"] == null)
+            return;
+        MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
+        if (RadioButtonA.Checked)
+            mb.BenefitOption = 1;
+        else if (RadioButtonB.Checked)
+            mb.BenefitOption = 2;
+        else
+            return;
+        try
+        {
+            new MemberBenefitCalcs().SaveMemberBenefit(mb);
+        }
+        catch (Exception ex) { }
+        Session["MemberBenefit"] = mb;
+        //Refresh page
+        Response.Redirect(Request.RawUrl);
     }
 }

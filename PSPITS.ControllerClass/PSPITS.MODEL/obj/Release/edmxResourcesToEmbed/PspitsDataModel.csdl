@@ -797,6 +797,7 @@
     <Property Name="FirstOfFollowingMonth" Type="DateTime" />
     <Property Name="FinancialYearId" Type="Int32" Nullable="false" />
     <Property Name="ServiceEndDate" Type="DateTime" />
+    <Property Name="BenefitOption" Type="Int32" />
     <NavigationProperty Name="FinancialYear" Relationship="PSPITSModel.FK_MemberBenefit_FinancialYear" FromRole="MemberBenefit" ToRole="FinancialYear" />
     <NavigationProperty Name="Member" Relationship="PSPITSModel.FK_MemberBenefit_Member" FromRole="MemberBenefit" ToRole="Member" />
   </EntityType>
