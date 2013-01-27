@@ -1,5 +1,0 @@
-G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Debug\PSPITS.DAL.COMMON.dll
-G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\bin\Debug\PSPITS.DAL.COMMON.pdb
-G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Debug\ResolveAssemblyReference.cache
-G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Debug\PSPITS.DAL.COMMON.dll
-G:\PSPITS.ControllerClass\PSPITS.DAL.COMMON\obj\Debug\PSPITS.DAL.COMMON.pdb
