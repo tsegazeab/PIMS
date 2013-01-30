@@ -214,13 +214,13 @@
         <td>
             <asp:Label ID="Label5" runat="server" CssClass="text" Text="Gross pay"></asp:Label></td>
         <td>
-               <telerik:RadTextBox ID="RadTextBoxgrossPay" Runat="server" Width="292px" 
-                Enabled="True" CausesValidation="False" 
+            <telerik:RadNumericTextBox ID="RadNumericTextBoxgrossPay" Runat="server" Width="292px" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
-            </telerik:RadTextBox></td>
+            </telerik:RadNumericTextBox></td>
         <td>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorgrossPay" 
-                runat="server" ControlToValidate="RadTextBoxgrossPay" 
+                runat="server" ControlToValidate="RadNumericTextBoxgrossPay" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
     </tr>
@@ -236,13 +236,14 @@
         <td>
             <asp:Label ID="Label6" runat="server" CssClass="text" Text="Basic pay"></asp:Label></td>
         <td>
-               <telerik:RadTextBox ID="RadTextBoxBasicPay" Runat="server" Width="292px" 
-                Enabled="True" CausesValidation="False" 
+             
+             <telerik:RadNumericTextBox ID="RadNumericTextBoxbasicPay" Runat="server" Width="292px" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
-            </telerik:RadTextBox></td>
+            </telerik:RadNumericTextBox></td>
         <td>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorbasicPay" 
-                runat="server" ControlToValidate="RadTextBoxBasicPay" 
+                runat="server" ControlToValidate="RadNumericTextBoxbasicPay" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
     </tr>
@@ -258,13 +259,13 @@
         <td>
             <asp:Label ID="Label8" runat="server" CssClass="text" Text="COLA"></asp:Label></td>
         <td>
-               <telerik:RadTextBox ID="RadTextBoxCola" Runat="server" Width="292px" 
-                Enabled="True" CausesValidation="False" 
+            <telerik:RadNumericTextBox ID="RadNumericTextBoxcola" Runat="server" Width="292px" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
-            </telerik:RadTextBox></td>
+            </telerik:RadNumericTextBox></td>
         <td>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCOLA" 
-                runat="server" ControlToValidate="RadTextBoxCola" 
+                runat="server" ControlToValidate="RadNumericTextBoxcola" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
     </tr>
@@ -280,13 +281,13 @@
         <td>
              <asp:Label ID="Label10" runat="server" CssClass="text" Text="Employee contribution"></asp:Label></td>
         <td>
-               <telerik:RadTextBox ID="RadTextBoxemployeeDeduction" Runat="server" Width="292px" 
-                Enabled="True" CausesValidation="False" 
+            <telerik:RadNumericTextBox ID="RadNumericTextBoxemployeeDeduction" Runat="server" Width="292px" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
-            </telerik:RadTextBox></td>
+            </telerik:RadNumericTextBox></td>
         <td>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmployee" 
-                runat="server" ControlToValidate="RadTextBoxemployeeDeduction" 
+                runat="server" ControlToValidate="RadNumericTextBoxemployeeDeduction" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
     </tr>
@@ -302,13 +303,15 @@
         <td>
             <asp:Label ID="Label9" runat="server" CssClass="text" Text="Employer contribution"></asp:Label></td>
         <td>
-               <telerik:RadTextBox ID="RadTextBoxemployerDeduction" Runat="server" Width="292px" 
-                Enabled="True" CausesValidation="False" 
+              
+            <telerik:RadNumericTextBox ID="RadNumericTextBoxemployerDeduction" Runat="server" Width="292px" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
-            </telerik:RadTextBox></td>
+            </telerik:RadNumericTextBox></td>
+            
         <td>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmployer" 
-                runat="server" ControlToValidate="RadTextBoxemployerDeduction" 
+                runat="server" ControlToValidate="RadNumericTextBoxemployerDeduction" 
                 ErrorMessage="Required" Font-Names="Arial,Helvetica,sans-serif" 
                 Font-Size="Small" ForeColor="Red" ValidationGroup="ServiceBreak"></asp:RequiredFieldValidator></td>
     </tr>
@@ -332,11 +335,12 @@
         <td>
             &nbsp;</td>
         <td>
-                    <telerik:RadButton ID="RadButtonAddMemberContribution" runat="server" 
-                        Text="Add Contribution Record" onclick="RadButtonAddMemberContribution_Click" 
-                        onload="RadButtonAddMemberContribution_Load" 
-                ValidationGroup="ServiceBreak" style="top: 0px; left: 1px">
-            </telerik:RadButton>
+                   
+                    <telerik:RadButton ID="RadButtonAddMemberContribution" runat="server" ValidationGroup="ServiceBreak"
+                        Text="Add Contribution Record" 
+                        onclick="RadButtonAddMemberContribution_Click" 
+                        onload="RadButtonAddMemberContribution_Load">
+                    </telerik:RadButton>
             </td>
         <td>
             &nbsp;</td>

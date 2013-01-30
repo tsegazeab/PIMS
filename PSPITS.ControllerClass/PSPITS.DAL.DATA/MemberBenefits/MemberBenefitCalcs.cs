@@ -22,8 +22,11 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         }
 
         public MemberBenefit GetMemberBenefit(MemberBenefitRequest mbr)
-        {            
-            MemberBenefit mb = new MemberBenefit();
+        {   
+            MemberBenefit mb = this.GetMemberBenefitByPensionID(mbr.Member.pensionID);
+            if (mb != null)
+                return mb;
+            mb = new MemberBenefit();
             FinancialYear currentFY = membershipService.GetCurrentFinancialYear();
             List<MemberEmploymentServiceBreak> serviceBreaks = GetServiceBreaksPriorToJuly2012(mbr.Member.pensionID);
             mb.Member = mbr.Member;
@@ -34,13 +37,14 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.NumberOfPensionableYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
             mb.ServiceEndDate = mbr.ServiceEndDate;
 
-            mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
+            mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value, mb.ServiceEndDate.Value);
             //To be picked from table
             mb.AverageCivilServiceSalaryIncrease = currentFY != null && currentFY.AverageCivilServiceSalaryIncrease.HasValue ? currentFY.AverageCivilServiceSalaryIncrease.Value : 3.25;
             if (currentFY != null) mb.FinancialYearId = currentFY.FinancialYearId;
             //This will eventually be Calculate/Get Gross Annual Pension up to Last Financial Year
             CalculateGrossAnnualPensionUpToJuly2012(mb);
             mb.PensionTypeEnum = DetermineTypeOfPension(mbr, mb);
+            mb.PensionType = (int)mb.PensionTypeEnum;
             SetPensionTypeString(mb);
             this.CalculateBenefits(mbr, mb, currentFY);
             return mb;
@@ -86,7 +90,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                     return mb;
 
                 mb.MemberServiceBreaks = ConstructMemberServiceBreakList(GetServiceBreaksPriorToJuly2012(pensionId));
-                mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value);
+                mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value, mb.ServiceEndDate.Value);
                 mb.PensionableAge = this.DeterminePensionableAge(mb.Member.dateofBirth.Value);
                 mb.PensionTypeEnum = (PensionType)mb.PensionType;
                 SetPensionTypeString(mb);
@@ -157,7 +161,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                     return commutationFactor.Factor;
                 if (memberAge.Years < 55)
                     return context.CommutationFactors.FirstOrDefault(c => c.PensionableAge == 55).Factor;
-                return context.CommutationFactors.FirstOrDefault(c => c.PensionableAge > 70).Factor;
+                return context.CommutationFactors.FirstOrDefault(c => c.PensionableAge == 70).Factor;
             }
         }
 
@@ -308,9 +312,9 @@ namespace PSPITS.DAL.DATA.MemberBenefits
         /// </summary>
         /// <param name="dob"></param>
         /// <returns></returns>
-        private MemberAge GetMemberAge(DateTime dob)
+        private MemberAge GetMemberAge(DateTime dob, DateTime dateOfRetirement)
         {
-            TimeSpan ts = DateTime.Today - dob;
+            TimeSpan ts = dateOfRetirement - dob;
             int days;
             MemberAge age = new MemberAge();
             age.Years = (int)(ts.Days / Constants.NUMBER_OF_DAYS_IN_YEAR);
@@ -459,6 +463,8 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             //ageDiff refers to the years/age left to attain pensionable age;
             MemberAge ageDiff = memberPensionableAge - memberAge;
             if (ageDiff.Years>0 && ageDiff.Years < 10)
+                return true;
+            if (ageDiff.Years == 0 && (ageDiff.Months > 0 || ageDiff.Days > 0))
                 return true;
             if (ageDiff.Years == 10 && ageDiff.Months == 0 && ageDiff.Days == 0)
                 return true;

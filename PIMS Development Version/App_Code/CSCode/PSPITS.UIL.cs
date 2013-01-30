@@ -485,6 +485,11 @@ namespace PSPITS.UIL
                 ((RadDatePicker)(ctrl)).Clear();
                 ((RadDatePicker)(ctrl)).DateInput.Clear();
             }
+            else if ((ctrl.GetType() == typeof(RadNumericTextBox)))
+            {
+                ((RadNumericTextBox)(ctrl)).Text = string.Empty;
+
+            }
         }
         //    private string CurrentControl
         //    {

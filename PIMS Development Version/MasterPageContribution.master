@@ -114,7 +114,7 @@
                             <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True">
                             </telerik:RadToolBarButton>
                             <telerik:RadToolBarButton runat="server" Text="Print" Width="170px" 
-                                ImageUrl="~/images/Icons/print-icon(24x24).png">
+                                ImageUrl="~/images/Icons/print-icon(24x24).png" Enabled="False">
                             </telerik:RadToolBarButton>
                         </Items>
                     </telerik:RadToolBar>

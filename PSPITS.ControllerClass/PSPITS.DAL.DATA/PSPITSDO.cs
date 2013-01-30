@@ -17,6 +17,22 @@ namespace PSPITS.DAL.DATA
     {
 
         #region .From Gabriel.
+        
+        public GetMDA_ActualContributionHistoryByPeriodAndID_Result GetActualContributionByPeriodandID(int mdaID, int periodStart, int PeriodEnd)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                return context.GetMDA_ActualContributionHistoryByPeriodAndID(mdaID, periodStart, PeriodEnd).FirstOrDefault();
+
+            }
+        }
+        public DataTable GetMDAByID(int mdaID)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                return LINQToDataTable(context.MdaListings.Where(m => m.mdaID == mdaID).Select(m => m).ToArray());
+            }
+        }
 
         public IEnumerable<vwMemberSalary> GetMemberSalaryByPensionID(int pensionID)
         {

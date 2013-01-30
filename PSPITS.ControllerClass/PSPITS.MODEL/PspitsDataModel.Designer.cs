@@ -2048,9 +2048,42 @@ namespace PSPITS.MODEL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public int GetMDA()
+        /// <param name="mdaID">No Metadata Documentation available.</param>
+        /// <param name="periodStart">No Metadata Documentation available.</param>
+        /// <param name="periodEnd">No Metadata Documentation available.</param>
+        public ObjectResult<GetMDA_ActualContributionHistoryByPeriodAndID_Result> GetMDA_ActualContributionHistoryByPeriodAndID(Nullable<global::System.Int32> mdaID, Nullable<global::System.Int32> periodStart, Nullable<global::System.Int32> periodEnd)
         {
-            return base.ExecuteFunction("GetMDA");
+            ObjectParameter mdaIDParameter;
+            if (mdaID.HasValue)
+            {
+                mdaIDParameter = new ObjectParameter("mdaID", mdaID);
+            }
+            else
+            {
+                mdaIDParameter = new ObjectParameter("mdaID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter periodStartParameter;
+            if (periodStart.HasValue)
+            {
+                periodStartParameter = new ObjectParameter("periodStart", periodStart);
+            }
+            else
+            {
+                periodStartParameter = new ObjectParameter("periodStart", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter periodEndParameter;
+            if (periodEnd.HasValue)
+            {
+                periodEndParameter = new ObjectParameter("periodEnd", periodEnd);
+            }
+            else
+            {
+                periodEndParameter = new ObjectParameter("periodEnd", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<GetMDA_ActualContributionHistoryByPeriodAndID_Result>("GetMDA_ActualContributionHistoryByPeriodAndID", mdaIDParameter, periodStartParameter, periodEndParameter);
         }
 
         #endregion
@@ -28076,6 +28109,377 @@ namespace PSPITS.MODEL
         #endregion
 
     
+    }
+
+    #endregion
+
+    #region ComplexTypes
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="PSPITSModel", Name="GetMDA_ActualContributionHistoryByPeriodAndID_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class GetMDA_ActualContributionHistoryByPeriodAndID_Result : ComplexObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new GetMDA_ActualContributionHistoryByPeriodAndID_Result object.
+        /// </summary>
+        /// <param name="mdaID">Initial value of the mdaID property.</param>
+        /// <param name="period">Initial value of the period property.</param>
+        public static GetMDA_ActualContributionHistoryByPeriodAndID_Result CreateGetMDA_ActualContributionHistoryByPeriodAndID_Result(global::System.Int32 mdaID, global::System.Int32 period)
+        {
+            GetMDA_ActualContributionHistoryByPeriodAndID_Result getMDA_ActualContributionHistoryByPeriodAndID_Result = new GetMDA_ActualContributionHistoryByPeriodAndID_Result();
+            getMDA_ActualContributionHistoryByPeriodAndID_Result.mdaID = mdaID;
+            getMDA_ActualContributionHistoryByPeriodAndID_Result.period = period;
+            return getMDA_ActualContributionHistoryByPeriodAndID_Result;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 mdaID
+        {
+            get
+            {
+                return _mdaID;
+            }
+            set
+            {
+                OnmdaIDChanging(value);
+                ReportPropertyChanging("mdaID");
+                _mdaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("mdaID");
+                OnmdaIDChanged();
+            }
+        }
+        private global::System.Int32 _mdaID;
+        partial void OnmdaIDChanging(global::System.Int32 value);
+        partial void OnmdaIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 period
+        {
+            get
+            {
+                return _period;
+            }
+            set
+            {
+                OnperiodChanging(value);
+                ReportPropertyChanging("period");
+                _period = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("period");
+                OnperiodChanged();
+            }
+        }
+        private global::System.Int32 _period;
+        partial void OnperiodChanging(global::System.Int32 value);
+        partial void OnperiodChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> staff
+        {
+            get
+            {
+                return _staff;
+            }
+            set
+            {
+                OnstaffChanging(value);
+                ReportPropertyChanging("staff");
+                _staff = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("staff");
+                OnstaffChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _staff;
+        partial void OnstaffChanging(Nullable<global::System.Int32> value);
+        partial void OnstaffChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> month
+        {
+            get
+            {
+                return _month;
+            }
+            set
+            {
+                OnmonthChanging(value);
+                ReportPropertyChanging("month");
+                _month = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("month");
+                OnmonthChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _month;
+        partial void OnmonthChanging(Nullable<global::System.Int32> value);
+        partial void OnmonthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> year
+        {
+            get
+            {
+                return _year;
+            }
+            set
+            {
+                OnyearChanging(value);
+                ReportPropertyChanging("year");
+                _year = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("year");
+                OnyearChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _year;
+        partial void OnyearChanging(Nullable<global::System.Int32> value);
+        partial void OnyearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mdaName
+        {
+            get
+            {
+                return _mdaName;
+            }
+            set
+            {
+                OnmdaNameChanging(value);
+                ReportPropertyChanging("mdaName");
+                _mdaName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mdaName");
+                OnmdaNameChanged();
+            }
+        }
+        private global::System.String _mdaName;
+        partial void OnmdaNameChanging(global::System.String value);
+        partial void OnmdaNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> grossPay
+        {
+            get
+            {
+                return _grossPay;
+            }
+            set
+            {
+                OngrossPayChanging(value);
+                ReportPropertyChanging("grossPay");
+                _grossPay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("grossPay");
+                OngrossPayChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _grossPay;
+        partial void OngrossPayChanging(Nullable<global::System.Decimal> value);
+        partial void OngrossPayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> basicPay
+        {
+            get
+            {
+                return _basicPay;
+            }
+            set
+            {
+                OnbasicPayChanging(value);
+                ReportPropertyChanging("basicPay");
+                _basicPay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("basicPay");
+                OnbasicPayChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _basicPay;
+        partial void OnbasicPayChanging(Nullable<global::System.Decimal> value);
+        partial void OnbasicPayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> cola
+        {
+            get
+            {
+                return _cola;
+            }
+            set
+            {
+                OncolaChanging(value);
+                ReportPropertyChanging("cola");
+                _cola = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cola");
+                OncolaChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _cola;
+        partial void OncolaChanging(Nullable<global::System.Decimal> value);
+        partial void OncolaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> employeeDeduction
+        {
+            get
+            {
+                return _employeeDeduction;
+            }
+            set
+            {
+                OnemployeeDeductionChanging(value);
+                ReportPropertyChanging("employeeDeduction");
+                _employeeDeduction = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("employeeDeduction");
+                OnemployeeDeductionChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _employeeDeduction;
+        partial void OnemployeeDeductionChanging(Nullable<global::System.Decimal> value);
+        partial void OnemployeeDeductionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> employerDeduction
+        {
+            get
+            {
+                return _employerDeduction;
+            }
+            set
+            {
+                OnemployerDeductionChanging(value);
+                ReportPropertyChanging("employerDeduction");
+                _employerDeduction = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("employerDeduction");
+                OnemployerDeductionChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _employerDeduction;
+        partial void OnemployerDeductionChanging(Nullable<global::System.Decimal> value);
+        partial void OnemployerDeductionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> employerDeductionActual
+        {
+            get
+            {
+                return _employerDeductionActual;
+            }
+            set
+            {
+                OnemployerDeductionActualChanging(value);
+                ReportPropertyChanging("employerDeductionActual");
+                _employerDeductionActual = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("employerDeductionActual");
+                OnemployerDeductionActualChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _employerDeductionActual;
+        partial void OnemployerDeductionActualChanging(Nullable<global::System.Decimal> value);
+        partial void OnemployerDeductionActualChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> employeeDeductionActual
+        {
+            get
+            {
+                return _employeeDeductionActual;
+            }
+            set
+            {
+                OnemployeeDeductionActualChanging(value);
+                ReportPropertyChanging("employeeDeductionActual");
+                _employeeDeductionActual = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("employeeDeductionActual");
+                OnemployeeDeductionActualChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _employeeDeductionActual;
+        partial void OnemployeeDeductionActualChanging(Nullable<global::System.Decimal> value);
+        partial void OnemployeeDeductionActualChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dateRemitted
+        {
+            get
+            {
+                return _dateRemitted;
+            }
+            set
+            {
+                OndateRemittedChanging(value);
+                ReportPropertyChanging("dateRemitted");
+                _dateRemitted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dateRemitted");
+                OndateRemittedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dateRemitted;
+        partial void OndateRemittedChanging(Nullable<global::System.DateTime> value);
+        partial void OndateRemittedChanged();
+
+        #endregion
+
     }
 
     #endregion

@@ -131,7 +131,12 @@ public partial class MasterPageContribution : System.Web.UI.MasterPage
     {
         //PSPITSModuleSession.mdaID = e.Value.ToString();
         if (RadComboBoxClicked != null)
+        {
+            PSPITSModuleSession.mdaID = this.RadComboBoxMDA.SelectedValue;
+            PSPITSModuleSession.mdaName = this.RadComboBoxMDA.Text;
             RadComboBoxClicked(this, new CommandEventArgs(e.Text, e.Value));
+        }
+            
     }
     protected void RadComboBoxMDA_Load(object sender, EventArgs e)
     {

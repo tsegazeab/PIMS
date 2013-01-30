@@ -637,7 +637,6 @@
         <td valign="top" width="280">
                        <asp:Label ID="Label6" runat="server" Text="National ID Number" 
                 CssClass="text"></asp:Label>
-            <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font>
         </td>
         <td align="left" valign="top">
             <telerik:RadMaskedTextBox ID="RadTextBoxnationalID" Runat="server" 
@@ -650,11 +649,7 @@
         <td valign="top" width="280">
             &nbsp;</td>
         <td align="left" valign="top">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorNationalID" 
-                runat="server" ControlToValidate="RadTextBoxnationalID" ErrorMessage="Required" 
-                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
-                ValidationGroup="BeneficiaryInfo"></asp:RequiredFieldValidator>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td valign="top" width="280">

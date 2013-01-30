@@ -1,0 +1,170 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ApplicationSectionMaster.master.cs" Inherits="Application_Section_ApplicationSectionMaster" %>
+
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+        .style1
+        {
+            width: 100%;
+            height: 649px;
+        }
+        .mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+        .style2
+        {
+            width: 1024px;
+        }
+        .mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+    </style>
+    <link href="../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <telerik:RadScriptManager ID="RadScriptManager1" Runat="server">
+        </telerik:RadScriptManager>
+        <table cellpadding="0" cellspacing="0" class="style1">
+            <tr>
+                <td height="20" valign="top">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td width="20" valign="top">
+                                <asp:Image ID="Image3" runat="server" Height="70px" ImageAlign="AbsMiddle" 
+                                    ImageUrl="~/images/map/South-Sudan-flag5.gif" Width="110px" />
+                            </td>
+                            <td width="20">
+                                &nbsp;</td>
+                            <td height="20" align="left">
+                                <span class="mybottom3">Public Servants Pension MIS</span></td>
+                            <td height="20" align="center">
+                                &nbsp;</td>
+                            <td height="20" align="center" width="90">
+                                &nbsp;</td>
+                        </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <hr /></td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%">
+                        <Items>
+                            <telerik:RadToolBarButton runat="server" Width="142px" Enabled="False">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Register Application" 
+                                Width="195px" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/add-user (24x24).png">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Send SMS" 
+                                Width="195px" ImageUrl="~/images/modules/Mobile-icon(24x24).png">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 5" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Print Confirmation" Width="195px" 
+                                ImageUrl="~/images/Icons/Devices-printer-icon(24x24).png">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Width="195px" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png" 
+                                Text="View Incomplete Applications">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 9">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Width="195px" 
+                                ImageUrl="~/images/Icons/Applications-Cascade-icon(24x24).png" 
+                                Text="Application State">
+                            </telerik:RadToolBarButton>
+                        </Items>
+                    </telerik:RadToolBar>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td height="50" align="center" valign="top">
+                    <table align="center" cellpadding="0" cellspacing="0" class="style2">
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <hr /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                            </td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="mybottom" height="20">
+                    &nbsp;Public Servants Pensions Information Technology System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>
+            </tr>
+        </table>
+    </div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:RITSConnectionString %>" 
+        SelectCommand="SELECT [applicantID], [prefix], [firstName], [telephoneLandline], [email], [gender], [registrationDate] FROM [APPLICANT]">
+    </asp:SqlDataSource>
+    </form>
+</body>
+</html>

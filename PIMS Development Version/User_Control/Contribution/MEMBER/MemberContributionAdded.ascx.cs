@@ -72,28 +72,28 @@ public partial class User_Control_Contribution_MEMBER_MemberContributionAdded : 
     }
     public string grossPay
     {
-        get { return RadTextBoxgrossPay.Text; }
-        set { RadTextBoxgrossPay.Text = value; }
+        get { return RadNumericTextBoxgrossPay.Text; }
+        set { RadNumericTextBoxgrossPay.Text = value; }
     }
     public string basicPay
     {
-        get { return RadTextBoxBasicPay.Text; }
-        set { RadTextBoxBasicPay.Text = value; }
+        get { return RadNumericTextBoxbasicPay.Text; }
+        set { RadNumericTextBoxbasicPay.Text = value; }
     }
     public string Cola
     {
-        get { return RadTextBoxCola.Text; }
-        set { RadTextBoxCola.Text = value; }
+        get { return RadNumericTextBoxcola.Text; }
+        set { RadNumericTextBoxcola.Text = value; }
     }
     public string EmployeeDeduction
     {
-        get { return RadTextBoxemployeeDeduction.Text; }
-        set { RadTextBoxemployeeDeduction.Text = value; }
+        get { return RadNumericTextBoxemployeeDeduction.Text; }
+        set { RadNumericTextBoxemployeeDeduction.Text = value; }
     }
     public string EmployerDeduction
     {
-        get { return RadTextBoxemployerDeduction.Text; }
-        set { RadTextBoxemployerDeduction.Text = value; }
+        get { return RadNumericTextBoxemployerDeduction.Text; }
+        set { RadNumericTextBoxemployerDeduction.Text = value; }
     }
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -103,7 +103,7 @@ public partial class User_Control_Contribution_MEMBER_MemberContributionAdded : 
             //this.serviceBreakID = _do.PadCode(_do.GenServiceBreakID(), 9);
             this.month = this.year = "0";
             this.pensionID = int.Parse(PSPITS.UIL.PSPITSModuleSession.PensionID);
-            if (this.pensionID > 0) RadButtonAddMemberContribution.Enabled = true; else RadButtonAddMemberContribution.Enabled = false;
+          //  if (this.pensionID > 0) RadButtonAddMemberContribution1.Enabled = true; else RadButtonAddMemberContribution1.Enabled = false;
             this.MemberName = PSPITSModuleSession.MemberFullName;
             //this.
             LoadComboBox();
@@ -138,27 +138,8 @@ public partial class User_Control_Contribution_MEMBER_MemberContributionAdded : 
         this.mdaID = string.Format("{0}", ms.mdaID);
 
     }
-    private void EmptyControl(Control ctrl)
-    {
-
-        if ((ctrl.GetType() == typeof(TextBox)))
-        {
-            ((TextBox)(ctrl)).Text = string.Empty;
-
-        }
-        else if ((ctrl.GetType() == typeof(RadComboBox)))
-        {
-            ((RadComboBox)(ctrl)).Text = string.Empty;
-            ((RadComboBox)(ctrl)).SelectedIndex = -1;
-            ((RadComboBox)(ctrl)).ClearSelection();
-        }
-        else if ((ctrl.GetType() == typeof(RadTextBox)))
-        {
-            ((RadTextBox)(ctrl)).Text = string.Empty;
-
-        }
-
-    }
+    
+    
     protected void RadButtonAddMemberContribution_Click(object sender, EventArgs e)
     {
         //Get handle of the Member
@@ -183,38 +164,52 @@ public partial class User_Control_Contribution_MEMBER_MemberContributionAdded : 
         //string doa = string.Format("{0}/{1}/{2}", this.startDay,this.startMonth, this.startYear);
         rdo.SaveMemberSalary(aPD);
         RadGridMemberContribution.Rebind();
-
+        RadGridMemberContribution.Focus();
         //clear the controls
         //PSPITS.UIL.Utility.EmptyControl(RadTextBoxmemberName);
         PSPITS.UIL.Utility.EmptyControl(RadComboBoxMDA);
         PSPITS.UIL.Utility.EmptyControl(RadComboBoxMonth);
         PSPITS.UIL.Utility.EmptyControl(RadComboBoxYear);
         PSPITS.UIL.Utility.EmptyControl(RadTextBoxPayrollNumber);
-        PSPITS.UIL.Utility.EmptyControl(RadTextBoxgrossPay);
-        PSPITS.UIL.Utility.EmptyControl(RadTextBoxBasicPay);
-        PSPITS.UIL.Utility.EmptyControl(RadTextBoxCola);
-        PSPITS.UIL.Utility.EmptyControl(RadTextBoxemployeeDeduction);
-        PSPITS.UIL.Utility.EmptyControl(RadTextBoxemployerDeduction);
-        RadGridMemberContribution.Focus();
+        PSPITS.UIL.Utility.EmptyControl(RadNumericTextBoxgrossPay);
+        PSPITS.UIL.Utility.EmptyControl(RadNumericTextBoxbasicPay);
+        PSPITS.UIL.Utility.EmptyControl(RadNumericTextBoxcola);
+        PSPITS.UIL.Utility.EmptyControl(RadNumericTextBoxemployeeDeduction);
+        PSPITS.UIL.Utility.EmptyControl(RadNumericTextBoxemployerDeduction);
+       
     }
     protected void RadButtonAddMemberContribution_Load(object sender, EventArgs e)
     {
 
         RadAjaxManager radajaxmanager = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
         RadAjaxLoadingPanel radajaxloading = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
-        RadButton RadButtonAddMemberContribution = sender as RadButton;
 
+        RadButton RadButtonAddMemberContribution = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadButtonAddMemberContribution") as RadButton;
         RadGrid grid = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadGridMemberContribution") as RadGrid;
         RadTextBox RadTextBoxmemberName = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxmemberName") as RadTextBox;
         RadComboBox RadComboBoxMDA = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxMDA") as RadComboBox;
         RadComboBox RadComboBoxMonth = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxMonth") as RadComboBox;
         RadComboBox RadComboBoxYear = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxYear") as RadComboBox;
         RadTextBox RadTextBoxPayrollNumber = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPayrollNumber") as RadTextBox;
-        RadTextBox RadTextBoxgrossPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxgrossPay") as RadTextBox;
-        RadTextBox RadTextBoxBasicPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxBasicPay") as RadTextBox;
-        RadTextBox RadTextBoxCola = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxCola") as RadTextBox;
-        RadTextBox RadTextBoxemployeeDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxemployeeDeduction") as RadTextBox;
-        RadTextBox RadTextBoxemployerDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxemployerDeduction") as RadTextBox;
+        RadNumericTextBox RadNumericTextBoxgrossPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxgrossPay") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxbasicPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxbasicPay") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxcola = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxcola") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxemployeeDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxemployeeDeduction") as RadNumericTextBox;
+        //RadNumericTextBox RadNumericTextBoxemployerDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxemployerDeduction") as RadNumericTextBox;
+        //
+        //Button RadButtonAddMemberContribution = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadButtonAddMemberContribution") as Button;
+        //RadGrid grid = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadGridMemberContribution") as RadGrid;
+        //RadTextBox RadTextBoxmemberName = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadTextBoxmemberName") as RadTextBox;
+        //RadComboBox RadComboBoxMDA = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadComboBoxMDA") as RadComboBox;
+        //RadComboBox RadComboBoxMonth = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadComboBoxMonth") as RadComboBox;
+        //RadComboBox RadComboBoxYear = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadComboBoxYear") as RadComboBox;
+        //RadTextBox RadTextBoxPayrollNumber = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadTextBoxPayrollNumber") as RadTextBox;
+        //RadNumericTextBox RadNumericTextBoxgrossPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadNumericTextBoxgrossPay") as RadNumericTextBox;
+        //RadNumericTextBox RadNumericTextBoxbasicPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadNumericTextBoxbasicPay") as RadNumericTextBox;
+        //RadNumericTextBox RadNumericTextBoxcola = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadNumericTextBoxcola") as RadNumericTextBox;
+        //RadNumericTextBox RadNumericTextBoxemployeeDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadNumericTextBoxemployeeDeduction") as RadNumericTextBox;
+        //RadNumericTextBox RadNumericTextBoxemployerDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as Button).Parent, "RadNumericTextBoxemployerDeduction") as RadNumericTextBox;
+
 
         //load only when non of the controls are null
         if ((radajaxmanager != null) && (radajaxloading != null) && (RadButtonAddMemberContribution != null) && (grid != null))
@@ -225,14 +220,16 @@ public partial class User_Control_Contribution_MEMBER_MemberContributionAdded : 
             if (RadComboBoxMonth != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadComboBoxMonth, null);
             if (RadComboBoxYear != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadComboBoxYear, null);
             if (RadTextBoxPayrollNumber != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxPayrollNumber, null);
-            if (RadTextBoxgrossPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxgrossPay, null);
-            if (RadTextBoxBasicPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxBasicPay, null);
-            if (RadTextBoxCola != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxCola, null);
-            if (RadTextBoxemployeeDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxemployeeDeduction, null);
-            if (RadTextBoxemployerDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadTextBoxemployerDeduction, null);
+            if (RadNumericTextBoxgrossPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadNumericTextBoxgrossPay, null);
+            if (RadNumericTextBoxbasicPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadNumericTextBoxbasicPay, null);
+            if (RadNumericTextBoxcola != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadNumericTextBoxcola, null);
+            if (RadNumericTextBoxemployeeDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadNumericTextBoxemployeeDeduction, null);
+            //if (RadNumericTextBoxemployerDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(RadButtonAddMemberContribution, RadNumericTextBoxemployerDeduction, null);
+            
+            
         }
-    }
 
+    }
     protected void RadGridMemberContribution_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
     {
 
@@ -273,7 +270,7 @@ public class RadGridMemberContributionTemplate : System.Web.UI.ITemplate
     {
         RadAjaxManager radajaxmanager = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxManager1") as RadAjaxManager;
         RadAjaxLoadingPanel radajaxloading = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadAjaxLoadingPanel1") as RadAjaxLoadingPanel;
-        RadButton btnEdit = (sender as RadButton).FindControl("ButtonEdit") as RadButton;
+        RadButton btnEdit = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "ButtonEdit") as RadButton;
 
         RadGrid grid = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadGridMemberContribution") as RadGrid;
         RadTextBox RadTextBoxmemberName = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxmemberName") as RadTextBox;
@@ -281,28 +278,28 @@ public class RadGridMemberContributionTemplate : System.Web.UI.ITemplate
         RadComboBox RadComboBoxMonth = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxMonth") as RadComboBox;
         RadComboBox RadComboBoxYear = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadComboBoxYear") as RadComboBox;
         RadTextBox RadTextBoxPayrollNumber = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxPayrollNumber") as RadTextBox;
-        RadTextBox RadTextBoxgrossPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxgrossPay") as RadTextBox;
-        RadTextBox RadTextBoxBasicPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxBasicPay") as RadTextBox;
-        RadTextBox RadTextBoxCola = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxCola") as RadTextBox;
-        RadTextBox RadTextBoxemployeeDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxemployeeDeduction") as RadTextBox;
-        RadTextBox RadTextBoxemployerDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadTextBoxemployerDeduction") as RadTextBox;
-
-        //load only when non of the controls are null
+        RadNumericTextBox RadNumericTextBoxgrossPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxgrossPay") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxbasicPay = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxbasicPay") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxcola = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxcola") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxemployeeDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxemployeeDeduction") as RadNumericTextBox;
+        RadNumericTextBox RadNumericTextBoxemployerDeduction = new PSPITS.UIL.Utility().FindControlToRootOnly((sender as RadButton).Parent, "RadNumericTextBoxemployerDeduction") as RadNumericTextBox;
+    //load only when non of the controls are null
         if ((radajaxmanager != null) && (radajaxloading != null) && (btnEdit != null) && (grid != null))
         {
             radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, grid, radajaxloading);
+
             if (RadTextBoxmemberName != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxmemberName, null);
             if (RadComboBoxMDA != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadComboBoxMDA, null);
             if (RadComboBoxMonth != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadComboBoxMonth, null);
             if (RadComboBoxYear != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadComboBoxYear, null);
             if (RadTextBoxPayrollNumber != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxPayrollNumber, null);
-            if (RadTextBoxgrossPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxgrossPay, null);
-            if (RadTextBoxBasicPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxBasicPay, null);
-            if (RadTextBoxCola != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxCola, null);
-            if (RadTextBoxemployeeDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxemployeeDeduction, null);
-            if (RadTextBoxemployerDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadTextBoxemployerDeduction, null);
-
-
+            if (RadNumericTextBoxgrossPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadNumericTextBoxgrossPay, null);
+            if (RadNumericTextBoxbasicPay != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadNumericTextBoxbasicPay, null);
+            if (RadNumericTextBoxcola != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadNumericTextBoxcola, null);
+            if (RadNumericTextBoxemployeeDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadNumericTextBoxemployeeDeduction, null);
+            if (RadNumericTextBoxemployerDeduction != null) radajaxmanager.AjaxSettings.AddAjaxSetting(btnEdit, RadNumericTextBoxemployerDeduction, null);
+      
+    
         }
 
     }

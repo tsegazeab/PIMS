@@ -1,0 +1,376 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageContribution.master.cs" Inherits="MasterPageContribution" %>
+
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+
+<%@ Register src="User_Control/Search/MemberSearch.ascx" tagname="MemberSearch" tagprefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+         .style1
+        {
+            width: 100%;
+            height: 649px;
+        }
+        .mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+        .style2
+        {
+            width: 1024px;
+        }
+        .mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+    </style>
+    <link href="Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <telerik:RadScriptManager ID="RadScriptManager1" Runat="server">
+        </telerik:RadScriptManager>
+        <table cellpadding="0" cellspacing="0" class="style1">
+            <tr>                
+                <td height="20" valign="top" colspan="3">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td width="20" valign="top">
+                                <asp:Image ID="Image3" runat="server" Height="70px" ImageAlign="AbsMiddle" 
+                                    ImageUrl="~/images/map/South-Sudan-flag5.gif" Width="110px" />
+                            </td>
+                            <td width="20">
+                                &nbsp;</td>
+                            <td height="20" align="left">
+                                <span class="mybottom3">Pension Information Management System (PIMS)</span></td>
+                            <td height="20" align="right" valign="bottom">
+                                <b class="moduleTitle">Member&nbsp;Contribution&nbsp;</b>
+                                <br />&nbsp;
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center">
+                                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="textBlueU" 
+                                                NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                                        </td>
+                                        <td align="center">
+&nbsp; |&nbsp;
+                                        </td>
+                                        <td style=" font-family:Arial; font-size: small;">
+                                            Current user:
+                                            <asp:Label ID="LabelCurrentUser" runat="server" 
+                                                CssClass="text" ForeColor="Navy" Font-Bold="True"></asp:Label>
+                                        </td>
+                                        <td align="center"  style=" font-family:Arial; font-size: small;">
+                                            &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
+                                                LogoutAction="RedirectToLoginPage" />]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr>                
+                <td height="20" colspan="3">
+                    <hr />
+                </td> 
+            </tr>
+            <tr>
+                <td height="20" colspan="3">
+                    <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%" 
+                        CssClass="mymenu" onbuttonclick="RadToolBar1_ButtonClick">
+                        <Items>
+                            <telerik:RadToolBarButton runat="server" Text="Contribution (RSS Agency)" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/add-user (24x24).png">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Contribution (Member)" 
+                                Width="170px" 
+                                ImageUrl="~/images/Icons/small icons (16 and 24)/reports.png">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 5" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" 
+                                ImageUrl="~/images/modules/Desktop_icons/search.png" Text="Search" 
+                                Width="170px">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Print" Width="170px" 
+                                ImageUrl="~/images/Icons/print-icon(24x24).png">
+                            </telerik:RadToolBarButton>
+                        </Items>
+                    </telerik:RadToolBar>
+                </td>
+            </tr>
+            <tr>
+
+                <td height="20" colspan="3">
+             
+              </td>
+            </tr>
+           
+            <tr>
+                <td width="15%" style=" border-right: 1px solid Gray;" valign="top">
+                    &nbsp;</td>
+                <td height="50" align="center" valign="top" width="70%">
+                    <table align="center" cellpadding="2" cellspacing="0" class="style2">
+                        <%--  <tr>
+                            <td align="left">
+                            <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+&nbsp;<asp:Image ID="Image5" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                            <span class="text">&nbsp;Member:</span>
+                                            <asp:Label ID="LabelfullName" runat="server" CssClass="text" Text="No member" 
+                                                Font-Bold="True"></asp:Label>
+
+                                        </td>
+                                        <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Image ID="Image4" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                        </td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                        <asp:Label ID="labelpensionIDHidden"  runat="server"   CssClass ="text">Scheme ID. </asp:Label>
+                                            <asp:Label ID="LabelpensionID" runat="server" CssClass="text" 
+                                                Text="[ - ]" Font-Bold="True"  ></asp:Label>
+                                            <telerik:RadTextBox ID="RadTextBoxpensionIDHidden" Visible="false" AutoPostBack="true" runat="server">
+                                            </telerik:RadTextBox>
+                                        </td>
+                                        <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                        </td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                        <asp:Label ID="label1"  runat="server"   CssClass ="text">Payroll No. </asp:Label>
+                                            <asp:Label ID="LabelPayrollNo" runat="server" CssClass="text" 
+                                                Text="" Font-Bold="True"  ></asp:Label>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>--%>
+                            <tr>
+                            <td align="left">
+                             <telerik:RadMultiPage ID="RadMultiPageSubPage" runat="server" Width="1204px">
+                <telerik:RadPageView ID="RadPageViewBlank" runat="server">
+                                 </telerik:RadPageView>
+                     <telerik:RadPageView ID="RadPageViewMember" runat="server">
+                         <table cellpadding="0" cellspacing="0">
+                             <tr>
+                                 <td>
+                                     &nbsp;<asp:Image ID="Image5" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                     <span class="text">&nbsp;Member:</span>
+                                     <asp:Label ID="LabelfullName" runat="server" CssClass="text" Font-Bold="True" 
+                                         Text="No member"></asp:Label>
+                                 </td>
+                                 <td>
+                                     &nbsp;&nbsp;&nbsp;&nbsp;
+                                     <asp:Image ID="Image4" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                 </td>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                     <asp:Label ID="labelpensionIDHidden" runat="server" CssClass="text">Scheme ID. </asp:Label>
+                                     <asp:Label ID="LabelpensionID" runat="server" CssClass="text" Font-Bold="True" 
+                                         Text="[ - ]"></asp:Label>
+                                     <telerik:RadTextBox ID="RadTextBoxpensionIDHidden" runat="server" 
+                                         AutoPostBack="true" Visible="false">
+                                     </telerik:RadTextBox>
+                                 </td>
+                                 <td>
+                                     &nbsp;&nbsp;&nbsp;&nbsp;
+                                     <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                 </td>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                     <asp:Label ID="label1" runat="server" CssClass="text">Payroll No. </asp:Label>
+                                     <asp:Label ID="LabelPayrollNo" runat="server" CssClass="text" Font-Bold="True" 
+                                         Text=""></asp:Label>
+                                 </td>
+                             </tr>
+                         </table>
+                         </telerik:RadPageView>
+                     <telerik:RadPageView ID="RadPageViewAgency" runat="server">
+                         <table cellpadding="0" cellspacing="0">
+                             <tr>
+                                 <td>
+                                     &nbsp;<asp:Image ID="Image8" runat="server" ImageUrl="~/images/Icons/bullet.gif" />
+                                 
+                                     <asp:Label ID="LabelMDA" runat="server" Text="MDA/Agency:" 
+                                         onload="LabelMDA_Load"></asp:Label>
+                                 </td>
+                                 <td>
+                                     &nbsp;&nbsp;&nbsp;&nbsp;
+                                 </td>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                     <telerik:RadComboBox ID="RadComboBoxMDA" Runat="server" 
+                                         onselectedindexchanged="RadComboBoxMDA_SelectedIndexChanged" Height="85px" 
+                                         Width="847px" MarkFirstMatch="true" onload="RadComboBoxMDA_Load" 
+                                         AutoPostBack="True" >
+                                     </telerik:RadComboBox>
+                                 </td>
+                                 <td>
+                                     &nbsp;&nbsp;&nbsp;&nbsp;
+                                 </td>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                     &nbsp;</td>
+                             </tr>
+                         </table>
+                                 </telerik:RadPageView>
+            </telerik:RadMultiPage>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr /></td>
+                        </tr>
+                        <tr>
+                            <td>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        </table>
+                </td>                               
+                <td width="15%" style=" border-left: 1px solid Gray;">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="mybottom" height="20" colspan="3">
+                    <%--&nbsp;Public Servants Pensions Information Technology System © 2012 Ministry of Labour, Public Service and Human Resource Developmentchnology System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>--%>
+                    &nbsp;Public Servants Pensions Information Technology System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>
+            </tr>
+        </table>
+    </div>
+                <telerik:RadFormDecorator ID="RadFormDecorator1" Runat="server" 
+        
+        DecoratedControls="Default, Textbox, Textarea, Fieldset, Label, H4H5H6, Select, GridFormDetailsViews, ValidationSummary, LoginControls" 
+        Skin="Default" />
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" Runat="server" 
+        Skin="Default">
+    </telerik:RadAjaxLoadingPanel>
+        <telerik:RadToolTip ID="RadToolTipSearch" runat="server" Animation="Fade" 
+                    HideEvent="FromCode" Modal="True" Position="Center" RelativeTo="BrowserWindow" 
+                    ShowEvent="FromCode" Skin="WebBlue" ManualClose="True">   
+        
+                    <table cellpadding="0" cellspacing="0" width="500">
+                        <tr>
+                            <td class="mybottom">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <uc2:MemberSearch ID="MemberSearch1" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mybottom">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+        </telerik:RadToolTip>
+    </form>
+</body>
+</html>

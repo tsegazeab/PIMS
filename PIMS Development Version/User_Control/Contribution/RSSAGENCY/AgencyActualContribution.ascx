@@ -186,7 +186,7 @@
             <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font></td>
         <td>
              <telerik:RadNumericTextBox ID="RadNumericTextBoxEmployeeActual" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke"  CausesValidation="False" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
             </telerik:RadNumericTextBox>
             
@@ -210,7 +210,7 @@
             <font color="red" style="font-size: small; font-family: Arial, Helvetica, sans-serif">*</font></td>
         <td>
             <telerik:RadNumericTextBox ID="RadNumericTextBoxEmployerActual" Runat="server" Width="295px" 
-                BackColor="WhiteSmoke"  CausesValidation="False" 
+                BackColor="White"  CausesValidation="False" 
                 ValidationGroup="ServiceBreak">
             </telerik:RadNumericTextBox></td>
         <td><asp:RequiredFieldValidator ID="RequiredFieldValidatorRadTextBoxEmployerActual" runat="server" 
@@ -261,11 +261,9 @@
         <td width="280">
             &nbsp;</td>
         <td>
-                    <telerik:RadButton ID="RadButtonAddActualContribution" runat="server" 
-                        Text="Save Contribution" 
-                         ValidationGroup="ServiceBreak" onclick="RadButtonAddActualContribution_Click" 
-                        onload="RadButtonAddActualContribution_Load">
-            </telerik:RadButton>
+                    <asp:Button ID="RadButtonAddActualContribution" runat="server" 
+                        Text="Save Contribution" onclick="RadButtonAddActualContribution_Click" 
+                        onload="RadButtonAddActualContribution_Load" ValidationGroup="ServiceBreak" />
             </td>
         <td>&nbsp;</td>
     </tr>

@@ -1,0 +1,236 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageTracking.master.cs" Inherits="MasterPageTracking" %>
+
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+
+        .style1
+        {
+            width: 100%;
+            height: 649px;
+        }
+        .mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+.mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+        .mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+        .mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+.textBlueU
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #0000CC;
+	text-decoration: underline;
+}
+        .style2
+        {
+            width: 1024px;
+        }
+        .mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+.mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+    .mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+        .mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <telerik:RadScriptManager ID="RadScriptManager1" Runat="server">
+        </telerik:RadScriptManager>
+        <table cellpadding="0" cellspacing="0" class="style1">
+            <tr>
+                <td height="20" valign="top">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td width="20" valign="top">
+                                <asp:Image ID="Image3" runat="server" Height="70px" ImageAlign="AbsMiddle" 
+                                    ImageUrl="~/images/modules/Desktop_icons/Final_PF_NoWords_Logo2.png" />
+                            </td>
+                            <td width="20">
+                                &nbsp;</td>
+                            <td height="20" align="left">
+                                <span class="mybottom3">Pension Information Management System (PIMS)</span></td>
+                            <td height="20" align="right" valign="bottom">
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center">
+                                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="textBlueU" 
+                                                NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                                        </td>
+                                        <td align="center">
+&nbsp; |&nbsp;
+                                        </td>
+                                        <td style=" font-family:Arial; font-size: small;">
+                                            Current user:
+                                            <asp:Label ID="LabelCurrentUser" runat="server" 
+                                                CssClass="text" ForeColor="Navy" Font-Bold="True"></asp:Label>
+                                        </td>
+                                        <td align="center"  style=" font-family:Arial; font-size: small;">
+                                            &nbsp;[<asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="textBlueU" 
+                                                LogoutAction="RedirectToLoginPage" />]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <hr /></td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <telerik:RadToolBar ID="RadToolBar1" Runat="server" Skin="Vista" Width="100%">
+                        <Items>
+                            <telerik:RadToolBarButton runat="server" Width="120px">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Front desk application tracker" 
+                                Width="170px" 
+                                NavigateUrl="~/Application_Section/FrontDeskApplicationTracker.aspx">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 3" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Pension specialist tracker" 
+                                Width="170px" 
+                                NavigateUrl="~/Pension_Specialist/PensionSpecialistTracker.aspx">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 5" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Width="170px">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Text="Button 7" IsSeparator="True">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Width="170px">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 9">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Width="170px">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 11">
+                            </telerik:RadToolBarButton>
+                            <telerik:RadToolBarButton runat="server" Width="170px">
+                            </telerik:RadToolBarButton>
+                        </Items>
+                    </telerik:RadToolBar>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td height="50" align="center" valign="top">
+                    <table align="center" cellpadding="0" cellspacing="0" class="style2">
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <hr /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                            </td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="mybottom" height="20">
+                    &nbsp;Public Servants Pensions Information Technology System © 2012 Ministry of Labour, Public Service and Human Resource Development</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

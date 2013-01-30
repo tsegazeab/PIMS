@@ -11,6 +11,7 @@ using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
 using System.Data;
+using PSPITS.DAL.DATA.MemberBenefits;
 
 public partial class User_Control_Life_Benefit_Application_PensionableAgeBenefits : System.Web.UI.UserControl
 {
@@ -225,7 +226,7 @@ public partial class User_Control_Life_Benefit_Application_PensionableAgeBenefit
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        HideUnhideButtons();
     }
 
     public void ConstructMonthlySalaryTable(List<MonthlySalary> monthlySalaries)
@@ -321,6 +322,52 @@ public partial class User_Control_Life_Benefit_Application_PensionableAgeBenefit
                 row.Cells.Add(cell);
             }
             TableSalaryMonths.Rows.Add(row);
+        }
+    }
+
+    protected void RadButtonSaveBenefit_Click(object sender, EventArgs e)
+    {
+        if (Session["MemberBenefit"] == null)
+            return;
+        MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
+        if (RadioButtonA.Checked)
+            mb.BenefitOption = 1;
+        else if (RadioButtonB.Checked)
+            mb.BenefitOption = 2;
+        else
+            return;
+        try
+        {
+            new MemberBenefitCalcs().SaveMemberBenefit(mb);
+        }
+        catch (Exception ex) { }
+        Session["MemberBenefit"] = mb;
+        //Refresh page
+        Response.Redirect(Request.RawUrl);
+    }
+
+    private void HideUnhideButtons()
+    {
+        if (Session["MemberBenefit"] == null)
+            return;
+        MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
+        if (mb.BenefitOption.HasValue && mb.BenefitOption.Value == Constants.BENEFIT_OPTION_A)
+        {
+            RadioButtonA.Checked = true;
+            RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = false;
+            RadButtonPrint.Visible = true;
+        }
+        else if (mb.BenefitOption.HasValue && mb.BenefitOption.Value == Constants.BENEFIT_OPTION_B)
+        {
+            RadioButtonB.Checked = true;
+            RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = false;
+            RadButtonPrint.Visible = true;
+        }
+        else
+        {
+            RadioButtonA.Checked = RadioButtonB.Checked = false;
+            RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = true;
+            RadButtonPrint.Visible = false;
         }
     }
 }

@@ -1376,5 +1376,25 @@
         <ScalarProperty Name="UserId" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="GetMDA_ActualContributionHistoryByPeriodAndID" FunctionName="PSPITSModel.Store.GetMDA_ActualContributionHistoryByPeriodAndID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PSPITSModel.GetMDA_ActualContributionHistoryByPeriodAndID_Result">
+          <ScalarProperty Name="mdaID" ColumnName="mdaID" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="staff" ColumnName="staff" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="mdaName" ColumnName="mdaName" />
+          <ScalarProperty Name="grossPay" ColumnName="grossPay" />
+          <ScalarProperty Name="basicPay" ColumnName="basicPay" />
+          <ScalarProperty Name="cola" ColumnName="cola" />
+          <ScalarProperty Name="employeeDeduction" ColumnName="employeeDeduction" />
+          <ScalarProperty Name="employerDeduction" ColumnName="employerDeduction" />
+          <ScalarProperty Name="employerDeductionActual" ColumnName="employerDeductionActual" />
+          <ScalarProperty Name="employeeDeductionActual" ColumnName="employeeDeductionActual" />
+          <ScalarProperty Name="dateRemitted" ColumnName="dateRemitted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

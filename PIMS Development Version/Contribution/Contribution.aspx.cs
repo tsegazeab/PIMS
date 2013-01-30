@@ -120,51 +120,34 @@ public partial class Contribution_Contribution : System.Web.UI.Page
         if (contributionRadMultiPage.SelectedIndex == contributionRadMultiPage.FindPageViewByID("MemberContributionHistoryView").Index)
         {
 
-            int radpageIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
-            if (radpageIndex >= 0)
-            {
-                contributionRadMultiPage.SelectedIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
-                string @strApp_Path = Request.PhysicalApplicationPath;
-                string folder = @strApp_Path + @"Report\";
-                DataTable DataTableContributor = new PSPITSDO().GetMemberSalaryContributionByPensionIDFirst(int.Parse(PSPITSModuleSession.PensionID));
-                DataTable DataTableContributionHistory = new PSPITSDO().GetMemberSalaryContributionByPensionID(int.Parse(PSPITSModuleSession.PensionID));
-
-                List<ReportParameter> psl = new List<ReportParameter>();
-                psl.Add(new ReportParameter("ReportParameterContributionPeriod", "For Period November 2010 to December 2012"));
-                ReportViewerContribution.LocalReport.ReportPath = folder + @"MemberContributionHistory.rdlc";
-                ReportViewerContribution.LocalReport.SetParameters(psl);
-
-                ReportDataSource DataSetMemberContributionHeader = new ReportDataSource("DataSetMemberContributionHeader", DataTableContributor);
-                ReportDataSource DataSetMemberContributionDetail = new ReportDataSource("DataSetMemberContributionDetail", DataTableContributionHistory);
-                ReportViewerContribution.LocalReport.DataSources.Clear();
-                ReportViewerContribution.LocalReport.DataSources.Add(DataSetMemberContributionHeader);
-                ReportViewerContribution.LocalReport.DataSources.Add(DataSetMemberContributionDetail);
-                //ReportViewer rview = (ReportViewer)contributionRadMultiPage.FindControl("ReportViewerContribution");
-                //DataTable DataTableContribution = new PSPITSDO().GetMemberSalaryContributionByPensionID(int.Parse(PSPITSModuleSession.PensionID));
-                ////lets retrive the 
-                //var MemberContributionHeader = new PIMS.Reports.MemberContribution.MemberContributionHeader();
-                //if (MemberContributionHeader != null)
-                //{
-
-                //    var subReportMemberContributions = (Telerik.Reporting.SubReport) MemberContributionHeader.Items.Find("subReportMemberContribution", true)[0];
-                //    var ReportSourceSubReportMemberContribution = (Telerik.Reporting.InstanceReportSource)subReportMemberContributions.ReportSource;
-                //    var subReportDocument = (Telerik.Reporting.Report)ReportSourceSubReportMemberContribution.ReportDocument;
-                //    //var subReportDataSource = (Telerik.Reporting.ObjectDataSource)subReportDocument.DataSource;
-                //    subReportDocument.DataSource = DataTableContribution;
-
-                //    // Now we handle the table inside the sub-report
-                //    var subReportTable = (Telerik.Reporting.Table)subReportDocument.Items.Find("tableMemberContribution", true)[0];
-                //    subReportTable.DataSource = DataTableContribution;
-
-                //    Telerik.Reporting.InstanceReportSource instanceReportSource = new Telerik.Reporting.InstanceReportSource();
-                //    MemberContributionHeader.DataSource = new PSPITSDO().GetMemberSalaryContributionByPensionIDFirst(int.Parse(PSPITSModuleSession.PensionID)); 
-                ////    instanceReportSource.ReportDocument = MemberContributionHeader;
-                ////    ReportViewerContribution.ReportSource = instanceReportSource;
-                ////    contributionRadMultiPage.SelectedIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
-            }
-
-
+            PrintMemberHistory();
         }
+    }
+    protected void PrintMemberHistory()
+    {
+
+        int radpageIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
+        if (radpageIndex >= 0)
+        {
+            contributionRadMultiPage.SelectedIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
+            string @strApp_Path = Request.PhysicalApplicationPath;
+            string folder = @strApp_Path + @"Report\";
+            DataTable DataTableContributor = new PSPITSDO().GetMemberSalaryContributionByPensionIDFirst(int.Parse(PSPITSModuleSession.PensionID));
+            DataTable DataTableContributionHistory = new PSPITSDO().GetMemberSalaryContributionByPensionID(int.Parse(PSPITSModuleSession.PensionID));
+
+            List<ReportParameter> psl = new List<ReportParameter>();
+            psl.Add(new ReportParameter("ReportParameterContributionPeriod", "For Period November 2010 to December 2012"));
+            ReportViewerContribution.LocalReport.ReportPath = folder + @"MemberContributionHistory.rdlc";
+            ReportViewerContribution.LocalReport.SetParameters(psl);
+
+            ReportDataSource DataSetMemberContributionHeader = new ReportDataSource("DataSetMemberContributionHeader", DataTableContributor);
+            ReportDataSource DataSetMemberContributionDetail = new ReportDataSource("DataSetMemberContributionDetail", DataTableContributionHistory);
+            ReportViewerContribution.LocalReport.DataSources.Clear();
+            ReportViewerContribution.LocalReport.DataSources.Add(DataSetMemberContributionHeader);
+            ReportViewerContribution.LocalReport.DataSources.Add(DataSetMemberContributionDetail);
+            
+        }
+
     }
     private void PrintAgencyContributionHistory(object sender, CommandEventArgs e)
     {
@@ -172,42 +155,45 @@ public partial class Contribution_Contribution : System.Web.UI.Page
         if (contributionRadMultiPage.SelectedIndex == contributionRadMultiPage.FindPageViewByID("MemberContributionHistoryView").Index)
         {
 
-            int radpageIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
-            if (radpageIndex >= 0)
-            {
-                contributionRadMultiPage.SelectedIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
-                string @strApp_Path = Request.PhysicalApplicationPath;
-                string folder = @strApp_Path + @"Report\";
-                DataTable DataTableAgency = new PSPITSDO().GetMDA();
-                DataTable DataTableAgencyHistory = new PSPITSDO().GetMDAContributionHistoryByID(int.Parse(PSPITSModuleSession.mdaID));
-              //Map the header 
-                DataTableAgency.Columns[Constants.COL_LIST_MDAID].ColumnName = "BodyGroup1";
-                DataTableAgency.Columns[Constants.COL_LIST_MDA].ColumnName = "BodyGroup2";
-                DataTableAgency.Columns[Constants.COL_LIST_MDACODE].ColumnName = "BodyGroup3";
-                //DataTableAgency.Columns[Constants.COL_LIST_MDACODE].ColumnName = "BodyGroup4";
-//MAP History information
-                DataTableAgencyHistory.Columns[Constants.COL_LIST_YEAR].ColumnName = "BodyText1";
-                DataTableAgencyHistory.Columns[Constants.COL_LIST_MONTH].ColumnName = "BodyText2";
-                DataTableAgencyHistory.Columns[Constants.COL_LIST_STAFF].ColumnName = "BodyText3"; 
-                DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_GROSSPAY].ColumnName = "BodyGroup4";
-                DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_BASICPAY].ColumnName = "BodyGroup5";
-                DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_COLA].ColumnName = "BodyGroup6";
-                DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_EMPLOYEEDEDUCTION].ColumnName = "BodyGroup7";
-                DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_EMPLOYERDEDUCTION].ColumnName = "BodyGroup8";
+            PrintAgencyHistory();  
+            
+        }
+    }
+    protected void PrintAgencyHistory()
+    {
+        int radpageIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
+        if (radpageIndex >= 0)
+        {
+            contributionRadMultiPage.SelectedIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
+            string @strApp_Path = Request.PhysicalApplicationPath;
+            string folder = @strApp_Path + @"Report\";
+            DataTable DataTableAgency = new PSPITSDO().GetMDAByID(int.Parse(PSPITSModuleSession.mdaID));
+            DataTable DataTableAgencyHistory = new PSPITSDO().GetMDAContributionHistoryByID(int.Parse(PSPITSModuleSession.mdaID));
+            //Map the header 
+            DataTableAgency.Columns[Constants.COL_LIST_MDAID].ColumnName = "BodyGroup1";
+            DataTableAgency.Columns[Constants.COL_LIST_MDA].ColumnName = "BodyGroup2";
+            //DataTableAgency.Columns[Constants.COL_LIST_MDACODE].ColumnName = "BodyGroup3";
+            //DataTableAgency.Columns[Constants.COL_LIST_MDACODE].ColumnName = "BodyGroup4";
+            //MAP History information
+            DataTableAgencyHistory.Columns[Constants.COL_LIST_YEAR].ColumnName = "BodyText1";
+            DataTableAgencyHistory.Columns[Constants.COL_LIST_MONTH].ColumnName = "BodyText2";
+            DataTableAgencyHistory.Columns[Constants.COL_LIST_STAFF].ColumnName = "BodyText3";
+            DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_GROSSPAY].ColumnName = "BodyText4";
+            DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_BASICPAY].ColumnName = "BodyText5";
+            DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_COLA].ColumnName = "BodyText9";
+            DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_EMPLOYEEDEDUCTION].ColumnName = "BodyText6";
+            DataTableAgencyHistory.Columns[Constants.COL_MEMBERSALARY_EMPLOYERDEDUCTION].ColumnName = "BodyText7";
+            DataTableAgencyHistory.Columns[Constants.COL_LIST_MDA].ColumnName = "BodyText10";
+            List<ReportParameter> psl = new List<ReportParameter>();
+            psl.Add(new ReportParameter("ReportParameterContributionPeriod", "For Period ALL"));
+            ReportViewerContribution.LocalReport.ReportPath = folder + @"AgencyContributionHistory.rdlc";
+            ReportViewerContribution.LocalReport.SetParameters(psl);
 
-                List<ReportParameter> psl = new List<ReportParameter>();
-                psl.Add(new ReportParameter("ReportParameterContributionPeriod", "For Period ALL"));
-                ReportViewerContribution.LocalReport.ReportPath = folder + @"AgencyContributionHistory.rdlc";
-                ReportViewerContribution.LocalReport.SetParameters(psl);
-
-                ReportDataSource DataSetAgencyDetail = new ReportDataSource("DataSetAgencyDetail", DataTableAgency);
-                ReportDataSource DataSetAgencyContributionDetail = new ReportDataSource("DataSetAgencyContributionDetail", DataTableAgencyHistory);
-                ReportViewerContribution.LocalReport.DataSources.Clear();
-                ReportViewerContribution.LocalReport.DataSources.Add(DataSetAgencyDetail);
-                ReportViewerContribution.LocalReport.DataSources.Add(DataSetAgencyContributionDetail);
-            }
-
-
+            ReportDataSource DataSetAgencyDetail = new ReportDataSource("DataSetMemberContributionHeader", DataTableAgency);
+            ReportDataSource DataSetAgencyContributionDetail = new ReportDataSource("DataSetMemberContributionDetail", DataTableAgencyHistory);
+            ReportViewerContribution.LocalReport.DataSources.Clear();
+            ReportViewerContribution.LocalReport.DataSources.Add(DataSetAgencyDetail);
+            ReportViewerContribution.LocalReport.DataSources.Add(DataSetAgencyContributionDetail);
         }
     }
     protected void LinkButtonMDADetails_Click(object sender, EventArgs e)
@@ -276,5 +262,30 @@ public partial class Contribution_Contribution : System.Web.UI.Page
     protected void MemberContributionHistoryView_Init(object sender, EventArgs e)
     {
         Master.RadPrintToolBarClicked += new CommandEventHandler(PrintMemberContributionHistory);
+    }
+    protected void AgencyActualContribution_Init(object sender, EventArgs e)
+    {
+        //Master.
+        Master.RadComboBoxClicked += new CommandEventHandler(UpdateActualContribution);
+    }
+    private void UpdateActualContribution(object sender, CommandEventArgs e)
+    {
+        AgencyActualContribution1.DataSource = new PSPITS.DAL.DATA.PSPITSDO().GetMDA_ActualContributionHistoryByID(int.Parse(PSPITS.UIL.PSPITSModuleSession.mdaID));
+
+        AgencyActualContribution1.RebindGrid();
+        
+        //AgencyActualContribution1.DataSource = new PSPITSDO().GetMDA_ActualContributionHistoryByID(int.Parse(PSPITS.UIL.PSPITSModuleSession.mdaID));
+    }
+    protected void RadButtonPrintMember_Click(object sender, EventArgs e)
+    {
+        PrintMemberHistory();
+    }
+    protected void RadButtonPrintAgency_Click(object sender, EventArgs e)
+    {
+        PrintAgencyHistory();
+    }
+    protected void RadButtonPeriodMember_Click(object sender, EventArgs e)
+    {
+
     }
 }

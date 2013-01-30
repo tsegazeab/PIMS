@@ -11,6 +11,7 @@ using PSPITS.COMMON;
 using PSPITS.UIL;
 using Telerik.Web.UI;
 using System.Data;
+using PSPITS.DAL.DATA.MemberBenefits;
 
 public partial class User_Control_Life_Benefit_Application_DisabilityPensionBenefits : System.Web.UI.UserControl
 {
@@ -292,5 +293,19 @@ public partial class User_Control_Life_Benefit_Application_DisabilityPensionBene
             }
             TableSalaryMonths.Rows.Add(row);
         }
+    }
+    protected void RadButtonSaveBenefit_Click(object sender, EventArgs e)
+    {
+        if (Session["MemberBenefit"] == null)
+            return;
+        MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
+        try
+        {
+            new MemberBenefitCalcs().SaveMemberBenefit(mb);
+        }
+        catch (Exception ex) { }
+        Session["MemberBenefit"] = mb;
+        //Refresh page
+        Response.Redirect(Request.RawUrl);
     }
 }

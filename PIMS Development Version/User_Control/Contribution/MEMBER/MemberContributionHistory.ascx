@@ -2,31 +2,7 @@
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
 <table>
-     <tr>
-        <td>
-            &nbsp;</td>
-        <td>
-             <asp:Label ID="Label1" runat="server" Text="Show Contribution for the following periods:"></asp:Label></td>
-        <td>
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td>
-            &nbsp;</td>
-        <td>
-             </td>
-        <td>
-            </td>
-    </tr>
-     <tr>
-        <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
-    </tr>
-    <tr>
+      <tr>
         <td>
             &nbsp;</td>
         <td>
@@ -109,15 +85,7 @@
 
         <td>
             &nbsp;</td>
-    </tr>
-      <tr>
-        <td>
-            &nbsp;</td>
-        <td>
     
-        <td>
-            &nbsp;</td>
-    </tr>
        <tr>
         <td>
             &nbsp;</td>

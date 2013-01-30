@@ -1,0 +1,268 @@
+﻿body {
+}
+.mybottom
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	background-color: #0D5376;
+}
+.textBlue
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #990000;
+}
+.mytitle
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #990000;
+	font-weight: bold;
+}
+.textBlueU
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #0000CC;
+	text-decoration: underline;
+}
+.textB
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bold;
+}
+.mysubtitle
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #990000;
+	font-weight: bold;
+}
+.mytitleBlue
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #990000;
+	font-weight: bold;
+}
+.mysubtitleBlue
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #990000;
+	font-weight: bold;
+}
+.myVline
+{
+	border-right-style: solid;
+	border-right-width: medium;
+	border-right-color: #666666;
+}
+.mymenu
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #325F8C;
+	background-color: #B7E1F5;
+}
+.textRed
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FF0000;
+}
+.myHline
+{
+	border-top-style: solid;
+	border-top-width: medium;
+	border-top-color: #666666;
+}
+.textRedB
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FF0000;
+	font-weight: bold;
+}
+.textUCase
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 593px;
+	text-transform: uppercase;
+	color: #000000;
+}
+.textGray
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 593px;
+	color: #999999;
+}
+.textGreen
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #006600;
+}
+.Invisible
+{
+	visibility: hidden;
+}
+.myProgress
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #009900;
+	background-color: #009900;
+}
+.myProgress2
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FF0000;
+	background-color: #FF0000;
+}
+.Blink
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #0000CC;
+	font-weight: bold;
+	text-decoration: blink;
+}
+.myHline2
+{
+	border-top-style: solid;
+	border-top-width: thin;
+	border-top-color: #666666;
+}
+.subTitle
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #990000;
+	border-style: solid none none solid;
+	border-width: thin;
+	border-color: #990000;
+	background-color: #FFE8A6;
+}
+.textJustify
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 642px;
+	text-align: justify;
+}
+.msg
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #990000;
+	border-style: solid none solid none;
+	border-width: thin;
+	border-color: #990000;
+	background-color: #FFE8A6;
+}
+.mybottom2
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	color: #FFFFFF;
+	background-color: #0D5376;
+	font-weight: bold;
+}
+.mybottom3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+.ControlBG
+{
+	background-color: #DFE9F5;
+}
+.text9
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	width: 642px;
+}
+.mybottom3W
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.mymenu2
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #325F8C;
+	background-color: #C9E9F8;
+	font-weight: bold;
+}
+.text
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.titleShadow
+{
+    border-radius: 6px 6px 6px 6px;
+    -webkit-box-shadow: 0px 0px 4px 2px #222;
+    -moz-box-shadow: 0px 0px 4px 2px #222;
+    box-shadow: 0px 0px 4px 2px #222;  
+}
+.masterToolStrip
+{
+    box-shadow: 3px 3px 3px #999;
+	-moz-box-shadow: 3px 3px 3px #999;
+}
+.moduleTitle
+{
+    font-family: MS Sans Serif; 
+    font-weight: bold; 
+    box-shadow: 3px 3px 3px #999;
+    -moz-box-shadow: 3px 3px 3px #999; 
+    border-radius: 6px 6px 6px 6px;   
+    border: 1px solid Green;
+}
+table.benefitsDisplayTab
+{
+    border-collapse: collapse;
+    border: 1px solid Gray; 
+    font-family: Arial;
+    font-size: small;   
+}
+
+table.benefitsDisplayTab tr
+{
+    border: 1px solid Gray;    
+}
+
+table.benefitsDisplayTab td
+{
+    border: 1px solid Gray;    
+}
+.loginPanel
+{
+    border: 1px solid Navy;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 3px 3px 3px #999;
+    -moz-box-shadow: 3px 3px 3px #999;adius: 6px 6px 6px 6px;
+}
+h4.cardHeader
+{
+    font-size: 18pt; 
+    color: #000066; 
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif; 
+    text-align: center;  
+}
+

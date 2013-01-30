@@ -314,6 +314,9 @@ namespace PSPITS.COMMON
         public const int NUMBER_OF_MONTHS_IN_YEAR = 12;
         public const double NUMBER_OF_DAYS_IN_MONTH = 30.4375;
 
+        public const int BENEFIT_OPTION_A = 1;
+        public const int BENEFIT_OPTION_B = 2;
+
         #endregion
 
         #region .List Id Values.

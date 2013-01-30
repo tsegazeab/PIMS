@@ -541,7 +541,7 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">--%>
         <ContentTemplate>
             <table>
                 <tr>
@@ -626,7 +626,8 @@
                                     &nbsp;</td>
                                 <td>
                                     <telerik:RadMultiPage ID="contributionRadMultiPage" Runat="server">
-                                        <telerik:RadPageView ID="AgencyActualContribution" runat="server">
+                                        <telerik:RadPageView ID="AgencyActualContribution" runat="server" 
+                                            oninit="AgencyActualContribution_Init">
                                             <table>
                                                 <tr>
                                                     <td>
@@ -854,42 +855,13 @@
                                             oninit="AgencyContributionHistoryView_Init" 
                                             onload="AgencyContributionHistoryView_Load">
                                             <table>
-                                             <tr>
+                                                <tr>
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                       <div class="titleShadow" 
-                     
+                                                        <div class="titleShadow" 
                                                             style=" font-size: 18pt; color: #000066; font-weight: bold; width:422px; font-family:Arial, Helvetica, sans-serif; text-align: left;">
-                    Agency contribution History</div>
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                                       <tr>
-                                                                           <td>
-                                                                               &nbsp;</td>
-                                                                           <td>
-                                                                               &nbsp;</td>
-                                                                           <td>
-                                                                               &nbsp;</td>
-                                                </tr>
-                                                                       <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <asp:Panel ID="PanelPeriod" runat="server">
-              Start period     <telerik:RadMonthYearPicker ID="RadMonthYearPickerStart" Runat="server">
-            </telerik:RadMonthYearPicker>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="RadMonthYearPickerStart" runat="server" ForeColor="Red" ErrorMessage="Required" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>
-             &nbsp; &nbsp; &nbsp; End period
-            <telerik:RadMonthYearPicker ID="RadMonthYearPickerEnd" Runat="server">
-                 </telerik:RadMonthYearPicker>  
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="RadMonthYearPickerEnd" ForeColor="Red" ErrorMessage="Required" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<telerik:RadButton ID="RadButtonPeriod" ValidationGroup="validatePeriod" 
-                                                                runat="server" Text="View for selected period" onclick="RadButtonPeriod_Click">
-                 </telerik:RadButton>
-             </asp:Panel>
+                                                            Agency contribution History</div>
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -906,7 +878,21 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <uc10:AGENCYContributionHistory ID="AGENCYContributionHistory1" runat="server" />
+                                                        <asp:Panel ID="PanelPeriod" runat="server">Start period <telerik:RadMonthYearPicker 
+                                                                ID="RadMonthYearPickerStart" Runat="server"></telerik:RadMonthYearPicker><asp:RequiredFieldValidator 
+                                                                ID="RequiredFieldValidator1" runat="server" 
+                                                                ControlToValidate="RadMonthYearPickerStart" ErrorMessage="Required" 
+                                                                ForeColor="Red" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>&#160; &#160; &#160; End period <telerik:RadMonthYearPicker 
+                                                                ID="RadMonthYearPickerEnd" Runat="server"></telerik:RadMonthYearPicker><asp:RequiredFieldValidator 
+                                                                ID="RequiredFieldValidator2" runat="server" 
+                                                                ControlToValidate="RadMonthYearPickerEnd" ErrorMessage="Required" 
+                                                                ForeColor="Red" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>&#160; &#160; &#160; &#160; &#160; &#160;<telerik:RadButton 
+                                                                ID="RadButtonPeriod" runat="server" onclick="RadButtonPeriod_Click" 
+                                                                Text="View selection" ValidationGroup="validatePeriod"></telerik:RadButton>&#160; &#160;
+                                                                <telerik:RadButton ID="RadButtonprintAgency" runat="server" onclick="RadButtonPrintAgency_Click" 
+                                                                Text="Print">
+                                                                </telerik:RadButton>
+                                                                </asp:Panel>
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -915,7 +901,24 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                       
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        <uc10:AGENCYContributionHistory ID="AGENCYContributionHistory1" 
+                                                            runat="server" />
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -937,7 +940,8 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                        <uc10:AGENCYContributionHistory ID="AGENCYContributionHistory2" runat="server" />
+                                                        <uc10:AGENCYContributionHistory ID="AGENCYContributionHistory2" 
+                                                            runat="server" />
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -949,23 +953,19 @@
                                                         <table align="center">
                                                             <tr>
                                                                 <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/Icons/add.png" Text="New">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
+                                                                    <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7"><Items><telerik:RadToolBarButton 
+                                                                            runat="server" ImagePosition="AboveText" ImageUrl="~/images/Icons/add.png" 
+                                                                            Text="New"></telerik:RadToolBarButton>
+                                                                    </Items>
                                                                     </telerik:RadToolBar>
                                                                 </td>
                                                                 <td width="50">
                                                                     &nbsp;</td>
                                                                 <td>
-                                                                    <telerik:RadToolBar ID="RadToolBar9" Runat="server" Skin="Windows7">
-                                                                        <Items>
-                                                                            <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                                                                ImageUrl="~/images/xlsx-win-icon.png" Owner="RadToolBar3" Text="Import">
-                                                                            </telerik:RadToolBarButton>
-                                                                        </Items>
+                                                                    <telerik:RadToolBar ID="RadToolBar9" Runat="server" Skin="Windows7"><Items><telerik:RadToolBarButton 
+                                                                            runat="server" ImagePosition="AboveText" ImageUrl="~/images/xlsx-win-icon.png" 
+                                                                            Owner="RadToolBar3" Text="Import"></telerik:RadToolBarButton>
+                                                                    </Items>
                                                                     </telerik:RadToolBar>
                                                                 </td>
                                                             </tr>
@@ -1014,33 +1014,33 @@
                                             </table>
                                         </telerik:RadPageView>
                                           <telerik:RadPageView ID="MemberArrearsView" runat="server">
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        <uc8:MemberContributionArrears ID="MemberContributionArrears1" runat="server" />
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                    <td>
-                                                        &nbsp;</td>
-                                                </tr>
-                                            </table>
+                                              <table>
+                                                  <tr>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                      <td>
+                                                          <uc8:MemberContributionArrears ID="MemberContributionArrears1" runat="server" />
+                                                      </td>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                      <td>
+                                                          &nbsp;</td>
+                                                  </tr>
+                                              </table>
                                         </telerik:RadPageView>
                                         <telerik:RadPageView ID="RadPageViewMemberContributionAdd" runat="server">
                                            
@@ -1049,7 +1049,6 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                                                                           
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -1082,6 +1081,55 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
+                                                        <div class="titleShadow" 
+                                                            style=" font-size: 16pt; color: #000066; font-weight: bold; width:422px; font-family:Arial, Helvetica, sans-serif; text-align: left;">
+                                                            Member contribution history</div></td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                      <asp:Panel ID="Panel1" runat="server">Start period <telerik:RadMonthYearPicker 
+                                                                ID="RadMonthYearPickerstartPeriodMember" Runat="server"></telerik:RadMonthYearPicker><asp:RequiredFieldValidator 
+                                                                ID="RequiredFieldValidator3" runat="server" 
+                                                                ControlToValidate="RadMonthYearPickerstartPeriodMember" ErrorMessage="Required" 
+                                                                ForeColor="Red" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>&#160; &#160; &#160; End period <telerik:RadMonthYearPicker 
+                                                                ID="RadMonthYearPickerendPeriodMember" Runat="server"></telerik:RadMonthYearPicker><asp:RequiredFieldValidator 
+                                                                ID="RequiredFieldValidator4" runat="server" 
+                                                                ControlToValidate="RadMonthYearPickerendPeriodMember" ErrorMessage="Required" 
+                                                                ForeColor="Red" ValidationGroup="validatePeriod"></asp:RequiredFieldValidator>&#160; &#160; &#160; &#160; &#160; &#160;
+                                                                <telerik:RadButton ID="RadButtonPeriodMember" runat="server" onclick="RadButtonPeriodMember_Click" 
+                                                                Text="View selection" ValidationGroup="validatePeriod">
+                                                                </telerik:RadButton> &#160; &#160;
+                                                                  <telerik:RadButton ID="RadButtonPrintMember" runat="server" onclick="RadButtonPrintMember_Click" 
+                                                                Text="Print">
+                                                                </telerik:RadButton>
+                                                                </asp:Panel></td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                    <td>
                                                         <uc3:MemberContributionHistory ID="MemberContributionHistory2" runat="server" />
                                                     </td>
                                                     <td>
@@ -1091,7 +1139,6 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td>
-                                                   
                                                     </td>
                                                     <td>
                                                         &nbsp;</td>
@@ -1126,6 +1173,6 @@
                 </tr>
             </table>
         </ContentTemplate>
-    </asp:UpdatePanel>
+    <%--</asp:UpdatePanel>--%>
 </asp:Content>
 
