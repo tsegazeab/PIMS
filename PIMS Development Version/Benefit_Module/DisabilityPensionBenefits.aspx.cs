@@ -39,6 +39,7 @@ public partial class Benefit_Module_DisabilityPensionBenefits : System.Web.UI.Pa
             DisabilityPensionBenefits1.PayrollNumber = mb.Member.payrollNumber;
             DisabilityPensionBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
             DisabilityPensionBenefits1.NationalityID = mb.Member.NationalID;
+            DisabilityPensionBenefits1.CurrentMDA = mb.CurrentMDA;
             DisabilityPensionBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString(Constants.DATE_FORMAT);
             DisabilityPensionBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString(Constants.DATE_FORMAT);
             DisabilityPensionBenefits1.DateOfDisability = mbr.ServiceEndDate.ToString(Constants.DATE_FORMAT);

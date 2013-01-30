@@ -149,7 +149,7 @@ public partial class User_Control_ServiceBreakUpdate : System.Web.UI.UserControl
             aPD.dateCreated = DateTime.Now;
         }
         this.IsUpdate = false;
-        aPD.pensionID = Int32.Parse(this.pensionID);
+        aPD.pensionID = Int32.Parse(PSPITSModuleSession.PensionID);
         aPD.serviceBreakType = Int32.Parse(this.servicebreakType);
         if (this.StartDate.HasValue)
             aPD.dateStart = this.StartDate.Value;

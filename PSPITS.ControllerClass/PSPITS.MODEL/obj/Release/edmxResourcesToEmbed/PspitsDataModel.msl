@@ -572,6 +572,7 @@
     <EntitySetMapping Name="MemberBenefits">
       <EntityTypeMapping TypeName="PSPITSModel.MemberBenefit">
         <MappingFragment StoreEntitySet="MemberBenefit">
+          <ScalarProperty Name="PaymentStopped" ColumnName="PaymentStopped" />
           <ScalarProperty Name="MemberBenefitId" ColumnName="MemberBenefitId" />
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
           <ScalarProperty Name="NumberOfServiceYears" ColumnName="NumberOfServiceYears" />
@@ -1396,5 +1397,22 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="MemberPayments">
+      <EntityTypeMapping TypeName="PSPITSModel.MemberPayment">
+        <MappingFragment StoreEntitySet="MemberPayment">
+          <ScalarProperty Name="MdaId" ColumnName="MdaId" />
+          <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Arrears" ColumnName="Arrears" />
+          <ScalarProperty Name="AmountDue" ColumnName="AmountDue" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="MemberBenefitId" ColumnName="MemberBenefitId" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

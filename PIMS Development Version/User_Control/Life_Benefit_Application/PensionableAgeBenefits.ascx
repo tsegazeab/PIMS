@@ -23,10 +23,13 @@
 	}
 
 	function Popup(data) {
-	    var mywindow = window.open('', 'my div', 'height=768,width=1024,scrollbars=yes');
+	    var mywindow = window.open('', 'my div', 'height=768,width=700,scrollbars=yes');
 	    mywindow.document.write('<html><head><title>Benefit Calculations</title>');
 	    mywindow.document.write('<link href="../Styles/PISPITSSheet.css" rel="stylesheet" type="text/css" />');
-	    mywindow.document.write('</head><body><table align=center><tr><td>');
+	    mywindow.document.write('</head><body><table align=center><tr>');
+	    mywindow.document.write('<td><img src="../images/modules/Desktop_icons/Final_PF_NoWords_Logo2.png" alt="SSPF" /></td>');
+	    mywindow.document.write('<td align="right"><span class="reportHeader">Pension Information Management System (PIMS)</span></td>');
+	    mywindow.document.write('</tr><tr><td colspan="2">');
 	    mywindow.document.write(data);
 	    mywindow.document.write('</td></tr></table></body></html>');
 
@@ -40,9 +43,9 @@
 </script>
 
 <div id="benefitCalculation">
-    <table cellpadding="4" cellspacing="0" width="650" class="benefitsDisplayTab">
+    <table cellpadding="4" cellspacing="0" width="650" class="benefitsDisplayTab" align="center">
         <tr>
-            <td colspan="3">
+            <td colspan="3">                
                 <asp:Label ID="Label19" runat="server" Text="PENSIONABLE AGE PENSION" 
                     CssClass="text" Font-Bold="True" Font-Size="Large"></asp:Label>
               </td>
@@ -402,7 +405,8 @@
                 <asp:Label ID="LabelNoCommutation" runat="server" 
                     CssClass="text" Font-Bold="True"></asp:Label>
             </td><td>
-                <asp:RadioButton ID="RadioButtonA" runat="server" GroupName="BenefitOptions" />
+                <asp:RadioButton ID="RadioButtonA" runat="server" GroupName="BenefitOptions" 
+                    Visible="False" />
             </td>
         </tr>
         <tr>
@@ -421,7 +425,8 @@
                 <asp:Label ID="LabelAThirdAnnualPension" runat="server" 
                     CssClass="text" Font-Bold="True"></asp:Label>
             </td><td>
-                <asp:RadioButton ID="RadioButtonB" runat="server" GroupName="BenefitOptions" />
+                <asp:RadioButton ID="RadioButtonB" runat="server" GroupName="BenefitOptions" 
+                    Visible="False" />
             </td>
         </tr>
         <tr>
@@ -489,18 +494,19 @@
                 &nbsp;</td>
             <td align="right" colspan="2">
                 <telerik:RadButton ID="RadButtonSaveBenefit" runat="server" Skin="Vista" 
-                    Text="Save Option" onclick="RadButtonSaveBenefit_Click">
+                    Text="Save Option" onclick="RadButtonSaveBenefit_Click" Visible="False">
                 </telerik:RadButton>
             </td>
         </tr>
     </table>
 </div>
-<table cellpadding="4" cellspacing="0" width="650">
+<table cellpadding="4" cellspacing="0" width="650" align="center">
     <tr>
         <td width="100%" align="right">
         
             <telerik:RadButton ID="RadButtonPrint" runat="server" Skin="Vista" 
-                Text="Print" AutoPostBack="False" onclientclicked="RadButtonPrint_Clicked">
+                Text="Print" AutoPostBack="False" onclientclicked="RadButtonPrint_Clicked" 
+                Visible="False">
             </telerik:RadButton>
         
         </td>

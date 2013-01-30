@@ -36,6 +36,12 @@ public partial class User_Control_Life_Benefit_Application_LatePensionBenefits :
         set { LabelWorkStation.Text = value; }
     }
 
+    public string CurrentMDA
+    {
+        get { return LabelMDA.Text; }
+        set { LabelMDA.Text = value; }
+    }
+
     public string PayrollNumber
     {
         get { return LabelPayrollNumber.Text; }
@@ -262,7 +268,8 @@ public partial class User_Control_Life_Benefit_Application_LatePensionBenefits :
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (!IsPostBack)
+            HideUnhideButtons();   
     }
 
     public void ConstructMonthlySalaryTable(List<MonthlySalary> monthlySalaries)
@@ -360,6 +367,7 @@ public partial class User_Control_Life_Benefit_Application_LatePensionBenefits :
             TableSalaryMonths.Rows.Add(row);
         }
     }
+
     protected void RadButtonSaveBenefit_Click(object sender, EventArgs e)
     {
         if (Session["MemberBenefit"] == null)
@@ -379,5 +387,30 @@ public partial class User_Control_Life_Benefit_Application_LatePensionBenefits :
         Session["MemberBenefit"] = mb;
         //Refresh page
         Response.Redirect(Request.RawUrl);
+    }
+
+    private void HideUnhideButtons()
+    {
+        if (Session["MemberBenefit"] == null)
+            return;
+        MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
+        if (mb.BenefitOption.HasValue && mb.BenefitOption.Value == Constants.BENEFIT_OPTION_A)
+        {
+            RadioButtonA.Checked = true;
+            RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = false;
+            RadioButtonA.Visible = RadioButtonB.Visible = RadButtonPrint.Visible = true;
+        }
+        else if (mb.BenefitOption.HasValue && mb.BenefitOption.Value == Constants.BENEFIT_OPTION_B)
+        {
+            RadioButtonB.Checked = true;
+            RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = false;
+            RadioButtonA.Visible = RadioButtonB.Visible = RadButtonPrint.Visible = true;
+        }
+        else
+        {
+            RadioButtonA.Checked = RadioButtonB.Checked = false;
+            RadioButtonA.Visible = RadioButtonB.Visible = RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = true;
+            RadButtonPrint.Visible = false;
+        }
     }
 }

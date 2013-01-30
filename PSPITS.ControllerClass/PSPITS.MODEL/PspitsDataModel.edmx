@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PSPITSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="PSPITSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="PSPITSModelStoreContainer">
           <EntitySet Name="ActualContribution" EntityType="PSPITSModel.Store.ActualContribution" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ActuarialEquivalent" EntityType="PSPITSModel.Store.ActuarialEquivalent" store:Type="Tables" Schema="dbo" />
@@ -48,6 +48,7 @@
           <EntitySet Name="MemberEmploymentServiceBreakEvidence" EntityType="PSPITSModel.Store.MemberEmploymentServiceBreakEvidence" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MemberEvidence" EntityType="PSPITSModel.Store.MemberEvidence" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MemberIdentity" EntityType="PSPITSModel.Store.MemberIdentity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MemberPayment" EntityType="PSPITSModel.Store.MemberPayment" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MemberSalary" EntityType="PSPITSModel.Store.MemberSalary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NominatedAgent" EntityType="PSPITSModel.Store.NominatedAgent" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NonMemberAllowance" EntityType="PSPITSModel.Store.NonMemberAllowance" store:Type="Tables" Schema="dbo" />
@@ -385,6 +386,14 @@
           <AssociationSet Name="FK_MemberDeath_Member" Association="PSPITSModel.Store.FK_MemberDeath_Member">
             <End Role="Member" EntitySet="Member" />
             <End Role="MemberDeath" EntitySet="MemberDeath" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPayment_MdaListing" Association="PSPITSModel.Store.FK_MemberPayment_MdaListing">
+            <End Role="MdaListing" EntitySet="MdaListing" />
+            <End Role="MemberPayment" EntitySet="MemberPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPayment_MemberBenefit" Association="PSPITSModel.Store.FK_MemberPayment_MemberBenefit">
+            <End Role="MemberBenefit" EntitySet="MemberBenefit" />
+            <End Role="MemberPayment" EntitySet="MemberPayment" />
           </AssociationSet>
           <AssociationSet Name="FK_MemberSalary_Member" Association="PSPITSModel.Store.FK_MemberSalary_Member">
             <End Role="Member" EntitySet="Member" />
@@ -1004,6 +1013,7 @@
           <Property Name="FinancialYearId" Type="int" Nullable="false" />
           <Property Name="ServiceEndDate" Type="datetime" />
           <Property Name="BenefitOption" Type="int" />
+          <Property Name="PaymentStopped" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberComputedBenefit">
           <Key>
@@ -1195,6 +1205,22 @@
           <Property Name="DateUpdated" Type="datetime" />
           <Property Name="WhoUpdated" Type="varchar" MaxLength="100" />
           <Property Name="LogRef" Type="int" />
+        </EntityType>
+        <EntityType Name="MemberPayment">
+          <Key>
+            <PropertyRef Name="PaymentId" />
+          </Key>
+          <Property Name="PaymentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberBenefitId" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="AmountDue" Type="money" Nullable="false" />
+          <Property Name="Arrears" Type="money" Nullable="false" />
+          <Property Name="TotalAmount" Type="money" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="250" />
+          <Property Name="DateApproved" Type="datetime" />
+          <Property Name="MdaId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberSalary">
           <Key>
@@ -2092,6 +2118,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MemberPayment_MdaListing">
+          <End Role="MdaListing" Type="PSPITSModel.Store.MdaListing" Multiplicity="1" />
+          <End Role="MemberPayment" Type="PSPITSModel.Store.MemberPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MdaListing">
+              <PropertyRef Name="mdaID" />
+            </Principal>
+            <Dependent Role="MemberPayment">
+              <PropertyRef Name="MdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberPayment_MemberBenefit">
+          <End Role="MemberBenefit" Type="PSPITSModel.Store.MemberBenefit" Multiplicity="1" />
+          <End Role="MemberPayment" Type="PSPITSModel.Store.MemberPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberBenefit">
+              <PropertyRef Name="MemberBenefitId" />
+            </Principal>
+            <Dependent Role="MemberPayment">
+              <PropertyRef Name="MemberBenefitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MemberSalary_Member">
           <End Role="Member" Type="PSPITSModel.Store.Member" Multiplicity="1" />
           <End Role="MemberSalary" Type="PSPITSModel.Store.MemberSalary" Multiplicity="*" />
@@ -2159,8 +2209,7 @@
           <Parameter Name="periodStart" Type="int" Mode="In" />
           <Parameter Name="periodEnd" Type="int" Mode="In" />
         </Function>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PSPITSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -2343,6 +2392,15 @@
             <Parameter Name="periodStart" Mode="In" Type="Int32" />
             <Parameter Name="periodEnd" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="MemberPayments" EntityType="PSPITSModel.MemberPayment" />
+          <AssociationSet Name="FK_MemberPayment_MdaListing" Association="PSPITSModel.FK_MemberPayment_MdaListing">
+            <End Role="MdaListing" EntitySet="MdaListings" />
+            <End Role="MemberPayment" EntitySet="MemberPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberPayment_MemberBenefit" Association="PSPITSModel.FK_MemberPayment_MemberBenefit">
+            <End Role="MemberBenefit" EntitySet="MemberBenefits" />
+            <End Role="MemberPayment" EntitySet="MemberPayments" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ActualContribution">
           <Key>
@@ -2833,6 +2891,7 @@
           <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="LogRefID" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="GossSector" Relationship="PSPITSModel.FK_MdaListing_GossSector" FromRole="MdaListing" ToRole="GossSector" />
+          <NavigationProperty Name="MemberPayments" Relationship="PSPITSModel.FK_MemberPayment_MdaListing" FromRole="MdaListing" ToRole="MemberPayment" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -2969,6 +3028,8 @@
           <Property Name="BenefitOption" Type="Int32" />
           <NavigationProperty Name="FinancialYear" Relationship="PSPITSModel.FK_MemberBenefit_FinancialYear" FromRole="MemberBenefit" ToRole="FinancialYear" />
           <NavigationProperty Name="Member" Relationship="PSPITSModel.FK_MemberBenefit_Member" FromRole="MemberBenefit" ToRole="Member" />
+          <NavigationProperty Name="MemberPayments" Relationship="PSPITSModel.FK_MemberPayment_MemberBenefit" FromRole="MemberBenefit" ToRole="MemberPayment" />
+          <Property Type="Boolean" Name="PaymentStopped" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberComputedBenefit">
           <Key>
@@ -4038,6 +4099,48 @@
           <Property Type="Decimal" Name="employeeDeductionActual" Nullable="true" Precision="18" Scale="0" />
           <Property Type="DateTime" Name="dateRemitted" Nullable="true" />
         </ComplexType>
+        <EntityType Name="MemberPayment">
+          <Key>
+            <PropertyRef Name="PaymentId" />
+          </Key>
+          <Property Type="Int32" Name="PaymentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MemberBenefitId" Nullable="false" />
+          <Property Type="Int32" Name="Month" Nullable="false" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <Property Type="Decimal" Name="AmountDue" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Arrears" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="TotalAmount" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="String" Name="ApprovedBy" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateApproved" />
+          <Property Type="Int32" Name="MdaId" Nullable="false" />
+          <NavigationProperty Name="MdaListing" Relationship="PSPITSModel.FK_MemberPayment_MdaListing" FromRole="MemberPayment" ToRole="MdaListing" />
+          <NavigationProperty Name="MemberBenefit" Relationship="PSPITSModel.FK_MemberPayment_MemberBenefit" FromRole="MemberPayment" ToRole="MemberBenefit" />
+        </EntityType>
+        <Association Name="FK_MemberPayment_MdaListing">
+          <End Type="PSPITSModel.MdaListing" Role="MdaListing" Multiplicity="1" />
+          <End Type="PSPITSModel.MemberPayment" Role="MemberPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MdaListing">
+              <PropertyRef Name="mdaID" />
+            </Principal>
+            <Dependent Role="MemberPayment">
+              <PropertyRef Name="MdaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberPayment_MemberBenefit">
+          <End Type="PSPITSModel.MemberBenefit" Role="MemberBenefit" Multiplicity="1" />
+          <End Type="PSPITSModel.MemberPayment" Role="MemberPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberBenefit">
+              <PropertyRef Name="MemberBenefitId" />
+            </Principal>
+            <Dependent Role="MemberPayment">
+              <PropertyRef Name="MemberBenefitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4615,6 +4718,7 @@
           <EntitySetMapping Name="MemberBenefits">
             <EntityTypeMapping TypeName="PSPITSModel.MemberBenefit">
               <MappingFragment StoreEntitySet="MemberBenefit">
+                <ScalarProperty Name="PaymentStopped" ColumnName="PaymentStopped" />
                 <ScalarProperty Name="MemberBenefitId" ColumnName="MemberBenefitId" />
                 <ScalarProperty Name="MemberId" ColumnName="MemberId" />
                 <ScalarProperty Name="NumberOfServiceYears" ColumnName="NumberOfServiceYears" />
@@ -5439,6 +5543,23 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="MemberPayments">
+            <EntityTypeMapping TypeName="PSPITSModel.MemberPayment">
+              <MappingFragment StoreEntitySet="MemberPayment">
+                <ScalarProperty Name="MdaId" ColumnName="MdaId" />
+                <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Arrears" ColumnName="Arrears" />
+                <ScalarProperty Name="AmountDue" ColumnName="AmountDue" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="MemberBenefitId" ColumnName="MemberBenefitId" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -5653,6 +5774,21 @@
           <ConnectorPoint PointX="4.8761528461538468" PointY="15.375" />
           <ConnectorPoint PointX="9" PointY="15.375" />
           <ConnectorPoint PointX="9" PointY="14.701396484375003" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PSPITSModel.MemberPayment" Width="1.5" PointX="31.25" PointY="8.125" Height="3.5186979166666674" />
+        <AssociationConnector Association="PSPITSModel.FK_MemberPayment_MdaListing" >
+          <ConnectorPoint PointX="16.5" PointY="2.7593489583333328" />
+          <ConnectorPoint PointX="17.5" PointY="2.7593489583333328" />
+          <ConnectorPoint PointX="17.5" PointY="4.3840950520833246" />
+          <ConnectorPoint PointX="25.5" PointY="4.3840950520833246" />
+          <ConnectorPoint PointX="25.5" PointY="6.3648893229166674" />
+          <ConnectorPoint PointX="32" PointY="6.3648893229166674" />
+          <ConnectorPoint PointX="32" PointY="8.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="PSPITSModel.FK_MemberPayment_MemberBenefit" >
+          <ConnectorPoint PointX="19.5" PointY="15.547841796874991" />
+          <ConnectorPoint PointX="32.03125" PointY="15.547841796874991" />
+          <ConnectorPoint PointX="32.03125" PointY="11.643697916666667" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

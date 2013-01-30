@@ -36,6 +36,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             mb.NumberOfServiceBreakYears = CalculateServiceBreakYears(serviceBreaks);
             mb.NumberOfPensionableYears = mb.NumberOfServiceYears - mb.NumberOfServiceBreakYears;
             mb.ServiceEndDate = mbr.ServiceEndDate;
+            mb.CurrentMDA = this.GetMDAName(mb.Member.currentMDA);
 
             mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value, mb.ServiceEndDate.Value);
             //To be picked from table
@@ -48,6 +49,14 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             SetPensionTypeString(mb);
             this.CalculateBenefits(mbr, mb, currentFY);
             return mb;
+        }
+
+        private string GetMDAName(int? mdaId)
+        {
+            using (var context = new PSPITSEntities())
+            {
+                return context.MdaListings.FirstOrDefault(m => m.mdaID == mdaId).mdaName;
+            }
         }
         
         private static void SetPensionTypeString(MemberBenefit mb)
@@ -93,6 +102,8 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value, mb.ServiceEndDate.Value);
                 mb.PensionableAge = this.DeterminePensionableAge(mb.Member.dateofBirth.Value);
                 mb.PensionTypeEnum = (PensionType)mb.PensionType;
+                mb.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == mb.Member.currentMDA).mdaName;
+
                 SetPensionTypeString(mb);
                 mb.MonthlySalaries = this.GetMemberSalaryListForFinancialYear(mb.Member, mb.FinancialYear);
                 if (mb.PensionTypeEnum == PensionType.DeathInServicePension)

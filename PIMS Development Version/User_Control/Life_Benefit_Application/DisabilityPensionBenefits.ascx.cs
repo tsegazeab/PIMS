@@ -36,6 +36,12 @@ public partial class User_Control_Life_Benefit_Application_DisabilityPensionBene
         set { LabelWorkStation.Text = value; }
     }
 
+    public string CurrentMDA
+    {
+        get { return LabelMDA.Text; }
+        set { LabelMDA.Text = value; }
+    }
+
     public string PayrollNumber
     {
         get { return LabelPayrollNumber.Text; }
@@ -196,7 +202,8 @@ public partial class User_Control_Life_Benefit_Application_DisabilityPensionBene
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (!IsPostBack)
+            HideUnhideButtons();
     }
 
     public void ConstructMonthlySalaryTable(List<MonthlySalary> monthlySalaries)
@@ -301,11 +308,29 @@ public partial class User_Control_Life_Benefit_Application_DisabilityPensionBene
         MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
         try
         {
+            mb.BenefitOption = Constants.BENEFIT_OPTION_A;
             new MemberBenefitCalcs().SaveMemberBenefit(mb);
         }
         catch (Exception ex) { }
         Session["MemberBenefit"] = mb;
         //Refresh page
         Response.Redirect(Request.RawUrl);
+    }
+
+    private void HideUnhideButtons()
+    {
+        if (Session["MemberBenefit"] == null)
+            return;
+        MemberBenefit mb = (MemberBenefit)Session["MemberBenefit"];
+        if (mb.BenefitOption.HasValue && mb.BenefitOption.Value == Constants.BENEFIT_OPTION_A)
+        {
+            RadButtonSaveBenefit.Visible = false;
+            RadButtonPrint.Visible = true;
+        }
+        else
+        {
+            RadButtonSaveBenefit.Visible = true;
+            RadButtonPrint.Visible = false;
+        }
     }
 }

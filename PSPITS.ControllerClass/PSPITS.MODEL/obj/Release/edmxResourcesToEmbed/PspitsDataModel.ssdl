@@ -43,6 +43,7 @@
     <EntitySet Name="MemberEmploymentServiceBreakEvidence" EntityType="PSPITSModel.Store.MemberEmploymentServiceBreakEvidence" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MemberEvidence" EntityType="PSPITSModel.Store.MemberEvidence" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MemberIdentity" EntityType="PSPITSModel.Store.MemberIdentity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberPayment" EntityType="PSPITSModel.Store.MemberPayment" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MemberSalary" EntityType="PSPITSModel.Store.MemberSalary" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NominatedAgent" EntityType="PSPITSModel.Store.NominatedAgent" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NonMemberAllowance" EntityType="PSPITSModel.Store.NonMemberAllowance" store:Type="Tables" Schema="dbo" />
@@ -380,6 +381,14 @@
     <AssociationSet Name="FK_MemberDeath_Member" Association="PSPITSModel.Store.FK_MemberDeath_Member">
       <End Role="Member" EntitySet="Member" />
       <End Role="MemberDeath" EntitySet="MemberDeath" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberPayment_MdaListing" Association="PSPITSModel.Store.FK_MemberPayment_MdaListing">
+      <End Role="MdaListing" EntitySet="MdaListing" />
+      <End Role="MemberPayment" EntitySet="MemberPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberPayment_MemberBenefit" Association="PSPITSModel.Store.FK_MemberPayment_MemberBenefit">
+      <End Role="MemberBenefit" EntitySet="MemberBenefit" />
+      <End Role="MemberPayment" EntitySet="MemberPayment" />
     </AssociationSet>
     <AssociationSet Name="FK_MemberSalary_Member" Association="PSPITSModel.Store.FK_MemberSalary_Member">
       <End Role="Member" EntitySet="Member" />
@@ -999,6 +1008,7 @@
     <Property Name="FinancialYearId" Type="int" Nullable="false" />
     <Property Name="ServiceEndDate" Type="datetime" />
     <Property Name="BenefitOption" Type="int" />
+    <Property Name="PaymentStopped" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="MemberComputedBenefit">
     <Key>
@@ -1190,6 +1200,22 @@
     <Property Name="DateUpdated" Type="datetime" />
     <Property Name="WhoUpdated" Type="varchar" MaxLength="100" />
     <Property Name="LogRef" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberPayment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberBenefitId" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="AmountDue" Type="money" Nullable="false" />
+    <Property Name="Arrears" Type="money" Nullable="false" />
+    <Property Name="TotalAmount" Type="money" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="ApprovedBy" Type="varchar" MaxLength="250" />
+    <Property Name="DateApproved" Type="datetime" />
+    <Property Name="MdaId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MemberSalary">
     <Key>
@@ -2084,6 +2110,30 @@
       </Principal>
       <Dependent Role="MemberDeath">
         <PropertyRef Name="PensionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberPayment_MdaListing">
+    <End Role="MdaListing" Type="PSPITSModel.Store.MdaListing" Multiplicity="1" />
+    <End Role="MemberPayment" Type="PSPITSModel.Store.MemberPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MdaListing">
+        <PropertyRef Name="mdaID" />
+      </Principal>
+      <Dependent Role="MemberPayment">
+        <PropertyRef Name="MdaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberPayment_MemberBenefit">
+    <End Role="MemberBenefit" Type="PSPITSModel.Store.MemberBenefit" Multiplicity="1" />
+    <End Role="MemberPayment" Type="PSPITSModel.Store.MemberPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberBenefit">
+        <PropertyRef Name="MemberBenefitId" />
+      </Principal>
+      <Dependent Role="MemberPayment">
+        <PropertyRef Name="MemberBenefitId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

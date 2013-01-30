@@ -9,16 +9,13 @@
     <table>
         <tr>
             <td align="left">
-                <div class="titleShadow" style=" font-size: 18pt; color: #000066; font-weight: bold; width:650px; font-family:Arial, Helvetica, sans-serif;">
-                    Member&#39;s Benefits
+                <div class="titleShadow" style="width:700px;">
+                    <h4 class="cardHeader">Member&#39;s Benefits</h4>
+                    <uc1:EarlyPensionBenefits ID="EarlyPensionBenefits1" runat="server" />
+                    <br />           
                 </div>
             </td>
-        </tr>        
-        <tr>
-            <td>                
-                <uc1:EarlyPensionBenefits ID="EarlyPensionBenefits1" runat="server" />           
-            </td>
-        </tr>
+        </tr> 
     </table>
 </asp:Content>
 

@@ -39,6 +39,7 @@ public partial class Benefit_Module_LatePensionBenefits : System.Web.UI.Page
             LatePensionBenefits1.PayrollNumber = mb.Member.payrollNumber;
             LatePensionBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
             LatePensionBenefits1.NationalityID = mb.Member.NationalID;
+            LatePensionBenefits1.CurrentMDA = mb.CurrentMDA;
             LatePensionBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString(Constants.DATE_FORMAT);
             LatePensionBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString(Constants.DATE_FORMAT);
             LatePensionBenefits1.DateOfRetirement = mbr.ServiceEndDate.ToString(Constants.DATE_FORMAT);

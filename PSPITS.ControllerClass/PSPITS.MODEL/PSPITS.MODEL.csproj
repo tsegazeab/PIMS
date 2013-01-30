@@ -50,6 +50,7 @@
     <Compile Include="MemberBenefit.cs" />
     <Compile Include="MemberBenefitEligibility.cs" />
     <Compile Include="MemberDeath.cs" />
+    <Compile Include="MemberPayment.cs" />
     <Compile Include="MemberPensionRequest.cs" />
     <Compile Include="MemberServiceBreak.cs" />
     <Compile Include="MonthlySalary.cs" />

@@ -39,6 +39,7 @@ public partial class Benefit_Module_PensionableAgeBenefits : System.Web.UI.Page
             PensionableAgeBenefits1.PayrollNumber = mb.Member.payrollNumber;
             PensionableAgeBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
             PensionableAgeBenefits1.NationalityID = mb.Member.NationalID;
+            PensionableAgeBenefits1.CurrentMDA = mb.CurrentMDA;
             PensionableAgeBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString(Constants.DATE_FORMAT);
             PensionableAgeBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString(Constants.DATE_FORMAT);
             PensionableAgeBenefits1.DateOfRetirement = mbr.ServiceEndDate.ToString(Constants.DATE_FORMAT);

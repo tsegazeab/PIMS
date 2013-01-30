@@ -99,7 +99,7 @@ public partial class User_Control_ServiceBreak : System.Web.UI.UserControl
         //Get handle of the Member
         PSPITSDO rdo = new PSPITSDO();
         MemberServiceBreak aPD = new MemberServiceBreak();
-        aPD.pensionID = Int32.Parse(this.pensionID);
+        aPD.pensionID = Int32.Parse(PSPITSModuleSession.PensionID);
         aPD.whoCreated = Page.User.Identity.Name;
         aPD.dateCreated = DateTime.Now;
         aPD.serviceBreakID = rdo.GenServiceBreakID();

@@ -249,7 +249,8 @@
                                 <telerik:RadToolBar ID="RadToolBar4" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                            Text="Payment" ImageUrl="~/images/modules/Desktop_icons/11.png">
+                                            Text="Payment" ImageUrl="~/images/modules/Desktop_icons/11.png" 
+                                            NavigateUrl="~/Payment/PaymentsMenu.aspx">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>

@@ -179,6 +179,15 @@
       <Parameter Name="periodStart" Mode="In" Type="Int32" />
       <Parameter Name="periodEnd" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="MemberPayments" EntityType="PSPITSModel.MemberPayment" />
+    <AssociationSet Name="FK_MemberPayment_MdaListing" Association="PSPITSModel.FK_MemberPayment_MdaListing">
+      <End Role="MdaListing" EntitySet="MdaListings" />
+      <End Role="MemberPayment" EntitySet="MemberPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberPayment_MemberBenefit" Association="PSPITSModel.FK_MemberPayment_MemberBenefit">
+      <End Role="MemberBenefit" EntitySet="MemberBenefits" />
+      <End Role="MemberPayment" EntitySet="MemberPayments" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="ActualContribution">
     <Key>
@@ -669,6 +678,7 @@
     <Property Name="whoUpdated" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="LogRefID" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="GossSector" Relationship="PSPITSModel.FK_MdaListing_GossSector" FromRole="MdaListing" ToRole="GossSector" />
+    <NavigationProperty Name="MemberPayments" Relationship="PSPITSModel.FK_MemberPayment_MdaListing" FromRole="MdaListing" ToRole="MemberPayment" />
   </EntityType>
   <EntityType Name="Member">
     <Key>
@@ -805,6 +815,8 @@
     <Property Name="BenefitOption" Type="Int32" />
     <NavigationProperty Name="FinancialYear" Relationship="PSPITSModel.FK_MemberBenefit_FinancialYear" FromRole="MemberBenefit" ToRole="FinancialYear" />
     <NavigationProperty Name="Member" Relationship="PSPITSModel.FK_MemberBenefit_Member" FromRole="MemberBenefit" ToRole="Member" />
+    <NavigationProperty Name="MemberPayments" Relationship="PSPITSModel.FK_MemberPayment_MemberBenefit" FromRole="MemberBenefit" ToRole="MemberPayment" />
+    <Property Type="Boolean" Name="PaymentStopped" Nullable="false" />
   </EntityType>
   <EntityType Name="MemberComputedBenefit">
     <Key>
@@ -1874,4 +1886,46 @@
     <Property Type="Decimal" Name="employeeDeductionActual" Nullable="true" Precision="18" Scale="0" />
     <Property Type="DateTime" Name="dateRemitted" Nullable="true" />
   </ComplexType>
+  <EntityType Name="MemberPayment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Type="Int32" Name="PaymentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="MemberBenefitId" Nullable="false" />
+    <Property Type="Int32" Name="Month" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Decimal" Name="AmountDue" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Arrears" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="TotalAmount" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+    <Property Type="String" Name="ApprovedBy" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DateApproved" />
+    <Property Type="Int32" Name="MdaId" Nullable="false" />
+    <NavigationProperty Name="MdaListing" Relationship="PSPITSModel.FK_MemberPayment_MdaListing" FromRole="MemberPayment" ToRole="MdaListing" />
+    <NavigationProperty Name="MemberBenefit" Relationship="PSPITSModel.FK_MemberPayment_MemberBenefit" FromRole="MemberPayment" ToRole="MemberBenefit" />
+  </EntityType>
+  <Association Name="FK_MemberPayment_MdaListing">
+    <End Type="PSPITSModel.MdaListing" Role="MdaListing" Multiplicity="1" />
+    <End Type="PSPITSModel.MemberPayment" Role="MemberPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MdaListing">
+        <PropertyRef Name="mdaID" />
+      </Principal>
+      <Dependent Role="MemberPayment">
+        <PropertyRef Name="MdaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberPayment_MemberBenefit">
+    <End Type="PSPITSModel.MemberBenefit" Role="MemberBenefit" Multiplicity="1" />
+    <End Type="PSPITSModel.MemberPayment" Role="MemberPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberBenefit">
+        <PropertyRef Name="MemberBenefitId" />
+      </Principal>
+      <Dependent Role="MemberPayment">
+        <PropertyRef Name="MemberBenefitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

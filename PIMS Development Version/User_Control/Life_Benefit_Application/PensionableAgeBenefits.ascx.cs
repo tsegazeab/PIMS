@@ -36,6 +36,12 @@ public partial class User_Control_Life_Benefit_Application_PensionableAgeBenefit
         set { LabelWorkStation.Text = value; }
     }
 
+    public string CurrentMDA
+    {
+        get { return LabelMDA.Text; }
+        set { LabelMDA.Text = value; }
+    }
+
     public string PayrollNumber
     {
         get { return LabelPayrollNumber.Text; }
@@ -226,7 +232,8 @@ public partial class User_Control_Life_Benefit_Application_PensionableAgeBenefit
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        HideUnhideButtons();
+        if (!IsPostBack)
+            HideUnhideButtons();
     }
 
     public void ConstructMonthlySalaryTable(List<MonthlySalary> monthlySalaries)
@@ -355,18 +362,18 @@ public partial class User_Control_Life_Benefit_Application_PensionableAgeBenefit
         {
             RadioButtonA.Checked = true;
             RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = false;
-            RadButtonPrint.Visible = true;
+            RadioButtonA.Visible = RadioButtonB.Visible = RadButtonPrint.Visible = true;
         }
         else if (mb.BenefitOption.HasValue && mb.BenefitOption.Value == Constants.BENEFIT_OPTION_B)
         {
             RadioButtonB.Checked = true;
             RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = false;
-            RadButtonPrint.Visible = true;
+            RadioButtonA.Visible = RadioButtonB.Visible = RadButtonPrint.Visible = true;
         }
         else
         {
             RadioButtonA.Checked = RadioButtonB.Checked = false;
-            RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = true;
+            RadioButtonA.Visible = RadioButtonB.Visible = RadButtonSaveBenefit.Visible = RadioButtonA.Enabled = RadioButtonB.Enabled = true;
             RadButtonPrint.Visible = false;
         }
     }

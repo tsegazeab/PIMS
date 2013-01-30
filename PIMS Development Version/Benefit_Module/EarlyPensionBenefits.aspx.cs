@@ -41,6 +41,7 @@ public partial class Benefit_Module_EarlyPensionBenefits : System.Web.UI.Page
             EarlyPensionBenefits1.PayrollNumber = mb.Member.payrollNumber;
             EarlyPensionBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
             EarlyPensionBenefits1.NationalityID = mb.Member.NationalID;
+            EarlyPensionBenefits1.CurrentMDA = mb.CurrentMDA;
             EarlyPensionBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString(Constants.DATE_FORMAT);
             EarlyPensionBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString(Constants.DATE_FORMAT);
             EarlyPensionBenefits1.DateOfRetirement = mbr.ServiceEndDate.ToString(Constants.DATE_FORMAT);

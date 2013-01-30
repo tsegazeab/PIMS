@@ -23,5 +23,7 @@ namespace PSPITS.MODEL
         public List<MonthlySalary> MonthlySalaries { get; set; }
 
         public List<SurvivorBenefit> SurvivorBenefits { get; set; }
+
+        public string CurrentMDA { get; set; }
     }
 }

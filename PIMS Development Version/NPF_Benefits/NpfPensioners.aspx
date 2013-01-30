@@ -101,6 +101,7 @@
                         <SettingsBehavior ConfirmDelete="True" />
                         <settingspager pagesize="50">
                         </settingspager>
+                        <SettingsEditing Mode="Inline" NewItemRowPosition="Bottom" />
                         <settings showfilterrow="True" showgrouppanel="True" />
                     </dx:aspxgridview>
                     <asp:EntityDataSource ID="EntityDataSourceNpfRetiree" runat="server" 

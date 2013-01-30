@@ -219,6 +219,15 @@
     -moz-box-shadow: 0px 0px 4px 2px #222;
     box-shadow: 0px 0px 4px 2px #222;  
 }
+.titleShadow h4
+{
+    font-size: 18pt; 
+    color: #000066; 
+    font-weight: bold; 
+    width:650px; 
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 .masterToolStrip
 {
     box-shadow: 3px 3px 3px #999;
@@ -264,5 +273,13 @@ h4.cardHeader
     font-weight: bold;
     font-family:Arial, Helvetica, sans-serif; 
     text-align: center;  
+}
+.reportHeader
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #0D5376;
+	background-color: #FFFFFF;
+	font-weight: bold;
 }
 

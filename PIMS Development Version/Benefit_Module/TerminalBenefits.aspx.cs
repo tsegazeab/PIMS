@@ -41,6 +41,7 @@ public partial class Benefit_Module_TerminalBenefits : System.Web.UI.Page
             TerminalBenefits1.PayrollNumber = mb.Member.payrollNumber;
             TerminalBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
             TerminalBenefits1.NationalityID = mb.Member.NationalID;
+            TerminalBenefits1.CurrentMDA = mb.CurrentMDA;
             TerminalBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString(Constants.DATE_FORMAT);
             TerminalBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString(Constants.DATE_FORMAT);
             TerminalBenefits1.DateOfResignation = mbr.ServiceEndDate.ToString(Constants.DATE_FORMAT);

@@ -39,6 +39,7 @@ public partial class Benefit_Module_DeathInServiceBenefits : System.Web.UI.Page
             SurvivorBenefits1.PayrollNumber = mb.Member.payrollNumber;
             SurvivorBenefits1.EstablishmentNumber = mb.Member.establishmentNumber;
             SurvivorBenefits1.NationalityID = mb.Member.NationalID;
+            SurvivorBenefits1.CurrentMDA = mb.CurrentMDA;
             SurvivorBenefits1.DateOfAppointment = mb.Member.dateoffirstAppointment.Value.ToString(Constants.DATE_FORMAT);
             SurvivorBenefits1.DateOfBirth = mb.Member.dateofBirth.Value.ToString(Constants.DATE_FORMAT);
             SurvivorBenefits1.DateOfDeath = mbr.ServiceEndDate.ToString(Constants.DATE_FORMAT);
