@@ -34,7 +34,7 @@
                     <SelectParameters>
                         <asp:SessionParameter Name="month" SessionField="Month" Type="Int32" />
                         <asp:SessionParameter Name="year" SessionField="Year" Type="Int32" />
-                        <asp:Parameter Name="mdaId" Type="Int32" />
+                        <asp:Parameter Name="mdaId" Type="Int32" DefaultValue="0" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
                                 

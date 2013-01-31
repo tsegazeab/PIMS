@@ -26,7 +26,7 @@ namespace PSPITS.DAL.DATA.MemberPayments
                 ProcessPELPensionPayments(month, year, paymentList, context, earlyPensionBenefits);
 
                 //Get Late Pension
-                var latePensionBenefits = memberBenefits.Where(e => e.PensionType == (int)PensionType.EarlyPension).ToList();
+                var latePensionBenefits = memberBenefits.Where(e => e.PensionType == (int)PensionType.LatePension).ToList();
                 ProcessPELPensionPayments(month, year, paymentList, context, latePensionBenefits);
 
                 //Terminal Benefits
@@ -37,7 +37,7 @@ namespace PSPITS.DAL.DATA.MemberPayments
                 var disabilityBenefits = memberBenefits.Where(e => e.PensionType == (int)PensionType.TerminationLumpSumAmount).ToList();
                 ProcessDisabilityBenefits(month, year, paymentList, context, disabilityBenefits);
             }
-
+            SaveNewMemberPaymentList(paymentList);
             return paymentList;
         }
 
@@ -95,16 +95,56 @@ namespace PSPITS.DAL.DATA.MemberPayments
                 else
                     payment.AmountDue = benefit.MonthlyPension;
                 //Arrears
-                payment.Arrears = context.MemberPayments.Where(p => p.IsApproved == false && ((p.Month < month && p.Year == year) || p.Year < year)).Sum(p => p.TotalAmount);
+                var previousPayments = context.MemberPayments.Where(p => p.MemberBenefitId == benefit.MemberBenefitId && p.IsApproved == false && ((p.Month < month && p.Year == year) || p.Year < year));
+                foreach (var prevPayt in previousPayments)
+                {
+                    payment.Arrears += prevPayt.TotalAmount;
+                }
                 payment.MdaId = benefit.Member.currentMDA.Value;
                 payment.MemberBenefitId = benefit.MemberBenefitId;
                 payment.Month = month;
                 payment.Year = year;
                 payment.TotalAmount = payment.AmountDue + payment.Arrears;
                 payment.MemberName = string.Format("{0} {1}", benefit.Member.firstName, benefit.Member.lastName);
-                payment.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == payment.MdaId).mdaName;
+                //changing this to state
+                //payment.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == payment.MdaId).mdaName;
+                payment.CurrentMDA = context.vwlistStates.FirstOrDefault(s => s.stateID == benefit.Member.homeState.Value).State;
+                payment.PensionType = SetPensionTypeString((PensionType)benefit.PensionType);
                 paymentList.Add(payment);
             }
+        }
+
+        private static string SetPensionTypeString(PensionType ptype)
+        {
+            string pensionType;
+            switch (ptype)
+            {
+                case PensionType.PesionableAgePension:
+                    pensionType = "Pensionable Age Retirement";
+                    break;
+                case PensionType.EarlyPension:
+                    pensionType = "Early Pension";
+                    break;
+                case PensionType.LatePension:
+                    pensionType = "Late Pension";
+                    break;
+                case PensionType.DeathInServicePension:
+                    pensionType = "Death In Service Pension";
+                    break;
+                case PensionType.TerminationLumpSumAmount:
+                    pensionType = "Termination Lump Sum Amount";
+                    break;
+                case PensionType.LessThanTwoYears:
+                    pensionType = "Less Than Two Years In Service";
+                    break;
+                case PensionType.DisabilityPension:
+                    pensionType = "Disability Pension";
+                    break;
+                default:
+                    pensionType = "";
+                    break;
+            }
+            return pensionType;
         }
 
         private static void ProcessTerminalBenefits(int month, int year, List<MemberPayment> paymentList, PSPITSEntities context, List<MemberBenefit> terminalBenefits)
@@ -117,14 +157,20 @@ namespace PSPITS.DAL.DATA.MemberPayments
                 else
                     payment.AmountDue = benefit.LumpSumPension;
                 //Arrears
-                payment.Arrears = context.MemberPayments.Where(p => p.IsApproved == false && ((p.Month < month && p.Year == year) || p.Year < year)).Sum(p => p.TotalAmount);
+                var previousPayments = context.MemberPayments.Where(p => p.MemberBenefitId == benefit.MemberBenefitId && p.IsApproved == false && ((p.Month < month && p.Year == year) || p.Year < year));
+                foreach (var prevPayt in previousPayments)
+                {
+                    payment.Arrears += prevPayt.TotalAmount;
+                }
                 payment.MdaId = benefit.Member.currentMDA.Value;
                 payment.MemberBenefitId = benefit.MemberBenefitId;
                 payment.Month = month;
                 payment.Year = year;
                 payment.TotalAmount = payment.AmountDue + payment.Arrears;
                 payment.MemberName = string.Format("{0} {1}", benefit.Member.firstName, benefit.Member.lastName);
-                payment.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == payment.MdaId).mdaName;
+                //changing this to state
+                //payment.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == payment.MdaId).mdaName;
+                payment.CurrentMDA = context.vwlistStates.FirstOrDefault(s => s.stateID == benefit.Member.homeState.Value).State;
                 paymentList.Add(payment);
             }
         }
@@ -136,14 +182,20 @@ namespace PSPITS.DAL.DATA.MemberPayments
                 var payment = new MemberPayment();
                 payment.AmountDue = benefit.MonthlyPension;
                 //Arrears
-                payment.Arrears = context.MemberPayments.Where(p => p.IsApproved == false && ((p.Month < month && p.Year == year) || p.Year < year)).Sum(p => p.TotalAmount);
+                var previousPayments = context.MemberPayments.Where(p => p.MemberBenefitId == benefit.MemberBenefitId && p.IsApproved == false && ((p.Month < month && p.Year == year) || p.Year < year));
+                foreach (var prevPayt in previousPayments)
+                {
+                    payment.Arrears += prevPayt.TotalAmount;
+                }
                 payment.MdaId = benefit.Member.currentMDA.Value;
                 payment.MemberBenefitId = benefit.MemberBenefitId;
                 payment.Month = month;
                 payment.Year = year;
                 payment.TotalAmount = payment.AmountDue + payment.Arrears;
                 payment.MemberName = string.Format("{0} {1}", benefit.Member.firstName, benefit.Member.lastName);
-                payment.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == payment.MdaId).mdaName;
+                //changing this to state
+                //payment.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == payment.MdaId).mdaName;
+                payment.CurrentMDA = context.vwlistStates.FirstOrDefault(s => s.stateID == benefit.Member.homeState.Value).State;
                 paymentList.Add(payment);
             }
         }

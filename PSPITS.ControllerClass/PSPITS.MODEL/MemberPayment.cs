@@ -11,5 +11,7 @@ namespace PSPITS.MODEL
 
         public string MemberName { get; set; }
 
+        public string PensionType { get; set; }
+
     }
 }

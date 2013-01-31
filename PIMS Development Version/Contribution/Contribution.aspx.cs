@@ -154,8 +154,7 @@ public partial class Contribution_Contribution : System.Web.UI.Page
         //do this only if the active radpageview is contribtion history
         if (contributionRadMultiPage.SelectedIndex == contributionRadMultiPage.FindPageViewByID("MemberContributionHistoryView").Index)
         {
-
-            PrintAgencyHistory();  
+            PrintAgencyHistory();
             
         }
     }
@@ -167,6 +166,8 @@ public partial class Contribution_Contribution : System.Web.UI.Page
             contributionRadMultiPage.SelectedIndex = contributionRadMultiPage.FindPageViewByID("RadPageViewPrint").Index;
             string @strApp_Path = Request.PhysicalApplicationPath;
             string folder = @strApp_Path + @"Report\";
+            if (int.Parse(PSPITSModuleSession.mdaID) <= 0)
+                return;
             DataTable DataTableAgency = new PSPITSDO().GetMDAByID(int.Parse(PSPITSModuleSession.mdaID));
             DataTable DataTableAgencyHistory = new PSPITSDO().GetMDAContributionHistoryByID(int.Parse(PSPITSModuleSession.mdaID));
             //Map the header 

@@ -101,6 +101,8 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 mb.MemberServiceBreaks = ConstructMemberServiceBreakList(GetServiceBreaksPriorToJuly2012(pensionId));
                 mb.MemberAge = this.GetMemberAge(mb.Member.dateofBirth.Value, mb.ServiceEndDate.Value);
                 mb.PensionableAge = this.DeterminePensionableAge(mb.Member.dateofBirth.Value);
+                if (mb.FirstOfFollowingMonth.HasValue && mb.StandardRetirementDate.HasValue)
+                    mb.ProjectedRemainingServiceAge = this.GetDateDiff(mb.FirstOfFollowingMonth.Value, mb.StandardRetirementDate.Value);
                 mb.PensionTypeEnum = (PensionType)mb.PensionType;
                 mb.CurrentMDA = context.MdaListings.FirstOrDefault(m => m.mdaID == mb.Member.currentMDA).mdaName;
 
@@ -560,8 +562,9 @@ namespace PSPITS.DAL.DATA.MemberBenefits
                 mb.FinalMonthGrossSalary = GetFinalMonthGrossSalary(mb.Member);
                 mb.ProjectedRemainingService = this.GetDateDiffInYears(mb.FirstOfFollowingMonth.Value, mb.StandardRetirementDate.Value);
                 mb.ProjectedAnnualPension = (decimal)((1.5 / 100) * (Constants.NUMBER_OF_MONTHS_IN_YEAR * mb.ProjectedRemainingService)) * mb.FinalMonthGrossSalary;
-                mb.MonthlyPension = mb.ProjectedAnnualPension.Value / Constants.NUMBER_OF_MONTHS_IN_YEAR;
+                
                 mb.TotalAccruedPension += mb.ProjectedAnnualPension.Value;
+                mb.MonthlyPension = mb.TotalAccruedPension / Constants.NUMBER_OF_MONTHS_IN_YEAR;
                 if (mb.PensionTypeEnum == PensionType.DeathInServicePension)
                     ComputeSurvivorBenefits(mb);
             }
@@ -652,7 +655,7 @@ namespace PSPITS.DAL.DATA.MemberBenefits
             int year = fy.StartDate.Year;
             using (var context = new PSPITSEntities())
             {
-                var salaries = context.MemberSalaries.Where(s => s.pensionID == member.pensionID && (s.month >= month && s.year == year) || (s.month < month && s.year == (year + 1))).OrderBy(s => s.year).ThenBy(s => s.month).ToList();
+                var salaries = context.MemberSalaries.Where(s => s.pensionID == member.pensionID && ((s.month >= month && s.year == year) || (s.month < month && s.year == (year + 1)))).OrderBy(s => s.year).ThenBy(s => s.month).ToList();
                 foreach (var salary in salaries)
                 {
                     monthlySalaries.Add(new MonthlySalary { GrossSalary = salary.grossPay.Value, Month = salary.month, Year = salary.year }); 

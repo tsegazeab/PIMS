@@ -107,7 +107,7 @@
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Column-Chart-icon.png" 
-                                            Owner="RadToolBar5" Text="Reports">
+                                            Owner="RadToolBar5" Text="Reports" Enabled="False">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>
@@ -267,7 +267,8 @@
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
                                             ImageUrl="~/images/modules/Desktop_icons/Security_Reader1.png" 
                                             Text="Tracking" 
-                                            NavigateUrl="~/Application_Section/FrontDeskApplicationTracker.aspx">
+                                            NavigateUrl="~/Application_Section/FrontDeskApplicationTracker.aspx" 
+                                            Enabled="False">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>
@@ -302,7 +303,8 @@
                                 <telerik:RadToolBar ID="RadToolBar11" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                            ImageUrl="~/images/modules/Desktop_icons/search (2).png" Text="Search">
+                                            ImageUrl="~/images/modules/Desktop_icons/search (2).png" Text="Search" 
+                                            Enabled="False">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>
@@ -317,7 +319,8 @@
                                 <telerik:RadToolBar ID="RadToolBar8" Runat="server" Skin="Windows7">
                                     <Items>
                                         <telerik:RadToolBarButton runat="server" ImagePosition="AboveText" 
-                                            ImageUrl="~/images/modules/Desktop_icons/Question_Mark-175x175.png" Text="Help">
+                                            ImageUrl="~/images/modules/Desktop_icons/Question_Mark-175x175.png" 
+                                            Text="Help" Enabled="False">
                                         </telerik:RadToolBarButton>
                                     </Items>
                                 </telerik:RadToolBar>

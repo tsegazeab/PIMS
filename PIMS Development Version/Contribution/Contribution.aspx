@@ -565,15 +565,17 @@
                                                     </telerik:RadToolBarButton>
                                                     <telerik:RadToolBarButton runat="server" Text="Add/Edit Bank Deposit">
                                                     </telerik:RadToolBarButton>
-                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 5">
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 5" 
+                                                        Visible="False">
                                                     </telerik:RadToolBarButton>
                                                     <telerik:RadToolBarButton runat="server" Text="Reconcile contribution with salary data" 
-                                                        Owner="RadToolBarMDAMenu">
+                                                        Owner="RadToolBarMDAMenu" Visible="False">
                                                     </telerik:RadToolBarButton>
-                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 3">
+                                                    <telerik:RadToolBarButton runat="server" IsSeparator="True" Text="Button 3" 
+                                                        Visible="False">
                                                     </telerik:RadToolBarButton>
                                                     <telerik:RadToolBarButton runat="server" 
-                                                        Text="Reconcile contribution with bank deposit">
+                                                        Text="Reconcile contribution with bank deposit" Visible="False">
                                                     </telerik:RadToolBarButton>
                                                 </Items>
                                             </telerik:RadToolBar>

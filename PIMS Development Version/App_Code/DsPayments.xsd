@@ -9,10 +9,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DsPayments" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DsPayments" msprop:Generator_DataSetName="DsPayments">
+  <xs:element name="DsPayments" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DsPayments" msprop:Generator_UserDSName="DsPayments">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MemberPayment" msprop:Generator_TableClassName="MemberPaymentDataTable" msprop:Generator_TableVarName="tableMemberPayment" msprop:Generator_TablePropName="MemberPayment" msprop:Generator_RowDeletingName="MemberPaymentRowDeleting" msprop:Generator_RowChangingName="MemberPaymentRowChanging" msprop:Generator_RowEvHandlerName="MemberPaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="MemberPaymentRowDeleted" msprop:Generator_UserTableName="MemberPayment" msprop:Generator_RowChangedName="MemberPaymentRowChanged" msprop:Generator_RowEvArgName="MemberPaymentRowChangeEvent" msprop:Generator_RowClassName="MemberPaymentRow">
+        <xs:element name="MemberPayment" msprop:Generator_TableClassName="MemberPaymentDataTable" msprop:Generator_TableVarName="tableMemberPayment" msprop:Generator_RowChangedName="MemberPaymentRowChanged" msprop:Generator_TablePropName="MemberPayment" msprop:Generator_RowDeletingName="MemberPaymentRowDeleting" msprop:Generator_RowChangingName="MemberPaymentRowChanging" msprop:Generator_RowEvHandlerName="MemberPaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="MemberPaymentRowDeleted" msprop:Generator_RowClassName="MemberPaymentRow" msprop:Generator_UserTableName="MemberPayment" msprop:Generator_RowEvArgName="MemberPaymentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PaymentId" msprop:Generator_ColumnVarNameInTable="columnPaymentId" msprop:Generator_ColumnPropNameInRow="PaymentId" msprop:Generator_ColumnPropNameInTable="PaymentIdColumn" msprop:Generator_UserColumnName="PaymentId" type="xs:string" minOccurs="0" />
@@ -28,6 +28,7 @@
               <xs:element name="MdaId" msprop:Generator_ColumnVarNameInTable="columnMdaId" msprop:Generator_ColumnPropNameInRow="MdaId" msprop:Generator_ColumnPropNameInTable="MdaIdColumn" msprop:Generator_UserColumnName="MdaId" type="xs:string" minOccurs="0" />
               <xs:element name="CurrentMDA" msprop:Generator_ColumnVarNameInTable="columnCurrentMDA" msprop:Generator_ColumnPropNameInRow="CurrentMDA" msprop:Generator_ColumnPropNameInTable="CurrentMDAColumn" msprop:Generator_UserColumnName="CurrentMDA" type="xs:string" minOccurs="0" />
               <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName" type="xs:string" minOccurs="0" />
+              <xs:element name="PensionType" msprop:Generator_ColumnVarNameInTable="columnPensionType" msprop:Generator_ColumnPropNameInRow="PensionType" msprop:Generator_ColumnPropNameInTable="PensionTypeColumn" msprop:Generator_UserColumnName="PensionType" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

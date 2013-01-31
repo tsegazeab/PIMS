@@ -45,6 +45,14 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td align="right" width="50%" colspan="2" style="width: 100%">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorYear" runat="server" 
+                ControlToValidate="RadComboBoxYear" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="GenerateSchedule"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td align="right">
                                             Select Month</td>
                                         <td align="left">
@@ -69,12 +77,20 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td align="right" colspan="2">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorMonth" runat="server" 
+                ControlToValidate="RadComboBoxMonth" ErrorMessage="Required" 
+                Font-Names="Arial,Helvetica,sans-serif" Font-Size="Small" ForeColor="Red" 
+                ValidationGroup="GenerateSchedule"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td align="right">
                                             &nbsp;</td>
                                         <td align="left">
                                             <telerik:RadButton ID="RadButtonProcessPayments" runat="server" Skin="Vista" 
                                                 Text="Generate Schedule" onclick="RadButtonProcessPayments_Click" 
-                                                ValidationGroup="ProcessPayment">
+                                                ValidationGroup="GenerateSchedule">
                                             </telerik:RadButton>
                                         </td>
                                     </tr>

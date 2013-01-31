@@ -21,7 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PIMS Development Version", 
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "4530"
+		VWDPort = "8008"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptLibrary", "JavaScriptLibrary\JavaScriptLibrary.csproj", "{0CF82F5C-E72D-4C2A-9716-0156422BC3B1}"
